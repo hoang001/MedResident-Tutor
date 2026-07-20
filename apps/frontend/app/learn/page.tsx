@@ -16,5 +16,5 @@ export default function LearnPage() {
     catch (reason) { setError(reason instanceof Error ? reason.message : "Query failed"); }
     finally { setLoading(false); }
   }
-  return <main className="container"><section className="card"><h1>Learn</h1><p className="muted">The current endpoint uses an empty retriever and safe mock provider.</p><form onSubmit={submit}><label>Learning question<textarea name="question" required /></label><button disabled={loading}>{loading ? "Submitting…" : "Ask mock RAG"}</button></form>{error && <p className="error">{error}</p>}{result && <div className="notice"><p>{result.answer}</p><strong>{result.warning}</strong><p>Provider: {result.provider}; grounded: {String(result.grounded)}</p></div>}</section></main>;
+  return <div className="container"><section className="card"><h1>Learn</h1><p className="muted">The current endpoint uses an empty retriever and safe mock provider.</p><form onSubmit={submit}><label>Learning question<textarea name="question" required /></label><button disabled={loading}>{loading ? "Submitting…" : "Ask mock RAG"}</button></form>{error && <p className="error">{error}</p>}{result && <div className="notice"><p>{result.answer}</p><strong>{result.warning}</strong><p>Provider: {result.provider}; grounded: {String(result.grounded)}</p></div>}</section></div>;
 }

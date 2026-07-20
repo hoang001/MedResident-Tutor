@@ -16,5 +16,5 @@ export default function DocumentsPage() {
     } catch (reason) { setError(reason instanceof Error ? reason.message : "Upload failed"); }
     finally { setLoading(false); }
   }
-  return <main className="container"><section className="card"><h1>Document administration</h1><p>Admin access is required. Accepted types: PDF, TXT, and Markdown.</p><form onSubmit={submit}><label>Display name (optional)<input name="name" /></label><label>File<input name="file" type="file" accept=".pdf,.txt,.md,.markdown" required /></label><button disabled={loading}>{loading ? "Uploading…" : "Upload"}</button></form>{error && <p className="error">{error}</p>}{message && <p className="notice">{message}</p>}</section></main>;
+  return <div className="container"><section className="card"><h1>Document administration</h1><p>Admin access is required. Accepted types: PDF, TXT, and Markdown.</p><form onSubmit={submit}><label>Display name (optional)<input name="name" /></label><label>File<input name="file" type="file" accept=".pdf,.txt,.md,.markdown" required /></label><button disabled={loading}>{loading ? "Uploading…" : "Upload"}</button></form>{error && <p className="error">{error}</p>}{message && <p className="notice">{message}</p>}</section></div>;
 }
