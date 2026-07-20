@@ -15,3 +15,14 @@ data/uploads/*
 *.log
 .DS_Store
 
+# Model training outputs
+model-training/outputs/
+model-training/checkpoints/
+model-training/logs/
+
+# Model weights
+*.safetensors
+*.gguf
+*.ckpt
+*.pth
+*.pt
