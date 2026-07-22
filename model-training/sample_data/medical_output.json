@@ -1,0 +1,32 @@
+{
+  "question": "Câu hỏi y khoa mẫu",
+  "student_answer": "Câu trả lời mẫu của người học",
+  "correct_points": [
+    "Nêu được ý chính"
+  ],
+  "incorrect_points": [],
+  "missing_points": [
+    "Chưa giải thích đầy đủ cơ chế"
+  ],
+  "evidence": [
+    {
+      "content": "Đoạn tài liệu dùng làm căn cứ.",
+      "source": "Tài liệu mẫu, trang 1"
+    }
+  ],
+  "rubric_scores": [
+    {
+      "criterion": "Nêu đúng ý chính",
+      "score": 3,
+      "max_score": 3
+    },
+    {
+      "criterion": "Giải thích cơ chế",
+      "score": 1,
+      "max_score": 3
+    }
+  ],
+  "total_score": 4,
+  "max_score": 6,
+  "sufficient_evidence": true
+}
