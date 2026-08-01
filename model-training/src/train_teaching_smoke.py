@@ -4,6 +4,7 @@ from pathlib import Path
 # Chỉ cho chương trình nhìn thấy GPU đầu tiên của Kaggle.
 # Phải đặt trước khi import torch.
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["ACCELERATE_MIXED_PRECISION"] = "no"
 
 import torch
 from datasets import load_dataset
