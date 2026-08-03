@@ -53,8 +53,131 @@ def remove_markdown_fence(text: str) -> str:
     return cleaned
 
 
+def contains_keyword(items: list[Any], keyword: str) -> bool:
+    """Kiểm tra một danh sách có chứa từ khóa mong đợi hay không."""
+    normalized_keyword = keyword.casefold()
+
+    return any(
+        isinstance(item, str)
+        and normalized_keyword in item.casefold()
+        for item in items
+    )
+
+
 def validate_output(data: dict[str, Any]) -> list[str]:
-    """Kiểm tra nhanh cấu trúc output của Medical Model."""
+    """Kiểm tra cả cấu trúc và nội dung ngữ nghĩa của output."""
+    errors: list[str] = []
+
+    required_fields = [
+        "correct_points",
+        "incorrect_points",
+        "missing_points",
+        "evidence",
+        "rubric_scores",
+        "total_score",
+        "max_score",
+        "sufficient_evidence",
+    ]
+
+    for field in required_fields:
+        if field not in data:
+            errors.append(f"Thiếu trường: {field}")
+
+    list_fields = [
+        "correct_points",
+        "incorrect_points",
+        "missing_points",
+        "evidence",
+        "rubric_scores",
+    ]
+
+    for field in list_fields:
+        if field in data and not isinstance(data[field], list):
+            errors.append(f"{field} phải là array.")
+
+    if data.get("total_score") != 0:
+        errors.append(
+            "Bài thử nghiệm này phải có total_score = 0."
+        )
+
+    if data.get("max_score") != 4:
+        errors.append(
+            "Bài thử nghiệm này phải có max_score = 4."
+        )
+
+    if data.get("sufficient_evidence") is not True:
+        errors.append(
+            "sufficient_evidence phải bằng true."
+        )
+
+    rubric_scores = data.get("rubric_scores", [])
+
+    if isinstance(rubric_scores, list):
+        calculated_total = 0
+
+        for item in rubric_scores:
+            if not isinstance(item, dict):
+                errors.append(
+                    "Mỗi phần tử rubric_scores phải là object."
+                )
+                continue
+
+            score = item.get("score")
+            max_score = item.get("max_score")
+
+            if not isinstance(score, (int, float)):
+                errors.append(
+                    "score trong rubric_scores phải là số."
+                )
+                continue
+
+            if not isinstance(max_score, (int, float)):
+                errors.append(
+                    "max_score trong rubric_scores phải là số."
+                )
+                continue
+
+            if score < 0 or score > max_score:
+                errors.append(
+                    f"Điểm rubric không hợp lệ: {score}/{max_score}."
+                )
+
+            calculated_total += score
+
+        if calculated_total != data.get("total_score"):
+            errors.append(
+                "Tổng score trong rubric_scores "
+                "không khớp total_score."
+            )
+
+    # Kiểm tra ngữ nghĩa riêng của tình huống X/Y.
+    incorrect_points = data.get("incorrect_points", [])
+    missing_points = data.get("missing_points", [])
+    correct_points = data.get("correct_points", [])
+
+    if correct_points:
+        errors.append(
+            "Tình huống này không được có correct_points."
+        )
+
+    if not contains_keyword(incorrect_points, "Y"):
+        errors.append(
+            "incorrect_points phải chỉ ra rằng người học "
+            "đã khẳng định sai điều kiện Y."
+        )
+
+    if not contains_keyword(missing_points, "X"):
+        errors.append(
+            "missing_points phải chỉ ra rằng người học "
+            "không nêu điều kiện X."
+        )
+
+    if len(rubric_scores) != 2:
+        errors.append(
+            "Tình huống này phải có đúng 2 rubric_scores."
+        )
+
+    return errors
     errors: list[str] = []
 
     required_fields = [
