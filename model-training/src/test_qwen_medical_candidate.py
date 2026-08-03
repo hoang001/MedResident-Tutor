@@ -172,21 +172,28 @@ def validate_output(data: dict[str, Any]) -> list[str]:
                 "không khớp total_score."
             )
 
-    if isinstance(evidence, list):
-        if len(evidence) != 1:
-            errors.append(
-                "Tình huống này phải trả về đúng 1 evidence."
-            )
-        elif isinstance(evidence[0], dict):
-            if evidence[0].get("source_id") != "TEST_SOURCE_001":
+        if isinstance(evidence, list):
+            if not evidence:
                 errors.append(
-                    "Evidence phải giữ đúng source_id."
+                    "Output phải có ít nhất một evidence."
                 )
 
-            if evidence[0].get("page") != 10:
-                errors.append(
-                    "Evidence phải giữ đúng page = 10."
-                )
+            for index, item in enumerate(evidence, start=1):
+                if not isinstance(item, dict):
+                    errors.append(
+                        f"Evidence {index} phải là object."
+                    )
+                    continue
+
+                if item.get("source_id") != "TEST_SOURCE_001":
+                    errors.append(
+                        f"Evidence {index} phải giữ đúng source_id."
+                    )
+
+                if item.get("page") != 10:
+                    errors.append(
+                        f"Evidence {index} phải giữ đúng page = 10."
+                    )
 
     return errors
 
@@ -256,7 +263,12 @@ QUY TẮC BẮT BUỘC:
 6. Chấm từng tiêu chí đúng theo rubric.
 7. Trả về duy nhất một JSON hợp lệ.
 8. Không thêm Markdown hoặc giải thích ngoài JSON.
+9. sufficient_evidence = true khi bằng chứng được cung cấp đủ để
+   chấm toàn bộ các tiêu chí trong rubric, dù câu trả lời của người
+   học đúng, sai hay còn thiếu.
 
+10. sufficient_evidence chỉ bằng false khi bằng chứng nguồn không đủ
+    để đánh giá ít nhất một tiêu chí trong rubric.
 BẰNG CHỨNG:
 - Phương pháp A được chỉ định khi có điều kiện X.
 - Điều kiện Y là chống chỉ định của phương pháp A.
