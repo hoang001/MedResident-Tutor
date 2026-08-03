@@ -77,47 +77,10 @@ def main() -> None:
 
     load_seconds = time.perf_counter() - load_start
 
-    prompt = """
-Bạn là mô hình đánh giá chuyên môn cho bác sĩ nội trú.
-
-Chỉ được sử dụng bằng chứng và rubric được cung cấp bên dưới.
-Không sử dụng kiến thức bên ngoài.
-Không tự bổ sung thông tin còn thiếu.
-
-BẰNG CHỨNG:
-- Tài liệu ghi rằng phương pháp A được chỉ định khi có điều kiện X.
-- Tài liệu ghi rằng điều kiện Y là chống chỉ định của phương pháp A.
-
-CÂU HỎI:
-Khi nào có thể áp dụng phương pháp A?
-
-CÂU TRẢ LỜI CỦA NGƯỜI HỌC:
-Có thể áp dụng phương pháp A khi có điều kiện Y.
-
-RUBRIC:
-- Nêu đúng điều kiện X: 2 điểm.
-- Không khẳng định điều kiện Y là chỉ định: 2 điểm.
-- Tổng điểm tối đa: 4.
-
-Hãy trả về duy nhất một JSON hợp lệ theo cấu trúc:
-
-{
-  "correct_points": [],
-  "incorrect_points": [],
-  "missing_points": [],
-  "rubric_scores": [
-    {
-      "criterion": "",
-      "score": 0,
-      "max_score": 0,
-      "reason": ""
-    }
-  ],
-  "total_score": 0,
-  "max_score": 4,
-  "sufficient_evidence": true
-}
-""".strip()
+    prompt = (
+    "Answer in English using one short sentence: "
+    "What is the purpose of a medical assessment rubric?"
+).strip()
 
     messages = [
         {
@@ -153,6 +116,18 @@ Hãy trả về duy nhất một JSON hợp lệ theo cấu trúc:
     inference_seconds = time.perf_counter() - inference_start
 
     generated_ids = output_ids[0][input_length:]
+    print("\n=== TOKEN DEBUG ===")
+    print("Số token được sinh:", generated_ids.numel())
+    print("Token IDs đầu tiên:", generated_ids.tolist()[:20])
+    print(
+        "Raw output:",
+        repr(
+            processor.decode(
+                generated_ids,
+                skip_special_tokens=False,
+            )
+        ),
+    )
 
     response = processor.decode(
         generated_ids,
