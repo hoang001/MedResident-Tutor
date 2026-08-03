@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0")
 os.environ["ACCELERATE_MIXED_PRECISION"] = "no"
 
 import torch

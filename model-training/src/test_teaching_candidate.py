@@ -2,7 +2,7 @@ import os
 import time
 
 # Chỉ sử dụng một GPU.
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0")
 
 import torch
 from transformers import (

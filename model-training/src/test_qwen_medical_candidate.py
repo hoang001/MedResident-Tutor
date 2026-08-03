@@ -4,7 +4,7 @@ import time
 from typing import Any
 
 # Chỉ sử dụng một GPU T4.
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0")
 
 import torch
 from transformers import (

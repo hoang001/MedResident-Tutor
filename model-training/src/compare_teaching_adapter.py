@@ -2,7 +2,7 @@ import json
 import os
 from pathlib import Path
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0")
 
 import torch
 from peft import PeftModel
