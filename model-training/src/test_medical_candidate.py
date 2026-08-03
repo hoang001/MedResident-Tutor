@@ -242,15 +242,24 @@ Trả về đúng cấu trúc:
                     "text": prompt,
                 }
             ],
-        }
+        },
+        {
+            "role": "assistant",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "{",
+                }
+            ],
+        },
     ]
 
     inputs = processor.apply_chat_template(
         messages,
-        add_generation_prompt=True,
         tokenize=True,
         return_dict=True,
         return_tensors="pt",
+        continue_final_message=True,
     )
 
     input_device = model.get_input_embeddings().weight.device
@@ -297,12 +306,12 @@ Trả về đúng cấu trúc:
 
     generated_ids = output_ids[0, input_length:]
 
-    raw_response = tokenizer.decode(
+    raw_response = "{" + tokenizer.decode(
         generated_ids,
         skip_special_tokens=False,
     )
 
-    response = tokenizer.decode(
+    response = "{" + tokenizer.decode(
         generated_ids,
         skip_special_tokens=True,
     ).strip()
