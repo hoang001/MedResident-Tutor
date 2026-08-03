@@ -1,0 +1,259 @@
+{
+  "benchmark_version": "0.1.0",
+  "task": "teaching_feedback",
+  "language": "vi",
+  "description": "Bộ test tổng hợp cho Teaching Model; không được thêm kiến thức ngoài Medical output.",
+  "global_constraints": {
+    "max_words": 140,
+    "forbidden_openings": [
+      "Tôi xin lỗi",
+      "Tôi đã hiểu",
+      "Tôi sẽ cố gắng"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "TEACH_SYN_001",
+      "category": "fully_correct",
+      "curriculum_metadata": {
+        "course_code": "B21CN7",
+        "round": 2,
+        "year": 2
+      },
+      "medical_output": {
+        "correct_points": [
+          "Nêu đúng ý X.",
+          "Giải thích đầy đủ ý Z."
+        ],
+        "incorrect_points": [],
+        "missing_points": [],
+        "total_score": 4,
+        "max_score": 4,
+        "sufficient_evidence": true
+      },
+      "expected": {
+        "required_keywords_any": [
+          "đúng",
+          "đầy đủ",
+          "4/4"
+        ],
+        "forbidden_keywords": [
+          "cần bổ sung",
+          "còn thiếu"
+        ]
+      }
+    },
+    {
+      "case_id": "TEACH_SYN_002",
+      "category": "correct_but_missing",
+      "curriculum_metadata": {
+        "course_code": "B21CN1",
+        "round": 1,
+        "year": 1
+      },
+      "medical_output": {
+        "correct_points": [
+          "Nêu đúng ý X."
+        ],
+        "incorrect_points": [],
+        "missing_points": [
+          "Chưa nêu ý Z."
+        ],
+        "total_score": 2,
+        "max_score": 4,
+        "sufficient_evidence": true
+      },
+      "expected": {
+        "required_keywords_all": [
+          "X",
+          "Z"
+        ],
+        "forbidden_keywords": [
+          "Y"
+        ]
+      }
+    },
+    {
+      "case_id": "TEACH_SYN_003",
+      "category": "incorrect",
+      "curriculum_metadata": {
+        "course_code": "B21CN7",
+        "round": 2,
+        "year": 2
+      },
+      "medical_output": {
+        "correct_points": [],
+        "incorrect_points": [
+          "Khẳng định Y là chỉ định trong khi evidence xác định Y là chống chỉ định."
+        ],
+        "missing_points": [
+          "Chưa nêu X."
+        ],
+        "total_score": 0,
+        "max_score": 4,
+        "sufficient_evidence": true
+      },
+      "expected": {
+        "required_keywords_all": [
+          "Y",
+          "X"
+        ],
+        "forbidden_keywords": [
+          "mạch máu",
+          "thần kinh",
+          "nhiễm trùng"
+        ]
+      }
+    },
+    {
+      "case_id": "TEACH_SYN_004",
+      "category": "mixed",
+      "curriculum_metadata": {
+        "course_code": "B21CN8",
+        "round": 2,
+        "year": 2
+      },
+      "medical_output": {
+        "correct_points": [
+          "Nêu đúng X."
+        ],
+        "incorrect_points": [
+          "Khẳng định sai Y."
+        ],
+        "missing_points": [
+          "Chưa nêu Z."
+        ],
+        "total_score": 2,
+        "max_score": 6,
+        "sufficient_evidence": true
+      },
+      "expected": {
+        "required_keywords_all": [
+          "X",
+          "Y",
+          "Z"
+        ]
+      }
+    },
+    {
+      "case_id": "TEACH_SYN_005",
+      "category": "insufficient_evidence",
+      "curriculum_metadata": {
+        "course_code": "B21CN9",
+        "round": 2,
+        "year": 2
+      },
+      "medical_output": {
+        "correct_points": [
+          "Nêu đúng X."
+        ],
+        "incorrect_points": [],
+        "missing_points": [],
+        "total_score": 2,
+        "max_score": 4,
+        "sufficient_evidence": false
+      },
+      "expected": {
+        "required_keywords_any": [
+          "chưa đủ bằng chứng",
+          "chưa đủ căn cứ",
+          "không thể kết luận đầy đủ"
+        ],
+        "forbidden_keywords": [
+          "chắc chắn sai",
+          "chắc chắn đúng hoàn toàn"
+        ]
+      }
+    },
+    {
+      "case_id": "TEACH_SYN_006",
+      "category": "round_1_foundation_tone",
+      "curriculum_metadata": {
+        "course_code": "B21CN1",
+        "round": 1,
+        "year": 1
+      },
+      "medical_output": {
+        "correct_points": [
+          "Nêu được ý chính X."
+        ],
+        "incorrect_points": [],
+        "missing_points": [
+          "Chưa giải thích mối liên hệ Z."
+        ],
+        "total_score": 2,
+        "max_score": 4,
+        "sufficient_evidence": true
+      },
+      "expected": {
+        "required_keywords_all": [
+          "X",
+          "Z"
+        ]
+      }
+    },
+    {
+      "case_id": "TEACH_SYN_007",
+      "category": "round_3_advanced_tone",
+      "curriculum_metadata": {
+        "course_code": "B21CN13",
+        "round": 3,
+        "year": 3
+      },
+      "medical_output": {
+        "correct_points": [
+          "Nêu đúng X và Z."
+        ],
+        "incorrect_points": [],
+        "missing_points": [
+          "Chưa liên hệ với tiêu chí W."
+        ],
+        "total_score": 4,
+        "max_score": 6,
+        "sufficient_evidence": true
+      },
+      "expected": {
+        "required_keywords_all": [
+          "X",
+          "Z",
+          "W"
+        ]
+      }
+    },
+    {
+      "case_id": "TEACH_SYN_008",
+      "category": "hallucination_trap",
+      "curriculum_metadata": {
+        "course_code": "B21CN10",
+        "round": 2,
+        "year": 2
+      },
+      "medical_output": {
+        "correct_points": [
+          "Nêu được mục tiêu chính."
+        ],
+        "incorrect_points": [],
+        "missing_points": [
+          "Chưa giải thích đầy đủ cơ chế."
+        ],
+        "total_score": 2,
+        "max_score": 4,
+        "sufficient_evidence": true
+      },
+      "expected": {
+        "required_keywords_any": [
+          "cơ chế",
+          "bổ sung"
+        ],
+        "forbidden_keywords": [
+          "mạch máu",
+          "thần kinh",
+          "viêm",
+          "nhiễm trùng",
+          "hoại tử",
+          "phù nề"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,353 @@
+{
+  "benchmark_version": "0.1.0",
+  "task": "medical_evaluator",
+  "language": "vi",
+  "description": "Bộ test logic tổng hợp để so sánh Medical Model trước khi có benchmark y khoa thật.",
+  "cases": [
+    {
+      "case_id": "MED_SYN_001",
+      "category": "fully_correct",
+      "evidence": [
+        {
+          "content": "Phương pháp A được chỉ định khi có điều kiện X.",
+          "source_id": "TEST_SOURCE_001",
+          "page": 10
+        }
+      ],
+      "question": "Khi nào có thể áp dụng phương pháp A?",
+      "student_answer": "Có thể áp dụng phương pháp A khi có điều kiện X.",
+      "rubric": [
+        {
+          "criterion_id": "R1",
+          "criterion": "Nêu đúng điều kiện X.",
+          "max_score": 2
+        }
+      ],
+      "expected": {
+        "total_score": 2,
+        "max_score": 2,
+        "sufficient_evidence": true,
+        "min_counts": {
+          "correct_points": 1,
+          "incorrect_points": 0,
+          "missing_points": 0
+        },
+        "required_keywords": {
+          "correct_points": [
+            "X"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "MED_SYN_002",
+      "category": "correct_but_missing",
+      "evidence": [
+        {
+          "content": "Để hoàn thành quy trình B cần thực hiện bước X và bước Z.",
+          "source_id": "TEST_SOURCE_002",
+          "page": 20
+        }
+      ],
+      "question": "Cần thực hiện những bước nào để hoàn thành quy trình B?",
+      "student_answer": "Cần thực hiện bước X.",
+      "rubric": [
+        {
+          "criterion_id": "R1",
+          "criterion": "Nêu bước X.",
+          "max_score": 2
+        },
+        {
+          "criterion_id": "R2",
+          "criterion": "Nêu bước Z.",
+          "max_score": 2
+        }
+      ],
+      "expected": {
+        "total_score": 2,
+        "max_score": 4,
+        "sufficient_evidence": true,
+        "min_counts": {
+          "correct_points": 1,
+          "incorrect_points": 0,
+          "missing_points": 1
+        },
+        "required_keywords": {
+          "correct_points": [
+            "X"
+          ],
+          "missing_points": [
+            "Z"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "MED_SYN_003",
+      "category": "incorrect_and_missing",
+      "evidence": [
+        {
+          "content": "Phương pháp A được chỉ định khi có điều kiện X.",
+          "source_id": "TEST_SOURCE_003",
+          "page": 30
+        },
+        {
+          "content": "Điều kiện Y là chống chỉ định của phương pháp A.",
+          "source_id": "TEST_SOURCE_003",
+          "page": 30
+        }
+      ],
+      "question": "Khi nào có thể áp dụng phương pháp A?",
+      "student_answer": "Có thể áp dụng phương pháp A khi có điều kiện Y.",
+      "rubric": [
+        {
+          "criterion_id": "R1",
+          "criterion": "Nêu đúng điều kiện X.",
+          "max_score": 2
+        },
+        {
+          "criterion_id": "R2",
+          "criterion": "Không khẳng định Y là chỉ định.",
+          "max_score": 2
+        }
+      ],
+      "expected": {
+        "total_score": 0,
+        "max_score": 4,
+        "sufficient_evidence": true,
+        "min_counts": {
+          "correct_points": 0,
+          "incorrect_points": 1,
+          "missing_points": 1
+        },
+        "required_keywords": {
+          "incorrect_points": [
+            "Y"
+          ],
+          "missing_points": [
+            "X"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "MED_SYN_004",
+      "category": "mixed_correct_incorrect_missing",
+      "evidence": [
+        {
+          "content": "Phương pháp C cần điều kiện X, không được dùng khi có Y và phải theo dõi Z.",
+          "source_id": "TEST_SOURCE_004",
+          "page": 40
+        }
+      ],
+      "question": "Trình bày điều kiện áp dụng và yêu cầu theo dõi của phương pháp C.",
+      "student_answer": "Phương pháp C áp dụng khi có X và vẫn có thể dùng khi có Y.",
+      "rubric": [
+        {
+          "criterion_id": "R1",
+          "criterion": "Nêu điều kiện X.",
+          "max_score": 2
+        },
+        {
+          "criterion_id": "R2",
+          "criterion": "Không khẳng định có thể dùng khi có Y.",
+          "max_score": 2
+        },
+        {
+          "criterion_id": "R3",
+          "criterion": "Nêu yêu cầu theo dõi Z.",
+          "max_score": 2
+        }
+      ],
+      "expected": {
+        "total_score": 2,
+        "max_score": 6,
+        "sufficient_evidence": true,
+        "min_counts": {
+          "correct_points": 1,
+          "incorrect_points": 1,
+          "missing_points": 1
+        },
+        "required_keywords": {
+          "correct_points": [
+            "X"
+          ],
+          "incorrect_points": [
+            "Y"
+          ],
+          "missing_points": [
+            "Z"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "MED_SYN_005",
+      "category": "insufficient_evidence",
+      "evidence": [
+        {
+          "content": "Quy trình D bắt đầu bằng bước X.",
+          "source_id": "TEST_SOURCE_005",
+          "page": 50
+        }
+      ],
+      "question": "Trình bày đầy đủ bước khởi đầu và bước kết thúc của quy trình D.",
+      "student_answer": "Quy trình D bắt đầu bằng bước X.",
+      "rubric": [
+        {
+          "criterion_id": "R1",
+          "criterion": "Nêu bước khởi đầu X.",
+          "max_score": 2
+        },
+        {
+          "criterion_id": "R2",
+          "criterion": "Nêu bước kết thúc Z.",
+          "max_score": 2
+        }
+      ],
+      "expected": {
+        "total_score": 2,
+        "max_score": 4,
+        "sufficient_evidence": false,
+        "min_counts": {
+          "correct_points": 1,
+          "incorrect_points": 0,
+          "missing_points": 0
+        },
+        "required_keywords": {
+          "correct_points": [
+            "X"
+          ]
+        },
+        "notes": "Không được tự suy ra Z hoặc coi Z là missing khi evidence không cung cấp Z."
+      }
+    },
+    {
+      "case_id": "MED_SYN_006",
+      "category": "partial_credit",
+      "evidence": [
+        {
+          "content": "Khái niệm E gồm ý X và phần giải thích cơ chế Z.",
+          "source_id": "TEST_SOURCE_006",
+          "page": 60
+        }
+      ],
+      "question": "Trình bày khái niệm E và giải thích cơ chế.",
+      "student_answer": "Khái niệm E có ý X, nhưng phần cơ chế chỉ được mô tả rất chung chung.",
+      "rubric": [
+        {
+          "criterion_id": "R1",
+          "criterion": "Nêu đúng ý X.",
+          "max_score": 2
+        },
+        {
+          "criterion_id": "R2",
+          "criterion": "Giải thích cơ chế Z.",
+          "max_score": 2,
+          "partial_score": 1
+        }
+      ],
+      "expected": {
+        "total_score": 3,
+        "max_score": 4,
+        "sufficient_evidence": true,
+        "min_counts": {
+          "correct_points": 1,
+          "incorrect_points": 0,
+          "missing_points": 1
+        },
+        "required_keywords": {
+          "correct_points": [
+            "X"
+          ],
+          "missing_points": [
+            "Z"
+          ]
+        },
+        "expected_rubric_scores": {
+          "R1": 2,
+          "R2": 1
+        }
+      }
+    },
+    {
+      "case_id": "MED_SYN_007",
+      "category": "irrelevant_answer",
+      "evidence": [
+        {
+          "content": "Điều kiện áp dụng phương pháp F là X.",
+          "source_id": "TEST_SOURCE_007",
+          "page": 70
+        }
+      ],
+      "question": "Điều kiện áp dụng phương pháp F là gì?",
+      "student_answer": "Tôi thường học vào buổi tối.",
+      "rubric": [
+        {
+          "criterion_id": "R1",
+          "criterion": "Nêu điều kiện X.",
+          "max_score": 2
+        }
+      ],
+      "expected": {
+        "total_score": 0,
+        "max_score": 2,
+        "sufficient_evidence": true,
+        "min_counts": {
+          "correct_points": 0,
+          "incorrect_points": 0,
+          "missing_points": 1
+        },
+        "required_keywords": {
+          "missing_points": [
+            "X"
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "MED_SYN_008",
+      "category": "multiple_consistent_sources",
+      "evidence": [
+        {
+          "content": "Nguồn thứ nhất xác nhận điều kiện X.",
+          "source_id": "TEST_SOURCE_008_A",
+          "page": 80
+        },
+        {
+          "content": "Nguồn thứ hai cũng xác nhận điều kiện X.",
+          "source_id": "TEST_SOURCE_008_B",
+          "page": 12
+        }
+      ],
+      "question": "Điều kiện được hai nguồn cùng xác nhận là gì?",
+      "student_answer": "Hai nguồn cùng xác nhận điều kiện X.",
+      "rubric": [
+        {
+          "criterion_id": "R1",
+          "criterion": "Nêu điều kiện X.",
+          "max_score": 2
+        }
+      ],
+      "expected": {
+        "total_score": 2,
+        "max_score": 2,
+        "sufficient_evidence": true,
+        "min_counts": {
+          "correct_points": 1,
+          "incorrect_points": 0,
+          "missing_points": 0
+        },
+        "required_keywords": {
+          "correct_points": [
+            "X"
+          ]
+        },
+        "required_source_ids_any": [
+          "TEST_SOURCE_008_A",
+          "TEST_SOURCE_008_B"
+        ]
+      }
+    }
+  ]
+}
