@@ -1,14 +1,13 @@
-import json
 import os
 import time
 
+# Chỉ sử dụng GPU đầu tiên trên Kaggle.
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import torch
 from transformers import (
     AutoModelForImageTextToText,
     AutoProcessor,
-    BitsAndBytesConfig,
 )
 
 
@@ -16,6 +15,7 @@ MODEL_ID = "google/medgemma-1.5-4b-it"
 
 
 def get_hf_token() -> str:
+    """Đọc Hugging Face token từ biến môi trường hoặc Kaggle Secrets."""
     token = os.environ.get("HF_TOKEN")
 
     if token:
@@ -46,41 +46,44 @@ def main() -> None:
     print("Model:", MODEL_ID)
     print("GPU:", torch.cuda.get_device_name(0))
     print("HF token available:", bool(hf_token))
+    print("Chế độ tải: FP16, không quantization")
 
     torch.cuda.empty_cache()
     torch.cuda.reset_peak_memory_stats()
-
-    quantization_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.float16,
-        bnb_4bit_use_double_quant=True,
-    )
 
     load_start = time.perf_counter()
 
     processor = AutoProcessor.from_pretrained(
         MODEL_ID,
         token=hf_token,
+        use_fast=False,
     )
+
+    tokenizer = processor.tokenizer
+
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token = tokenizer.eos_token
 
     model = AutoModelForImageTextToText.from_pretrained(
         MODEL_ID,
         token=hf_token,
-        quantization_config=quantization_config,
-        device_map={"": 0},
         dtype=torch.float16,
+        device_map={"": 0},
         low_cpu_mem_usage=True,
     )
 
     model.eval()
 
+    model.generation_config.pad_token_id = tokenizer.pad_token_id
+    model.generation_config.eos_token_id = tokenizer.eos_token_id
+
     load_seconds = time.perf_counter() - load_start
 
+    # Prompt đơn giản để kiểm tra khả năng sinh văn bản cơ bản.
     prompt = (
-    "Answer in English using one short sentence: "
-    "What is the purpose of a medical assessment rubric?"
-).strip()
+        "Answer in English using one short sentence. "
+        "What is the purpose of a medical assessment rubric?"
+    )
 
     messages = [
         {
@@ -100,70 +103,53 @@ def main() -> None:
         tokenize=True,
         return_dict=True,
         return_tensors="pt",
-    ).to("cuda:0")
+    )
 
+    inputs = inputs.to("cuda:0")
     input_length = inputs["input_ids"].shape[-1]
+
+    print("\n=== INPUT DEBUG ===")
+    print("Số token đầu vào:", input_length)
+    print("PAD token ID:", tokenizer.pad_token_id)
+    print("EOS token ID:", tokenizer.eos_token_id)
 
     inference_start = time.perf_counter()
 
     with torch.inference_mode():
         output_ids = model.generate(
             **inputs,
-            max_new_tokens=400,
+            max_new_tokens=100,
             do_sample=False,
+            pad_token_id=tokenizer.pad_token_id,
+            eos_token_id=tokenizer.eos_token_id,
         )
 
     inference_seconds = time.perf_counter() - inference_start
 
-    generated_ids = output_ids[0][input_length:]
-    print("\n=== TOKEN DEBUG ===")
-    print("Số token được sinh:", generated_ids.numel())
-    print("Token IDs đầu tiên:", generated_ids.tolist()[:20])
-    print(
-        "Raw output:",
-        repr(
-            processor.decode(
-                generated_ids,
-                skip_special_tokens=False,
-            )
-        ),
+    generated_ids = output_ids[0, input_length:]
+
+    raw_response = tokenizer.decode(
+        generated_ids,
+        skip_special_tokens=False,
     )
 
-    response = processor.decode(
+    response = tokenizer.decode(
         generated_ids,
         skip_special_tokens=True,
     ).strip()
 
-    peak_vram_gb = torch.cuda.max_memory_allocated() / 1024**3
+    peak_vram_gb = (
+        torch.cuda.max_memory_allocated()
+        / 1024**3
+    )
+
+    print("\n=== TOKEN DEBUG ===")
+    print("Số token được sinh:", generated_ids.numel())
+    print("Token IDs đầu tiên:", generated_ids.tolist()[:20])
+    print("Raw output:", repr(raw_response))
 
     print("\n=== RESPONSE ===")
-    print(response)
-
-    print("\n=== JSON CHECK ===")
-
-    cleaned_response = response
-
-    if cleaned_response.startswith("```json"):
-        cleaned_response = cleaned_response[7:]
-
-    if cleaned_response.startswith("```"):
-        cleaned_response = cleaned_response[3:]
-
-    if cleaned_response.endswith("```"):
-        cleaned_response = cleaned_response[:-3]
-
-    try:
-        parsed = json.loads(cleaned_response.strip())
-        print("JSON hợp lệ: True")
-        print(
-            "Tổng điểm:",
-            parsed.get("total_score"),
-            "/",
-            parsed.get("max_score"),
-        )
-    except json.JSONDecodeError as error:
-        print("JSON hợp lệ: False")
-        print("Lỗi:", error)
+    print(response if response else "<EMPTY RESPONSE>")
 
     print("\n=== RUNTIME ===")
     print(f"Thời gian load: {load_seconds:.2f} giây")
