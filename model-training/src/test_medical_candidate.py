@@ -1,7 +1,9 @@
+import json
 import os
 import time
+from typing import Any
 
-# Cho phép chương trình sử dụng cả hai GPU T4.
+# Sử dụng cả hai GPU T4 để chạy MedGemma ở FP32.
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 import torch
@@ -15,6 +17,7 @@ MODEL_ID = "google/medgemma-1.5-4b-it"
 
 
 def get_hf_token() -> str:
+    """Đọc Hugging Face token từ môi trường hoặc Kaggle Secrets."""
     token = os.environ.get("HF_TOKEN")
 
     if token:
@@ -35,16 +38,96 @@ def get_hf_token() -> str:
     return token
 
 
+def remove_markdown_fence(text: str) -> str:
+    """Loại bỏ ```json ... ``` nếu model tự thêm code fence."""
+    cleaned = text.strip()
+
+    if cleaned.startswith("```json"):
+        cleaned = cleaned[len("```json"):].strip()
+    elif cleaned.startswith("```"):
+        cleaned = cleaned[len("```"):].strip()
+
+    if cleaned.endswith("```"):
+        cleaned = cleaned[:-3].strip()
+
+    return cleaned
+
+
+def validate_output(data: dict[str, Any]) -> list[str]:
+    """Kiểm tra nhanh cấu trúc output của Medical Model."""
+    errors: list[str] = []
+
+    required_fields = [
+        "correct_points",
+        "incorrect_points",
+        "missing_points",
+        "evidence",
+        "rubric_scores",
+        "total_score",
+        "max_score",
+        "sufficient_evidence",
+    ]
+
+    for field in required_fields:
+        if field not in data:
+            errors.append(f"Thiếu trường: {field}")
+
+    for field in [
+        "correct_points",
+        "incorrect_points",
+        "missing_points",
+        "evidence",
+        "rubric_scores",
+    ]:
+        if field in data and not isinstance(data[field], list):
+            errors.append(f"{field} phải là array.")
+
+    if data.get("total_score") != 0:
+        errors.append(
+            "Bài thử nghiệm này phải có total_score = 0."
+        )
+
+    if data.get("max_score") != 4:
+        errors.append(
+            "Bài thử nghiệm này phải có max_score = 4."
+        )
+
+    if data.get("sufficient_evidence") is not True:
+        errors.append(
+            "sufficient_evidence phải bằng true."
+        )
+
+    rubric_scores = data.get("rubric_scores", [])
+
+    if isinstance(rubric_scores, list):
+        calculated_total = 0
+
+        for item in rubric_scores:
+            if isinstance(item, dict):
+                score = item.get("score")
+
+                if isinstance(score, (int, float)):
+                    calculated_total += score
+
+        if calculated_total != data.get("total_score"):
+            errors.append(
+                "Tổng score trong rubric_scores không khớp total_score."
+            )
+
+    return errors
+
+
 def main() -> None:
     if torch.cuda.device_count() < 2:
         raise RuntimeError(
-            "Bài kiểm tra FP32 này yêu cầu hai GPU."
+            "Bài kiểm tra FP32 yêu cầu hai GPU."
         )
 
     hf_token = get_hf_token()
 
-    print("=== MEDICAL MODEL FP32 TEST ===")
+    print("=== MEDICAL MODEL TASK TEST ===")
     print("Model:", MODEL_ID)
+    print("Precision: FP32")
     print("Số GPU:", torch.cuda.device_count())
 
     for index in range(torch.cuda.device_count()):
@@ -84,10 +167,71 @@ def main() -> None:
     print("\n=== DEVICE MAP ===")
     print(model.hf_device_map)
 
-    prompt = (
-        "Answer in English using one short sentence. "
-        "What is the purpose of a medical assessment rubric?"
-    )
+    # Đây là tình huống giả lập để kiểm tra logic,
+    # không phải nội dung y khoa thật.
+    prompt = """
+Bạn là Medical Model trong hệ thống hỗ trợ học tập cho bác sĩ nội trú.
+
+NHIỆM VỤ:
+Đánh giá câu trả lời của người học chỉ dựa trên bằng chứng và rubric
+được cung cấp.
+
+QUY TẮC BẮT BUỘC:
+1. Không dùng kiến thức bên ngoài.
+2. Không tự bổ sung thông tin không có trong bằng chứng.
+3. Phân biệt rõ:
+   - incorrect_points: điều người học khẳng định sai;
+   - missing_points: ý bắt buộc nhưng người học không nêu.
+4. Chấm từng tiêu chí đúng theo rubric.
+5. Trả về duy nhất một JSON hợp lệ.
+6. Không thêm giải thích trước hoặc sau JSON.
+
+BẰNG CHỨNG:
+- Phương pháp A được chỉ định khi có điều kiện X.
+- Điều kiện Y là chống chỉ định của phương pháp A.
+
+NGUỒN:
+- source_id: TEST_SOURCE_001
+- page: 10
+
+CÂU HỎI:
+Khi nào có thể áp dụng phương pháp A?
+
+CÂU TRẢ LỜI CỦA NGƯỜI HỌC:
+Có thể áp dụng phương pháp A khi có điều kiện Y.
+
+RUBRIC:
+- Tiêu chí 1: Nêu đúng điều kiện X. Tối đa 2 điểm.
+- Tiêu chí 2: Không khẳng định điều kiện Y là chỉ định.
+  Tối đa 2 điểm.
+- Tổng điểm tối đa: 4.
+
+Trả về đúng cấu trúc:
+
+{
+  "correct_points": [],
+  "incorrect_points": [],
+  "missing_points": [],
+  "evidence": [
+    {
+      "content": "",
+      "source_id": "",
+      "page": 0
+    }
+  ],
+  "rubric_scores": [
+    {
+      "criterion": "",
+      "score": 0,
+      "max_score": 0,
+      "reason": ""
+    }
+  ],
+  "total_score": 0,
+  "max_score": 4,
+  "sufficient_evidence": true
+}
+""".strip()
 
     messages = [
         {
@@ -109,7 +253,6 @@ def main() -> None:
         return_tensors="pt",
     )
 
-    # Đặt input tại GPU chứa lớp embedding đầu vào.
     input_device = model.get_input_embeddings().weight.device
 
     inputs = {
@@ -121,51 +264,33 @@ def main() -> None:
 
     input_length = inputs["input_ids"].shape[-1]
 
-    print("\n=== INPUT DEBUG ===")
+    end_of_turn_id = tokenizer.convert_tokens_to_ids(
+        "<end_of_turn>"
+    )
+
+    eos_token_ids = [tokenizer.eos_token_id]
+
+    if (
+        isinstance(end_of_turn_id, int)
+        and end_of_turn_id >= 0
+        and end_of_turn_id not in eos_token_ids
+    ):
+        eos_token_ids.append(end_of_turn_id)
+
+    print("\n=== INPUT ===")
     print("Input device:", input_device)
     print("Số token đầu vào:", input_length)
-    print("PAD token ID:", tokenizer.pad_token_id)
-    print("EOS token ID:", tokenizer.eos_token_id)
-
-    # Kiểm tra trực tiếp logits trước khi generate.
-    with torch.inference_mode():
-        outputs = model(
-            **inputs,
-            use_cache=False,
-        )
-
-    last_logits = outputs.logits[:, -1, :]
-
-    print("\n=== LOGITS DEBUG ===")
-    print(
-        "Tất cả logits hữu hạn:",
-        torch.isfinite(last_logits).all().item(),
-    )
-    print(
-        "Số NaN:",
-        torch.isnan(last_logits).sum().item(),
-    )
-    print(
-        "Số Inf:",
-        torch.isinf(last_logits).sum().item(),
-    )
-    print(
-        "Token argmax:",
-        torch.argmax(last_logits, dim=-1).item(),
-    )
-
-    del outputs
-    del last_logits
+    print("EOS token IDs:", eos_token_ids)
 
     inference_start = time.perf_counter()
 
     with torch.inference_mode():
         output_ids = model.generate(
             **inputs,
-            max_new_tokens=80,
+            max_new_tokens=500,
             do_sample=False,
             pad_token_id=tokenizer.pad_token_id,
-            eos_token_id=tokenizer.eos_token_id,
+            eos_token_id=eos_token_ids,
         )
 
     inference_seconds = time.perf_counter() - inference_start
@@ -192,6 +317,50 @@ def main() -> None:
 
     print("\n=== RESPONSE ===")
     print(response if response else "<EMPTY RESPONSE>")
+
+    print("\n=== JSON CHECK ===")
+
+    cleaned_response = remove_markdown_fence(response)
+
+    try:
+        parsed = json.loads(cleaned_response)
+
+        print("JSON hợp lệ: True")
+
+        validation_errors = validate_output(parsed)
+
+        if validation_errors:
+            print("Kết quả nhiệm vụ: FAILED")
+
+            for index, error in enumerate(
+                validation_errors,
+                start=1,
+            ):
+                print(f"{index}. {error}")
+        else:
+            print("Kết quả nhiệm vụ: PASSED")
+
+        print(
+            "Điểm:",
+            parsed.get("total_score"),
+            "/",
+            parsed.get("max_score"),
+        )
+
+        print(
+            "Số ý sai:",
+            len(parsed.get("incorrect_points", [])),
+        )
+
+        print(
+            "Số ý thiếu:",
+            len(parsed.get("missing_points", [])),
+        )
+
+    except json.JSONDecodeError as error:
+        print("JSON hợp lệ: False")
+        print("Kết quả nhiệm vụ: FAILED")
+        print("Lỗi JSON:", error)
 
     print("\n=== RUNTIME ===")
     print(f"Thời gian load: {load_seconds:.2f} giây")
