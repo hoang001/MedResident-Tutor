@@ -78,6 +78,45 @@ def load_text_model(model_id: str):
     model.generation_config.top_k = None
     return tokenizer, model
 
+def normalize_messages_for_model(
+    messages: list[dict[str, str]],
+    model_id: str,
+) -> list[dict[str, str]]:
+    """
+    Gemma 2 không hỗ trợ system role trong chat template gốc.
+    Ghép system prompt vào user message đầu tiên.
+    """
+    if "gemma-2-" not in model_id.casefold():
+        return messages
+
+    system_parts: list[str] = []
+    normalized: list[dict[str, str]] = []
+
+    for message in messages:
+        if message["role"] == "system":
+            system_parts.append(message["content"].strip())
+        else:
+            normalized.append(dict(message))
+
+    system_text = "\n\n".join(system_parts).strip()
+
+    if system_text:
+        if normalized and normalized[0]["role"] == "user":
+            normalized[0]["content"] = (
+                system_text
+                + "\n\n"
+                + normalized[0]["content"]
+            )
+        else:
+            normalized.insert(
+                0,
+                {
+                    "role": "user",
+                    "content": system_text,
+                },
+            )
+
+    return normalized
 
 def render_chat(
     tokenizer,
@@ -94,7 +133,15 @@ def render_chat(
         kwargs["continue_final_message"] = True
     if "Qwen3" in model_id:
         kwargs["enable_thinking"] = False
-    return tokenizer.apply_chat_template(messages, **kwargs)
+    normalized_messages = normalize_messages_for_model(
+        messages,
+        model_id,
+    )
+
+    return tokenizer.apply_chat_template(
+        normalized_messages,
+        **kwargs,
+    )
 
 
 def move_inputs_to_model(inputs: dict[str, Any], model) -> dict[str, Any]:
