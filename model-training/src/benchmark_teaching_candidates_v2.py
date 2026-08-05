@@ -257,10 +257,23 @@ def generate_case(processor, model, backend, case):
     elapsed = time.perf_counter() - start
 
     generated = output_ids[0, input_length:]
-    response = processor.decode(
+    tokenizer = tokenizer_of(processor, backend)
+
+    raw_response = tokenizer.decode(
+        generated,
+        skip_special_tokens=False,
+    )
+
+    response = tokenizer.decode(
         generated,
         skip_special_tokens=True,
     ).strip()
+
+    if backend == "gemma3":
+        print("\n=== GEMMA 3 TOKEN DEBUG ===")
+        print("Token IDs đầu:", generated[:30].tolist())
+        print("Raw response:", repr(raw_response[:1000]))
+        print("Clean response:", repr(response))
 
     return response, elapsed, int(generated.numel())
 
