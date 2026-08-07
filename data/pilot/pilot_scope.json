@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "pilot_id": "PILOT_B21CN1_OPEN_FRACTURE_001",
+  "pilot_name": "Gãy xương hở: nhận diện, phân loại, cấp cứu ban đầu và nguyên tắc xử trí",
+  "course_ids": [
+    "B21CN1"
+  ],
+  "topic_ids": [
+    "B21CN1_T01"
+  ],
+  "topic_names": [
+    "Vết thương phần mềm và gãy xương hở"
+  ],
+  "selected_sources": [
+    {
+      "source_id": "SRC_ORTHO_EMERGENCY_001",
+      "file_name": "Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+      "pdf_page_start": 16,
+      "pdf_page_end": 26,
+      "scope": "Toàn bộ bài Gãy xương hở.",
+      "role": "primary"
+    },
+    {
+      "source_id": "SRC_ORTHO_TEXTBOOK_001",
+      "file_name": "DVC.005844.pdf",
+      "pdf_page_start": 67,
+      "pdf_page_end": 78,
+      "scope": "Bài Gãy xương hở trong giáo trình sau đại học.",
+      "role": "primary"
+    },
+    {
+      "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+      "file_name": "HuongdanquytrinhkythuatNgoaikhoa- Chanthuongchinhhinh.pdf",
+      "pdf_page_start": 7,
+      "pdf_page_end": 8,
+      "scope": "Quy trình cố định ngoại vi trong gãy hở chi dưới.",
+      "role": "supporting_procedure"
+    }
+  ],
+  "included_subtopics": [
+    "Định nghĩa và nhận diện",
+    "Cơ chế và tổn thương phần mềm",
+    "Phân loại Gustilo trong phạm vi nguồn",
+    "Đánh giá tổn thương phối hợp",
+    "Cấp cứu ban đầu và bất động",
+    "Nguyên tắc cắt lọc, làm sạch, cố định, theo dõi",
+    "Biến chứng được nguồn nêu"
+  ],
+  "excluded_subtopics": [
+    "ATLS/xABCDE toàn diện",
+    "Phác đồ sốc chấn thương hệ thống",
+    "Hội chứng tắc mạch do mỡ",
+    "Liều kháng sinh chuẩn hóa ngoài nguồn đã xác nhận",
+    "Đánh giá kỹ năng trực tiếp"
+  ],
+  "selection_reasons": [
+    "Có ba nguồn độc lập bổ trợ nhau.",
+    "Trang rõ ràng và nội dung liền mạch.",
+    "Tạo được nhiều dạng câu hỏi và rubric độc lập.",
+    "Có lỗi sai thường gặp có thể chấm.",
+    "Phù hợp trực tiếp B21CN1."
+  ],
+  "known_gaps": [
+    "Chưa có syllabus B21CN1 chính thức.",
+    "Nguồn khác năm có thể mâu thuẫn; phải needs_review.",
+    "Không dùng chỉ dẫn thuốc cũ làm câu hỏi định lượng nếu chưa được chuyên gia xác nhận.",
+    "Pilot chỉ đánh giá kiến thức, không chứng minh kỹ năng thao tác."
+  ],
+  "scope_status": "provisional",
+  "approval_required_before_stage_3": true
+}

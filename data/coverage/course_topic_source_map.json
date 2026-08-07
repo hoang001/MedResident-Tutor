@@ -1,0 +1,783 @@
+{
+  "schema_version": "1.0.0",
+  "map_type": "course_topic_source_coverage",
+  "program_id": "HMU_RESIDENCY_SURGERY_ORTHOPEDICS_2025",
+  "specialty": "Chấn thương chỉnh hình",
+  "generated_at": "2026-08-06T03:43:16.901272+00:00",
+  "overall_status": "provisional",
+  "methodology": [
+    "Dùng curriculum_map.json để lấy danh sách học phần.",
+    "Chỉ tạo nhóm chủ đề khi mục lục/nội dung nguồn hỗ trợ.",
+    "Không xem tên học phần là bằng chứng y khoa.",
+    "Không đánh dấu sufficient khi chưa có đề cương chính thức.",
+    "Một tài liệu có thể liên kết nhiều học phần."
+  ],
+  "source_inventory": [
+    {
+      "source_id": "SRC_ORTHO_TEXTBOOK_001",
+      "title": "Bệnh học ngoại khoa - Chấn thương chỉnh hình",
+      "file_name": "DVC.005844.pdf",
+      "source_type": "textbook",
+      "institution": "Trường Đại học Y Hà Nội - Bộ môn Ngoại",
+      "publication_year": 2021,
+      "pdf_page_count": 532,
+      "catalog_status": "registered_but_needs_correction",
+      "notes": "source_catalog.jsonl hiện ghi 150 trang; file PDF gốc có 532 trang. Cần sửa trước Giai đoạn 3."
+    },
+    {
+      "source_id": "SRC_ORTHO_EMERGENCY_001",
+      "title": "Cấp cứu ngoại khoa - Chấn thương",
+      "file_name": "Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+      "source_type": "textbook",
+      "institution": "Trường Đại học Y Hà Nội - Bộ môn Ngoại",
+      "publication_year": 2006,
+      "pdf_page_count": 169,
+      "catalog_status": "not_yet_registered",
+      "notes": "Có 25 bài về cấp cứu chấn thương, gãy xương, trật khớp, tổn thương mạch-thần kinh, cột sống và khung chậu."
+    },
+    {
+      "source_id": "SRC_ORTHO_PEDIATRIC_LOWER_LIMB_001",
+      "title": "Chỉnh hình Nhi thực hành - Chương 4: Chi dưới",
+      "file_name": "Chinh hih Nhi thực hành.pdf",
+      "source_type": "practical_handbook",
+      "institution": null,
+      "publication_year": null,
+      "pdf_page_count": 28,
+      "catalog_status": "not_yet_registered",
+      "notes": "Chỉ là một phần/chương về chi dưới trẻ em, không phải toàn bộ giáo trình Chỉnh hình nhi."
+    },
+    {
+      "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+      "title": "Hướng dẫn quy trình kỹ thuật Ngoại khoa, chuyên khoa Chấn thương chỉnh hình",
+      "file_name": "HuongdanquytrinhkythuatNgoaikhoa- Chanthuongchinhhinh.pdf",
+      "source_type": "procedure_manual",
+      "institution": "Bộ Y tế",
+      "publication_year": 2017,
+      "pdf_page_count": 123,
+      "catalog_status": "not_yet_registered",
+      "notes": "Gồm 62 quy trình. File Quy-trình-PT-Chấn-thương.pdf có SHA-256 giống hệt và là bản trùng."
+    }
+  ],
+  "non_file_inputs": [
+    {
+      "input_id": "USR_OUTLINE_B21CN1_001",
+      "description": "Đề cương B21CN1 do người dùng cung cấp trong hội thoại.",
+      "status": "provisional_unverified",
+      "usage": "Chỉ nhận diện khoảng trống; chưa làm bằng chứng chuyên môn."
+    }
+  ],
+  "courses": [
+    {
+      "course_id": "B21CN1",
+      "course_name": "Cấp cứu ngoại Chấn thương chỉnh hình",
+      "course_type": "foundation",
+      "topics": [
+        {
+          "topic_id": "B21CN1_T01",
+          "topic_name": "Vết thương phần mềm và gãy xương hở",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN1_T02",
+          "topic_name": "Tổn thương mạch máu, thần kinh và hội chứng chèn ép khoang",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN1_T03",
+          "topic_name": "Cấp cứu các gãy xương và trật khớp thường gặp ở chi trên, chi dưới",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN1_T04",
+          "topic_name": "Cấp cứu chấn thương cột sống và khung chậu",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_TEXTBOOK_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN1_T05",
+          "topic_name": "Đặc điểm cấp cứu gãy xương ở trẻ em",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_PEDIATRIC_LOWER_LIMB_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN1_T06",
+          "topic_name": "Nhiễm trùng, cắt cụt và nối lại chi trong cấp cứu chấn thương",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Mục lục 25 bài về cấp cứu chấn thương"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Các bài nền tảng gãy xương, gãy hở, chèn ép khoang, chi và cột sống"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "62 quy trình nắn-bó bột, kết hợp xương, xử trí vết thương"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_PEDIATRIC_LOWER_LIMB_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Chương Chi dưới trẻ em"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Mạnh về cấp cứu tại chỗ hệ vận động; chưa đủ căn cứ cho toàn bộ ATLS/xABCDE, sốc chấn thương hệ thống, tắc mạch mỡ và checklist kỹ năng."
+    },
+    {
+      "course_id": "B21CN7",
+      "course_name": "Chấn thương chỉnh hình chi trên",
+      "course_type": "required",
+      "topics": [
+        {
+          "topic_id": "B21CN7_T01",
+          "topic_name": "Chấn thương vùng vai và xương đòn",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN7_T02",
+          "topic_name": "Chấn thương cánh tay và khuỷu",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN7_T03",
+          "topic_name": "Chấn thương cẳng tay và đầu dưới xương quay",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN7_T04",
+          "topic_name": "Chấn thương bàn tay và phần mềm chi trên",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN7_T05",
+          "topic_name": "Các kỹ thuật nắn, bó bột và phẫu thuật chọn lọc ở chi trên",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+            "SRC_ORTHO_TEXTBOOK_001"
+          ],
+          "notes": ""
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Nhiều bài theo vùng chi trên"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Trật vai, trật khuỷu, gãy cẳng tay, vết thương bàn tay"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Nhiều quy trình chi trên"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Nguồn tương đối tốt nhưng chưa có danh mục bài và chuẩn đầu ra chính thức."
+    },
+    {
+      "course_id": "B21CN8",
+      "course_name": "Chấn thương chỉnh hình chi dưới",
+      "course_type": "required",
+      "topics": [
+        {
+          "topic_id": "B21CN8_T01",
+          "topic_name": "Chấn thương khung chậu và khớp háng",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN8_T02",
+          "topic_name": "Gãy cổ và thân xương đùi",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN8_T03",
+          "topic_name": "Gãy xương cẳng chân",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN8_T04",
+          "topic_name": "Chấn thương cổ chân và bàn chân",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+            "SRC_ORTHO_PEDIATRIC_LOWER_LIMB_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN8_T05",
+          "topic_name": "Chấn thương vùng gối và các sai khớp chi dưới",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN8_T06",
+          "topic_name": "Các kỹ thuật nắn, bó bột và phẫu thuật chọn lọc ở chi dưới",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+            "SRC_ORTHO_TEXTBOOK_001"
+          ],
+          "notes": ""
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Nhiều bài theo vùng chi dưới"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Khung chậu, đùi, cẳng chân, cổ chân, trật háng"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Nhiều quy trình chi dưới"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_PEDIATRIC_LOWER_LIMB_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Chi dưới trẻ em"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Nguồn tương đối tốt nhưng chưa có đề cương để xác nhận phạm vi."
+    },
+    {
+      "course_id": "B21CN9",
+      "course_name": "Phẫu thuật khớp",
+      "course_type": "required",
+      "topics": [
+        {
+          "topic_id": "B21CN9_T01",
+          "topic_name": "Vết thương khớp và trật khớp",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN9_T02",
+          "topic_name": "Các thủ thuật tái tạo và thay khớp chọn lọc",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN9_T03",
+          "topic_name": "Các quy trình chọn lọc ở khớp gối và dây chằng",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Vết thương khớp và chấn thương quanh khớp"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Vết thương khớp, trật khớp lớn"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Một số quy trình khớp và thay khớp bàn-ngón"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Thiếu nguồn bao quát phẫu thuật khớp, thay khớp lớn và nội soi."
+    },
+    {
+      "course_id": "B21CN10",
+      "course_name": "Chấn thương cột sống",
+      "course_type": "required",
+      "topics": [
+        {
+          "topic_id": "B21CN10_T01",
+          "topic_name": "Chấn thương cột sống cổ",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN10_T02",
+          "topic_name": "Chấn thương cột sống ngực - thắt lưng",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN10_T03",
+          "topic_name": "Đánh giá, cố định và xử trí ban đầu chấn thương cột sống",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001"
+          ],
+          "notes": ""
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Các bài cột sống cổ cao, cổ thấp, ngực-thắt lưng"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Bài Chấn thương cột sống"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Thiếu nguồn riêng về phân loại hiện hành, đánh giá thần kinh chuẩn hóa và kỹ thuật phẫu thuật."
+    },
+    {
+      "course_id": "B21CN11",
+      "course_name": "Phẫu thuật gãy xương, trật khớp chi trên",
+      "course_type": "elective",
+      "topics": [
+        {
+          "topic_id": "B21CN11_T01",
+          "topic_name": "Phẫu thuật gãy xương chi trên",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN11_T02",
+          "topic_name": "Phẫu thuật và nắn trật khớp chi trên",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN11_T03",
+          "topic_name": "Phẫu thuật phần mềm, gân và thần kinh bàn tay chọn lọc",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Nhiều quy trình phẫu thuật chi trên"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Các bài gãy/trật chi trên"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Các bài cấp cứu chi trên"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Có nhiều quy trình nhưng thiếu checklist năng lực và danh mục phẫu thuật bắt buộc."
+    },
+    {
+      "course_id": "B21CN12",
+      "course_name": "Phẫu thuật gãy xương, trật khớp chi dưới - khung chậu",
+      "course_type": "elective",
+      "topics": [
+        {
+          "topic_id": "B21CN12_T01",
+          "topic_name": "Phẫu thuật gãy xương chi dưới",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN12_T02",
+          "topic_name": "Phẫu thuật chấn thương khung chậu và vùng háng",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN12_T03",
+          "topic_name": "Phẫu thuật và nắn trật khớp chi dưới",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        },
+        {
+          "topic_id": "B21CN12_T04",
+          "topic_name": "Cố định ngoài và xử trí gãy xương hở chi dưới",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001",
+            "SRC_ORTHO_EMERGENCY_001",
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": ""
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Nhiều quy trình kết hợp xương chi dưới và cố định ngoài"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Gãy xương chi dưới, khung chậu, gãy hở"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Khung chậu, đùi, cẳng chân, cổ chân, trật háng"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Nguồn kỹ thuật khá tốt nhưng chưa xác nhận mức độ nâng cao."
+    },
+    {
+      "course_id": "B21CN13",
+      "course_name": "Phẫu thuật thay khớp và nội soi khớp",
+      "course_type": "elective",
+      "topics": [
+        {
+          "topic_id": "B21CN13_T01",
+          "topic_name": "Một số quy trình thay khớp chọn lọc",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_PROCEDURES_MOH_2017_001"
+          ],
+          "notes": "Nguồn hiện có chỉ thấy quy trình thay khớp bàn-ngón; chưa đại diện toàn học phần."
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_PROCEDURES_MOH_2017_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Một số quy trình khớp và thay khớp bàn-ngón"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Thiếu nguồn chuyên sâu về thay khớp lớn và nội soi khớp."
+    },
+    {
+      "course_id": "B21CN14",
+      "course_name": "Phẫu thuật kết hợp xương ít xâm lấn",
+      "course_type": "elective",
+      "topics": [],
+      "topic_status": "unknown",
+      "available_sources": [],
+      "coverage_status": "unknown",
+      "needs_syllabus": true,
+      "notes": "Chưa xác minh được phần riêng về MIPO/ít xâm lấn."
+    },
+    {
+      "course_id": "B21CN15",
+      "course_name": "Phẫu thuật chấn thương cột sống",
+      "course_type": "elective",
+      "topics": [
+        {
+          "topic_id": "B21CN15_T01",
+          "topic_name": "Điều trị phẫu thuật chấn thương cột sống",
+          "topic_status": "provisional",
+          "source_links": [
+            "SRC_ORTHO_TEXTBOOK_001"
+          ],
+          "notes": "Nhóm rộng theo các bài cột sống; chưa có quy trình phẫu thuật chính thức."
+        }
+      ],
+      "topic_status": "provisional",
+      "available_sources": [
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "relationship": "primary_candidate",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Các bài điều trị chấn thương cột sống"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "relationship": "supporting",
+          "mapping_status": "provisional",
+          "evidence_locations": [
+            "Bài Chấn thương cột sống"
+          ]
+        }
+      ],
+      "coverage_status": "partial",
+      "needs_syllabus": true,
+      "notes": "Thiếu nguồn kỹ thuật phẫu thuật cột sống chuyên sâu."
+    },
+    {
+      "course_id": "B21CN16",
+      "course_name": "Bệnh lý thoái hóa cột sống cổ",
+      "course_type": "elective",
+      "topics": [],
+      "topic_status": "unknown",
+      "available_sources": [],
+      "coverage_status": "missing",
+      "needs_syllabus": true,
+      "notes": "Chưa có nguồn được xác nhận."
+    },
+    {
+      "course_id": "B21CN17",
+      "course_name": "Bệnh lý thoái hóa cột sống thắt lưng",
+      "course_type": "elective",
+      "topics": [],
+      "topic_status": "unknown",
+      "available_sources": [],
+      "coverage_status": "missing",
+      "needs_syllabus": true,
+      "notes": "Chưa có nguồn được xác nhận."
+    },
+    {
+      "course_id": "B21CN18",
+      "course_name": "Phẫu thuật cột sống ít xâm lấn",
+      "course_type": "elective",
+      "topics": [],
+      "topic_status": "unknown",
+      "available_sources": [],
+      "coverage_status": "missing",
+      "needs_syllabus": true,
+      "notes": "Chưa có nguồn được xác nhận."
+    }
+  ],
+  "summary": {
+    "course_count": 13,
+    "provisional_topic_count": 32,
+    "coverage_counts": {
+      "sufficient": 0,
+      "partial": 9,
+      "missing": 3,
+      "unknown": 1
+    },
+    "confirmed_course_topic_maps": 0,
+    "reason_no_sufficient_status": "Chưa có đề cương chi tiết hoặc chuẩn đầu ra chính thức."
+  },
+  "known_data_issues": [
+    "source_catalog.jsonl mới có một record mẫu.",
+    "SRC_ORTHO_TEXTBOOK_001 đang ghi 150 trang nhưng PDF gốc có 532 trang.",
+    "Hai file quy trình có cùng SHA-256 và phải quản lý như một nguồn."
+  ]
+}
