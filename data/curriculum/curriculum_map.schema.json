@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedResident Tutor Curriculum Map",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "file_type",
+    "program",
+    "scope",
+    "course_groups",
+    "linking_rules",
+    "data_quality_rules"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "file_type": {
+      "const": "curriculum_map"
+    },
+    "program": {
+      "type": "object"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "course_groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "group_id",
+          "group_name",
+          "round",
+          "courses"
+        ],
+        "properties": {
+          "group_id": {
+            "type": "string"
+          },
+          "group_name": {
+            "type": "string"
+          },
+          "round": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "courses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "course_code",
+                "course_name",
+                "course_type",
+                "round",
+                "year",
+                "total_credits",
+                "theory_credits",
+                "practice_credits",
+                "source_status"
+              ],
+              "properties": {
+                "course_code": {
+                  "type": "string"
+                },
+                "course_name": {
+                  "type": "string"
+                },
+                "course_type": {
+                  "enum": [
+                    "Bắt buộc",
+                    "Tự chọn"
+                  ]
+                },
+                "round": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3
+                },
+                "year": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3
+                },
+                "total_credits": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "theory_credits": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "practice_credits": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "content_outline": {
+                  "type": [
+                    "object",
+                    "array",
+                    "string",
+                    "null"
+                  ]
+                },
+                "learning_outcomes": {
+                  "type": [
+                    "object",
+                    "array",
+                    "string",
+                    "null"
+                  ]
+                },
+                "prerequisites": {
+                  "type": [
+                    "array",
+                    "string",
+                    "null"
+                  ]
+                },
+                "source_status": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "linking_rules": {
+      "type": "object"
+    },
+    "data_quality_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_records": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

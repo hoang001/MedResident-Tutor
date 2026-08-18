@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0.0",
+  "file_type": "curriculum_map",
+  "program": {
+    "program_id": "HMU_RESIDENCY_SURGERY_ORTHOPEDICS_2025",
+    "program_name": "Chương trình đào tạo Bác sĩ nội trú chuyên ngành Ngoại khoa",
+    "institution": "Trường Đại học Y Hà Nội",
+    "training_level": "Sau đại học",
+    "learner_group": "Bác sĩ nội trú",
+    "specialty": "Chấn thương chỉnh hình",
+    "decision_number": null,
+    "decision_date": null,
+    "decision_metadata_status": "not_visible_in_provided_images",
+    "curriculum_year": 2025,
+    "source_scope": "Phần chương trình liên quan trực tiếp đến Chấn thương chỉnh hình trong các ảnh do người dùng cung cấp"
+  },
+  "scope": {
+    "primary_specialty_block": {
+      "section_code": "3.2.1",
+      "section_name": "Chấn thương chỉnh hình",
+      "total_credits": 40,
+      "theory_credits": 4,
+      "practice_credits": 36,
+      "year_distribution": {
+        "year_1": 0,
+        "year_2": 24,
+        "year_3": 16
+      }
+    },
+    "supporting_foundation_courses": [
+      "B21CN1"
+    ],
+    "scope_note": "B21CN1 thuộc khối Kiến thức cơ bản ngành (Round 1), không được cộng vào 40 tín chỉ của khối Chấn thương chỉnh hình 3.2.1."
+  },
+  "course_groups": [
+    {
+      "group_id": "ORTHO_FOUNDATION_ROUND_1",
+      "section_code": "3.1",
+      "group_name": "Kiến thức cơ bản ngành (Round 1)",
+      "role_in_dataset": "supporting_foundation",
+      "course_type": "Bắt buộc",
+      "round": 1,
+      "year": 1,
+      "selection_rule": null,
+      "courses": [
+        {
+          "course_code": "B21CN1",
+          "course_name": "Cấp cứu ngoại Chấn thương chỉnh hình",
+          "course_type": "Bắt buộc",
+          "round": 1,
+          "year": 1,
+          "total_credits": 4,
+          "theory_credits": 1,
+          "practice_credits": 3,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "verified_from_provided_curriculum_image",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        }
+      ]
+    },
+    {
+      "group_id": "ORTHO_SPECIALTY_ROUND_2",
+      "section_code": "3.2.1.1",
+      "group_name": "Kiến thức chuyên ngành (Round 2)",
+      "role_in_dataset": "primary_specialty_knowledge",
+      "course_type": "Bắt buộc",
+      "round": 2,
+      "year": 2,
+      "total_credits": 24,
+      "theory_credits": 4,
+      "practice_credits": 20,
+      "selection_rule": "Hoàn thành toàn bộ 4 học phần bắt buộc",
+      "courses": [
+        {
+          "course_code": "B21CN7",
+          "course_name": "Chấn thương chỉnh hình chi trên",
+          "course_type": "Bắt buộc",
+          "round": 2,
+          "year": 2,
+          "total_credits": 6,
+          "theory_credits": 1,
+          "practice_credits": 5,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "verified_from_provided_curriculum_image",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN8",
+          "course_name": "Chấn thương chỉnh hình chi dưới",
+          "course_type": "Bắt buộc",
+          "round": 2,
+          "year": 2,
+          "total_credits": 6,
+          "theory_credits": 1,
+          "practice_credits": 5,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "verified_from_provided_curriculum_image",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN9",
+          "course_name": "Phẫu thuật khớp",
+          "course_type": "Bắt buộc",
+          "round": 2,
+          "year": 2,
+          "total_credits": 6,
+          "theory_credits": 1,
+          "practice_credits": 5,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "verified_from_provided_curriculum_image",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN10",
+          "course_name": "Chấn thương cột sống",
+          "course_type": "Bắt buộc",
+          "round": 2,
+          "year": 2,
+          "total_credits": 6,
+          "theory_credits": 1,
+          "practice_credits": 5,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "verified_from_provided_curriculum_image",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        }
+      ]
+    },
+    {
+      "group_id": "ORTHO_ADVANCED_CLINICAL_ROUND_3",
+      "section_code": "3.2.1.2",
+      "group_name": "Thực hành lâm sàng nâng cao (Round 3)",
+      "role_in_dataset": "advanced_clinical_practice",
+      "course_type": "Tự chọn",
+      "round": 3,
+      "year": 3,
+      "total_credits_required": 16,
+      "theory_credits_required": 0,
+      "practice_credits_required": 16,
+      "selection_rule": {
+        "type": "choose_n_of_m",
+        "choose": 4,
+        "from": 8,
+        "credits_per_course": 4
+      },
+      "courses": [
+        {
+          "course_code": "B21CN11",
+          "course_name": "Phẫu thuật gãy xương, trật khớp chi trên",
+          "course_type": "Tự chọn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "inherited_from_round_3_group",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN12",
+          "course_name": "Phẫu thuật gãy xương, trật khớp chi dưới - khung chậu",
+          "course_type": "Tự chọn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "inherited_from_round_3_group",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN13",
+          "course_name": "Phẫu thuật thay khớp và nội soi khớp",
+          "course_type": "Tự chọn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "inherited_from_round_3_group",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN14",
+          "course_name": "Phẫu thuật kết hợp xương ít xâm lấn",
+          "course_type": "Tự chọn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "inherited_from_round_3_group",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN15",
+          "course_name": "Phẫu thuật chấn thương cột sống",
+          "course_type": "Tự chọn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "inherited_from_round_3_group",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN16",
+          "course_name": "Bệnh lý thoái hóa cột sống cổ",
+          "course_type": "Tự chọn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "inherited_from_round_3_group",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN17",
+          "course_name": "Bệnh lý thoái hóa cột sống thắt lưng",
+          "course_type": "Tự chọn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "inherited_from_round_3_group",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        },
+        {
+          "course_code": "B21CN18",
+          "course_name": "Phẫu thuật cột sống ít xâm lấn",
+          "course_type": "Tự chọn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4,
+          "credit_status": "verified_from_provided_curriculum_image",
+          "year_status": "inherited_from_round_3_group",
+          "content_outline": null,
+          "learning_outcomes": null,
+          "prerequisites": null,
+          "source_status": "curriculum_verified_content_not_yet_provided"
+        }
+      ]
+    }
+  ],
+  "linking_rules": {
+    "source_units": {
+      "required_fields": [
+        "course_code",
+        "curriculum_group_id"
+      ],
+      "rule": "Mỗi đơn vị kiến thức phải liên kết tới đúng một học phần chính trong curriculum_map."
+    },
+    "qa_items": {
+      "required_fields": [
+        "course_code",
+        "knowledge_ids"
+      ],
+      "rule": "Câu hỏi phải kế thừa course_code từ các đơn vị kiến thức nguồn; không gán học phần chỉ dựa trên suy đoán từ nội dung câu hỏi."
+    },
+    "medical_training": {
+      "rule": "curriculum_map chỉ cung cấp ngữ cảnh chương trình; không được sử dụng làm bằng chứng chuyên môn để kết luận đúng/sai y khoa."
+    },
+    "teaching_training": {
+      "rule": "Có thể dùng round, year và course_name để điều chỉnh mức độ diễn đạt; không được dùng tên học phần để tự bổ sung kiến thức y khoa."
+    }
+  },
+  "data_quality_rules": [
+    "course_code phải duy nhất.",
+    "Tổng tín chỉ Round 2 phải bằng 24.",
+    "Tổng số học phần Round 2 phải bằng 4.",
+    "Round 3 phải có 8 học phần tự chọn, mỗi học phần 4 tín chỉ.",
+    "Quy tắc Round 3 là chọn 4 trong 8, tổng 16 tín chỉ.",
+    "Tổng tín chỉ khối Chấn thương chỉnh hình 3.2.1 phải bằng 40.",
+    "B21CN1 không được cộng vào 40 tín chỉ của khối 3.2.1.",
+    "Không được suy diễn content_outline, learning_outcomes hoặc prerequisites khi chương trình chưa cung cấp."
+  ],
+  "known_limitations": [
+    "Số quyết định và ngày ban hành không đọc được từ ảnh đã cung cấp.",
+    "Ảnh chỉ cung cấp tên học phần, mã học phần, loại học phần, tín chỉ và tiến trình; chưa có đề cương chi tiết hoặc chuẩn đầu ra.",
+    "Tên học phần không phải là bằng chứng đủ để tạo nội dung chuyên môn, câu hỏi, đáp án hoặc rubric."
+  ],
+  "source_records": [
+    {
+      "source_id": "CURRICULUM_IMAGE_01",
+      "description": "Ảnh khung chương trình có phần Kiến thức cơ bản ngành và học phần B21CN1.",
+      "status": "provided_by_user"
+    },
+    {
+      "source_id": "CURRICULUM_IMAGE_02",
+      "description": "Ảnh phần 3.2.1 Chấn thương chỉnh hình, gồm Round 2 và Round 3.",
+      "status": "provided_by_user"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "medical": {
+    "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "role": "medical_evaluation",
+    "training_method": "qlora",
+    "status": "selected_for_finetuning"
+  },
+  "teaching": {
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "role": "pedagogical_feedback",
+    "training_method": "qlora",
+    "status": "selected_for_finetuning"
+  },
+  "benchmark_policy": {
+    "teaching_candidate_test_cases.json": "locked_test_only",
+    "medical_candidate_test_cases.json": "locked_test_only"
+  }
+}
