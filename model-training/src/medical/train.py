@@ -112,7 +112,18 @@ class AssistantOnlyCollator:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--smoke-test", action="store_true", help="3 optimizer steps at 4096 tokens")
+    parser.add_argument("--learning-rate", type=float, default=2e-4, help="Learning rate (default: 2e-4)")
+    parser.add_argument("--epochs", type=float, default=3, help="Training epochs (default: 3)")
+    parser.add_argument(
+        "--output-dir", type=Path,
+        default=Path("model-training/outputs/medical-qwen3-pilot"),
+        help="Output directory; relative paths resolve from repository root",
+    )
     cli = parser.parse_args()
+    if not math.isfinite(cli.learning_rate) or cli.learning_rate <= 0:
+        parser.error("--learning-rate must be finite and positive")
+    if not math.isfinite(cli.epochs) or cli.epochs <= 0:
+        parser.error("--epochs must be finite and positive")
     os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0")
     os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
@@ -161,7 +172,7 @@ def main():
 
     root = find_repo_root()
     data_dir = root / "model-training" / "prepared-data" / "medical"
-    output_dir = root / "model-training" / "outputs" / "medical-qwen3-pilot"
+    output_dir = cli.output_dir if cli.output_dir.is_absolute() else root / cli.output_dir
     if cli.smoke_test:
         output_dir = output_dir / "smoke-test"
     adapter_dir = output_dir / "adapter"
@@ -222,7 +233,7 @@ def main():
 
     arguments = TrainingArguments(
         output_dir=str(output_dir),
-        num_train_epochs=3,
+        num_train_epochs=cli.epochs,
         max_steps=SMOKE_STEPS if cli.smoke_test else -1,
         per_device_train_batch_size=1,
         per_device_eval_batch_size=1,
@@ -231,7 +242,7 @@ def main():
         gradient_checkpointing_kwargs={"use_reentrant": False},
         fp16=True,
         bf16=False,
-        learning_rate=2e-4,
+        learning_rate=cli.learning_rate,
         optim="paged_adamw_8bit",
         eval_strategy="epoch",
         save_strategy="no",
