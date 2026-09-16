@@ -1,7 +1,9 @@
 """Evaluate the Medical LoRA adapter using the locked baseline validation protocol."""
 
+import argparse
 import gc
 import json
+from pathlib import Path
 
 
 # Report key, baseline comparison key, summary label.
@@ -15,6 +17,19 @@ COMPARISON_METRICS = (
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--adapter-dir", type=Path,
+        default=Path("model-training/outputs/medical-qwen3-pilot/adapter"),
+        help="Adapter directory; relative paths resolve from repository root",
+    )
+    parser.add_argument(
+        "--output-file", type=Path,
+        default=Path("model-training/outputs/medical-qwen3-pilot/validation_after_finetune.json"),
+        help="Report file; relative paths resolve from repository root",
+    )
+    cli = parser.parse_args()
+
     import torch
     from peft import PeftModel
 
@@ -28,9 +43,9 @@ def main():
         import evaluate_baseline as baseline
 
     root = baseline.find_repo_root()
-    output_dir = root / "model-training" / "outputs" / "medical-qwen3-pilot"
-    adapter_dir = output_dir / "adapter"
-    output_file = output_dir / "validation_after_finetune.json"
+    adapter_dir = cli.adapter_dir if cli.adapter_dir.is_absolute() else root / cli.adapter_dir
+    output_file = cli.output_file if cli.output_file.is_absolute() else root / cli.output_file
+    output_dir = output_file.parent
 
     if baseline.MODEL_ID != "Qwen/Qwen3-4B-Instruct-2507":
         raise ValueError("Base model không khớp Medical pilot đã khóa.")
@@ -94,7 +109,9 @@ def main():
         # Same report structure as baseline, plus adapter provenance.
         report = {
             "model_id": baseline.MODEL_ID,
-            "adapter": str(adapter_dir.relative_to(root)),
+            "adapter": str(
+                adapter_dir.relative_to(root) if adapter_dir.is_relative_to(root) else adapter_dir
+            ),
             "dataset": str(baseline.VALIDATION_FILE.relative_to(root)),
             "total_samples": total,
             "metrics": metrics,
