@@ -1,4 +1,4 @@
-"""Evaluate the Medical LoRA adapter using the locked baseline validation protocol."""
+"""Evaluate the Medical LoRA adapter on validation or explicit locked test splits."""
 
 import argparse
 import gc
@@ -18,6 +18,10 @@ COMPARISON_METRICS = (
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--split", choices=("validation", "test"), default="validation",
+        help="Dataset split (default: validation); test requires explicit selection",
+    )
     parser.add_argument(
         "--adapter-dir", type=Path,
         default=Path("model-training/outputs/medical-qwen3-pilot/adapter"),
@@ -52,15 +56,20 @@ def main():
     if not (adapter_dir / "adapter_config.json").is_file():
         raise FileNotFoundError(f"Không tìm thấy LoRA adapter: {adapter_dir}")
 
-    # Reuse the exact validation path and reader; never discover other splits.
-    rows = baseline.read_jsonl(baseline.VALIDATION_FILE)
+    # Only open the selected split; test is reachable only via --split test.
+    dataset_file = (
+        root / "model-training" / "prepared-data" / "medical"
+        / f"medical_{cli.split}_sft.jsonl"
+    )
+    rows = baseline.read_jsonl(dataset_file)
     if len(rows) != 8 or len({row["sample_id"] for row in rows}) != 8:
-        raise ValueError("Validation đã khóa phải có đúng 8 samples với ID duy nhất.")
+        raise ValueError(f"Split {cli.split} đã khóa phải có đúng 8 samples với ID duy nhất.")
 
-    print("=== QWEN3 MEDICAL ADAPTER VALIDATION ===")
+    print(f"=== QWEN3 MEDICAL ADAPTER {cli.split.upper()} ===")
     print("Model:", baseline.MODEL_ID)
     print("Adapter:", adapter_dir)
-    print("Validation samples:", len(rows))
+    print("Split:", cli.split)
+    print("Samples:", len(rows))
 
     tokenizer = None
     base_model = None
@@ -112,7 +121,8 @@ def main():
             "adapter": str(
                 adapter_dir.relative_to(root) if adapter_dir.is_relative_to(root) else adapter_dir
             ),
-            "dataset": str(baseline.VALIDATION_FILE.relative_to(root)),
+            "dataset": str(dataset_file.relative_to(root)),
+            "split": cli.split,
             "total_samples": total,
             "metrics": metrics,
             "cases": results,
