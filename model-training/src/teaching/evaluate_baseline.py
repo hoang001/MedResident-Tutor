@@ -9,7 +9,9 @@ import gc
 import hashlib
 import json
 import os
+import re
 import time
+import unicodedata
 
 if __package__:
     from .validate_dataset import ROOT, input_errors, prediction_metrics, rules
@@ -31,6 +33,88 @@ METRICS = (
     ("medical_anchor_guard", "Medical anchor guard", "Medical anchor guard"),
     ("learner_context_usage", "Learner context usage", "Learner context usage"),
 )
+
+
+def learner_context_used(payload, prediction):
+    """Behavioral lexical proxy with target linkage; no gold wording required.
+
+    A priority is evidence of emphasis when high for remediation/low mastery,
+    or medium/low for an improved or mastered focus. Unknown concept mappings
+    fail conservatively rather than attributing generic feedback to context.
+    """
+    lc = payload["learner_context"]
+    if not rules.has_context(lc):
+        return True  # Caller retains N/A display and excludes it from denominator.
+    if not isinstance(prediction, dict):
+        return False
+    med = payload["medical_evaluation"]
+    anchors = med["correct_points"] + med["incorrect_points"] + med["missing_points"]
+    priorities = prediction.get("learning_priority", [])
+    feedback = prediction.get("feedback_text", "")
+
+    def normalized(text):
+        text = unicodedata.normalize("NFD", str(text).casefold()).replace("đ", "d")
+        return re.sub(r"\s+", " ", "".join(c for c in text if not unicodedata.combining(c)))
+
+    def linked(text, target):
+        # Avoid the validator's generic-pedagogy exemption for target linkage.
+        return rules.sim(text, target) >= .45
+
+    def signals(text, kind):
+        patterns = {
+            "recurring": ("lap lai", "nhieu lan", "tai dien", "gan day", "truoc day", "qua khu", "thuong xuyen"),
+            "improved": ("cai thien", "tien bo", "tot hon", "da khac phuc", "da nam vung", "da tien", "on dinh hon"),
+            "low": ("chua vung", "chua nam", "con yeu", "muc do thap", "can cung co", "uu tien", "mastery low"),
+            "high": ("nam vung", "thanh thao", "muc do cao", "da vung", "duy tri", "mastery high"),
+        }
+        return any(p in normalized(text) for p in patterns[kind])
+
+    def targets(entry):
+        if not isinstance(entry, dict):
+            return [entry] if isinstance(entry, str) and entry.strip() else []
+        descriptions = [entry[k] for k in ("error_summary", "improvement_summary", "focus", "concept_name", "description")
+                        if isinstance(entry.get(k), str) and entry[k].strip()]
+        concept = entry.get("concept_id")
+        if concept:
+            for key in ("recurring_errors", "recent_improvements"):
+                for other in lc.get(key, []):
+                    if isinstance(other, dict) and other.get("concept_id") == concept:
+                        descriptions += [other[k] for k in ("error_summary", "improvement_summary")
+                                         if isinstance(other.get(k), str)]
+            # Explicit IDs are useful when the focus or feedback names the concept.
+            descriptions.append(concept)
+        matched = [a for a in anchors if any(linked(a, d) for d in descriptions)]
+        return matched or descriptions
+
+    def used(entry, kind):
+        relevant = targets(entry)
+        if not relevant:
+            return False
+        for priority in priorities:
+            if any(linked(priority["focus"], target) for target in relevant):
+                if signals(priority["reason"], kind):
+                    return True  # Reason belongs to this specific anchored focus.
+                levels = {"high"} if kind in ("recurring", "low") else {"medium", "low"}
+                if priority["priority"] in levels:
+                    return True
+        # A generic 'you improved' sentence alone cannot identify the target.
+        for sentence in re.split(r"[.!?;\n]+", feedback):
+            if signals(sentence, kind) and any(linked(sentence, target) for target in relevant):
+                return True
+        return False
+
+    checks = []
+    for key, kind in (("recurring_errors", "recurring"), ("recent_improvements", "improved")):
+        checks.extend(used(entry, kind) for entry in lc.get(key, []))
+    for entry in lc.get("mastery", []):
+        if isinstance(entry, dict) and entry.get("level") in ("low", "high"):
+            checks.append(used(entry, entry["level"]))
+    if not checks and lc.get("recent_attempts_summary"):
+        summary = lc["recent_attempts_summary"]
+        checks.append(any(
+            used({"description": summary}, kind) for kind in ("recurring", "improved", "low", "high")
+        ))
+    return bool(checks) and all(checks)
 
 
 def load_validation():
@@ -68,6 +152,12 @@ def evaluate_prediction(payload, raw):
     except (ValueError, TypeError) as exc:
         return None, {key: False for key, _, _ in METRICS}, [str(exc)]
     metrics, errors = prediction_metrics(payload, prediction)
+    # Override only this baseline metric; locked dataset V5 and other metrics stay intact.
+    if metrics["contract_valid"]:
+        metrics["learner_context_usage"] = learner_context_used(payload, prediction)
+        errors = [error for error in errors if error != "learner_context_usage"]
+        if not metrics["learner_context_usage"]:
+            errors.append("learner_context_usage")
     return prediction, {"json_valid": True, **metrics}, errors
 
 

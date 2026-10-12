@@ -93,6 +93,66 @@ class PipelineTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 baseline.load_validation()
 
+    def test_recurring_error_0005_02_v02_like(self):
+        focus = "Nêu đánh giá phần mềm không chỉ dựa vào kích thước vết thương da."
+        self.inp["medical_evaluation"]["missing_points"] = [focus]
+        self.inp["learner_context"]["recurring_errors"] = [
+            {"concept_id": "C_SOFT", "error_summary": focus}
+        ]
+        self.out["missing_focus"] = [{"missing_point": focus, "feedback": focus}]
+        self.out["learning_priority"] = [{
+            "focus": focus, "priority": "high",
+            "reason": "Lỗi này đã xuất hiện nhiều lần trong quá khứ.",
+        }]
+        old, _ = prediction_metrics(self.inp, self.out)
+        _, new, errors = baseline.evaluate_prediction(self.inp, json.dumps(self.out))
+        self.assertFalse(old["learner_context_usage"])
+        self.assertTrue(new["learner_context_usage"])
+        self.assertNotIn("learner_context_usage", errors)
+        for key in old:
+            if key != "learner_context_usage":
+                self.assertEqual(old[key], new[key], key)
+        # Priority behavior works without any recurrence wording.
+        self.out["learning_priority"][0]["reason"] = "Ôn nội dung này trước."
+        self.assertTrue(baseline.learner_context_used(self.inp, self.out))
+        # Reason alone works even when priority is not high.
+        self.out["learning_priority"][0].update(priority="medium", reason="Đã sai nhiều lần trước đây.")
+        self.assertTrue(baseline.learner_context_used(self.inp, self.out))
+
+    def test_context_must_link_to_correct_target(self):
+        self.inp["learner_context"]["recurring_errors"] = [{"error_summary": "unrelated omega theta"}]
+        self.out["learning_priority"][0]["reason"] = "Lỗi đã xuất hiện nhiều lần."
+        self.out["feedback_text"] = "Bạn có lỗi lặp lại."
+        self.assertFalse(baseline.learner_context_used(self.inp, self.out))
+        self.inp["learner_context"]["recurring_errors"] = [
+            {"error_summary": "delta epsilon zeta"}, {"error_summary": "unrelated omega theta"}
+        ]
+        self.assertFalse(baseline.learner_context_used(self.inp, self.out))
+
+    def test_improvement_linked_feedback_or_priority(self):
+        self.inp["learner_context"]["recent_improvements"] = [{"improvement_summary": "alpha beta gamma"}]
+        self.out["feedback_text"] = "Bạn đã tiến bộ."
+        self.assertFalse(baseline.learner_context_used(self.inp, self.out))
+        self.out["feedback_text"] = "Bạn đã tiến bộ ở alpha beta gamma."
+        self.assertTrue(baseline.learner_context_used(self.inp, self.out))
+        self.out["feedback_text"] = "Review"
+        self.out["learning_priority"].append({"focus": "alpha beta gamma", "priority": "low", "reason": "Duy trì"})
+        self.assertTrue(baseline.learner_context_used(self.inp, self.out))
+
+    def test_mastery_requires_target_and_behavior(self):
+        self.inp["learner_context"]["mastery"] = [{"concept_id": "C", "concept_name": "delta epsilon zeta", "level": "low"}]
+        self.assertTrue(baseline.learner_context_used(self.inp, self.out))
+        self.inp["learner_context"]["mastery"][0]["level"] = "high"
+        self.assertFalse(baseline.learner_context_used(self.inp, self.out))
+        self.out["learning_priority"][0]["priority"] = "low"
+        self.assertTrue(baseline.learner_context_used(self.inp, self.out))
+        self.inp["learner_context"]["mastery"][0]["concept_name"] = "unrelated omega theta"
+        self.assertFalse(baseline.learner_context_used(self.inp, self.out))
+
+    def test_empty_context_remains_not_applicable(self):
+        self.assertFalse(baseline.rules.has_context(self.inp["learner_context"]))
+        self.assertTrue(baseline.learner_context_used(self.inp, self.out))
+
 
 if __name__ == "__main__":
     unittest.main()
