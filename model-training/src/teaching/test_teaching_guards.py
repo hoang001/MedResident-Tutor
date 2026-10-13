@@ -65,9 +65,24 @@ class GuardTests(unittest.TestCase):
 
     def test_ambiguous_and_negation_rejected(self):
         self.assertIsNone(match_point(self.issue + " " + self.other, [self.issue, self.other]))
-        self.assertIsNone(match_point("không " + self.issue, [self.issue]))
         # Changed negation in fuzzy comparison must not be accepted.
         self.assertIsNone(match_point("không giải thích đầy đủ nội dung tiêu chí beta còn thiếu", [self.issue]))
+
+    def test_improvement_embedded_point_with_meta_negation(self):
+        summary = "Lần này người học đã thể hiện được ý trước đây còn chưa ổn định: " + self.good
+        self.assertEqual(match_point(summary, [self.good]), self.good)
+        self.payload["learner_context"]["recent_improvements"] = [{"improvement_summary": summary}]
+        result = apply_teaching_guards(self.payload, self.out)
+        self.assertIn("Bạn đã cải thiện ở nội dung: " + self.good, result["feedback_text"])
+        self.assertEqual(apply_teaching_guards(self.payload, result), result)
+
+    def test_high_similarity_fuzzy_polarity_rejected(self):
+        point = "alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu"
+        # All tokens overlap except negation; reordered tokens prevent substring
+        # matching. Jaccard=12/13 > .85, so polarity is the rejection reason.
+        fuzzy = "không beta alpha gamma delta epsilon zeta eta theta iota kappa lambda mu"
+        self.assertIsNone(match_point(fuzzy, [point]))
+        self.assertEqual(match_point(fuzzy.removeprefix("không "), [point]), point)
 
     def test_runner_reuses_original_loader_and_generation(self):
         runner = evaluator.make_runner([])

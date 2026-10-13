@@ -34,7 +34,6 @@ def match_point(text, points):
     negations = {"không", "chưa", "chẳng", "not", "no", "without"}
     tokens = set(normalized.split())
     substrings = [p for p in points if len(set(normalize(p).split())) >= 4
-                  and (tokens & negations) == (set(normalize(p).split()) & negations)
                   and f" {normalize(p)} " in f" {normalized} "]
     if len(substrings) == 1:
         return substrings[0]
