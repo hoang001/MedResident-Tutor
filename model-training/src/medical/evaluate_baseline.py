@@ -1,16 +1,13 @@
 import gc
 import json
-import re
-import time
 from pathlib import Path
 
-import torch
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    BitsAndBytesConfig,
-)
+if __package__:
+    from .inference import extract_json, generate_text, load_model
+else:
+    from inference import extract_json, generate_text, load_model
 
+import torch
 
 MODEL_ID = "Qwen/Qwen3-4B-Instruct-2507"
 MAX_NEW_TOKENS = 1200
@@ -122,60 +119,6 @@ def read_jsonl(path: Path):
 # JSON PARSING
 # ============================================================
 
-def extract_json(text: str):
-    """
-    Parse JSON ngay cả khi model bọc trong markdown code fence.
-    """
-
-    text = text.strip()
-
-    if text.startswith("```"):
-        text = re.sub(
-            r"^```(?:json)?\s*",
-            "",
-            text,
-            flags=re.IGNORECASE,
-        )
-
-        text = re.sub(
-            r"\s*```$",
-            "",
-            text,
-        )
-
-    # Trường hợp output chính xác là JSON
-    try:
-        return json.loads(text), None
-    except json.JSONDecodeError:
-        pass
-
-    # Trường hợp model thêm text ngoài JSON
-    start = text.find("{")
-    end = text.rfind("}")
-
-    if (
-        start >= 0
-        and end > start
-    ):
-        candidate = text[
-            start : end + 1
-        ]
-
-        try:
-            return (
-                json.loads(candidate),
-                None,
-            )
-        except json.JSONDecodeError as exc:
-            return (
-                None,
-                str(exc),
-            )
-
-    return (
-        None,
-        "Không tìm thấy JSON object.",
-    )
 
 
 # ============================================================
@@ -507,57 +450,6 @@ def compare_with_gold(
 # MODEL
 # ============================================================
 
-def load_model():
-    quantization_config = (
-        BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=(
-                torch.float16
-            ),
-            bnb_4bit_use_double_quant=True,
-        )
-    )
-
-    tokenizer = (
-        AutoTokenizer.from_pretrained(
-            MODEL_ID,
-            trust_remote_code=True,
-        )
-    )
-
-    if tokenizer.pad_token_id is None:
-        tokenizer.pad_token = (
-            tokenizer.eos_token
-        )
-
-    model = (
-        AutoModelForCausalLM
-        .from_pretrained(
-            MODEL_ID,
-            quantization_config=(
-                quantization_config
-            ),
-            device_map={"": 0},
-            dtype=torch.float16,
-            low_cpu_mem_usage=True,
-            trust_remote_code=True,
-        )
-    )
-
-    model.eval()
-
-    # Tránh warning khi do_sample=False
-    model.generation_config.do_sample = (
-        False
-    )
-    model.generation_config.temperature = (
-        None
-    )
-    model.generation_config.top_p = None
-    model.generation_config.top_k = None
-
-    return tokenizer, model
 
 
 # ============================================================
@@ -579,69 +471,8 @@ def run_sample(
         messages[-1]["content"]
     )
 
-    inputs = (
-        tokenizer.apply_chat_template(
-            input_messages,
-            tokenize=True,
-            add_generation_prompt=True,
-            return_dict=True,
-            return_tensors="pt",
-        )
-    )
-
-    device = (
-        model
-        .get_input_embeddings()
-        .weight
-        .device
-    )
-
-    inputs = {
-        key: value.to(device)
-        for key, value
-        in inputs.items()
-    }
-
-    input_tokens = (
-        inputs["input_ids"]
-        .shape[-1]
-    )
-
-    start = time.perf_counter()
-
-    with torch.inference_mode():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=(
-                MAX_NEW_TOKENS
-            ),
-            do_sample=False,
-            pad_token_id=(
-                tokenizer.pad_token_id
-            ),
-            eos_token_id=(
-                model
-                .generation_config
-                .eos_token_id
-            ),
-        )
-
-    elapsed = (
-        time.perf_counter()
-        - start
-    )
-
-    generated = outputs[
-        0,
-        input_tokens:,
-    ]
-
-    raw_response = (
-        tokenizer.decode(
-            generated,
-            skip_special_tokens=True,
-        )
-        .strip()
+    raw_response, elapsed, input_tokens, generated_tokens = generate_text(
+        input_messages, tokenizer, model
     )
 
     prediction, parse_error = (
@@ -664,9 +495,7 @@ def run_sample(
         "input_tokens": (
             input_tokens
         ),
-        "generated_tokens": int(
-            generated.numel()
-        ),
+        "generated_tokens": generated_tokens,
         "raw_response": (
             raw_response
         ),

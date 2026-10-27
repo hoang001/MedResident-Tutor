@@ -1,0 +1,82 @@
+{
+  "manifest_version": "1.0.0",
+  "purpose": "technical_integration_trial",
+  "purpose_note": "Thử nghiệm tích hợp kỹ thuật; không xác nhận tính hiện hành y khoa hoặc chuyên gia duyệt.",
+  "question_id": "ORTHO_B21CN1_Q_0001",
+  "rubric_id": "ORTHO_B21CN1_R_0001",
+  "criterion_ids": [
+    "ORTHO_B21CN1_R_0001_C01",
+    "ORTHO_B21CN1_R_0001_C02"
+  ],
+  "source_unit_ids": [
+    "ORTHO_B21CN1_KU_0001"
+  ],
+  "source_id": "SRC_ORTHO_EMERGENCY_001",
+  "source_document": {
+    "repo_relative_path": "data/raw-source/data-20261020T074653Z-1-001/data/Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+    "sha256": "d95f9d803e46c1bb8b41a2b35fc53add5dd8959df1b3107a83f8e0c324469007",
+    "pdf_page_count": 169
+  },
+  "locator": {
+    "pdf_pages": {
+      "start": 16,
+      "end": 16,
+      "numbering": "one_based"
+    },
+    "printed_pages": {
+      "start": 15,
+      "end": 15
+    },
+    "chapter": "Gãy xương hở",
+    "section": "1. Đại cương",
+    "subsection": "1.1. Định nghĩa"
+  },
+  "evidence_verification": {
+    "status": "compared_with_original_pdf",
+    "criterion_evidence": [
+      {
+        "criterion_id": "ORTHO_B21CN1_R_0001_C01",
+        "source_unit_ids": [
+          "ORTHO_B21CN1_KU_0001"
+        ],
+        "support": "direct",
+        "pdf_page": 16,
+        "printed_page": 15
+      },
+      {
+        "criterion_id": "ORTHO_B21CN1_R_0001_C02",
+        "source_unit_ids": [
+          "ORTHO_B21CN1_KU_0001"
+        ],
+        "support": "direct",
+        "pdf_page": 16,
+        "printed_page": 15
+      }
+    ],
+    "text_relationship": "excerpt_with_condensation",
+    "notes": "Hai tiêu chí được hỗ trợ trực tiếp. Các đoạn định nghĩa và xử trí giữ điều kiện cùng một đoạn chi. Đoạn cuối SourceUnit rút gọn ngữ cảnh lịch sử, không hoàn toàn là trích nguyên văn. Dataset vẫn ghi trang 16–17; evidence cho ca này nằm ở PDF 16 / trang in 15. Không thay đổi SourceUnit."
+  },
+  "expert_review": {
+    "status": "unverified",
+    "note": "valid và expert_review_required=false không phải bằng chứng chuyên gia đã duyệt."
+  },
+  "existing_dataset_flags": {
+    "question": {
+      "validation_status": "valid",
+      "expert_review_required": false
+    },
+    "rubric": {
+      "validation_status": "valid",
+      "expert_review_required": false
+    },
+    "source_unit": {
+      "quality_status": "valid",
+      "scope_status": "provisional",
+      "usable_for_rag": true
+    }
+  },
+  "technical_trial_authorization": {
+    "status": "authorized_by_user",
+    "scope": "Hoàn tất catalog và manifest; chưa chạy model hoặc thay đổi backend/database."
+  }
+}

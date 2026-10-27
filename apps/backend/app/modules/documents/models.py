@@ -8,6 +8,7 @@ from pgvector.sqlalchemy import Vector
 from sqlalchemy import (
     JSON,
     BigInteger,
+    CheckConstraint,
     DateTime,
     Enum,
     Float,
@@ -21,13 +22,22 @@ from sqlalchemy import (
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.common.enums import DocumentProcessingStatus, RelationType
+from app.common.import_models import ImportIdentityMixin
 from app.common.models import TimestampMixin, UUIDPrimaryKeyMixin
 from app.core.database import Base
 
 
-class Document(UUIDPrimaryKeyMixin, TimestampMixin, Base):
+class Document(ImportIdentityMixin, UUIDPrimaryKeyMixin, TimestampMixin, Base):
     __tablename__ = "documents"
-    __table_args__ = (Index("ix_documents_status_created", "processing_status", "created_at"),)
+    __table_args__ = (
+        Index("ix_documents_status_created", "processing_status", "created_at"),
+        CheckConstraint(
+            "source_sha256 IS NULL OR source_sha256 ~ '^[0-9a-f]{64}$'",
+            name="ck_documents_sha256",
+        ).ddl_if(dialect="postgresql"),
+    )
+
+    source_sha256: Mapped[str | None] = mapped_column(String(64))
 
     specialty_id: Mapped[uuid.UUID | None] = mapped_column(
         ForeignKey("specialties.id", ondelete="SET NULL"), index=True

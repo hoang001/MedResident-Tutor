@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "source_units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "local_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "supports": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "span_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "span_id",
+                "quote"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "local_id",
+          "title",
+          "supports"
+        ]
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "local_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verbatim_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "proposed_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "concept_type": {
+            "enum": [
+              "condition",
+              "injury",
+              "anatomy",
+              "finding",
+              "investigation",
+              "intervention",
+              "medication",
+              "device",
+              "classification",
+              "mechanism",
+              "complication",
+              "process",
+              "other"
+            ]
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "source_unit_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "local_id",
+          "verbatim_name",
+          "proposed_name",
+          "concept_type",
+          "aliases",
+          "source_unit_ids"
+        ]
+      }
+    },
+    "statements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "local_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "statement_type": {
+            "enum": [
+              "definition",
+              "classification",
+              "principle",
+              "procedure",
+              "indication",
+              "contraindication",
+              "observation",
+              "other"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quotes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "source_unit_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "concept_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "negations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "requirements": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "temporal_information": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "extraction_kind": {
+            "enum": [
+              "direct",
+              "interpretation"
+            ]
+          },
+          "interpretation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relation": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "subject_concept_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "predicate": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "object_concept_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "subject_concept_id",
+                  "predicate",
+                  "object_concept_id"
+                ]
+              }
+            ]
+          },
+          "procedure_context": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sequence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "position": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "position",
+                "quote"
+              ]
+            }
+          }
+        },
+        "required": [
+          "local_id",
+          "statement_type",
+          "text",
+          "quotes",
+          "source_unit_ids",
+          "concept_ids",
+          "conditions",
+          "negations",
+          "requirements",
+          "temporal_information",
+          "extraction_kind",
+          "interpretation",
+          "relation",
+          "procedure_context",
+          "sequence"
+        ]
+      }
+    }
+  },
+  "required": [
+    "source_units",
+    "concepts",
+    "statements"
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "version": "1.0.0",
+  "documents": [
+    {
+      "source_id": "SRC_ORTHO_EMERGENCY_001",
+      "document_edition_id": "ED_2006_d95f9d803e46c1bb",
+      "repo_relative_path": "data/raw-source/data-20261020T074653Z-1-001/data/Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+      "title": "Cấp cứu ngoại khoa – Chấn thương",
+      "publication_year": 2006,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": null,
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          6
+        ],
+        "expert_approval": false
+      },
+      "trial_pdf_pages": [
+        16,
+        19,
+        20
+      ],
+      "identity_pdf_pages": [
+        2,
+        6
+      ],
+      "verified_printed_labels": {
+        "16": "15",
+        "20": "19"
+      },
+      "expected_sha256": "d95f9d803e46c1bb8b41a2b35fc53add5dd8959df1b3107a83f8e0c324469007",
+      "survey_sections": [
+        {
+          "key": "chapter",
+          "original_title": "Gãy xương hở",
+          "parent_key": null,
+          "pdf_pages": {
+            "start": 16,
+            "end": 26
+          },
+          "printed_pages": {
+            "start": "15",
+            "end": null
+          },
+          "boundary_status": "end_supported_by_next_chapter_pdf_27"
+        },
+        {
+          "key": "general",
+          "original_title": "1. Đại cương",
+          "parent_key": "chapter",
+          "pdf_pages": {
+            "start": 16,
+            "end": 17
+          },
+          "printed_pages": null,
+          "boundary_status": "observed_span_not_full_boundary"
+        },
+        {
+          "key": "definition",
+          "original_title": "1.1. Định nghĩa",
+          "parent_key": "general",
+          "pdf_pages": {
+            "start": 16,
+            "end": 16
+          },
+          "printed_pages": {
+            "start": "15",
+            "end": "15"
+          },
+          "boundary_status": "observed_span_not_full_boundary"
+        },
+        {
+          "key": "classification",
+          "original_title": "4. Phân loại gãy xương hở",
+          "parent_key": "chapter",
+          "pdf_pages": {
+            "start": 19,
+            "end": 20
+          },
+          "printed_pages": null,
+          "boundary_status": "observed_span_not_full_boundary"
+        },
+        {
+          "key": "soft_tissue_classification",
+          "original_title": "4.3. Dựa vào tổn thương phần mềm",
+          "parent_key": "classification",
+          "pdf_pages": {
+            "start": 20,
+            "end": 20
+          },
+          "printed_pages": {
+            "start": "19",
+            "end": "19"
+          },
+          "boundary_status": "observed_span_not_full_boundary"
+        }
+      ],
+      "source_probes": [
+        {
+          "kind": "definition",
+          "selectors": [
+            {
+              "pdf_page": 16,
+              "start_anchor": "Gay xương hởlà",
+              "end_anchor": "\nì.."
+            }
+          ]
+        },
+        {
+          "kind": "classification",
+          "selectors": [
+            {
+              "pdf_page": 20,
+              "start_anchor": "4.3.",
+              "end_anchor": "\n5."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "SRC_ORTHO_TEXTBOOK_001",
+      "document_edition_id": "ED_2021_a3c48d00ef2b3f38",
+      "repo_relative_path": "data/raw-source/DVC.005844.pdf",
+      "title": "Bệnh học ngoại khoa – Chấn thương chỉnh hình",
+      "publication_year": 2021,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": "Dùng cho đào tạo sau đại học",
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          5
+        ],
+        "expert_approval": false
+      },
+      "trial_pdf_pages": [
+        66,
+        69,
+        70,
+        77
+      ],
+      "identity_pdf_pages": [
+        2,
+        5
+      ],
+      "verified_printed_labels": {
+        "66": "75",
+        "69": "78",
+        "70": "79",
+        "77": "86"
+      },
+      "expected_sha256": "a3c48d00ef2b3f38d5003f8ed4c7b662e9c141178aa92a13f4004f39463271d0",
+      "survey_sections": [
+        {
+          "key": "chapter",
+          "original_title": "Bài 5. Gãy xương hở",
+          "parent_key": null,
+          "pdf_pages": {
+            "start": 66,
+            "end": 78
+          },
+          "printed_pages": {
+            "start": "75",
+            "end": "87"
+          },
+          "boundary_status": "observed_chapter_span_end_following_chapter_not_checked"
+        },
+        {
+          "key": "general",
+          "original_title": "1. Tổng quan",
+          "parent_key": "chapter",
+          "pdf_pages": {
+            "start": 66,
+            "end": 69
+          },
+          "printed_pages": null,
+          "boundary_status": "observed_span_not_full_boundary"
+        },
+        {
+          "key": "definition",
+          "original_title": "1.1. Khái niệm",
+          "parent_key": "general",
+          "pdf_pages": {
+            "start": 66,
+            "end": 66
+          },
+          "printed_pages": {
+            "start": "75",
+            "end": "75"
+          },
+          "boundary_status": "observed_span_not_full_boundary"
+        },
+        {
+          "key": "classification",
+          "original_title": "2. Phân loại gãy xương hở",
+          "parent_key": "chapter",
+          "pdf_pages": {
+            "start": 69,
+            "end": 71
+          },
+          "printed_pages": null,
+          "boundary_status": "extends_beyond_trial_pages"
+        },
+        {
+          "key": "soft_tissue_classification",
+          "original_title": "2.3. Dựa vào tổn thương phần mềm",
+          "parent_key": "classification",
+          "pdf_pages": {
+            "start": 69,
+            "end": 70
+          },
+          "printed_pages": {
+            "start": "78",
+            "end": "79"
+          },
+          "boundary_status": "observed_span_not_full_boundary"
+        },
+        {
+          "key": "conclusion",
+          "original_title": "6. Kết luận",
+          "parent_key": "chapter",
+          "pdf_pages": {
+            "start": 77,
+            "end": 77
+          },
+          "printed_pages": {
+            "start": "86",
+            "end": "86"
+          },
+          "boundary_status": "observed_span_not_full_boundary"
+        }
+      ],
+      "source_probes": [
+        {
+          "kind": "definition",
+          "selectors": [
+            {
+              "pdf_page": 66,
+              "start_anchor": "Gay xương hởlà",
+              "end_anchor": "\nto\n"
+            }
+          ]
+        },
+        {
+          "kind": "classification",
+          "selectors": [
+            {
+              "pdf_page": 69,
+              "start_anchor": "2.3."
+            },
+            {
+              "pdf_page": 70,
+              "start_anchor": "+ Độ",
+              "end_anchor": "Thang diém MESS"
+            }
+          ]
+        },
+        {
+          "kind": "principle",
+          "selectors": [
+            {
+              "pdf_page": 69,
+              "start_anchor": "Một vết thương liền tốt",
+              "end_anchor": "\nLién xương"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_comparison_notes": [
+    {
+      "status": "potential_conflict_needs_context_review",
+      "potential_conflict": true,
+      "confirmed_conflict": false,
+      "basis": "manual_visual_inspection_not_llm",
+      "locations": [
+        {
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "pdf_pages": [
+            20
+          ],
+          "printed_pages": [
+            "19"
+          ]
+        },
+        {
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "pdf_pages": [
+            69,
+            70
+          ],
+          "printed_pages": [
+            "78",
+            "79"
+          ]
+        }
+      ],
+      "note": "Mô tả nhóm IIIc có khác biệt về cách nêu tổn thương mạch/thần kinh giữa hai nguồn. Chưa kết luận mâu thuẫn hoặc chọn nguồn đúng; OCR ký hiệu phân độ có lỗi, cần kiểm ảnh và chuyên gia xem điều kiện/ngữ cảnh."
+    }
+  ]
+}

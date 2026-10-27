@@ -1,0 +1,712 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Offline intermediate record (not ORM/import contract)",
+  "$defs": {
+    "DocumentEdition": {
+      "type": "object",
+      "properties": {
+        "document_edition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "repo_relative_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pdf_page_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publication_year": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "document_edition_id",
+        "source_id",
+        "source_sha256",
+        "repo_relative_path",
+        "pdf_page_count",
+        "title",
+        "publication_year"
+      ],
+      "additionalProperties": true
+    },
+    "DocumentSection": {
+      "type": "object",
+      "properties": {
+        "document_section_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "document_edition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "original_title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parent_section_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pdf_pages": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "additionalProperties": false
+        },
+        "printed_pages": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "end": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "start",
+                "end"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "boundary_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "course_id": {
+          "type": "null"
+        },
+        "topic_id": {
+          "type": "null"
+        },
+        "expert_review": {
+          "const": "unverified"
+        }
+      },
+      "required": [
+        "document_section_id",
+        "document_edition_id",
+        "source_sha256",
+        "original_title",
+        "parent_section_id",
+        "pdf_pages",
+        "printed_pages",
+        "boundary_status",
+        "basis",
+        "course_id",
+        "topic_id",
+        "expert_review"
+      ],
+      "additionalProperties": false
+    },
+    "SourceUnit": {
+      "type": "object",
+      "properties": {
+        "document_edition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "extraction_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_prompt_code_fingerprint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation": {
+          "type": "object",
+          "properties": {
+            "json_schema": {
+              "const": "passed"
+            },
+            "quote_locator": {
+              "const": "passed"
+            },
+            "semantic_support": {
+              "const": "needs_review"
+            },
+            "expert_review": {
+              "const": "unverified"
+            }
+          },
+          "required": [
+            "json_schema",
+            "quote_locator",
+            "semantic_support",
+            "expert_review"
+          ],
+          "additionalProperties": false
+        },
+        "expert_review": {
+          "const": "unverified"
+        },
+        "usable_as_default_evidence": {
+          "const": false
+        },
+        "course_id": {
+          "type": "null"
+        },
+        "topic_id": {
+          "type": "null"
+        },
+        "chunk_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_unit_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "span_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "normalized_quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pdf_page": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "printed_page_label": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "quality_status": {
+                "type": "string",
+                "minLength": 1
+              },
+              "read_method": {
+                "type": "string",
+                "minLength": 1
+              },
+              "char_start": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "char_end": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "span_id",
+              "quote",
+              "normalized_quote",
+              "pdf_page",
+              "printed_page_label",
+              "quality_status",
+              "read_method",
+              "char_start",
+              "char_end"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "document_edition_id",
+        "source_id",
+        "source_sha256",
+        "extraction_run_id",
+        "schema_prompt_code_fingerprint",
+        "model",
+        "validation",
+        "expert_review",
+        "usable_as_default_evidence",
+        "course_id",
+        "topic_id",
+        "chunk_ids",
+        "source_unit_id",
+        "title",
+        "supports"
+      ],
+      "additionalProperties": false
+    },
+    "MedicalConceptCandidate": {
+      "type": "object",
+      "properties": {
+        "document_edition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "extraction_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_prompt_code_fingerprint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation": {
+          "type": "object",
+          "properties": {
+            "json_schema": {
+              "const": "passed"
+            },
+            "quote_locator": {
+              "const": "passed"
+            },
+            "semantic_support": {
+              "const": "needs_review"
+            },
+            "expert_review": {
+              "const": "unverified"
+            }
+          },
+          "required": [
+            "json_schema",
+            "quote_locator",
+            "semantic_support",
+            "expert_review"
+          ],
+          "additionalProperties": false
+        },
+        "expert_review": {
+          "const": "unverified"
+        },
+        "usable_as_default_evidence": {
+          "const": false
+        },
+        "course_id": {
+          "type": "null"
+        },
+        "topic_id": {
+          "type": "null"
+        },
+        "chunk_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "verbatim_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposed_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept_type": {
+          "enum": [
+            "condition",
+            "injury",
+            "anatomy",
+            "finding",
+            "investigation",
+            "intervention",
+            "medication",
+            "device",
+            "classification",
+            "mechanism",
+            "complication",
+            "process",
+            "other"
+          ]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_unit_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "concept_candidate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_concept_id": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "document_edition_id",
+        "source_id",
+        "source_sha256",
+        "extraction_run_id",
+        "schema_prompt_code_fingerprint",
+        "model",
+        "validation",
+        "expert_review",
+        "usable_as_default_evidence",
+        "course_id",
+        "topic_id",
+        "chunk_ids",
+        "verbatim_name",
+        "proposed_name",
+        "concept_type",
+        "aliases",
+        "source_unit_ids",
+        "concept_candidate_id",
+        "canonical_concept_id"
+      ],
+      "additionalProperties": false
+    },
+    "MedicalStatement": {
+      "type": "object",
+      "properties": {
+        "document_edition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "extraction_run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_prompt_code_fingerprint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation": {
+          "type": "object",
+          "properties": {
+            "json_schema": {
+              "const": "passed"
+            },
+            "quote_locator": {
+              "const": "passed"
+            },
+            "semantic_support": {
+              "const": "needs_review"
+            },
+            "expert_review": {
+              "const": "unverified"
+            }
+          },
+          "required": [
+            "json_schema",
+            "quote_locator",
+            "semantic_support",
+            "expert_review"
+          ],
+          "additionalProperties": false
+        },
+        "expert_review": {
+          "const": "unverified"
+        },
+        "usable_as_default_evidence": {
+          "const": false
+        },
+        "course_id": {
+          "type": "null"
+        },
+        "topic_id": {
+          "type": "null"
+        },
+        "chunk_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "statement_type": {
+          "enum": [
+            "definition",
+            "classification",
+            "principle",
+            "procedure",
+            "indication",
+            "contraindication",
+            "observation",
+            "other"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quotes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "source_unit_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "negations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "temporal_information": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "extraction_kind": {
+          "enum": [
+            "direct",
+            "interpretation"
+          ]
+        },
+        "interpretation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relation": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "subject_concept_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "predicate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "object_concept_id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "subject_concept_id",
+                "predicate",
+                "object_concept_id"
+              ]
+            }
+          ]
+        },
+        "procedure_context": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sequence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "position": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "quote": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "position",
+              "quote"
+            ]
+          }
+        },
+        "statement_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "document_edition_id",
+        "source_id",
+        "source_sha256",
+        "extraction_run_id",
+        "schema_prompt_code_fingerprint",
+        "model",
+        "validation",
+        "expert_review",
+        "usable_as_default_evidence",
+        "course_id",
+        "topic_id",
+        "chunk_ids",
+        "statement_type",
+        "text",
+        "quotes",
+        "source_unit_ids",
+        "concept_ids",
+        "conditions",
+        "negations",
+        "requirements",
+        "temporal_information",
+        "extraction_kind",
+        "interpretation",
+        "relation",
+        "procedure_context",
+        "sequence",
+        "statement_id"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/DocumentEdition"
+    },
+    {
+      "$ref": "#/$defs/DocumentSection"
+    },
+    {
+      "$ref": "#/$defs/SourceUnit"
+    },
+    {
+      "$ref": "#/$defs/MedicalConceptCandidate"
+    },
+    {
+      "$ref": "#/$defs/MedicalStatement"
+    }
+  ]
+}

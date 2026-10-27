@@ -1,0 +1,4 @@
+-r ../document_toolkit/requirements.txt
+# Optional OCR runtime used in the verified local run; no LLM/GPU weights.
+PyMuPDF==1.28.2
+pytest>=8,<10

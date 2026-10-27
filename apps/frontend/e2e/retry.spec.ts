@@ -1,0 +1,20 @@
+import {test, expect} from "@playwright/test";
+import {randomUUID} from "node:crypto";
+import {login, submit, currentAttempt} from "./helpers";
+test("Teaching failure keeps Medical; retry does not invoke Medical again", async ({page}) => {
+  await login(page);
+  await submit(page, `Teaching retry fixture ${randomUUID()}`);
+  await expect(page.getByTestId("stage-status")).toContainText("Teaching: Lỗi");
+  await expect(page.getByRole("heading", {name: /Medical — điểm mô phỏng/})).toBeVisible();
+  const before = await currentAttempt(page);
+  expect(before.medical_evaluation).toBeTruthy();
+  expect(before.teaching_feedback).toBeNull();
+  expect(before.provider_metadata.medical.invocation_id).toBeTruthy();
+  await page.getByRole("button", {name: "Thử lại feedback", exact: true}).click();
+  await expect(page.getByTestId("stage-status")).toContainText("Teaching: Đã lưu");
+  const after = await currentAttempt(page);
+  expect(after.id).toBe(before.id);
+  expect(after.medical_evaluation).toEqual(before.medical_evaluation);
+  expect(after.provider_metadata.medical).toEqual(before.provider_metadata.medical);
+  expect(after.teaching_feedback).toBeTruthy();
+});

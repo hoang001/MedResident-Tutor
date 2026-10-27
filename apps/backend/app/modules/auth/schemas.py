@@ -1,9 +1,39 @@
 import uuid
 from datetime import datetime
+from typing import Annotated
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
+from pydantic import (
+    AfterValidator,
+    BaseModel,
+    ConfigDict,
+    EmailStr,
+    Field,
+    TypeAdapter,
+    field_validator,
+)
 
 from app.common.enums import UserRole
+from app.core.config import get_settings
+
+
+def login_email(value: str) -> str:
+    value = value.strip().lower()
+    try:
+        return str(TypeAdapter(EmailStr).validate_python(value))
+    except ValueError:
+        settings = get_settings()
+        if (
+            settings.app_env == "development"
+            and value.endswith(".local")
+            and value == settings.seed_admin_email.strip().lower()
+        ):
+            # Validate syntax using a public suffix, retain the exact seed identity.
+            TypeAdapter(EmailStr).validate_python(value[:-6] + ".example.com")
+            return value
+        raise ValueError("Invalid email address") from None
+
+
+LoginEmail = Annotated[str, Field(min_length=3, max_length=254), AfterValidator(login_email)]
 
 
 class RegisterRequest(BaseModel):
@@ -19,11 +49,18 @@ class RegisterRequest(BaseModel):
     @field_validator("full_name")
     @classmethod
     def strip_name(cls, value: str) -> str:
-        return value.strip()
+        value = value.strip()
+        if not value:
+            raise ValueError("Name must not be blank")
+        return value
+
+
+class GoogleLoginRequest(BaseModel):
+    credential: str = Field(min_length=1, max_length=16384)
 
 
 class LoginRequest(BaseModel):
-    email: EmailStr
+    email: LoginEmail
     password: str
 
     @field_validator("email", mode="before")
@@ -35,7 +72,7 @@ class LoginRequest(BaseModel):
 class UserResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: uuid.UUID
-    email: EmailStr
+    email: LoginEmail
     full_name: str
     role: UserRole
     is_active: bool

@@ -1,4 +1,6 @@
 .env
+.env.*
+!.env.example
 .venv/
 __pycache__/
 *.py[cod]
@@ -9,6 +11,7 @@ htmlcov/
 .coverage
 node_modules/
 .next/
+*.tsbuildinfo
 out/
 data/uploads/*
 !data/uploads/.gitkeep
@@ -26,3 +29,22 @@ model-training/logs/
 *.ckpt
 *.pth
 *.pt
+# Local database backups contain user data
+data/backups/
+
+# Browser test artifacts may contain fixture answers/tokens
+apps/frontend/test-results/
+apps/frontend/playwright-report/
+
+# Offline source extraction: large text, checkpoints and local OCR configuration
+data/knowledge-extraction/raw/
+data/knowledge-extraction/runs/
+data/knowledge-extraction/pages/
+knowledge_pipeline/.env
+.venv-extraction/
+# Source books stay local
+data/raw-source/
+
+# Local review packages duplicate source files and are not runtime inputs.
+/handoff/
+/handoff.zip

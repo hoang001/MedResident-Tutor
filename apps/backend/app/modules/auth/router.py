@@ -1,16 +1,44 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, Request, Response, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import Settings, get_settings
 from app.core.database import get_db
 from app.modules.auth.dependencies import CurrentUser
+from app.modules.auth.google import google_config, google_login
 from app.modules.auth.repository import UserRepository
-from app.modules.auth.schemas import LoginRequest, RegisterRequest, TokenResponse, UserResponse
+from app.modules.auth.schemas import (
+    GoogleLoginRequest,
+    LoginRequest,
+    RegisterRequest,
+    TokenResponse,
+    UserResponse,
+)
 from app.modules.auth.service import AuthService
 
 router = APIRouter(prefix="/auth", tags=["authentication"])
+
+
+@router.get("/google/config")
+async def google_configuration(
+    response: Response, settings: Annotated[Settings, Depends(get_settings)]
+):
+    return google_config(response, settings)
+
+
+@router.post("/google", response_model=TokenResponse)
+async def login_with_google(
+    data: GoogleLoginRequest,
+    request: Request,
+    response: Response,
+    session: Annotated[AsyncSession, Depends(get_db)],
+    settings: Annotated[Settings, Depends(get_settings)],
+):
+    token = await google_login(
+        data.credential, request, response, UserRepository(session), settings
+    )
+    return TokenResponse(access_token=token)
 
 
 def get_auth_service(

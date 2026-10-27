@@ -1,17 +1,35 @@
 import uuid
 from typing import Any
 
-from sqlalchemy import JSON, Boolean, Enum, Float, ForeignKey, Index, Integer, String, Text
+from sqlalchemy import (
+    JSON,
+    Boolean,
+    CheckConstraint,
+    Enum,
+    Float,
+    ForeignKey,
+    Index,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+    false,
+    text,
+)
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.common.enums import QuestionType
+from app.common.import_models import ImportIdentityMixin
 from app.common.models import TimestampMixin, UUIDPrimaryKeyMixin
 from app.core.database import Base
 
 
-class Question(UUIDPrimaryKeyMixin, TimestampMixin, Base):
+class Question(ImportIdentityMixin, UUIDPrimaryKeyMixin, TimestampMixin, Base):
     __tablename__ = "questions"
-    topic_id: Mapped[uuid.UUID] = mapped_column(
+    __table_args__ = (CheckConstraint("bank_version >= 1", name="ck_question_bank_version"),)
+    is_available: Mapped[bool] = mapped_column(Boolean, server_default=false(), default=False)
+    bank_version: Mapped[int] = mapped_column(Integer, server_default=text("1"), default=1)
+    topic_id: Mapped[uuid.UUID | None] = mapped_column(
         ForeignKey("topics.id", ondelete="CASCADE"), index=True
     )
     question_type: Mapped[QuestionType] = mapped_column(Enum(QuestionType))
@@ -33,7 +51,7 @@ class QuestionOption(UUIDPrimaryKeyMixin, Base):
     option_order: Mapped[int] = mapped_column(Integer)
 
 
-class Rubric(UUIDPrimaryKeyMixin, TimestampMixin, Base):
+class Rubric(ImportIdentityMixin, UUIDPrimaryKeyMixin, TimestampMixin, Base):
     __tablename__ = "rubrics"
     question_id: Mapped[uuid.UUID] = mapped_column(
         ForeignKey("questions.id", ondelete="CASCADE"), unique=True
@@ -42,10 +60,25 @@ class Rubric(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     max_score: Mapped[float] = mapped_column(Float)
 
 
-class RubricCriterion(UUIDPrimaryKeyMixin, Base):
+class RubricCriterion(ImportIdentityMixin, UUIDPrimaryKeyMixin, Base):
     __tablename__ = "rubric_criteria"
     rubric_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("rubrics.id", ondelete="CASCADE"))
     description: Mapped[str] = mapped_column(Text)
     score: Mapped[float] = mapped_column(Float)
     required_concepts: Mapped[list[Any] | None] = mapped_column(JSON)
     criterion_order: Mapped[int] = mapped_column(Integer)
+
+
+class RubricCriterionSourceUnit(Base):
+    __tablename__ = "rubric_criterion_source_units"
+    __table_args__ = (
+        UniqueConstraint("criterion_id", "evidence_order", name="uq_criterion_evidence_order"),
+        CheckConstraint("evidence_order >= 1", name="ck_criterion_evidence_order"),
+    )
+    criterion_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("rubric_criteria.id", ondelete="CASCADE"), primary_key=True
+    )
+    source_unit_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("source_units.id", ondelete="RESTRICT"), primary_key=True, index=True
+    )
+    evidence_order: Mapped[int] = mapped_column(Integer)

@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore", case_sensitive=False)
 
     app_name: str = "Medical Resident Learning Assistant"
+    seed_admin_email: str = ""
     app_env: str = "development"
     debug: bool = False
     api_v1_prefix: str = "/api/v1"
@@ -20,7 +21,15 @@ class Settings(BaseSettings):
     file_storage_path: Path = Path("data/uploads")
     max_upload_size_mb: int = Field(default=10, gt=0)
     llm_provider: str = "mock"
+    practice_provider: str = "mock"
+    practice_mock_scenario: str = "success"
+    practice_timeout_seconds: float = Field(default=30, gt=0, le=300)
+    medical_service_url: str = ""
+    teaching_service_url: str = ""
+    medical_service_api_key: str = Field(default="", repr=False)
+    teaching_service_api_key: str = Field(default="", repr=False)
     embedding_provider: str = "mock"
+    google_client_id: str = ""
 
     @field_validator("cors_origins", mode="before")
     @classmethod

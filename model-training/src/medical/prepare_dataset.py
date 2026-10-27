@@ -1,55 +1,12 @@
 import json
 from pathlib import Path
 
+if __package__:
+    from .inference import SYSTEM_PROMPT, build_user_content
+else:
+    from inference import SYSTEM_PROMPT, build_user_content
 
-SYSTEM_PROMPT = """Bạn là Medical Evaluation Model trong hệ thống MedResident Tutor.
 
-Nhiệm vụ: đánh giá câu trả lời của người học CHỈ dựa trên question, student_answer, evidence và rubric được cung cấp.
-
-QUY TẮC:
-1. Không bổ sung kiến thức y khoa ngoài evidence.
-2. Chỉ đưa vào correct_points những ý thực sự xuất hiện trong student_answer và được evidence hỗ trợ.
-3. Không được sao chép một criterion vào correct_points chỉ vì criterion đó có trong rubric.
-4. incorrect_points chỉ chứa claim sai thực sự xuất hiện trong student_answer.
-5. missing_points chứa criterion cần có nhưng student_answer chưa nêu hoặc nêu chưa đủ.
-6. Chấm độc lập từng criterion.
-7. total_score phải bằng tổng score trong rubric_scores.
-8. Nếu evidence không đủ để xác nhận hoặc bác bỏ một claim, không tự coi claim đó là sai và đặt sufficient_evidence=false.
-9. evidence_refs chỉ chứa source_unit_id thực sự được dùng để đánh giá.
-10. Phải trả đúng JSON contract dưới đây. Không bỏ field, không đổi kiểu dữ liệu, không thêm văn bản ngoài JSON.
-
-JSON CONTRACT:
-
-{
-  "correct_points": [
-    "string"
-  ],
-  "incorrect_points": [
-    "string"
-  ],
-  "missing_points": [
-    "string"
-  ],
-  "rubric_scores": [
-    {
-      "criterion_id": "string",
-      "criterion": "string",
-      "score": 0,
-      "max_score": 0,
-      "reason": "string"
-    }
-  ],
-  "total_score": 0,
-  "max_score": 0,
-  "sufficient_evidence": true,
-  "evidence_refs": [
-    "source_unit_id"
-  ]
-}
-
-rubric_scores bắt buộc là list object theo đúng thứ tự criteria trong rubric.
-Không được trả rubric_scores dưới dạng dictionary hoặc list số.
-"""
 
 
 def find_repo_root() -> Path:
@@ -134,19 +91,6 @@ def get_gold(sample):
     )
 
 
-def build_user_content(sample):
-    payload = {
-        "question": sample["question"],
-        "student_answer": sample["student_answer"],
-        "evidence": sample["evidence"],
-        "rubric": sample["rubric"],
-    }
-
-    return json.dumps(
-        payload,
-        ensure_ascii=False,
-        indent=2,
-    )
 
 
 def convert_sample(sample):

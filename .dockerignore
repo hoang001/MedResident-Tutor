@@ -1,0 +1,10 @@
+**
+!apps/
+!apps/backend/
+!apps/backend/**
+!model-training/
+!model-training/src/
+!model-training/src/**
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/

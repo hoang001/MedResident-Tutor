@@ -12,7 +12,13 @@ from httpx import ASGITransport, AsyncClient
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 import app.models  # noqa: F401, E402
+from app.core.config import get_settings  # noqa: E402
 from app.core.database import Base, get_db  # noqa: E402
+
+# Other test modules may have imported ORM/config first. Keep uploads in the
+# dedicated disposable test root instead of the real configured upload directory.
+get_settings.cache_clear()
+
 from app.main import app  # noqa: E402
 
 test_engine = create_async_engine(os.environ["DATABASE_URL"])

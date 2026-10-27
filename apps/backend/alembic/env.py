@@ -1,13 +1,14 @@
 import asyncio
 from logging.config import fileConfig
 
-from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 import app.models  # noqa: F401
+from alembic import context
 from app.core.config import get_settings
 from app.core.database import Base
+from app.integration.schema import assert_current_schema
 
 config = context.config
 config.set_main_option("sqlalchemy.url", get_settings().database_url)
@@ -31,7 +32,9 @@ def run_migrations_offline() -> None:
 def do_run_migrations(connection) -> None:
     context.configure(connection=connection, target_metadata=target_metadata, compare_type=True)
     with context.begin_transaction():
+        assert_current_schema(connection)
         context.run_migrations()
+        assert_current_schema(connection)
 
 
 async def run_async_migrations() -> None:
@@ -40,9 +43,11 @@ async def run_async_migrations() -> None:
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
-    async with connectable.connect() as connection:
-        await connection.run_sync(do_run_migrations)
-    await connectable.dispose()
+    try:
+        async with connectable.connect() as connection:
+            await connection.run_sync(do_run_migrations)
+    finally:
+        await connectable.dispose()
 
 
 if context.is_offline_mode():
