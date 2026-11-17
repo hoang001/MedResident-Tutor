@@ -149,6 +149,28 @@ async def test_invalid_response_is_not_mocked(raw):
         await client.medical_evaluate(PAYLOAD)
 
 
+@pytest.mark.parametrize(
+    "header,expected",
+    [
+        ("TEACHING_ALIGNMENT_INVALID", "TEACHING_ALIGNMENT_INVALID"),
+        ("private upstream message", None),
+        ("synthetic-only-api-key", None),
+    ],
+)
+async def test_safe_error_header_used_when_upstream_body_is_not_json(header, expected):
+    client = ModelServiceClient(
+        config(), transport=httpx.MockTransport(lambda _: httpx.Response(
+            502, text="<html>Bad gateway</html>",
+            headers={"X-Model-Error-Code": header},
+        )),
+    )
+    _, payload, _ = await outputs()
+    with pytest.raises(ModelServiceError) as caught:
+        await client.teaching_feedback(payload)
+    assert caught.value.upstream_status == 502
+    assert caught.value.upstream_code == expected
+
+
 async def test_teaching_cannot_return_scores_or_regrade():
     medical, payload, feedback = await outputs()
     invalid = {**feedback, "total_score": 9}

@@ -162,10 +162,39 @@ tail -n 100 /workspace/outputs/model-service.log
 
 ## Backend PC sau deployment
 
+### Đợt kiểm thử thật và chẩn đoán tiếp theo (17/11/2026)
+
+Sau đợt chuẩn bị bên dưới, backend PC đã được bật `runpod`/model calls để kiểm thử
+thật. Hai bài lâm sàng qua trình duyệt lưu Medical thành công nhưng Teaching trả
+HTTP 502; ca giao thức nhỏ độc lập thành công ở cả hai model. Chưa xác nhận luồng
+lâm sàng hoàn chỉnh. Không tự retry inference hoặc chuyển về mock.
+
+Service nay ghi log `model_request_failed` với stage, HTTP status, mã lỗi, phase,
+tên check thất bại và loại exception; không ghi payload, raw output hay exception
+message. JSON lỗi giữ nguyên contract, thêm header `X-Model-Error-Code` để backend
+đọc mã an toàn khi proxy không giữ JSON. Log này chỉ có sau khi pull và restart.
+
+Ví dụ dòng chẩn đoán (minh họa, không phải kết luận nguyên nhân lỗi thực tế):
+
+```text
+model_request_failed stage=TEACHING code=TEACHING_ALIGNMENT_INVALID http_status=502 phase=alignment_validation failed_checks=strengths_consistency error_type=-
+```
+
+Giữ nguyên prompt, adapters, generation và deterministic guards. Sau restart,
+chờ `/ready` HTTP 200 rồi thử một ca mới; nếu lỗi, lấy `tail` log như hướng dẫn trên.
+Artifacts kiểm thử riêng được giữ ở `data/authoring/runpod-live-e2e-20261117/`
+(ignored), gồm báo cáo, kết quả HTTP, audit và ảnh trình duyệt.
+
+Kiểm thử bản chẩn đoán: 94 service tests và 72 backend tests liên quan đều qua
+(166 tests; CPU/fake runners). Hai bài lâm sàng và ca giao thức nêu trên đã gọi
+model thật; kết quả đó được ghi riêng và không được tính là đã qua chỉ vì unit
+tests thành công.
+
 `.env` gốc trên PC giữ `RUNPOD_POD_ID=<ID hiện tại>`, `MODEL_SERVICE_BASE_URL=`
 và key chung. Chỉ sau hai endpoint đã được kiểm tra mới chủ động bật
 `PRACTICE_PROVIDER=runpod`, `MODEL_CALLS_ENABLED=true`, rồi recreate backend.
-Task này giữ nguyên mock/model calls false của web local.
+Đợt chuẩn bị ban đầu giữ mock/model calls false; đợt kiểm thử thật nêu trên đã bật
+runpod/model calls true theo yêu cầu chạy model thật.
 
 ## Kiểm thử và phạm vi thay đổi
 

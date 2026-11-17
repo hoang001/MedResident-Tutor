@@ -7,6 +7,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
 from .config import Settings, TeachingSettings
+from .errors import DiagnosticServiceError
 from .runner import PilotRunner, Runner
 from .teaching import TeachingRunner, validate_teaching_input, validate_teaching_output
 from .validation import ServiceError, validate_input, validate_output
@@ -75,8 +76,26 @@ def create_app(
     app = FastAPI(title="MedResident Medical and Teaching inference", lifespan=lifespan)
 
     @app.exception_handler(ServiceError)
-    async def service_error(_request, exc):
-        return JSONResponse(status_code=exc.status, content={"error": {"code": exc.code}})
+    async def service_error(request, exc):
+        stage = {
+            "/medical/evaluate": "MEDICAL", "/teaching/feedback": "TEACHING"
+        }.get(request.url.path)
+        if stage:
+            logger.warning(
+                "model_request_failed stage=%s code=%s http_status=%s "
+                "phase=%s failed_checks=%s error_type=%s",
+                stage,
+                exc.code,
+                exc.status,
+                getattr(exc, "phase", "request_or_output_validation"),
+                ",".join(getattr(exc, "failed_checks", ())) or "-",
+                getattr(exc, "error_type", None) or "-",
+            )
+        return JSONResponse(
+            status_code=exc.status,
+            content={"error": {"code": exc.code}},
+            headers={"X-Model-Error-Code": exc.code},
+        )
 
     @app.get("/health")
     async def health():
@@ -136,8 +155,10 @@ def create_app(
                 raise
             except ServiceError:
                 raise
-            except Exception:
-                raise ServiceError("INFERENCE_FAILED", 502) from None
+            except Exception as exc:
+                raise DiagnosticServiceError(
+                    "INFERENCE_FAILED", 502, phase="generation", error_type=type(exc).__name__
+                ) from None
             prediction = (
                 validate_output(result.text, validated)
                 if stage == "medical"

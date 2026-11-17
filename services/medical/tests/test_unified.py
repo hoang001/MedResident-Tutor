@@ -299,7 +299,7 @@ def test_production_factory_requires_teaching_and_one_key(settings, medical_outp
     "raw", ["private raw output", "```json\n{}\n```", '{"strengths":[],"strengths":[]}']
 )
 def test_teaching_http_never_returns_invalid_raw_generation(
-    settings, medical_output, teaching_input, teaching_output, raw
+    settings, medical_output, teaching_input, teaching_output, raw, caplog
 ):
     class RawTeaching(FakeRunner):
         def generate(self, payload):
@@ -315,7 +315,44 @@ def test_teaching_http_never_returns_invalid_raw_generation(
         assert response.status_code == 502
         assert set(response.json()) == {"error"}
         assert raw not in response.text and KEY not in response.text
+        assert response.headers["X-Model-Error-Code"] == response.json()["error"]["code"]
+        assert "stage=TEACHING" in caplog.text and "phase=json_parse" in caplog.text
+        assert raw not in caplog.text and KEY not in caplog.text
         assert teach.calls == 1
+
+
+def test_alignment_failure_logs_only_check_names(
+    settings, medical_output, teaching_input, teaching_output, caplog
+):
+    teaching_output["strengths"] = ["private unrelated model-generated information"]
+    with TestClient(create_app(
+        settings, FakeRunner(medical_output), teaching_runner=FakeRunner(teaching_output)
+    )) as client:
+        wait_ready(client)
+        response = client.post("/teaching/feedback", json=teaching_input, headers=HEADERS)
+        assert response.status_code == 502
+        assert response.json() == {"error": {"code": "TEACHING_ALIGNMENT_INVALID"}}
+    assert "phase=alignment_validation" in caplog.text
+    assert "strengths_consistency" in caplog.text
+    assert "private unrelated" not in caplog.text and KEY not in caplog.text
+
+
+def test_generation_failure_logs_type_without_exception_text(
+    settings, medical_output, teaching_input, teaching_output, caplog
+):
+    class BrokenTeaching(FakeRunner):
+        def generate(self, payload):
+            raise RuntimeError("private generation exception " + KEY)
+
+    with TestClient(create_app(
+        settings, FakeRunner(medical_output), teaching_runner=BrokenTeaching(teaching_output)
+    )) as client:
+        wait_ready(client)
+        response = client.post("/teaching/feedback", json=teaching_input, headers=HEADERS)
+        assert response.status_code == 502
+        assert response.json() == {"error": {"code": "INFERENCE_FAILED"}}
+    assert "phase=generation" in caplog.text and "error_type=RuntimeError" in caplog.text
+    assert "private generation" not in caplog.text and KEY not in caplog.text
 
 
 def test_model_load_error_log_does_not_contain_exception_or_key(

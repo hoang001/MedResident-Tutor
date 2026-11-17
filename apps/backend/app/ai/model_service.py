@@ -122,6 +122,14 @@ class ModelServiceClient:
                     upstream_code = candidate
             except (ValueError, TypeError, AttributeError, RecursionError):
                 pass
+            if not upstream_code:
+                candidate = response.headers.get("X-Model-Error-Code")
+                if (
+                    isinstance(candidate, str)
+                    and re.fullmatch(r"[A-Z][A-Z0-9_]{0,79}", candidate)
+                    and self._key not in candidate
+                ):
+                    upstream_code = candidate
             raise ModelServiceError(
                 code, status, upstream_status=response.status_code, upstream_code=upstream_code
             )

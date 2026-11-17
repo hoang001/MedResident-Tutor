@@ -14,6 +14,7 @@ from src.teaching.evaluate_baseline import MODEL_ID
 from src.teaching.prepare_dataset import SYSTEM_PROMPT
 from src.teaching.validate_dataset import contract_errors, input_errors, prediction_metrics, rules
 
+from .errors import DiagnosticServiceError
 from .runner import Generation, check_artifacts
 from .validation import ServiceError, strict_json
 
@@ -32,17 +33,35 @@ def validate_teaching_input(raw: bytes) -> dict:
 
 
 def validate_teaching_output(raw: str, payload: dict) -> dict:
+    phase = "json_parse"
     try:
         prediction = strict_json(raw)
+        phase = "schema_validation"
         if contract_errors(prediction):
-            raise ServiceError("TEACHING_OUTPUT_INVALID_SCHEMA", 502)
+            raise DiagnosticServiceError(
+                "TEACHING_OUTPUT_INVALID_SCHEMA", 502,
+                phase=phase,
+                failed_checks=("teaching_schema_v1",),
+            )
+        phase = "deterministic_guards"
         guarded = apply_teaching_guards(payload, prediction)
+        phase = "alignment_validation"
         metrics, errors = prediction_metrics(payload, guarded)
         if errors or not all(metrics.values()):
-            raise ServiceError("TEACHING_ALIGNMENT_INVALID", 502)
+            failed = [name for name, passed in metrics.items() if not passed]
+            if errors:
+                failed.append("validator_errors")
+            raise DiagnosticServiceError(
+                "TEACHING_ALIGNMENT_INVALID", 502, phase=phase, failed_checks=failed
+            )
         return guarded
-    except (ValueError, TypeError, KeyError, AttributeError, RecursionError):
-        raise ServiceError("TEACHING_OUTPUT_INVALID_JSON", 502) from None
+    except (ValueError, TypeError, KeyError, AttributeError, RecursionError) as exc:
+        raise DiagnosticServiceError(
+            "TEACHING_OUTPUT_INVALID_JSON", 502,
+            phase=phase,
+            failed_checks=("strict_json",) if phase == "json_parse" else ("validator_exception",),
+            error_type=type(exc).__name__,
+        ) from None
 
 
 class TeachingRunner:
