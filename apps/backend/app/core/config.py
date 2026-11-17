@@ -30,6 +30,11 @@ class Settings(BaseSettings):
     knowledge_data_root: Path = Path("data")
     knowledge_cache_seconds: float = Field(default=20, ge=0, le=300)
     practice_provider: str = "mock"
+    runpod_pod_id: str = ""
+    model_service_base_url: str = ""
+    model_service_api_key: str = Field(default="", repr=False)
+    model_service_connect_timeout_seconds: float = Field(default=10, gt=0, le=60)
+    model_service_read_timeout_seconds: float = Field(default=120, gt=0, le=1800)
     authoring_provider: Literal["off", "local_http", "service_http", "openai"] = "off"
     authoring_service_url: str = "http://host.docker.internal:8103"
     authoring_service_api_key: str = Field(default="", repr=False)
@@ -73,6 +78,13 @@ class Settings(BaseSettings):
     def practice_transport_timeouts(self, stage: str) -> dict[str, float]:
         if stage not in {"medical", "teaching"}:
             raise ValueError("Unknown practice stage")
+        if self.practice_provider == "runpod":
+            return dict(
+                connect=self.model_service_connect_timeout_seconds,
+                read=self.model_service_read_timeout_seconds,
+                write=10,
+                pool=5,
+            )
         if self.practice_runtime_profile == "local" and stage == "medical":
             return dict(
                 connect=self.practice_local_connect_seconds,
@@ -83,6 +95,8 @@ class Settings(BaseSettings):
         return dict.fromkeys(("connect", "read", "write", "pool"), self.practice_timeout_seconds)
 
     def practice_stage_deadline(self, stage: str) -> float:
+        if self.practice_provider == "runpod":
+            return sum(self.practice_transport_timeouts(stage).values()) + 5
         if self.practice_runtime_profile == "local" and stage == "medical":
             return (
                 sum(self.practice_transport_timeouts(stage).values())

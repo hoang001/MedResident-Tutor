@@ -1,4 +1,3 @@
-from .app import create_app
-from .config import Settings
+"""Default production entrypoint; use the same two-model app, never Medical-only."""
 
-app = create_app(Settings.from_env())
+from .unified import app as app

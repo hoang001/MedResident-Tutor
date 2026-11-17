@@ -1,0 +1,4 @@
+# RunPod startup scripts must remain executable by bash after a Windows checkout.
+services/medical/start-runpod.sh text eol=lf
+services/medical/runpod.env.example text eol=lf
+scripts/runpod/*.sh text eol=lf

@@ -47,10 +47,7 @@ async def test_upgrade_bank_preserves_legacy_question_snapshot_and_availability(
             )
         )
         await s.flush()
-        source = await s.scalar(
-            select(SourceUnit)
-            .where(SourceUnit.external_id == "FIXTURE_SU_A")
-        )
+        source = await s.scalar(select(SourceUnit).where(SourceUnit.external_id == "FIXTURE_SU_A"))
         s.add(
             RubricCriterionSourceUnit(criterion_id=cid, source_unit_id=source.id, evidence_order=1)
         )
@@ -91,9 +88,18 @@ async def test_upgrade_bank_preserves_legacy_question_snapshot_and_availability(
         assert after["is_available"] is True and after["bank_version"] == 1
         assert (
             await c.scalar(
-                text("SELECT to_jsonb(t)::text FROM practice_attempts t WHERE id=:id"), {"id": aid}
+                # Head adds nullable structured_result; preserve all original values.
+                text(
+                    "SELECT (to_jsonb(t) - 'structured_result')::text "
+                    "FROM practice_attempts t WHERE id=:id"
+                ),
+                {"id": aid},
             )
             == snapshot
+        )
+        assert await c.scalar(
+            text("SELECT structured_result IS NULL FROM practice_attempts WHERE id=:id"),
+            {"id": aid},
         )
         from app.integration.schema import assert_current_schema
 

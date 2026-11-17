@@ -1,5 +1,14 @@
 # Medical inference service (MVP, RunPod)
 
+**Production hai model:** pull GitHub rồi dùng `bash scripts/runpod/start_model_service.sh`
+từ repo gốc trên Pod. Xem [deploy qua GitHub](../../docs/runpod-github-deploy.md),
+[hướng dẫn unified](../../docs/unified-model-service.md) và
+[runpod.env.example](runpod.env.example). Entrypoint `medical_service.unified:app`
+nạp Medical + Teaching, một port 8000, `/ready` yêu cầu cả hai sẵn sàng.
+`medical_service.main:app` là alias của cùng app unified; cả hai entrypoint đều
+yêu cầu Teaching. Phần dưới mô tả chi tiết Medical, cần cấu hình thêm Teaching
+như hướng dẫn unified. Log mặc định: `/workspace/outputs/model-service.log`.
+
 Service riêng, không import backend nghiệp vụ, không đọc DB/dataset và không
 retrieval/orchestration. Chỉ nạp artifact local đã provision; không tải weights,
 không train hoặc đọc test split. Một worker, một generation; request thứ hai nhận
@@ -32,11 +41,11 @@ context cấu hình lẫn `model.config.max_position_embeddings`.
 Repo runtime đặt ở `/root/MedResident-Tutor`, không đặt Git repo vào Global Volume.
 
 1. **Base snapshot hoàn chỉnh** từ đúng model/version dùng pilot, ví dụ
-   `/workspace/models/Qwen3-4B-Instruct-2507`: config, generation_config,
+   `/workspace/models/qwen3-4b-instruct-2507`: config, generation_config,
    tokenizer_config, tokenizer.json/vocab/merges/special-token assets và tất cả
    weight shards cùng index. Đừng chỉ copy `config.json`.
 2. **Adapter Medical pilot cuối cùng**, ví dụ
-   `/workspace/adapters/medical-qwen3-pilot/adapter`: ít nhất
+   `/workspace/adapters/medical-v1`: ít nhất
    `adapter_config.json` và `adapter_model.safetensors`. Không dùng checkpoint
    smoke, Teaching adapter hoặc merged/base-only model. Repo evaluator mặc định
    tìm `model-training/outputs/medical-qwen3-pilot/adapter`, nhưng service chỉ dùng
@@ -44,19 +53,20 @@ Repo runtime đặt ở `/root/MedResident-Tutor`, không đặt Git repo vào G
 3. Giữ báo cáo training/validation và manifest/checksum của lần pilot đã chốt
    để đối chiếu nguồn gốc artifact. Service không cần mở báo cáo hay dataset này.
 4. Chuyển cả code service `services/medical` và module dùng chung
-   `model-training/src/medical/inference.py` (cùng package `src/medical`) sang repo
-   runtime. Các thay đổi hiện chưa commit/push; một checkout Git cũ chưa có module
-   này. Không cần chuyển locked test hoặc dataset để chạy service.
+   hai package `model-training/src/medical` và `model-training/src/teaching` sang
+   repo runtime. Một checkout Git cũ có thể chưa có service unified/bootstrap;
+   dùng đúng code đã triển khai. Không cần chuyển locked datasets để serving.
 
 Xác nhận adapter bằng provenance của lần pilot, rồi ghi checksum từ **bản đã
 chốt đó** vào cấu hình deployment. Tính lại SHA-256 sau khi copy để so khớp.
 Không lấy hash từ một thư mục bất kỳ rồi coi đó là chứng minh đúng pilot.
 Service kiểm tra base ID trong adapter_config, PEFT LORA/CAUSAL_LM, hash weights
-adapter, hash adapter_config và hash base config; không fallback nếu sai/thiếu.
+adapter, hash adapter_config và hash base config. Hash được pin mà sai sẽ bị từ chối;
+hash chưa đặt được startup tính từ file local. Không fallback model.
 Hash base config không thay thế việc xác minh toàn bộ snapshot weights/tokenizer
 ở bước provision. Tên thư mục và `model_selection.json` không chứng minh pilot
-đã hoàn tất. Hiện repo local không có weights/hash của adapter đã chốt để tự xác
-nhận thay người vận hành. Không chỉnh artifacts trong khi service đang load/chạy.
+đã hoàn tất. Hash vừa tính là inventory; cần so với manifest V1 đã xác nhận.
+Không chỉnh artifacts trong khi service đang load/chạy.
 
 ## Biến môi trường
 
@@ -66,45 +76,37 @@ Không sửa `.env` backend để cấu hình service này. Service đọc proce
 |---|---|
 | `MEDICAL_BASE_MODEL_PATH` | Có; thư mục base local, đường dẫn tuyệt đối |
 | `MEDICAL_ADAPTER_PATH` | Có; thư mục adapter local, đường dẫn tuyệt đối |
-| `MEDICAL_ADAPTER_SHA256` | Có; SHA-256 `adapter_model.safetensors` của pilot chốt |
-| `MEDICAL_ADAPTER_CONFIG_SHA256` | Có; SHA-256 `adapter_config.json` tương ứng |
-| `MEDICAL_BASE_CONFIG_SHA256` | Có; SHA-256 base `config.json` đã xác nhận |
-| `MEDICAL_API_KEY` | Có; ít nhất 16 ký tự, lấy từ secret environment; không commit/log |
+| `MEDICAL_ADAPTER_SHA256` | Pin tùy chọn; nếu chưa đặt, startup tính từ weights |
+| `MEDICAL_ADAPTER_CONFIG_SHA256` | Pin tùy chọn; nếu chưa đặt, startup tính từ adapter config |
+| `MEDICAL_BASE_CONFIG_SHA256` | Pin tùy chọn; nếu chưa đặt, startup tính từ base config |
+| `MODEL_SERVICE_API_KEY` | Key chung cho cả hai model; ưu tiên hơn MEDICAL_API_KEY |
+| `MEDICAL_API_KEY` | Chỉ dùng khi MODEL_SERVICE_API_KEY chưa đặt/rỗng; không tạo key Teaching |
 | `MEDICAL_MAX_BODY_BYTES` | Mặc định 262144 (256 KiB) |
 | `MEDICAL_MAX_INPUT_TOKENS` | Mặc định 4096, tính sau chat template |
 | `MEDICAL_MAX_CONTEXT_TOKENS` | Mặc định 8192; vẫn bị chặn bởi context thật của model |
 | `WEB_CONCURRENCY` | Chỉ dùng 1; lệnh chạy cũng phải `--workers 1` |
 
 Service tự bật HF_HUB_OFFLINE/TRANSFORMERS_OFFLINE và `local_files_only=True`.
-Thiếu env bắt buộc: tiến trình từ chối startup với tên biến, không in giá trị.
-Thiếu/sai artifact hoặc lỗi load: `/health` vẫn 200, `/ready` 503 với code; nạp lại
-cần restart có chủ đích, không tự reload/fallback. Trong lúc load, `/ready` báo
+Preflight sai env/hash: tiến trình từ chối startup với mã lỗi từng model, không in key.
+Sau preflight, trong lúc nạp GPU hoặc khi load lỗi: `/health` 200, `/ready` 503;
+nạp lại cần restart có chủ đích, không tự reload/fallback. Trong lúc load, `/ready` báo
 `MODEL_LOADING`. Không dùng nhiều worker/process cùng GPU này.
 
 ## Chạy trên RunPod — CHƯA thực thi ở bước triển khai này
 
-Thư mục chạy: `/root/MedResident-Tutor/services/medical`. Dùng môi trường CUDA
+Thư mục chạy: `/root/MedResident-Tutor`. Dùng môi trường CUDA
 của pilot hoặc venv riêng kế thừa bản CUDA PyTorch đó. Không tự nâng cấp torch.
 `requirements-gpu.txt` giữ đúng các version ghi trong `run.md`:
 transformers 4.57.6, peft 0.21.2, accelerate 1.15.0, bitsandbytes 0.50.2.
 Đây là pin từ repo, chưa phải xác minh package thực tế của RunPod/pilot từ xa.
 
 ```bash
-cd /root/MedResident-Tutor/services/medical
-python -m venv --system-site-packages /root/medical-serving-venv
-source /root/medical-serving-venv/bin/activate
-python -m pip install -e .
-# Chỉ cài GPU dependencies nếu môi trường chưa có đúng bản pilot:
-python -m pip install -r requirements-gpu.txt
-
-export PYTHONPATH="/root/MedResident-Tutor/model-training${PYTHONPATH:+:$PYTHONPATH}"
-export MEDICAL_BASE_MODEL_PATH=/workspace/models/Qwen3-4B-Instruct-2507
-export MEDICAL_ADAPTER_PATH=/workspace/adapters/medical-qwen3-pilot/adapter
-# Cấp ba MEDICAL_*SHA256 từ manifest artifact pilot đã xác nhận.
-# Cấp MEDICAL_API_KEY qua secret environment; không hardcode vào script/repo.
-export WEB_CONCURRENCY=1
-python -m uvicorn medical_service.main:app --host 0.0.0.0 --port 8001 \
-  --workers 1 --no-access-log
+cd /root/MedResident-Tutor
+# Sau khi provision dependencies, bốn artifact directories và file secret/hash.
+bash services/medical/start-runpod.sh --print-hashes
+bash services/medical/start-runpod.sh --check-only
+# Một lệnh khởi động cả Medical và Teaching, cùng port 8000.
+bash services/medical/start-runpod.sh
 ```
 
 Chưa thực hiện pip install GPU dependencies, download, upload hoặc GPU inference
@@ -114,9 +116,10 @@ quản lý; API key gửi trong header `X-API-Key`, không đặt trong URL.
 ## HTTP contract
 
 - `GET /health` public: `200 {"status":"healthy"}` — liveness, không chứng minh GPU ready.
-- `GET /ready` public: `200 {"status":"ready"}` chỉ sau khi base + adapter load thành công;
+- `GET /ready` public: `200 {"status":"ready"}` chỉ khi cả Medical + Teaching load thành công;
   chưa sẵn sàng trả 503 `{"error":{"code":"..."}}`.
 - `POST /medical/evaluate`: `Content-Type: application/json`, header `X-API-Key`.
+- `POST /teaching/feedback`: cùng key, JSON contract Teaching V1; không evidence/regrading/score output.
 
 Ví dụ request **tổng hợp**, không phải dữ liệu y khoa/gold:
 

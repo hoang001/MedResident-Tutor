@@ -156,7 +156,7 @@ Confirm course syllabi and source/expert-review scope, then validate the configu
 
 ## Current workspace and deployment
 
-The student workspace includes exercise search, answering, source-linked results and saved history; administrators can author against excerpts, save drafts and publish separately. See the [UI handoff](docs/ui/ui-completion-report.md), [design system](docs/ui/design-system.md) and [RunPod model configuration](docs/runpod-model-api.md).
+The student workspace includes exercise search, answering, source-linked results and saved history; administrators can author against excerpts, save drafts and publish separately. See the [UI handoff](docs/ui/ui-completion-report.md), [design system](docs/ui/design-system.md), [RunPod model configuration](docs/runpod-model-api.md) and [GitHub-based RunPod deployment](docs/runpod-github-deploy.md).
 
 Create a local `.env` from `.env.example` and replace its credential placeholders. Source books, teacher materials, model/adapter weights, database contents and generated evidence/benchmark artifacts stay local. Cloning this repository does not restore the current learning database or Neo4j data; see [publication and data boundaries](docs/github-publication.md).
 

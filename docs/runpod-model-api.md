@@ -1,5 +1,17 @@
 # Gọi model trên RunPod từ MedResident-Tutor
 
+Deploy từ GitHub, bootstrap và các lệnh startup/curl một dòng:
+[runpod-github-deploy.md](runpod-github-deploy.md).
+
+**Luồng một service cho cả Medical và Teaching:** xem
+[unified-model-service.md](unified-model-service.md). Dùng `PRACTICE_PROVIDER=runpod`,
+nhóm biến `MODEL_SERVICE_*`, `/medical/evaluate` và `/teaching/feedback` cùng port
+8000. Các cấu hình OpenAI/per-model phía dưới thuộc provider `http` legacy.
+
+Với provider `runpod`, có thể chỉ đặt `RUNPOD_POD_ID=<ID>` và để trống
+`MODEL_SERVICE_BASE_URL`; backend sẽ ghép URL proxy port 8000. URL đầy đủ nếu điền
+vẫn được ưu tiên. Sau khi đổi ID trong `.env`, recreate container backend.
+
 Backend local giữ PostgreSQL, Neo4j, gói chấm và kiểm tra quyền. RunPod phục vụ inference. Không cần chuyển database hoặc toàn bộ sách lên Pod để chấm câu có approved_package; request Medical vẫn chứa đúng evidence của revision.
 
 ## File cấu hình thực tế

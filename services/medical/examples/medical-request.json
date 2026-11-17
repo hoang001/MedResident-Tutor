@@ -1,0 +1,26 @@
+{
+  "question": "Synthetic protocol check: what is the alpha label?",
+  "student_answer": "The alpha label is Alpha.",
+  "rubric": {
+    "rubric_id": "SYNTHETIC_R",
+    "max_score": 1,
+    "criteria": [
+      {
+        "criterion_id": "SYNTHETIC_C",
+        "description": "Identify the alpha label as Alpha.",
+        "max_score": 1,
+        "required_source_unit_ids": ["SYNTHETIC_SU"]
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "source_unit_id": "SYNTHETIC_SU",
+      "source_id": "SYNTHETIC_SOURCE",
+      "title": "Synthetic protocol fixture, not clinical material",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "The alpha label is Alpha."
+    }
+  ]
+}

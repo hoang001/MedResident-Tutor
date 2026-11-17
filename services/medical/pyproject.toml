@@ -2,7 +2,7 @@
 name = "medresident-medical-service"
 version = "0.1.0"
 requires-python = ">=3.12"
-dependencies = ["fastapi>=0.116,<0.117", "uvicorn[standard]>=0.35,<0.36"]
+dependencies = ["fastapi>=0.116,<0.117", "uvicorn[standard]>=0.35,<0.36", "pydantic>=2.11,<3"]
 
 [project.optional-dependencies]
 test = ["pytest>=8.4,<8.5", "httpx>=0.28,<0.29"]

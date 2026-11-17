@@ -1,11 +1,15 @@
 # Luồng luyện tập local
 
+Luồng RunPod một service cho Medical + Teaching và lệnh kiểm tra readiness mới:
+[unified-model-service.md](unified-model-service.md). Provider `runpod` được bật
+tường minh; lỗi service không tự chuyển sang mock.
+
 Kiểm chứng mới cho câu hỏi sách: [retrieval → Medical ngày 11/11/2026](retrieval-medical-integration-20261111.md). Retrieval mặc định vẫn là `prelinked`; cấu hình `hybrid`/`vector` được kiểm tra trong backend riêng, không tự chuyển provider của web chính.
 
 Luồng học không cần model và các trang mới được mô tả tại
-[Không gian học tập](study-workspace.md). Compose hiện cố định
-`MODEL_CALLS_ENABLED=false`; cấu hình HTTP bên dưới chỉ hoạt động sau khi chủ động
-thay đổi chốt này trong một cấu hình triển khai được kiểm tra riêng.
+[Không gian học tập](study-workspace.md). Compose đọc `MODEL_CALLS_ENABLED` từ
+`.env`/terminal, mặc định `false`; cấu hình HTTP bên dưới chỉ hoạt động sau khi
+chủ động bật chốt này và chọn đúng provider.
 
 Từ thư mục repo `C:\WORKS\STUDY\MedResident-Tutor` (PowerShell, Docker Desktop đang chạy):
 

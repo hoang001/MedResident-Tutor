@@ -245,6 +245,10 @@ async def submit(
             )
         snapshot = {"payload": payload, "provenance": provenance}
         snapshot["retrieval"] = retrieval_trace
+        if mode == "http":
+            # Freeze only this learner's completed real-provider history. Retries use
+            # the same context; mock/structured scores never become model context.
+            snapshot["learner_context"] = await learner_context(session, user_id)
         if approved:
             snapshot["approved_package"] = {k: v for k, v in approved.items() if k != "payload"}
             snapshot["question_version"] = approved["question_version"]
@@ -297,14 +301,52 @@ async def submit(
         return prior.id, False
 
 
-def teaching_payload(payload, medical):
-    # No learner state is inferred; taxonomy remains explicitly unverified.
+async def learner_context(session, user_id):
+    recent = (
+        await session.scalars(
+            select(PracticeAttempt)
+            .where(
+                PracticeAttempt.user_id == user_id,
+                PracticeAttempt.execution_mode == "http",
+                PracticeAttempt.status == "completed",
+                PracticeAttempt.medical_evaluation.is_not(None),
+            )
+            .order_by(PracticeAttempt.created_at.desc(), PracticeAttempt.id.desc())
+            .limit(5)
+        )
+    ).all()
+    # Counts are observed history, not inferred mastery or new clinical claims.
+    summary = [
+        {
+            "correct_points_count": len(r.medical_evaluation.get("correct_points", [])),
+            "incorrect_points_count": len(r.medical_evaluation.get("incorrect_points", [])),
+            "missing_points_count": len(r.medical_evaluation.get("missing_points", [])),
+        }
+        for r in recent
+    ]
+    return {
+        "mastery": [],
+        "recurring_errors": [],
+        "recent_improvements": [],
+        "recent_attempts_summary": (
+            "Prior completed real-provider practice (newest first; counts only, not mastery): "
+            + json.dumps(summary, separators=(",", ":"))
+            if summary
+            else None
+        ),
+    }
+
+
+def teaching_payload(payload, medical, context=None):
+    # No mastery is inferred; taxonomy remains explicitly unverified.
     return {
         "schema_version": "1.0.0",
         "question": payload["question"],
         "student_answer": payload["student_answer"],
         "medical_evaluation": medical,
-        "learner_context": {
+        "learner_context": context
+        if context is not None
+        else {
             "mastery": [],
             "recurring_errors": [],
             "recent_improvements": [],
@@ -358,7 +400,11 @@ async def process(factory, user_id, attempt_id, provider, timeout, retry=False):
             stage_timeout = timeout(stage) if callable(timeout) else timeout
             payload = row.snapshot["payload"]
             stage_payload = (
-                payload if stage == "medical" else teaching_payload(payload, row.medical_evaluation)
+                payload
+                if stage == "medical"
+                else teaching_payload(
+                    payload, row.medical_evaluation, row.snapshot.get("learner_context")
+                )
             )
             row.status = stage + "_running"
             row.claim_token = token
@@ -384,12 +430,21 @@ async def process(factory, user_id, attempt_id, provider, timeout, retry=False):
             json.dumps(metadata, allow_nan=False)
             error = None
         except TimeoutError:
-            error = {"stage": stage, "code": "PROVIDER_TIMEOUT"}
+            error = {
+                "stage": stage,
+                "code": "MODEL_SERVICE_TIMEOUT"
+                if getattr(provider, "client", None)
+                else "PROVIDER_TIMEOUT",
+            }
         except Exception as exc:
             error = {
                 "stage": stage,
                 "code": exc.code if isinstance(exc, ServiceError) else "PROVIDER_OUTPUT_INVALID",
             }
+            if getattr(exc, "upstream_status", None) is not None:
+                error["upstream_http_status"] = exc.upstream_status
+            if getattr(exc, "upstream_code", None):
+                error["upstream_code"] = exc.upstream_code
         async with factory() as session, session.begin():
             row = await owned(session, user_id, attempt_id, lock=True)
             if row.claim_token != token:

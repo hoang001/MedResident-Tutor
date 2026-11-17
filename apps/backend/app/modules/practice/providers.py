@@ -165,6 +165,34 @@ class HTTPProvider:
         self.request_id = str(uuid.UUID(trace["trace_id"]))
 
 
+class RunPodProvider:
+    # Keep the existing DB execution mode; provider identity is recorded separately.
+    mode = "http"
+
+    def __init__(self, settings):
+        from app.ai.model_service import ModelServiceClient
+
+        self.client = ModelServiceClient(settings)
+        self.request_id = None
+
+    def set_retrieval_context(self, trace):
+        self.request_id = str(uuid.UUID(trace["trace_id"]))
+
+    async def evaluate(self, stage, payload, retry=False):
+        if stage not in {"medical", "teaching"}:
+            raise ServiceError("HTTP_STAGE_NOT_CONFIGURED", 503)
+        evaluate = (
+            self.client.medical_evaluate if stage == "medical" else self.client.teaching_feedback
+        )
+        result = await evaluate(payload, request_id=self.request_id or str(uuid.uuid4()))
+        return result.value, {
+            "execution_mode": "http",
+            "provider": "runpod",
+            "model_metadata": result.model_metadata,
+            "timing": result.timing,
+        }
+
+
 def get_provider(settings):
     if settings.practice_provider != "mock" and not settings.model_calls_enabled:
         raise ServiceError("MODEL_CALLS_DISABLED", 503)
@@ -174,4 +202,6 @@ def get_provider(settings):
         return MockProvider(settings.practice_mock_scenario)
     if settings.practice_provider == "http":
         return HTTPProvider(settings)
+    if settings.practice_provider == "runpod":
+        return RunPodProvider(settings)
     raise ServiceError("UNKNOWN_PROVIDER", 503)

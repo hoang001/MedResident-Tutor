@@ -26,7 +26,16 @@ def sha256(path):
     return h.hexdigest()
 
 
-def check_artifacts(settings):
+def check_artifacts(
+    settings,
+    *,
+    model_id=MODEL_ID,
+    model_type="qwen3",
+    adapter_id="medical-qwen3-pilot",
+    system_prompt=SYSTEM_PROMPT,
+    max_new_tokens=MAX_NEW_TOKENS,
+    prompt_id="medical-pilot-original",
+):
     base, adapter = settings.base_path, settings.adapter_path
     for directory, code in (
         (base, "BASE_DIRECTORY_MISSING"),
@@ -56,22 +65,22 @@ def check_artifacts(settings):
     except (ValueError, UnicodeError):
         raise ServiceError("ARTIFACT_CONFIG_INVALID", 503) from None
     if (
-        config.get("base_model_name_or_path") != MODEL_ID
+        config.get("base_model_name_or_path") != model_id
         or config.get("peft_type") != "LORA"
         or config.get("task_type") != "CAUSAL_LM"
     ):
         raise ServiceError("ADAPTER_IDENTITY_MISMATCH", 503)
-    if base_config.get("model_type") != "qwen3":
+    if base_config.get("model_type") != model_type:
         raise ServiceError("BASE_IDENTITY_MISMATCH", 503)
     return {
-        "model_id": MODEL_ID,
+        "model_id": model_id,
         "base_config_sha256": settings.base_config_sha256,
-        "adapter_id": "medical-qwen3-pilot",
+        "adapter_id": adapter_id,
         "adapter_sha256": settings.adapter_sha256,
         "adapter_config_sha256": settings.adapter_config_sha256,
         "service_version": "0.1.0",
-        "prompt_id": "medical-pilot-original",
-        "system_prompt_sha256": hashlib.sha256(SYSTEM_PROMPT.encode("utf-8")).hexdigest(),
+        "prompt_id": prompt_id,
+        "system_prompt_sha256": hashlib.sha256(system_prompt.encode("utf-8")).hexdigest(),
         "quantization": {
             "load_in_4bit": True,
             "quant_type": "nf4",
@@ -79,7 +88,7 @@ def check_artifacts(settings):
             "compute_dtype": "float16",
         },
         "generation": {
-            "max_new_tokens": MAX_NEW_TOKENS,
+            "max_new_tokens": max_new_tokens,
             "do_sample": False,
             "temperature": None,
             "top_p": None,
