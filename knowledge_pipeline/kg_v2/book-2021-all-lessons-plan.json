@@ -1,0 +1,2247 @@
+{
+  "book": "Bệnh học ngoại khoa – Chấn thương chỉnh hình",
+  "publication_year": 2021,
+  "source_id": "SRC_ORTHO_TEXTBOOK_001",
+  "ocr_input": "data/graduate/DVC.005844.json",
+  "source_sha256": "a3c48d00ef2b3f38d5003f8ed4c7b662e9c141178aa92a13f4004f39463271d0",
+  "chapters": [
+    {
+      "lesson_number": 1,
+      "title": "Điều trị bảo tồn gãy xương chi",
+      "pdf_pages": {
+        "start": 8,
+        "end": 22
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 17,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 2,
+      "title": "Điều trị phẫu thuật gãy xương bằng kết hợp xương bên trong",
+      "pdf_pages": {
+        "start": 23,
+        "end": 39
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 19,
+      "shards": 7,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 3,
+      "title": "Điều trị phẫu thuật gãy xương bằng khung cố định ngoài",
+      "pdf_pages": {
+        "start": 40,
+        "end": 54
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 15,
+      "shards": 5,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 4,
+      "title": "Hội chứng chèn ép khoang cấp tính",
+      "pdf_pages": {
+        "start": 55,
+        "end": 65
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 13,
+      "shards": 5,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 5,
+      "title": "Gãy xương hở",
+      "pdf_pages": {
+        "start": 66,
+        "end": 78
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 18,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": true
+    },
+    {
+      "lesson_number": 6,
+      "title": "Điều trị vết thương khớp",
+      "pdf_pages": {
+        "start": 79,
+        "end": 90
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 19,
+      "shards": 7,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 7,
+      "title": "Vết thương phần mềm",
+      "pdf_pages": {
+        "start": 91,
+        "end": 101
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 16,
+      "shards": 6,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 8,
+      "title": "Uốn ván",
+      "pdf_pages": {
+        "start": 102,
+        "end": 110
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 23,
+      "shards": 10,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 9,
+      "title": "Hoại thư sinh hơi",
+      "pdf_pages": {
+        "start": 111,
+        "end": 116
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 10,
+      "shards": 4,
+      "objective_units": 1,
+      "question_units": 0,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 10,
+      "title": "Điều trị bỏng",
+      "pdf_pages": {
+        "start": 117,
+        "end": 129
+      },
+      "source_opening_missing": true,
+      "context_from_toc": true,
+      "generation_status": "scheduled",
+      "windows": 19,
+      "shards": 7,
+      "objective_units": 0,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 11,
+      "title": "Đại cương u xương",
+      "pdf_pages": {
+        "start": 130,
+        "end": 148
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 17,
+      "shards": 10,
+      "objective_units": 1,
+      "question_units": 0,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 12,
+      "title": "Đại cương dị tật chi trên",
+      "pdf_pages": {
+        "start": 149,
+        "end": 165
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 22,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 13,
+      "title": "Đại cương dị tật chi dưới",
+      "pdf_pages": {
+        "start": 166,
+        "end": 180
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 19,
+      "shards": 7,
+      "objective_units": 1,
+      "question_units": 0,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 14,
+      "title": "Viêm xương tủy",
+      "pdf_pages": {
+        "start": 181,
+        "end": 194
+      },
+      "source_opening_missing": true,
+      "context_from_toc": true,
+      "generation_status": "scheduled",
+      "windows": 21,
+      "shards": 7,
+      "objective_units": 0,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 15,
+      "title": "Điều trị chấn thương cột sống cổ thấp",
+      "pdf_pages": {
+        "start": 195,
+        "end": 212
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 19,
+      "shards": 12,
+      "objective_units": 1,
+      "question_units": 0,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 16,
+      "title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao",
+      "pdf_pages": {
+        "start": 213,
+        "end": 226
+      },
+      "source_opening_missing": true,
+      "context_from_toc": true,
+      "generation_status": "scheduled",
+      "windows": 19,
+      "shards": 7,
+      "objective_units": 0,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 17,
+      "title": "Điều trị chấn thương cột sống ngực thắt lưng",
+      "pdf_pages": {
+        "start": 227,
+        "end": 244
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 22,
+      "shards": 11,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 18,
+      "title": "Điều trị gãy xương đòn",
+      "pdf_pages": {
+        "start": 245,
+        "end": 253
+      },
+      "source_opening_missing": true,
+      "context_from_toc": true,
+      "generation_status": "scheduled",
+      "windows": 16,
+      "shards": 6,
+      "objective_units": 0,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 19,
+      "title": "Điều trị trật khớp vai",
+      "pdf_pages": {
+        "start": 254,
+        "end": 269
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 24,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": true
+    },
+    {
+      "lesson_number": 20,
+      "title": "Điều trị gãy cổ xương cánh tay",
+      "pdf_pages": {
+        "start": 270,
+        "end": 280
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 25,
+      "shards": 10,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 21,
+      "title": "Điều trị gãy thân xương cánh tay",
+      "pdf_pages": {
+        "start": 281,
+        "end": 296
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 14,
+      "shards": 5,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 22,
+      "title": "Gãy trên lồi cầu xương cánh tay ở trẻ em",
+      "pdf_pages": {
+        "start": 297,
+        "end": 311
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 20,
+      "shards": 7,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 23,
+      "title": "Điều trị trật khớp khuỷu",
+      "pdf_pages": {
+        "start": 312,
+        "end": 324
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 22,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 24,
+      "title": "Điều trị gãy mỏm khuỷu",
+      "pdf_pages": {
+        "start": 325,
+        "end": 337
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 16,
+      "shards": 6,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 25,
+      "title": "Điều trị gãy hai xương cẳng tay",
+      "pdf_pages": {
+        "start": 338,
+        "end": 353
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 20,
+      "shards": 7,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 26,
+      "title": "Điều trị gãy đầu dưới xương quay",
+      "pdf_pages": {
+        "start": 354,
+        "end": 368
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 18,
+      "shards": 6,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 27,
+      "title": "Vết thương bàn tay",
+      "pdf_pages": {
+        "start": 369,
+        "end": 381
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 16,
+      "shards": 6,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 28,
+      "title": "Điều trị nhiễm trùng bàn tay",
+      "pdf_pages": {
+        "start": 382,
+        "end": 404
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 24,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 29,
+      "title": "Điều trị gãy xương chậu",
+      "pdf_pages": {
+        "start": 405,
+        "end": 422
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 25,
+      "shards": 9,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 30,
+      "title": "Điều trị trật khớp háng",
+      "pdf_pages": {
+        "start": 423,
+        "end": 440
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 23,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 31,
+      "title": "Điều trị gãy cổ xương đùi",
+      "pdf_pages": {
+        "start": 441,
+        "end": 458
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 22,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 32,
+      "title": "Điều trị gãy thân xương đùi",
+      "pdf_pages": {
+        "start": 459,
+        "end": 474
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 19,
+      "shards": 7,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 33,
+      "title": "Điều trị trật khớp gối cấp tính",
+      "pdf_pages": {
+        "start": 475,
+        "end": 489
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 20,
+      "shards": 7,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 34,
+      "title": "Điều trị gãy xương bánh chè",
+      "pdf_pages": {
+        "start": 490,
+        "end": 503
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 22,
+      "shards": 8,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 35,
+      "title": "Điều trị gãy mâm chày",
+      "pdf_pages": {
+        "start": 504,
+        "end": 515
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 13,
+      "shards": 5,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    },
+    {
+      "lesson_number": 36,
+      "title": "Điều trị gãy hai xương cẳng chân",
+      "pdf_pages": {
+        "start": 516,
+        "end": 531
+      },
+      "source_opening_missing": false,
+      "context_from_toc": false,
+      "generation_status": "scheduled",
+      "windows": 18,
+      "shards": 7,
+      "objective_units": 1,
+      "question_units": 1,
+      "answer_units": 0,
+      "partial_earlier_trial": false
+    }
+  ],
+  "shards": [
+    {
+      "key": "bai-01-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-01-nhom-01.json",
+      "lesson_number": 1,
+      "lesson_title": "Điều trị bảo tồn gãy xương chi"
+    },
+    {
+      "key": "bai-01-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-01-nhom-02.json",
+      "lesson_number": 1,
+      "lesson_title": "Điều trị bảo tồn gãy xương chi"
+    },
+    {
+      "key": "bai-01-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-01-nhom-03.json",
+      "lesson_number": 1,
+      "lesson_title": "Điều trị bảo tồn gãy xương chi"
+    },
+    {
+      "key": "bai-01-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-01-nhom-04.json",
+      "lesson_number": 1,
+      "lesson_title": "Điều trị bảo tồn gãy xương chi"
+    },
+    {
+      "key": "bai-01-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-01-nhom-05.json",
+      "lesson_number": 1,
+      "lesson_title": "Điều trị bảo tồn gãy xương chi"
+    },
+    {
+      "key": "bai-01-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-01-nhom-06.json",
+      "lesson_number": 1,
+      "lesson_title": "Điều trị bảo tồn gãy xương chi"
+    },
+    {
+      "key": "bai-01-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-01-nhom-07.json",
+      "lesson_number": 1,
+      "lesson_title": "Điều trị bảo tồn gãy xương chi"
+    },
+    {
+      "key": "bai-01-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-01-nhom-08.json",
+      "lesson_number": 1,
+      "lesson_title": "Điều trị bảo tồn gãy xương chi"
+    },
+    {
+      "key": "bai-02-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-02-nhom-01.json",
+      "lesson_number": 2,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng kết hợp xương bên trong"
+    },
+    {
+      "key": "bai-02-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-02-nhom-02.json",
+      "lesson_number": 2,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng kết hợp xương bên trong"
+    },
+    {
+      "key": "bai-02-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-02-nhom-03.json",
+      "lesson_number": 2,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng kết hợp xương bên trong"
+    },
+    {
+      "key": "bai-02-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-02-nhom-04.json",
+      "lesson_number": 2,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng kết hợp xương bên trong"
+    },
+    {
+      "key": "bai-02-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-02-nhom-05.json",
+      "lesson_number": 2,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng kết hợp xương bên trong"
+    },
+    {
+      "key": "bai-02-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-02-nhom-06.json",
+      "lesson_number": 2,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng kết hợp xương bên trong"
+    },
+    {
+      "key": "bai-02-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-02-nhom-07.json",
+      "lesson_number": 2,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng kết hợp xương bên trong"
+    },
+    {
+      "key": "bai-03-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-03-nhom-01.json",
+      "lesson_number": 3,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng khung cố định ngoài"
+    },
+    {
+      "key": "bai-03-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-03-nhom-02.json",
+      "lesson_number": 3,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng khung cố định ngoài"
+    },
+    {
+      "key": "bai-03-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-03-nhom-03.json",
+      "lesson_number": 3,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng khung cố định ngoài"
+    },
+    {
+      "key": "bai-03-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-03-nhom-04.json",
+      "lesson_number": 3,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng khung cố định ngoài"
+    },
+    {
+      "key": "bai-03-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-03-nhom-05.json",
+      "lesson_number": 3,
+      "lesson_title": "Điều trị phẫu thuật gãy xương bằng khung cố định ngoài"
+    },
+    {
+      "key": "bai-04-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-04-nhom-01.json",
+      "lesson_number": 4,
+      "lesson_title": "Hội chứng chèn ép khoang cấp tính"
+    },
+    {
+      "key": "bai-04-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-04-nhom-02.json",
+      "lesson_number": 4,
+      "lesson_title": "Hội chứng chèn ép khoang cấp tính"
+    },
+    {
+      "key": "bai-04-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-04-nhom-03.json",
+      "lesson_number": 4,
+      "lesson_title": "Hội chứng chèn ép khoang cấp tính"
+    },
+    {
+      "key": "bai-04-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-04-nhom-04.json",
+      "lesson_number": 4,
+      "lesson_title": "Hội chứng chèn ép khoang cấp tính"
+    },
+    {
+      "key": "bai-04-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-04-nhom-05.json",
+      "lesson_number": 4,
+      "lesson_title": "Hội chứng chèn ép khoang cấp tính"
+    },
+    {
+      "key": "bai-05-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-05-nhom-01.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-05-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-05-nhom-02.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-05-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-05-nhom-03.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-05-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-05-nhom-04.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-05-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-05-nhom-05.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-05-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-05-nhom-06.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-05-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-05-nhom-07.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-05-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-05-nhom-08.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-06-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-06-nhom-01.json",
+      "lesson_number": 6,
+      "lesson_title": "Điều trị vết thương khớp"
+    },
+    {
+      "key": "bai-06-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-06-nhom-02.json",
+      "lesson_number": 6,
+      "lesson_title": "Điều trị vết thương khớp"
+    },
+    {
+      "key": "bai-06-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-06-nhom-03.json",
+      "lesson_number": 6,
+      "lesson_title": "Điều trị vết thương khớp"
+    },
+    {
+      "key": "bai-06-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-06-nhom-04.json",
+      "lesson_number": 6,
+      "lesson_title": "Điều trị vết thương khớp"
+    },
+    {
+      "key": "bai-06-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-06-nhom-05.json",
+      "lesson_number": 6,
+      "lesson_title": "Điều trị vết thương khớp"
+    },
+    {
+      "key": "bai-06-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-06-nhom-06.json",
+      "lesson_number": 6,
+      "lesson_title": "Điều trị vết thương khớp"
+    },
+    {
+      "key": "bai-06-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-06-nhom-07.json",
+      "lesson_number": 6,
+      "lesson_title": "Điều trị vết thương khớp"
+    },
+    {
+      "key": "bai-07-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-07-nhom-01.json",
+      "lesson_number": 7,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-07-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-07-nhom-02.json",
+      "lesson_number": 7,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-07-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-07-nhom-03.json",
+      "lesson_number": 7,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-07-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-07-nhom-04.json",
+      "lesson_number": 7,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-07-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-07-nhom-05.json",
+      "lesson_number": 7,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-07-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-07-nhom-06.json",
+      "lesson_number": 7,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-08-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-01.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-02.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-03.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-04.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-05.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-06.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-07.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-08.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-09",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-09.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-08-nhom-10",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-08-nhom-10.json",
+      "lesson_number": 8,
+      "lesson_title": "Uốn ván"
+    },
+    {
+      "key": "bai-09-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-09-nhom-01.json",
+      "lesson_number": 9,
+      "lesson_title": "Hoại thư sinh hơi"
+    },
+    {
+      "key": "bai-09-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-09-nhom-02.json",
+      "lesson_number": 9,
+      "lesson_title": "Hoại thư sinh hơi"
+    },
+    {
+      "key": "bai-09-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-09-nhom-03.json",
+      "lesson_number": 9,
+      "lesson_title": "Hoại thư sinh hơi"
+    },
+    {
+      "key": "bai-09-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-09-nhom-04.json",
+      "lesson_number": 9,
+      "lesson_title": "Hoại thư sinh hơi"
+    },
+    {
+      "key": "bai-10-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-10-nhom-01.json",
+      "lesson_number": 10,
+      "lesson_title": "Điều trị bỏng"
+    },
+    {
+      "key": "bai-10-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-10-nhom-02.json",
+      "lesson_number": 10,
+      "lesson_title": "Điều trị bỏng"
+    },
+    {
+      "key": "bai-10-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-10-nhom-03.json",
+      "lesson_number": 10,
+      "lesson_title": "Điều trị bỏng"
+    },
+    {
+      "key": "bai-10-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-10-nhom-04.json",
+      "lesson_number": 10,
+      "lesson_title": "Điều trị bỏng"
+    },
+    {
+      "key": "bai-10-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-10-nhom-05.json",
+      "lesson_number": 10,
+      "lesson_title": "Điều trị bỏng"
+    },
+    {
+      "key": "bai-10-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-10-nhom-06.json",
+      "lesson_number": 10,
+      "lesson_title": "Điều trị bỏng"
+    },
+    {
+      "key": "bai-10-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-10-nhom-07.json",
+      "lesson_number": 10,
+      "lesson_title": "Điều trị bỏng"
+    },
+    {
+      "key": "bai-11-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-01.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-02.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-03.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-04.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-05.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-06.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-07.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-08.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-09",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-09.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-11-nhom-10",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-11-nhom-10.json",
+      "lesson_number": 11,
+      "lesson_title": "Đại cương u xương"
+    },
+    {
+      "key": "bai-12-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-12-nhom-01.json",
+      "lesson_number": 12,
+      "lesson_title": "Đại cương dị tật chi trên"
+    },
+    {
+      "key": "bai-12-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-12-nhom-02.json",
+      "lesson_number": 12,
+      "lesson_title": "Đại cương dị tật chi trên"
+    },
+    {
+      "key": "bai-12-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-12-nhom-03.json",
+      "lesson_number": 12,
+      "lesson_title": "Đại cương dị tật chi trên"
+    },
+    {
+      "key": "bai-12-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-12-nhom-04.json",
+      "lesson_number": 12,
+      "lesson_title": "Đại cương dị tật chi trên"
+    },
+    {
+      "key": "bai-12-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-12-nhom-05.json",
+      "lesson_number": 12,
+      "lesson_title": "Đại cương dị tật chi trên"
+    },
+    {
+      "key": "bai-12-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-12-nhom-06.json",
+      "lesson_number": 12,
+      "lesson_title": "Đại cương dị tật chi trên"
+    },
+    {
+      "key": "bai-12-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-12-nhom-07.json",
+      "lesson_number": 12,
+      "lesson_title": "Đại cương dị tật chi trên"
+    },
+    {
+      "key": "bai-12-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-12-nhom-08.json",
+      "lesson_number": 12,
+      "lesson_title": "Đại cương dị tật chi trên"
+    },
+    {
+      "key": "bai-13-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-13-nhom-01.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương dị tật chi dưới"
+    },
+    {
+      "key": "bai-13-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-13-nhom-02.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương dị tật chi dưới"
+    },
+    {
+      "key": "bai-13-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-13-nhom-03.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương dị tật chi dưới"
+    },
+    {
+      "key": "bai-13-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-13-nhom-04.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương dị tật chi dưới"
+    },
+    {
+      "key": "bai-13-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-13-nhom-05.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương dị tật chi dưới"
+    },
+    {
+      "key": "bai-13-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-13-nhom-06.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương dị tật chi dưới"
+    },
+    {
+      "key": "bai-13-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-13-nhom-07.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương dị tật chi dưới"
+    },
+    {
+      "key": "bai-14-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-14-nhom-01.json",
+      "lesson_number": 14,
+      "lesson_title": "Viêm xương tủy"
+    },
+    {
+      "key": "bai-14-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-14-nhom-02.json",
+      "lesson_number": 14,
+      "lesson_title": "Viêm xương tủy"
+    },
+    {
+      "key": "bai-14-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-14-nhom-03.json",
+      "lesson_number": 14,
+      "lesson_title": "Viêm xương tủy"
+    },
+    {
+      "key": "bai-14-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-14-nhom-04.json",
+      "lesson_number": 14,
+      "lesson_title": "Viêm xương tủy"
+    },
+    {
+      "key": "bai-14-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-14-nhom-05.json",
+      "lesson_number": 14,
+      "lesson_title": "Viêm xương tủy"
+    },
+    {
+      "key": "bai-14-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-14-nhom-06.json",
+      "lesson_number": 14,
+      "lesson_title": "Viêm xương tủy"
+    },
+    {
+      "key": "bai-14-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-14-nhom-07.json",
+      "lesson_number": 14,
+      "lesson_title": "Viêm xương tủy"
+    },
+    {
+      "key": "bai-15-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-01.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-02.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-03.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-04.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-05.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-06.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-07.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-08.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-09",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-09.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-10",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-10.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-11",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-11.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-15-nhom-12",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-15-nhom-12.json",
+      "lesson_number": 15,
+      "lesson_title": "Điều trị chấn thương cột sống cổ thấp"
+    },
+    {
+      "key": "bai-16-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-16-nhom-01.json",
+      "lesson_number": 16,
+      "lesson_title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao"
+    },
+    {
+      "key": "bai-16-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-16-nhom-02.json",
+      "lesson_number": 16,
+      "lesson_title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao"
+    },
+    {
+      "key": "bai-16-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-16-nhom-03.json",
+      "lesson_number": 16,
+      "lesson_title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao"
+    },
+    {
+      "key": "bai-16-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-16-nhom-04.json",
+      "lesson_number": 16,
+      "lesson_title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao"
+    },
+    {
+      "key": "bai-16-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-16-nhom-05.json",
+      "lesson_number": 16,
+      "lesson_title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao"
+    },
+    {
+      "key": "bai-16-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-16-nhom-06.json",
+      "lesson_number": 16,
+      "lesson_title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao"
+    },
+    {
+      "key": "bai-16-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-16-nhom-07.json",
+      "lesson_number": 16,
+      "lesson_title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao"
+    },
+    {
+      "key": "bai-17-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-01.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-02.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-03.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-04.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-05.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-06.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-07.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-08.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-09",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-09.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-10",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-10.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-17-nhom-11",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-17-nhom-11.json",
+      "lesson_number": 17,
+      "lesson_title": "Điều trị chấn thương cột sống ngực thắt lưng"
+    },
+    {
+      "key": "bai-18-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-18-nhom-01.json",
+      "lesson_number": 18,
+      "lesson_title": "Điều trị gãy xương đòn"
+    },
+    {
+      "key": "bai-18-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-18-nhom-02.json",
+      "lesson_number": 18,
+      "lesson_title": "Điều trị gãy xương đòn"
+    },
+    {
+      "key": "bai-18-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-18-nhom-03.json",
+      "lesson_number": 18,
+      "lesson_title": "Điều trị gãy xương đòn"
+    },
+    {
+      "key": "bai-18-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-18-nhom-04.json",
+      "lesson_number": 18,
+      "lesson_title": "Điều trị gãy xương đòn"
+    },
+    {
+      "key": "bai-18-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-18-nhom-05.json",
+      "lesson_number": 18,
+      "lesson_title": "Điều trị gãy xương đòn"
+    },
+    {
+      "key": "bai-18-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-18-nhom-06.json",
+      "lesson_number": 18,
+      "lesson_title": "Điều trị gãy xương đòn"
+    },
+    {
+      "key": "bai-19-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-19-nhom-01.json",
+      "lesson_number": 19,
+      "lesson_title": "Điều trị trật khớp vai"
+    },
+    {
+      "key": "bai-19-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-19-nhom-02.json",
+      "lesson_number": 19,
+      "lesson_title": "Điều trị trật khớp vai"
+    },
+    {
+      "key": "bai-19-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-19-nhom-03.json",
+      "lesson_number": 19,
+      "lesson_title": "Điều trị trật khớp vai"
+    },
+    {
+      "key": "bai-19-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-19-nhom-04.json",
+      "lesson_number": 19,
+      "lesson_title": "Điều trị trật khớp vai"
+    },
+    {
+      "key": "bai-19-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-19-nhom-05.json",
+      "lesson_number": 19,
+      "lesson_title": "Điều trị trật khớp vai"
+    },
+    {
+      "key": "bai-19-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-19-nhom-06.json",
+      "lesson_number": 19,
+      "lesson_title": "Điều trị trật khớp vai"
+    },
+    {
+      "key": "bai-19-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-19-nhom-07.json",
+      "lesson_number": 19,
+      "lesson_title": "Điều trị trật khớp vai"
+    },
+    {
+      "key": "bai-19-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-19-nhom-08.json",
+      "lesson_number": 19,
+      "lesson_title": "Điều trị trật khớp vai"
+    },
+    {
+      "key": "bai-20-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-01.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-02.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-03.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-04.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-05.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-06.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-07.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-08.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-09",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-09.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-20-nhom-10",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-20-nhom-10.json",
+      "lesson_number": 20,
+      "lesson_title": "Điều trị gãy cổ xương cánh tay"
+    },
+    {
+      "key": "bai-21-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-21-nhom-01.json",
+      "lesson_number": 21,
+      "lesson_title": "Điều trị gãy thân xương cánh tay"
+    },
+    {
+      "key": "bai-21-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-21-nhom-02.json",
+      "lesson_number": 21,
+      "lesson_title": "Điều trị gãy thân xương cánh tay"
+    },
+    {
+      "key": "bai-21-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-21-nhom-03.json",
+      "lesson_number": 21,
+      "lesson_title": "Điều trị gãy thân xương cánh tay"
+    },
+    {
+      "key": "bai-21-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-21-nhom-04.json",
+      "lesson_number": 21,
+      "lesson_title": "Điều trị gãy thân xương cánh tay"
+    },
+    {
+      "key": "bai-21-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-21-nhom-05.json",
+      "lesson_number": 21,
+      "lesson_title": "Điều trị gãy thân xương cánh tay"
+    },
+    {
+      "key": "bai-22-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-22-nhom-01.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy trên lồi cầu xương cánh tay ở trẻ em"
+    },
+    {
+      "key": "bai-22-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-22-nhom-02.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy trên lồi cầu xương cánh tay ở trẻ em"
+    },
+    {
+      "key": "bai-22-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-22-nhom-03.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy trên lồi cầu xương cánh tay ở trẻ em"
+    },
+    {
+      "key": "bai-22-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-22-nhom-04.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy trên lồi cầu xương cánh tay ở trẻ em"
+    },
+    {
+      "key": "bai-22-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-22-nhom-05.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy trên lồi cầu xương cánh tay ở trẻ em"
+    },
+    {
+      "key": "bai-22-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-22-nhom-06.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy trên lồi cầu xương cánh tay ở trẻ em"
+    },
+    {
+      "key": "bai-22-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-22-nhom-07.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy trên lồi cầu xương cánh tay ở trẻ em"
+    },
+    {
+      "key": "bai-23-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-23-nhom-01.json",
+      "lesson_number": 23,
+      "lesson_title": "Điều trị trật khớp khuỷu"
+    },
+    {
+      "key": "bai-23-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-23-nhom-02.json",
+      "lesson_number": 23,
+      "lesson_title": "Điều trị trật khớp khuỷu"
+    },
+    {
+      "key": "bai-23-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-23-nhom-03.json",
+      "lesson_number": 23,
+      "lesson_title": "Điều trị trật khớp khuỷu"
+    },
+    {
+      "key": "bai-23-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-23-nhom-04.json",
+      "lesson_number": 23,
+      "lesson_title": "Điều trị trật khớp khuỷu"
+    },
+    {
+      "key": "bai-23-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-23-nhom-05.json",
+      "lesson_number": 23,
+      "lesson_title": "Điều trị trật khớp khuỷu"
+    },
+    {
+      "key": "bai-23-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-23-nhom-06.json",
+      "lesson_number": 23,
+      "lesson_title": "Điều trị trật khớp khuỷu"
+    },
+    {
+      "key": "bai-23-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-23-nhom-07.json",
+      "lesson_number": 23,
+      "lesson_title": "Điều trị trật khớp khuỷu"
+    },
+    {
+      "key": "bai-23-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-23-nhom-08.json",
+      "lesson_number": 23,
+      "lesson_title": "Điều trị trật khớp khuỷu"
+    },
+    {
+      "key": "bai-24-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-24-nhom-01.json",
+      "lesson_number": 24,
+      "lesson_title": "Điều trị gãy mỏm khuỷu"
+    },
+    {
+      "key": "bai-24-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-24-nhom-02.json",
+      "lesson_number": 24,
+      "lesson_title": "Điều trị gãy mỏm khuỷu"
+    },
+    {
+      "key": "bai-24-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-24-nhom-03.json",
+      "lesson_number": 24,
+      "lesson_title": "Điều trị gãy mỏm khuỷu"
+    },
+    {
+      "key": "bai-24-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-24-nhom-04.json",
+      "lesson_number": 24,
+      "lesson_title": "Điều trị gãy mỏm khuỷu"
+    },
+    {
+      "key": "bai-24-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-24-nhom-05.json",
+      "lesson_number": 24,
+      "lesson_title": "Điều trị gãy mỏm khuỷu"
+    },
+    {
+      "key": "bai-24-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-24-nhom-06.json",
+      "lesson_number": 24,
+      "lesson_title": "Điều trị gãy mỏm khuỷu"
+    },
+    {
+      "key": "bai-25-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-25-nhom-01.json",
+      "lesson_number": 25,
+      "lesson_title": "Điều trị gãy hai xương cẳng tay"
+    },
+    {
+      "key": "bai-25-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-25-nhom-02.json",
+      "lesson_number": 25,
+      "lesson_title": "Điều trị gãy hai xương cẳng tay"
+    },
+    {
+      "key": "bai-25-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-25-nhom-03.json",
+      "lesson_number": 25,
+      "lesson_title": "Điều trị gãy hai xương cẳng tay"
+    },
+    {
+      "key": "bai-25-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-25-nhom-04.json",
+      "lesson_number": 25,
+      "lesson_title": "Điều trị gãy hai xương cẳng tay"
+    },
+    {
+      "key": "bai-25-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-25-nhom-05.json",
+      "lesson_number": 25,
+      "lesson_title": "Điều trị gãy hai xương cẳng tay"
+    },
+    {
+      "key": "bai-25-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-25-nhom-06.json",
+      "lesson_number": 25,
+      "lesson_title": "Điều trị gãy hai xương cẳng tay"
+    },
+    {
+      "key": "bai-25-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-25-nhom-07.json",
+      "lesson_number": 25,
+      "lesson_title": "Điều trị gãy hai xương cẳng tay"
+    },
+    {
+      "key": "bai-26-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-26-nhom-01.json",
+      "lesson_number": 26,
+      "lesson_title": "Điều trị gãy đầu dưới xương quay"
+    },
+    {
+      "key": "bai-26-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-26-nhom-02.json",
+      "lesson_number": 26,
+      "lesson_title": "Điều trị gãy đầu dưới xương quay"
+    },
+    {
+      "key": "bai-26-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-26-nhom-03.json",
+      "lesson_number": 26,
+      "lesson_title": "Điều trị gãy đầu dưới xương quay"
+    },
+    {
+      "key": "bai-26-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-26-nhom-04.json",
+      "lesson_number": 26,
+      "lesson_title": "Điều trị gãy đầu dưới xương quay"
+    },
+    {
+      "key": "bai-26-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-26-nhom-05.json",
+      "lesson_number": 26,
+      "lesson_title": "Điều trị gãy đầu dưới xương quay"
+    },
+    {
+      "key": "bai-26-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-26-nhom-06.json",
+      "lesson_number": 26,
+      "lesson_title": "Điều trị gãy đầu dưới xương quay"
+    },
+    {
+      "key": "bai-27-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-27-nhom-01.json",
+      "lesson_number": 27,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-27-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-27-nhom-02.json",
+      "lesson_number": 27,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-27-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-27-nhom-03.json",
+      "lesson_number": 27,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-27-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-27-nhom-04.json",
+      "lesson_number": 27,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-27-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-27-nhom-05.json",
+      "lesson_number": 27,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-27-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-27-nhom-06.json",
+      "lesson_number": 27,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-28-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-28-nhom-01.json",
+      "lesson_number": 28,
+      "lesson_title": "Điều trị nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-28-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-28-nhom-02.json",
+      "lesson_number": 28,
+      "lesson_title": "Điều trị nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-28-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-28-nhom-03.json",
+      "lesson_number": 28,
+      "lesson_title": "Điều trị nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-28-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-28-nhom-04.json",
+      "lesson_number": 28,
+      "lesson_title": "Điều trị nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-28-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-28-nhom-05.json",
+      "lesson_number": 28,
+      "lesson_title": "Điều trị nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-28-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-28-nhom-06.json",
+      "lesson_number": 28,
+      "lesson_title": "Điều trị nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-28-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-28-nhom-07.json",
+      "lesson_number": 28,
+      "lesson_title": "Điều trị nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-28-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-28-nhom-08.json",
+      "lesson_number": 28,
+      "lesson_title": "Điều trị nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-29-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-01.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-29-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-02.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-29-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-03.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-29-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-04.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-29-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-05.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-29-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-06.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-29-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-07.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-29-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-08.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-29-nhom-09",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-29-nhom-09.json",
+      "lesson_number": 29,
+      "lesson_title": "Điều trị gãy xương chậu"
+    },
+    {
+      "key": "bai-30-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-30-nhom-01.json",
+      "lesson_number": 30,
+      "lesson_title": "Điều trị trật khớp háng"
+    },
+    {
+      "key": "bai-30-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-30-nhom-02.json",
+      "lesson_number": 30,
+      "lesson_title": "Điều trị trật khớp háng"
+    },
+    {
+      "key": "bai-30-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-30-nhom-03.json",
+      "lesson_number": 30,
+      "lesson_title": "Điều trị trật khớp háng"
+    },
+    {
+      "key": "bai-30-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-30-nhom-04.json",
+      "lesson_number": 30,
+      "lesson_title": "Điều trị trật khớp háng"
+    },
+    {
+      "key": "bai-30-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-30-nhom-05.json",
+      "lesson_number": 30,
+      "lesson_title": "Điều trị trật khớp háng"
+    },
+    {
+      "key": "bai-30-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-30-nhom-06.json",
+      "lesson_number": 30,
+      "lesson_title": "Điều trị trật khớp háng"
+    },
+    {
+      "key": "bai-30-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-30-nhom-07.json",
+      "lesson_number": 30,
+      "lesson_title": "Điều trị trật khớp háng"
+    },
+    {
+      "key": "bai-30-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-30-nhom-08.json",
+      "lesson_number": 30,
+      "lesson_title": "Điều trị trật khớp háng"
+    },
+    {
+      "key": "bai-31-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-31-nhom-01.json",
+      "lesson_number": 31,
+      "lesson_title": "Điều trị gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-31-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-31-nhom-02.json",
+      "lesson_number": 31,
+      "lesson_title": "Điều trị gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-31-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-31-nhom-03.json",
+      "lesson_number": 31,
+      "lesson_title": "Điều trị gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-31-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-31-nhom-04.json",
+      "lesson_number": 31,
+      "lesson_title": "Điều trị gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-31-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-31-nhom-05.json",
+      "lesson_number": 31,
+      "lesson_title": "Điều trị gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-31-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-31-nhom-06.json",
+      "lesson_number": 31,
+      "lesson_title": "Điều trị gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-31-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-31-nhom-07.json",
+      "lesson_number": 31,
+      "lesson_title": "Điều trị gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-31-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-31-nhom-08.json",
+      "lesson_number": 31,
+      "lesson_title": "Điều trị gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-32-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-32-nhom-01.json",
+      "lesson_number": 32,
+      "lesson_title": "Điều trị gãy thân xương đùi"
+    },
+    {
+      "key": "bai-32-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-32-nhom-02.json",
+      "lesson_number": 32,
+      "lesson_title": "Điều trị gãy thân xương đùi"
+    },
+    {
+      "key": "bai-32-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-32-nhom-03.json",
+      "lesson_number": 32,
+      "lesson_title": "Điều trị gãy thân xương đùi"
+    },
+    {
+      "key": "bai-32-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-32-nhom-04.json",
+      "lesson_number": 32,
+      "lesson_title": "Điều trị gãy thân xương đùi"
+    },
+    {
+      "key": "bai-32-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-32-nhom-05.json",
+      "lesson_number": 32,
+      "lesson_title": "Điều trị gãy thân xương đùi"
+    },
+    {
+      "key": "bai-32-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-32-nhom-06.json",
+      "lesson_number": 32,
+      "lesson_title": "Điều trị gãy thân xương đùi"
+    },
+    {
+      "key": "bai-32-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-32-nhom-07.json",
+      "lesson_number": 32,
+      "lesson_title": "Điều trị gãy thân xương đùi"
+    },
+    {
+      "key": "bai-33-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-33-nhom-01.json",
+      "lesson_number": 33,
+      "lesson_title": "Điều trị trật khớp gối cấp tính"
+    },
+    {
+      "key": "bai-33-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-33-nhom-02.json",
+      "lesson_number": 33,
+      "lesson_title": "Điều trị trật khớp gối cấp tính"
+    },
+    {
+      "key": "bai-33-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-33-nhom-03.json",
+      "lesson_number": 33,
+      "lesson_title": "Điều trị trật khớp gối cấp tính"
+    },
+    {
+      "key": "bai-33-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-33-nhom-04.json",
+      "lesson_number": 33,
+      "lesson_title": "Điều trị trật khớp gối cấp tính"
+    },
+    {
+      "key": "bai-33-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-33-nhom-05.json",
+      "lesson_number": 33,
+      "lesson_title": "Điều trị trật khớp gối cấp tính"
+    },
+    {
+      "key": "bai-33-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-33-nhom-06.json",
+      "lesson_number": 33,
+      "lesson_title": "Điều trị trật khớp gối cấp tính"
+    },
+    {
+      "key": "bai-33-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-33-nhom-07.json",
+      "lesson_number": 33,
+      "lesson_title": "Điều trị trật khớp gối cấp tính"
+    },
+    {
+      "key": "bai-34-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-34-nhom-01.json",
+      "lesson_number": 34,
+      "lesson_title": "Điều trị gãy xương bánh chè"
+    },
+    {
+      "key": "bai-34-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-34-nhom-02.json",
+      "lesson_number": 34,
+      "lesson_title": "Điều trị gãy xương bánh chè"
+    },
+    {
+      "key": "bai-34-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-34-nhom-03.json",
+      "lesson_number": 34,
+      "lesson_title": "Điều trị gãy xương bánh chè"
+    },
+    {
+      "key": "bai-34-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-34-nhom-04.json",
+      "lesson_number": 34,
+      "lesson_title": "Điều trị gãy xương bánh chè"
+    },
+    {
+      "key": "bai-34-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-34-nhom-05.json",
+      "lesson_number": 34,
+      "lesson_title": "Điều trị gãy xương bánh chè"
+    },
+    {
+      "key": "bai-34-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-34-nhom-06.json",
+      "lesson_number": 34,
+      "lesson_title": "Điều trị gãy xương bánh chè"
+    },
+    {
+      "key": "bai-34-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-34-nhom-07.json",
+      "lesson_number": 34,
+      "lesson_title": "Điều trị gãy xương bánh chè"
+    },
+    {
+      "key": "bai-34-nhom-08",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-34-nhom-08.json",
+      "lesson_number": 34,
+      "lesson_title": "Điều trị gãy xương bánh chè"
+    },
+    {
+      "key": "bai-35-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-35-nhom-01.json",
+      "lesson_number": 35,
+      "lesson_title": "Điều trị gãy mâm chày"
+    },
+    {
+      "key": "bai-35-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-35-nhom-02.json",
+      "lesson_number": 35,
+      "lesson_title": "Điều trị gãy mâm chày"
+    },
+    {
+      "key": "bai-35-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-35-nhom-03.json",
+      "lesson_number": 35,
+      "lesson_title": "Điều trị gãy mâm chày"
+    },
+    {
+      "key": "bai-35-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-35-nhom-04.json",
+      "lesson_number": 35,
+      "lesson_title": "Điều trị gãy mâm chày"
+    },
+    {
+      "key": "bai-35-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-35-nhom-05.json",
+      "lesson_number": 35,
+      "lesson_title": "Điều trị gãy mâm chày"
+    },
+    {
+      "key": "bai-36-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-36-nhom-01.json",
+      "lesson_number": 36,
+      "lesson_title": "Điều trị gãy hai xương cẳng chân"
+    },
+    {
+      "key": "bai-36-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-36-nhom-02.json",
+      "lesson_number": 36,
+      "lesson_title": "Điều trị gãy hai xương cẳng chân"
+    },
+    {
+      "key": "bai-36-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-36-nhom-03.json",
+      "lesson_number": 36,
+      "lesson_title": "Điều trị gãy hai xương cẳng chân"
+    },
+    {
+      "key": "bai-36-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-36-nhom-04.json",
+      "lesson_number": 36,
+      "lesson_title": "Điều trị gãy hai xương cẳng chân"
+    },
+    {
+      "key": "bai-36-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-36-nhom-05.json",
+      "lesson_number": 36,
+      "lesson_title": "Điều trị gãy hai xương cẳng chân"
+    },
+    {
+      "key": "bai-36-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-36-nhom-06.json",
+      "lesson_number": 36,
+      "lesson_title": "Điều trị gãy hai xương cẳng chân"
+    },
+    {
+      "key": "bai-36-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/bai-36-nhom-07.json",
+      "lesson_number": 36,
+      "lesson_title": "Điều trị gãy hai xương cẳng chân"
+    }
+  ],
+  "base_runs": [],
+  "recommended_max_calls": 1370,
+  "source_gaps": [
+    {
+      "lesson_number": 10,
+      "title": "Điều trị bỏng",
+      "first_available_pdf_page": 117,
+      "issue": "Opening/initial medical content absent in the available PDF; first available page is a continuation. TOC used for subject context only. No missing objectives/content synthesized."
+    },
+    {
+      "lesson_number": 14,
+      "title": "Viêm xương tủy",
+      "first_available_pdf_page": 181,
+      "issue": "Opening/initial medical content absent in the available PDF; first available page is a continuation. TOC used for subject context only. No missing objectives/content synthesized."
+    },
+    {
+      "lesson_number": 16,
+      "title": "Chẩn đoán và điều trị chấn thương cột sống cổ cao",
+      "first_available_pdf_page": 213,
+      "issue": "Opening/initial medical content absent in the available PDF; first available page is a continuation. TOC used for subject context only. No missing objectives/content synthesized."
+    },
+    {
+      "lesson_number": 18,
+      "title": "Điều trị gãy xương đòn",
+      "first_available_pdf_page": 245,
+      "issue": "Opening/initial medical content absent in the available PDF; first available page is a continuation. TOC used for subject context only. No missing objectives/content synthesized."
+    }
+  ],
+  "lessons_skipped": [],
+  "timeout_policy": {
+    "response_seconds": null,
+    "total_wait_seconds": null,
+    "connect_seconds": 30
+  }
+}

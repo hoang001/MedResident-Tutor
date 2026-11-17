@@ -18,6 +18,7 @@ from tests.e2e.bank_fixtures import seed_sources
 
 BODY = {
     "content": "Synthetic question",
+    "reference_answer": "Synthetic reference for workflow tests only",
     "rubric_name": "Synthetic rubric",
     "max_score": 6,
     "criteria": [
@@ -100,6 +101,7 @@ async def test_bank_lifecycle_and_immutable_attempt(bank):
     )
     assert result.status_code == 200, result.text
     attempt = result.json()
+    original_question_id = q["question_id"]
     assert attempt["status"] == "completed"
     assert len(attempt["medical_evaluation"]["rubric_scores"]) == 3
     assert attempt["medical_evaluation"]["max_score"] == 6 and len(attempt["evidence"]) == 2
@@ -118,9 +120,14 @@ async def test_bank_lifecycle_and_immutable_attempt(bank):
     response = await client.put(path, json=update)
     assert response.status_code == 200, response.text
     q = response.json()
-    assert [c["criterion_id"] for c in q["criteria"]][:2] == [ids[0], ids[2]]
-    assert ids[1] not in [c["criterion_id"] for c in q["criteria"]]
+    assert q["previous_revision"] == original_question_id
+    assert not q["is_available"]
+    assert not set(ids) & {c["criterion_id"] for c in q["criteria"]}
+    path = "/api/v1/admin/questions/" + q["question_id"]
     assert (await client.put(path, json=update)).status_code == 409
+    published = await client.patch(path + "/availability", json={"version": q["version"], "is_available": True})
+    assert published.status_code == 200, published.text
+    q = published.json()
     assert (
         await client.patch(
             path + "/availability", json={"version": q["version"], "is_available": False}
@@ -134,7 +141,7 @@ async def test_bank_lifecycle_and_immutable_attempt(bank):
     assert (
         await client.post(
             "/api/v1/practice/attempts",
-            json={"question_id": q["question_id"], "student_answer": "Runtime"},
+            json={"question_id": original_question_id, "student_answer": "Runtime"},
             headers={"Idempotency-Key": "active"},
         )
     ).json()["id"] == attempt["id"]
@@ -166,7 +173,7 @@ async def test_bank_lifecycle_and_immutable_attempt(bank):
 
 
 @pytest.mark.parametrize(
-    "mutation", ["missing", "unknown", "negative", "infinite", "duplicate_id", "wrong_total"]
+    "mutation", ["unknown", "negative", "infinite", "duplicate_id", "wrong_total"]
 )
 async def test_invalid_bank_input_rolls_back(bank, mutation):
     client, factory, _, _, _ = bank

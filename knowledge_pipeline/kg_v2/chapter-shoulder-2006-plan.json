@@ -1,0 +1,26 @@
+{
+  "chapter": "Trật khớp vai — Cấp cứu Ngoại khoa Chấn thương 2006",
+  "pdf_pages": [
+    89,
+    90,
+    91,
+    92
+  ],
+  "chapter_end_proof": "Next chapter starts PDF93",
+  "source_coverage": "All prose sections 1–7.3; footers and figure captions excluded, no curriculum inferred.",
+  "ocr_review_note": "Short mostly textual chapter with existing traced patches; not fully cleaned. PDF90 terminology and unpatched treatment terms still require source review. Kocher numbering held by the existing unresolved sidecar.",
+  "shards": [
+    {
+      "key": "chapter-01",
+      "scope": "knowledge_pipeline/kg_v2/chapter-shoulder-2006-shard-01.json"
+    },
+    {
+      "key": "chapter-02",
+      "scope": "knowledge_pipeline/kg_v2/chapter-shoulder-2006-shard-02.json"
+    },
+    {
+      "key": "chapter-03",
+      "scope": "knowledge_pipeline/kg_v2/chapter-shoulder-2006-shard-03.json"
+    }
+  ]
+}

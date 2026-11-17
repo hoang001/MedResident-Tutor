@@ -133,6 +133,32 @@ async def imported_schema(pg_engine, monkeypatch):
 
         await connection.run_sync(upgrade_0005)
 
+        def upgrade_0006(conn):
+            from alembic.migration import MigrationContext
+            from alembic.operations import Operations
+
+            path = REPO / "apps/backend/alembic/versions/20261104_0006_study_workspace.py"
+            spec = importlib.util.spec_from_file_location("_study_revision", path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            with Operations.context(MigrationContext.configure(conn)):
+                module.upgrade()
+
+        await connection.run_sync(upgrade_0006)
+
+        def upgrade_0007(conn):
+            from alembic.migration import MigrationContext
+            from alembic.operations import Operations
+
+            path = REPO / "apps/backend/alembic/versions/20261110_0007_structured_practice.py"
+            spec = importlib.util.spec_from_file_location("_structured_revision", path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            with Operations.context(MigrationContext.configure(conn)):
+                module.upgrade()
+
+        await connection.run_sync(upgrade_0007)
+
     def partial_schema_check(connection, *, require_head=False):
         assert connection.dialect.name == "postgresql"
         # Full drift/revision checks are tested with migrations when vector is available.

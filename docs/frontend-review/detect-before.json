@@ -1,0 +1,41 @@
+[
+  {
+    "antipattern": "side-tab",
+    "name": "Side-tab accent border",
+    "description": "Thick colored border on one side of a card — the most recognizable tell of AI-generated UIs. Use a subtler accent or remove it entirely.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "/work/apps/frontend/app/globals.css",
+    "line": 30,
+    "snippet": "border-left: 3px solid var(--accent)",
+    "importedBy": [
+      "layout.tsx"
+    ]
+  },
+  {
+    "antipattern": "side-tab",
+    "name": "Side-tab accent border",
+    "description": "Thick colored border on one side of a card — the most recognizable tell of AI-generated UIs. Use a subtler accent or remove it entirely.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "/work/apps/frontend/app/globals.css",
+    "line": 65,
+    "snippet": "border-left: 3px solid var(--line)",
+    "importedBy": [
+      "layout.tsx"
+    ]
+  },
+  {
+    "antipattern": "side-tab",
+    "name": "Side-tab accent border",
+    "description": "Thick colored border on one side of a card — the most recognizable tell of AI-generated UIs. Use a subtler accent or remove it entirely.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "/work/apps/frontend/app/globals.css",
+    "line": 78,
+    "snippet": "border-left: 3px solid var(--accent)",
+    "importedBy": [
+      "layout.tsx"
+    ]
+  }
+]

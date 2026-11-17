@@ -1,6 +1,6 @@
 # Medical Resident Learning Assistant
 
-A runnable foundation prototype for a medical-resident **learning support** system. It provides a modular FastAPI backend, a Next.js web shell, PostgreSQL/pgvector persistence, authentication, document metadata upload, and safe AI interfaces that can be replaced in later phases.
+A runnable medical-resident **learning support** system with FastAPI, Next.js, PostgreSQL persistence, authentication, and a read-only Neo4j learning library. Curriculum, source-linked knowledge, personal notes, reading progress, and ungraded self-study work without a running model server. See [the study workspace guide](docs/study-workspace.md) for current routes, setup, and limits.
 
 > This project does not diagnose disease, recommend treatment, analyze real patient cases, or provide clinical decision support. The mock AI deliberately produces no medical answer. Do not upload real patient data.
 
@@ -9,7 +9,8 @@ A runnable foundation prototype for a medical-resident **learning support** syst
 - **Frontend:** Next.js 16.2, React 19.2, TypeScript, App Router, and a small centralized fetch client.
 - **Backend:** Python 3.12, FastAPI, async SQLAlchemy 2, Pydantic Settings, JWT, and Argon2 password hashing.
 - **Database:** PostgreSQL 16 with pgvector. Alembic owns the initial schema migration.
-- **Storage:** a `FileStorage` protocol with local filesystem implementation. Only file metadata is exposed through the API.
+- **Knowledge library:** read-only Neo4j queries, keyword search, Curriculum/HMU evidence, relationships, and authenticated source PDFs. No embeddings or model calls are used for browsing.
+- **Storage:** local uploads through a `FileStorage` protocol, plus authenticated, allowlisted source PDFs for the knowledge library.
 - **AI boundary:** provider/retriever protocols plus safe mock implementations. Business modules do not import a vendor SDK.
 - **Deployment:** a three-service Docker Compose stack. Migration is an explicit one-shot command, avoiding startup races.
 
@@ -44,7 +45,7 @@ cp .env.example .env
 
 Replace `JWT_SECRET_KEY` and all local passwords outside disposable local development. `NEXT_PUBLIC_API_BASE_URL` is browser-visible by design and must point to the `/api/v1` backend URL. CORS origins are comma-separated. Uploaded file size is controlled by `MAX_UPLOAD_SIZE_MB`.
 
-No real AI API key is needed or supported in this phase. Keep both providers set to `mock`.
+No AI API key is needed for the study workspace. Keep the application providers set to `mock`. Compose fixes `MODEL_CALLS_ENABLED=false`, and the backend blocks external model providers while this setting is false. Extraction CLI configuration is separate and is not invoked by the web application.
 
 ## Run with Docker
 
@@ -106,6 +107,13 @@ All non-system endpoints require a bearer access token.
 | POST | `/api/v1/documents/upload` | Admin |
 | GET | `/api/v1/documents/{document_id}` | Authenticated |
 | POST | `/api/v1/ai/rag/query` | Authenticated; mock only |
+| GET | `/api/v1/knowledge/status`, `/search`, `/node`, `/curriculum`, `/sources` | Authenticated; read-only Neo4j library |
+| GET | `/api/v1/knowledge/pdf/{source_id}` | Authenticated; allowlisted source PDF |
+| GET / PUT | `/api/v1/study/record` | Own notes, bookmarks and manual reading state |
+| GET | `/api/v1/study/summary`, `/records`, `/sessions` | Own study activity |
+| POST | `/api/v1/study/sessions` | Ungraded source-question snapshot; idempotent key |
+| GET / PUT | `/api/v1/study/sessions/{id}` | Own draft answers / immutable submitted session |
+| GET / POST | `/api/v1/study/reviews` | Read source-review history / admin adds a versioned review |
 
 JWT refresh and account administration are not included.
 
@@ -140,9 +148,15 @@ The prototype stores its access token in `localStorage`. This is simple for deve
 
 ## Intentionally not implemented
 
-OCR, real extraction/chunking, embeddings, vector search, reranking, real LLM calls, answer grounding, automatic question generation, LLM grading, recommendation logic, graph traversal/GraphRAG, Neo4j, fine-tuning, and production deployment are placeholders or interfaces only. The exam/progress frontend pages are explicit placeholders. No claim is made that RAG, knowledge graph reasoning, or automated grading works.
+Automated background ingestion/OCR, adaptive recommendations, formal examinations, and validated mastery assessment remain outside the implemented study MVP. The repository now includes source retrieval, versioned grading packages and Medical/Teaching API transports; remote inference stays disabled until endpoints, credentials and model identities are configured and checked. Separate extraction/training outputs are not evidence of production AI grading or expert approval. `/exams` is ungraded self-study, and `/progress` records personal reading activity rather than competency scores. The learning graph still needs expert review and confirmed course syllabi.
 
 ## Next roadmap step
 
-Proceed with Phase 2 document ingestion: define extraction jobs and state transitions, parse TXT/Markdown first, add PDF extraction behind an interface, persist sections/chunks, and test retry/idempotency. Only after an evaluated corpus exists should Phase 3 add real embeddings and retrieval. See [development roadmap](docs/development-roadmap.md).
+Confirm course syllabi and source/expert-review scope, then validate the configured Medical/Teaching deployment with real endpoints. Production authentication/session hardening, background ingestion jobs, formal assessment, and operational deployment remain separate work. See [study workspace](docs/study-workspace.md) and the historical [development roadmap](docs/development-roadmap.md).
+
+## Current workspace and deployment
+
+The student workspace includes exercise search, answering, source-linked results and saved history; administrators can author against excerpts, save drafts and publish separately. See the [UI handoff](docs/ui/ui-completion-report.md), [design system](docs/ui/design-system.md) and [RunPod model configuration](docs/runpod-model-api.md).
+
+Create a local `.env` from `.env.example` and replace its credential placeholders. Source books, teacher materials, model/adapter weights, database contents and generated evidence/benchmark artifacts stay local. Cloning this repository does not restore the current learning database or Neo4j data; see [publication and data boundaries](docs/github-publication.md).
 

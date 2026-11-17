@@ -1,0 +1,134 @@
+{
+  "version": "medical-kg-v2",
+  "structured_context": true,
+  "documents": [
+    {
+      "source_id": "SRC_ORTHO_EMERGENCY_001",
+      "document_edition_id": "ED_2006_d95f9d803e46c1bb",
+      "repo_relative_path": "data/raw-source/data-20261020T074653Z-1-001/data/Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+      "title": "Cấp cứu ngoại khoa – Chấn thương",
+      "publication_year": 2006,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": null,
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          6
+        ],
+        "expert_approval": false
+      },
+      "verified_printed_labels": {
+        "89": "88",
+        "90": "89",
+        "91": "90",
+        "92": "91"
+      },
+      "expected_sha256": "d95f9d803e46c1bb8b41a2b35fc53add5dd8959df1b3107a83f8e0c324469007",
+      "survey_sections": [
+        {
+          "key": "shoulder-complete",
+          "original_title": "Trật khớp vai",
+          "parent_key": null,
+          "pdf_pages": {
+            "start": 89,
+            "end": 92
+          },
+          "printed_pages": null,
+          "boundary_status": "chapter_heading_pdf89_next_chapter_pdf93"
+        }
+      ],
+      "windows": [
+        {
+          "key": "01-anatomy",
+          "section_id": "chapter-shoulder-01-anatomy",
+          "title": "1. Giải phẫu và sinh lý",
+          "selectors": [
+            {
+              "pdf_page": 89,
+              "start_anchor": "TRẬT KHỚP VAI",
+              "end_anchor": "\n1.",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "1. MỘT SỐ",
+              "end_anchor": "\nHình 15.1.",
+              "role": "medical_text",
+              "continuation_verified": false
+            }
+          ]
+        },
+        {
+          "key": "02-mechanism",
+          "section_id": "chapter-shoulder-02-mechanism",
+          "title": "2. Nguyên nhân, cơ chế",
+          "selectors": [
+            {
+              "pdf_page": 89,
+              "start_anchor": "TRẬT KHỚP VAI",
+              "end_anchor": "\n1.",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "Trật khớp vai hay gặp",
+              "end_anchor": "\nHình",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "2. NGUYÊN NHÂN",
+              "end_anchor": "\n3.",
+              "role": "medical_text",
+              "continuation_verified": false
+            }
+          ]
+        },
+        {
+          "key": "03-pathology",
+          "section_id": "chapter-shoulder-03-pathology",
+          "title": "3. Giải phẫu bệnh (tiếp nối PDF89–90)",
+          "selectors": [
+            {
+              "pdf_page": 89,
+              "start_anchor": "TRẬT KHỚP VAI",
+              "end_anchor": "\n1.",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "Trật khớp vai hay gặp",
+              "end_anchor": "\nHình",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "3. GIẢI PHẪU",
+              "end_anchor": "\n88",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 90,
+              "start_anchor": null,
+              "end_anchor": "\n4.",
+              "role": "medical_text",
+              "continuation_verified": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ocr_patches": "data/knowledge-extraction/v2/shoulder-20261030/audit/ocr-patches.json",
+  "ocr_issues": "data/knowledge-extraction/v2/shoulder-20261030/audit/ocr-issues.json",
+  "canonical_registry": "knowledge_pipeline/kg_v2/canonical-registry.json"
+}

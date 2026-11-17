@@ -21,10 +21,14 @@ from app.modules.questions.models import (
 )
 from app.modules.recommendations.models import Recommendation
 from app.modules.specialties.models import Specialty
+from app.modules.study.models import KnowledgeReview, StudyRecord, StudySession
 from app.modules.topics.models import Topic
 from app.modules.users.models import User
 
 __all__ = [
+    "KnowledgeReview",
+    "StudyRecord",
+    "StudySession",
     "PracticeAttempt",
     "Concept",
     "ConceptRelation",

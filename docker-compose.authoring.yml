@@ -1,0 +1,16 @@
+# Local CPU source retrieval reuses the existing inference environment; no GPU autostart.
+services:
+  backend:
+    command: ["/opt/local-models-venv/bin/python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      PYTHONPATH: /app:/opt/pilot:/usr/local/lib/python3.12/site-packages
+      CUDA_VISIBLE_DEVICES: ""
+      AUTHORING_PROVIDER: ${AUTHORING_PROVIDER:-off}
+      AUTHORING_SERVICE_URL: ${AUTHORING_SERVICE_URL:-http://host.docker.internal:8103}
+    volumes:
+      - local_model_venv:/opt/local-models-venv
+      - ./apps/backend/app:/app/app:ro
+volumes:
+  local_model_venv:
+    external: true
+    name: medresident-local-model-venv

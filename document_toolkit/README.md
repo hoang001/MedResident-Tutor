@@ -23,7 +23,7 @@ Chạy tại thư mục gốc dự án mới, nơi chứa `document_toolkit`:
 python -m pip install -r document_toolkit/requirements.txt
 ```
 
-Nếu cần LLM, copy `document_toolkit/.env.example` thành `.env` của dự án mới rồi điền URL, key và model của bạn. Không copy `.env` của dự án cũ. Biến môi trường terminal có ưu tiên cao hơn file `.env`.
+Nếu cần LLM, điền URL, key và model trong `.env` ở thư mục gốc (tham khảo `.env.example`). Không copy `.env` của dự án cũ. Cấu hình LLM đọc trực tiếp từ file được chỉ định; biến terminal không ghi đè và không fallback sang OPENAI_API_KEY/KG_LLM_API_KEY.
 
 ## Chỉ đọc tài liệu, không gọi LLM
 

@@ -1,0 +1,9 @@
+# Overlay for compose.practice-e2e.yml. Synthetic graph; no access to real Neo4j.
+services:
+  backend:
+    command: ["uvicorn", "study_app:app", "--app-dir", "/e2e", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      MODEL_CALLS_ENABLED: "false"
+      KNOWLEDGE_DATA_ROOT: /test-uploads/library
+    volumes:
+      - ./apps/backend/tests:/test-support:ro

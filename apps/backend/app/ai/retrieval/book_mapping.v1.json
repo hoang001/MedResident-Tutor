@@ -1,0 +1,498 @@
+{
+  "version": "book-question-concept-v1-20261111",
+  "link_method": "manual source/locator verification, not fuzzy names or course inference",
+  "questions": {
+    "KGR_DEV_ST_CLOSE": {
+      "question_sha256": "d84de49893911d986e6dd64c06c40c28818324d90d61c07f5daf1e7114b0a104",
+      "concept_ids": [
+        "DRN_0ca792732a665fcd8f8b6f5d6d190533",
+        "DRN_c09359b7e3f55839bb56f6a309ab90a9"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_0ca792732a665fcd8f8b6f5d6d190533",
+          "node_name": "Khâu kín vết thương đầu mặt hoặc bàn tay sau cắt lọc",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_94773dddf070765408a669ef",
+          "pdf_pages": [
+            9
+          ],
+          "printed_pages": [
+            "8"
+          ],
+          "excerpt": "3. NƠI CÓ VẾT THƯƠNG PHẦN MỀM NÊN KHÂU KÍN\nHầu hết vết thương phần mềm, sau cắt lọc, nên để hở vết thương.\nSong, có 2 nơi sau cắt lọc nên khâu kín vết thương.\nĐó là: Vết thương đầu mặt\nVết thương bàn tay\nNếu vết thương sâu, đặt dẫn lưu rồi khâu\nVới các vết cắn (do người, do súc vật) luôn luôn để hở."
+        },
+        {
+          "node_id": "DRN_c09359b7e3f55839bb56f6a309ab90a9",
+          "node_name": "Để hở vết thương",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_94773dddf070765408a669ef",
+          "pdf_pages": [
+            9
+          ],
+          "printed_pages": [
+            "8"
+          ],
+          "excerpt": "3. NƠI CÓ VẾT THƯƠNG PHẦN MỀM NÊN KHÂU KÍN\nHầu hết vết thương phần mềm, sau cắt lọc, nên để hở vết thương.\nSong, có 2 nơi sau cắt lọc nên khâu kín vết thương.\nĐó là: Vết thương đầu mặt\nVết thương bàn tay\nNếu vết thương sâu, đặt dẫn lưu rồi khâu\nVới các vết cắn (do người, do súc vật) luôn luôn để hở."
+        }
+      ]
+    },
+    "KGR_DEV_AMP_STUMP": {
+      "question_sha256": "d2f5af5f9f31e26954a346fdbee7a95f304aa87a612c3fc0ef252b1cc90b7aa1",
+      "concept_ids": [
+        "DRN_266176afece6507a89a8a84bccbda752",
+        "DRN_88f9cd65fbf05d87b07158c32ff625d8"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_266176afece6507a89a8a84bccbda752",
+          "node_name": "Để hở hoàn toàn đầu mỏm cụt nhiễm trùng",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_a1f210317a5d554a2d1ed272",
+          "pdf_pages": [
+            46
+          ],
+          "printed_pages": [
+            "45"
+          ],
+          "excerpt": "Sau cắt cụt do chi bị hoại tử nhiễm trùng, thường để hở hoàn toàn đầu mỏm cụt.\nSau cắt cụt do chi hỏng song không bị nhiễm trùng thì đóng kín được mỏm cụt và dẫn lưu. Do tai nạn, để hở vết thương an toàn hơn."
+        },
+        {
+          "node_id": "DRN_88f9cd65fbf05d87b07158c32ff625d8",
+          "node_name": "Đóng kín mỏm cụt và dẫn lưu khi không nhiễm trùng",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_a1f210317a5d554a2d1ed272",
+          "pdf_pages": [
+            46
+          ],
+          "printed_pages": [
+            "45"
+          ],
+          "excerpt": "Sau cắt cụt do chi bị hoại tử nhiễm trùng, thường để hở hoàn toàn đầu mỏm cụt.\nSau cắt cụt do chi hỏng song không bị nhiễm trùng thì đóng kín được mỏm cụt và dẫn lưu. Do tai nạn, để hở vết thương an toàn hơn."
+        }
+      ]
+    },
+    "KGR_DEV_FX_RADIO": {
+      "question_sha256": "06c14b746b1d6805107cc134620238f16cdd05805ae2bbc198576e7b7ae59d0b",
+      "concept_ids": [
+        "DRN_30e9720505045cc29ff514c9f0428558"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_TEXTBOOK_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_30e9720505045cc29ff514c9f0428558",
+          "node_name": "X quang thường quy",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_f3eae64751a79c393d477cdf",
+          "pdf_pages": [
+            14
+          ],
+          "printed_pages": [],
+          "excerpt": "- Trên phim X quang thường quy thấy đường gãy xương, có thể gãy hoàn toàn hoặc không hoàn toàn, gãy trên nền xương bệnh lý... Lưu ý: phim X quang phải lấy hết khớp trên và dưới ổ gãy, đủ hai tư thế thẳng và nghiêng."
+        }
+      ]
+    },
+    "KGR_DEV_ST_DEEP": {
+      "question_sha256": "25bb9fce9e45738d0cf58e4c82160dfdafea18533133de5409c7f35cb6d736c0",
+      "concept_ids": [
+        "DRN_6f30f127db1257069ec2048af6acda8a"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_6f30f127db1257069ec2048af6acda8a",
+          "node_name": "Vết thương sâu qua cân đến lớp cơ",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_a7f06e5d3ed31b7d902017f3",
+          "pdf_pages": [
+            8
+          ],
+          "printed_pages": [
+            "7"
+          ],
+          "excerpt": "– Các vết thương sâu, vào qua cân đến lớp cơ. Có 2 nhóm:\n+ Thương tổn cơ nhẹ, ví dụ bị thương do vật sắc đâm vào, bị thương do đạn có tốc độ chậm (ví dụ súng lục, tốc độ chừng 200m/gy). Thương tổn cơ theo đường đi của vật nhọn, của đạn, không lan rộng, có thể phạm mạch máu thần kinh trên đường đi này.\n– Xử trí: Cắt lọc rạch rộng da ít, tùy độ sâu mà rạch dọc da mỗi bề 3-5cm, rạch dọc cân, bành rộng thớ cơ theo lỗ vào, xối rửa vết thương, để hở vết thương. Thì 2 khâu đính da, không khâu cân. Các mạch máu nhỏ thì đốt điện hay buộc.\nBị thương tổn mạch máu thần kinh lớn xem bài riêng\n+ Thương tổn cơ nặng: ví dụ bị thương do súng AK (tốc độ trên 800m/gy). Tại lỗ vào, da cân bị thủng lỗ tròn, đến lớp cơ, lớp sâu, năng lượng lớn phá rộng trong sâu, do hiện tượng lỗ hổng tạm thời, làm hỏng cơ rộng, thương tổn, thần kinh mạch máu lân cận, làm toác phần mềm tại lỗ đạn ra. Ví dụ: đạn xuyên vào phần mềm cạnh cột sống, xương lành song tuỷ bị liệt.\nXử trí: Rạch rộng da, cân sau cắt lọc, tại lỗ vào và lỗ ra, bành rộng vết thương cơ, xối rửa vết thương, cầm máu, để hở vết thương hoàn toàn.\nSau 2 tuần khâu đính da, khép vết thương."
+        }
+      ]
+    },
+    "KGR_DEV_SKIN_GLOVE": {
+      "question_sha256": "647ba64c7e3a231777a2c85975f3be007f30d9bdbc6897f41e6ba3a7df2e6df2",
+      "concept_ids": [
+        "DRN_17d6e5b3f2af5ae9badaff24cbb77c63"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_17d6e5b3f2af5ae9badaff24cbb77c63",
+          "node_name": "Xử trí lột da bàn tay như lột găng",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_9861a32db4fbea71eb27d7eb",
+          "pdf_pages": [
+            9
+          ],
+          "printed_pages": [
+            "8"
+          ],
+          "excerpt": "5. LỘT DA BÀN TAY: Do tai nạn lao động, có 2 kiểu bị lột da:\n– Lột da như lột găng, còn dính các đầu ngón. Cắt lọc sạch tổ chức bẩn. Cắt lọc hết mỡ và tổ chức liên kết dưới da của phần bị lột. Chích thủng nhiều lỗ ở da cho thoát dịch, khâu lại theo vị trí cũ. Miếng da như miếng ghép da dày, sống bằng thẩm thấu. Cần khâu đính da xuống nền, băng hơi ép."
+        }
+      ]
+    },
+    "KGR_DEV_OPEN_DEFINITION": {
+      "question_sha256": "24572c05d7487f58dbfb42a70c889317525ffdcf70d48f20061ea31acf227730",
+      "concept_ids": [
+        "MC_485db981fe124da3a01227402f6e298c"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "MC_485db981fe124da3a01227402f6e298c",
+          "node_name": "Gãy xương hở",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_fe0db96cfac5be7ae4910412",
+          "pdf_pages": [
+            16
+          ],
+          "printed_pages": [
+            "15"
+          ],
+          "excerpt": "Gãy xương hở là loại gãy xương mà ổ gãy thông với môi trường bên ngoài qua vết thương phần mềm.\nNếu gãy xương kín, kèm một vết thương phần mềm ở cùng một đoạn chi, phải điều trị như một gãy xương hở, nếu không, từ nhiễm trùng phần mềm sẽ lan vào xương."
+        },
+        {
+          "node_id": "MC_485db981fe124da3a01227402f6e298c",
+          "node_name": "Gãy xương hở",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_f313ae53873ceb36e9b98452",
+          "pdf_pages": [
+            16
+          ],
+          "printed_pages": [
+            "15"
+          ],
+          "excerpt": "1.2. Dịch tễ học\nTỷ lệ gãy xương hở đứng đầu trong cấp cứu chấn thương (chiếm 40-50% tổng số gãy xương).\nGãy xương hở gặp ở mọi lứa tuổi, mọi giới, nhưng hay gặp nhất là tuổi lao động (20-40t), nam nhiều hơn nữ (3/1).\nChi hay bị gãy xương hở nhất theo thứ tự là: cẳng chân, cẳng tay, các ngón tay, ngón chân, đùi."
+        },
+        {
+          "node_id": "MC_485db981fe124da3a01227402f6e298c",
+          "node_name": "Gãy xương hở",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_caed376071b70917885cc074",
+          "pdf_pages": [
+            26
+          ],
+          "printed_pages": [
+            "25"
+          ],
+          "excerpt": "- Gãy xương hở gặp nhiều nhất trong cấp cứu chấn thương\n- Chẩn đoán xác định dễ, nhưng có thể bỏ sót các gãy xương hở nhỏ"
+        }
+      ]
+    },
+    "KGR_DEV_OPEN_SMALL": {
+      "question_sha256": "aa93e6b1ebc0722f048515512b791264b00867d1f1124d2031132e635c4e17ac",
+      "concept_ids": [
+        "MC_485db981fe124da3a01227402f6e298c"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "MC_485db981fe124da3a01227402f6e298c",
+          "node_name": "Gãy xương hở",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_fe0db96cfac5be7ae4910412",
+          "pdf_pages": [
+            16
+          ],
+          "printed_pages": [
+            "15"
+          ],
+          "excerpt": "Gãy xương hở là loại gãy xương mà ổ gãy thông với môi trường bên ngoài qua vết thương phần mềm.\nNếu gãy xương kín, kèm một vết thương phần mềm ở cùng một đoạn chi, phải điều trị như một gãy xương hở, nếu không, từ nhiễm trùng phần mềm sẽ lan vào xương."
+        },
+        {
+          "node_id": "MC_485db981fe124da3a01227402f6e298c",
+          "node_name": "Gãy xương hở",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_f313ae53873ceb36e9b98452",
+          "pdf_pages": [
+            16
+          ],
+          "printed_pages": [
+            "15"
+          ],
+          "excerpt": "1.2. Dịch tễ học\nTỷ lệ gãy xương hở đứng đầu trong cấp cứu chấn thương (chiếm 40-50% tổng số gãy xương).\nGãy xương hở gặp ở mọi lứa tuổi, mọi giới, nhưng hay gặp nhất là tuổi lao động (20-40t), nam nhiều hơn nữ (3/1).\nChi hay bị gãy xương hở nhất theo thứ tự là: cẳng chân, cẳng tay, các ngón tay, ngón chân, đùi."
+        },
+        {
+          "node_id": "MC_485db981fe124da3a01227402f6e298c",
+          "node_name": "Gãy xương hở",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_caed376071b70917885cc074",
+          "pdf_pages": [
+            26
+          ],
+          "printed_pages": [
+            "25"
+          ],
+          "excerpt": "- Gãy xương hở gặp nhiều nhất trong cấp cứu chấn thương\n- Chẩn đoán xác định dễ, nhưng có thể bỏ sót các gãy xương hở nhỏ"
+        }
+      ]
+    },
+    "KGR_DEV_AMP_GUILLOTINE": {
+      "question_sha256": "854ce8fb84b9be175916ab6e267a76de30b94737715ec61495dffece4f08b00c",
+      "concept_ids": [
+        "DRN_73850fc10e2f5ec594ed14bf0f8a8824"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_73850fc10e2f5ec594ed14bf0f8a8824",
+          "node_name": "Cắt khoanh giò",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_60c68e52ba765ac43f74951a",
+          "pdf_pages": [
+            46
+          ],
+          "printed_pages": [
+            "45"
+          ],
+          "excerpt": "Ngày nay, kỹ thuật cắt cụt nhanh kiểu khoanh giò rất ít được thực hiện. Chi còn làm khi bệnh nhân bị đổ nhà, vật nặng đè nát 1 phần chi. Cắt khoanh giò để đưa bệnh nhân ra ngoài."
+        }
+      ]
+    },
+    "KGR_DEV_ST_AVULSION": {
+      "question_sha256": "e8035ed57d1b85829a579d2a4bdb84d9f2a301ae48a40fdbce02b925192f2aaa",
+      "concept_ids": [
+        "DRN_d0a61691572659d690d4b83becc32789"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_d0a61691572659d690d4b83becc32789",
+          "node_name": "Da bị lột rời",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_d8443ce3d09fd0a2af53394f",
+          "pdf_pages": [
+            9
+          ],
+          "printed_pages": [
+            "8"
+          ],
+          "excerpt": "5. LỘT DA BÀN TAY: Do tai nạn lao động, có 2 kiểu bị lột da:"
+        },
+        {
+          "node_id": "DRN_d0a61691572659d690d4b83becc32789",
+          "node_name": "Da bị lột rời",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "locator_id": "LOCR_4f2453deb7e2ee3d67557587",
+          "pdf_pages": [
+            9
+          ],
+          "printed_pages": [
+            "8"
+          ],
+          "excerpt": "– Da bị lột rời. Rạch da thành bụng, tạo túi rộng dưới da, đút bàn tay giấu vào dưới da bụng. Các đầu ngón tay chích thủng da bụng cho lộ ra ngoài. Gửi chuyên khoa."
+        }
+      ]
+    },
+    "KGR_DEV_FX_FATIGUE": {
+      "question_sha256": "0c6ee6a6b0d2aa80d106412aef83ac07ffaae1418573bc2086212d468a398fab",
+      "concept_ids": [
+        "DRN_2a88eef5eb8954e1a371b875ea418f85"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_TEXTBOOK_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_2a88eef5eb8954e1a371b875ea418f85",
+          "node_name": "Gãy xương do mệt mỏi (Fatigue fractures)",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_1891b393cb840d79182dd84e",
+          "pdf_pages": [
+            9
+          ],
+          "printed_pages": [],
+          "excerpt": "1.2.3. Gãy xương do mệt mỏi (Fatigue fractures)\nLực chấn thương tuy nhỏ nhưng tác động lặp đi lặp lại tại một vị trí, trong thời gian dài, làm yếu xương, dẫn đến gãy xương. Loại gãy này thường gặp ở chi dưới, ở những người đi bộ dài ngày (Hình 2b)."
+        }
+      ]
+    },
+    "KGR_DEV_FX_GREENSTICK": {
+      "question_sha256": "e80807b2262ee5f718161b2087c1319852a4a785ba6aab91ec3154a19bf3f7d3",
+      "concept_ids": [
+        "DRN_407da6569fae5c0c9fd778f22c11198c"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_TEXTBOOK_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_407da6569fae5c0c9fd778f22c11198c",
+          "node_name": "Gãy cành tươi (Greenstick)",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_e4564ce0c52bf7a2194b4f00",
+          "pdf_pages": [
+            9
+          ],
+          "printed_pages": [],
+          "excerpt": "- Gãy cành tươi (Greenstick): là kiểu gãy toác giống như bẻ một cành cây xanh. Loại gãy này, một bên vỏ xương gãy toác, bên kia cong lõm gây ra di lệch gấp góc (Hình 3b)."
+        }
+      ]
+    },
+    "KGR_DEV_FX_CLOSED": {
+      "question_sha256": "36af560a3f8f15ba8c18ae2dd6b6f47213af83eff6f37ea42e194a3dca576d09",
+      "concept_ids": [
+        "DRN_6ba7a5e6299e57a2a6b08552156c88c7"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_TEXTBOOK_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_6ba7a5e6299e57a2a6b08552156c88c7",
+          "node_name": "Gãy kín",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_45b86e19632017392323618c",
+          "pdf_pages": [
+            11
+          ],
+          "printed_pages": [],
+          "excerpt": "• Gãy kín: là gãy xương trong đó ổ gãy xương không thông thương với môi trường bên ngoài."
+        }
+      ]
+    },
+    "KGR_DEV_FX_INTERPOSITION": {
+      "question_sha256": "6be4cb747c98fe48846f6c0e7303339e5059e0ad2cc0bf2393877d6505bef3e8",
+      "concept_ids": [
+        "DRN_37e237e7bcd45131868370b1c841d867"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_TEXTBOOK_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_37e237e7bcd45131868370b1c841d867",
+          "node_name": "Nắn chỉnh kín thất bại do kẹt phần mềm",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_4cdef7950fdbc28956f0fe06",
+          "pdf_pages": [
+            29
+          ],
+          "printed_pages": [],
+          "excerpt": "- Nắn chỉnh kín thất bại do kẹt phần mềm vào ổ gãy."
+        }
+      ]
+    },
+    "KGR_DEV_FX_CAST": {
+      "question_sha256": "0c855fdbc65311213917dc804da44f93a608dcfa634e3ce129b2b95451c19c02",
+      "concept_ids": [
+        "DRN_5828060fb74f5022ab6a8e6761f3d1c7"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_TEXTBOOK_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_5828060fb74f5022ab6a8e6761f3d1c7",
+          "node_name": "Chèn ép bột",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_4aa0c528679b9e79efbcdf60",
+          "pdf_pages": [
+            20
+          ],
+          "printed_pages": [],
+          "excerpt": "- Chèn ép bột"
+        },
+        {
+          "node_id": "DRN_5828060fb74f5022ab6a8e6761f3d1c7",
+          "node_name": "Chèn ép bột",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_065cd1ed0cef65450dd9d735",
+          "pdf_pages": [
+            20
+          ],
+          "printed_pages": [],
+          "excerpt": "Trong 24-72 giờ đầu, do hiện tượng sưng nề tăng lên làm cho bột có xu hướng lại. Nếu không được phát hiện sớm, nới rộng bột kịp thời có thể dẫn đến tình trạng chèn ép bột.\nCác dấu hiệu của chèn ép bột:\n+ Đau tăng và cảm giác bột bóp chặt lấy chi\n+ Tê bì hoặc căng tức đầu ngón\n+ Đau rát bỏng hoặc như kim châm\n+ Đầu ngón sưng, tím lạnh\n+ Mất vận động chủ động các ngón tay, ngón chân"
+        }
+      ]
+    },
+    "KGR_DEV_FX_DVT": {
+      "question_sha256": "276baefd48072df39336ad432ab988765df0fc5a6339f364e8704876f514913c",
+      "concept_ids": [
+        "DRN_4966627de21e5385902ff93d1a828ce5"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_TEXTBOOK_001"
+      ],
+      "review_status": "Codex source checked; not clinician approved",
+      "verification": [
+        {
+          "node_id": "DRN_4966627de21e5385902ff93d1a828ce5",
+          "node_name": "Dự phòng huyết khối tĩnh mạch sâu",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_866bc1cbbc6770d38d902ec4",
+          "pdf_pages": [
+            26
+          ],
+          "printed_pages": [],
+          "excerpt": "3.3. Dự phòng huyết khối tĩnh mạch sâu"
+        },
+        {
+          "node_id": "DRN_4966627de21e5385902ff93d1a828ce5",
+          "node_name": "Dự phòng huyết khối tĩnh mạch sâu",
+          "source_id": "SRC_ORTHO_TEXTBOOK_001",
+          "locator_id": "LOCCOMP_c440f4eb69de2985436f73d6",
+          "pdf_pages": [
+            27
+          ],
+          "printed_pages": [],
+          "excerpt": "khác nhau ở từng cơ sở điều trị. Cho người bệnh vận động sớm ngay sau mổ là biện pháp dự phòng huyết khối tĩnh mạch sâu hiệu quả nhất nhưng không phải người bệnh nào cũng thực hiện được. Các biện pháp điều trị bao gồm sử dụng bơm hơi áp lực ngắt quãng, thuốc heparin trọng lượng phân tử thấp, aspirin, thuốc chống đông kháng vitamin K, thuốc chống đông đường uống thế hệ mới (Non-Vitamin K antagonist oral anticoagulants- NOACs) được khuyến cáo trong điều trị nhưng không có bằng chứng nào về sự vượt trội của một phương pháp duy nhất trong điều trị dự phòng huyết khối tĩnh mạch sâu. Điều trị dự phòng huyết khối tĩnh mạch sâu phụ thuộc vào từng cá thể."
+        }
+      ]
+    },
+    "ORTHO_B21CN1_Q_0001": {
+      "question_sha256": "8a0accf0b09cf2c12beeda6a111849b9e47859a6e0fb25f3ed39f973fc9dbd43",
+      "concept_ids": [
+        "MC_485db981fe124da3a01227402f6e298c"
+      ],
+      "source_ids": [
+        "SRC_ORTHO_EMERGENCY_001"
+      ],
+      "verification": [
+        {
+          "basis": "Existing integration source-unit definition and node exact same textbook passage",
+          "source_id": "SRC_ORTHO_EMERGENCY_001",
+          "pdf_page": 16
+        }
+      ]
+    }
+  }
+}

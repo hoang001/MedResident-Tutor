@@ -22,7 +22,7 @@ def main():
     extract.add_argument('--schema',type=Path,required=True)
     extract.add_argument('--judge-prompt',type=Path)
     extract.add_argument('--judge-schema',type=Path)
-    extract.add_argument('--env-file',type=Path,default=Path('.env'))
+    extract.add_argument('--env-file',type=Path,default=Path(__file__).resolve().parents[1] / '.env')
     restart=extract.add_mutually_exclusive_group()
     restart.add_argument('--continue',dest='resume',action='store_true')
     restart.add_argument('--force',action='store_true')

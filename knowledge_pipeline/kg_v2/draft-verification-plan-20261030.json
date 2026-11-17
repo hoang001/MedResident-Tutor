@@ -1,0 +1,15 @@
+{
+  "base_runs": [
+    "data/knowledge-extraction/v2/draft-offline-20261030"
+  ],
+  "shards": [
+    {
+      "key": "retry-two-windows",
+      "scope": "knowledge_pipeline/kg_v2/draft-retry-scope-20261030.json"
+    },
+    {
+      "key": "missing-indications",
+      "scope": "knowledge_pipeline/kg_v2/draft-supplement-scope-20261030.json"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# Explicit opt-in. Keeps the web's Medical/Teaching provider and call lock unchanged.
+services:
+  backend:
+    build:
+      args:
+        INSTALL_RETRIEVAL: "true"
+    environment:
+      PRACTICE_RETRIEVAL_STRATEGY: ${PRACTICE_RETRIEVAL_STRATEGY:-hybrid}
+      PRACTICE_RETRIEVAL_GRAPH: neo4j
+      PRACTICE_RETRIEVAL_CORPUS: /app/data/retrieval/book-corpus-v1
+      PRACTICE_RETRIEVAL_ENCODER: /app/data/local-models/embeddings/multilingual-e5-small

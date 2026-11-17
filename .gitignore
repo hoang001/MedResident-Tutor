@@ -2,6 +2,8 @@
 .env.*
 !.env.example
 .venv/
+.venv-cases/
+.venv-local-models/
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -31,6 +33,7 @@ model-training/logs/
 *.pt
 # Local database backups contain user data
 data/backups/
+data/exports/
 
 # Browser test artifacts may contain fixture answers/tokens
 apps/frontend/test-results/
@@ -40,11 +43,68 @@ apps/frontend/playwright-report/
 data/knowledge-extraction/raw/
 data/knowledge-extraction/runs/
 data/knowledge-extraction/pages/
+data/knowledge-extraction/**/raw/
+data/knowledge-extraction/**/runs/
+data/knowledge-extraction/**/pages/
+data/knowledge-extraction/**/neo4j-demo/
+data/knowledge-extraction/v2/**/audit/
 knowledge_pipeline/.env
 .venv-extraction/
 # Source books stay local
 data/raw-source/
+# Full-book OCR artifacts stay local alongside their source PDFs.
+/data/graduate/
 
 # Local review packages duplicate source files and are not runtime inputs.
 /handoff/
 /handoff.zip
+
+# Raw public-site snapshots can contain anonymous session form fields.
+/data/knowledge-extraction/hmu-public-*/discovery/
+
+# Original clinical source assets / HTTP checkpoints stay local for review.
+/data/clinical-cases/raw/
+/data/clinical-cases/images/
+/data/clinical-cases/audit/
+/data/clinical-cases/exercises/assets/
+/data/clinical-cases/exercises/packets/
+/data/clinical-cases/exercises/structured/audit/
+
+# Local model snapshots, adapters, serving credentials, PIDs and inference artifacts.
+/data/local-models/
+/data/local-model-tests/
+/adapter/
+
+# Independent experiment raw outputs, source excerpts and execution state stay local.
+/data/evaluation/
+
+# Local source excerpts and generated semantic indexes; keep runtime code/mapping in app.
+/data/retrieval/
+
+# Authoring source excerpts, signed evidence bundles and local inference traces.
+/data/authoring/
+
+# Local demo login credentials and simulated personal study records.
+/data/demo-accounts/
+
+# Local source material, generated KG/review exports and third-party reference checkout.
+/data/new_data/
+/data/knowledge-extraction/
+/data/clinical-cases/
+/data/curriculum/neo4j/
+/data/curriculum/round2-mapping/
+/advance/
+
+# Generated book shards can contain copied source text; regenerate from local books.
+/knowledge_pipeline/kg_v2/book-2006-full-scopes/
+/knowledge_pipeline/kg_v2/book-2021-full-scopes/
+/knowledge_pipeline/kg_v2/book-2021-all-lessons-scopes/
+
+# Machine-local design tooling, review captures and agent-session state.
+/.agents/
+/.impeccable/questions/
+/.impeccable/review/
+/.impeccable/critique/
+/docs/frontend-review/screenshots/
+# Personal scratch commands for remote setup; use docs/runpod-model-api.md instead.
+/run.md

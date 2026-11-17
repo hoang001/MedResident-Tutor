@@ -1,0 +1,553 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T17:58:21.941633+00:00",
+  "title": "Design System: MedResident Tutor",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Navy",
+        "canonical": "#142d4e",
+        "tonalRamp": [
+          "oklch(15% 0.0238 256.16)",
+          "oklch(27% 0.0407 256.16)",
+          "oklch(39% 0.0543 256.16)",
+          "oklch(51% 0.0679 256.16)",
+          "oklch(63% 0.0679 256.16)",
+          "oklch(75% 0.0543 256.16)",
+          "oklch(87% 0.0339 256.16)",
+          "oklch(95% 0.0136 256.16)"
+        ]
+      },
+      "navy-deep": {
+        "role": "primary",
+        "displayName": "Navy Deep",
+        "canonical": "#10253f",
+        "tonalRamp": [
+          "oklch(15% 0.0196 254.86)",
+          "oklch(27% 0.0336 254.86)",
+          "oklch(39% 0.0448 254.86)",
+          "oklch(51% 0.0561 254.86)",
+          "oklch(63% 0.0561 254.86)",
+          "oklch(75% 0.0448 254.86)",
+          "oklch(87% 0.0280 254.86)",
+          "oklch(95% 0.0112 254.86)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1c3049",
+        "tonalRamp": [
+          "oklch(15% 0.0183 254.67)",
+          "oklch(27% 0.0314 254.67)",
+          "oklch(39% 0.0419 254.67)",
+          "oklch(51% 0.0524 254.67)",
+          "oklch(63% 0.0524 254.67)",
+          "oklch(75% 0.0419 254.67)",
+          "oklch(87% 0.0262 254.67)",
+          "oklch(95% 0.0105 254.67)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#5d6d80",
+        "tonalRamp": [
+          "oklch(15% 0.0125 252.89)",
+          "oklch(27% 0.0214 252.89)",
+          "oklch(39% 0.0286 252.89)",
+          "oklch(51% 0.0357 252.89)",
+          "oklch(63% 0.0357 252.89)",
+          "oklch(75% 0.0286 252.89)",
+          "oklch(87% 0.0179 252.89)",
+          "oklch(95% 0.0071 252.89)"
+        ]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Accent",
+        "canonical": "#0b7779",
+        "tonalRamp": [
+          "oklch(15% 0.0300 196.94)",
+          "oklch(27% 0.0515 196.94)",
+          "oklch(39% 0.0686 196.94)",
+          "oklch(51% 0.0858 196.94)",
+          "oklch(63% 0.0858 196.94)",
+          "oklch(75% 0.0686 196.94)",
+          "oklch(87% 0.0429 196.94)",
+          "oklch(95% 0.0172 196.94)"
+        ]
+      },
+      "accent-hover": {
+        "role": "secondary",
+        "displayName": "Accent Hover",
+        "canonical": "#075f62",
+        "tonalRamp": [
+          "oklch(15% 0.0256 198.70)",
+          "oklch(27% 0.0439 198.70)",
+          "oklch(39% 0.0585 198.70)",
+          "oklch(51% 0.0731 198.70)",
+          "oklch(63% 0.0731 198.70)",
+          "oklch(75% 0.0585 198.70)",
+          "oklch(87% 0.0366 198.70)",
+          "oklch(95% 0.0146 198.70)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(27% 0.0000 89.88)",
+          "oklch(39% 0.0000 89.88)",
+          "oklch(51% 0.0000 89.88)",
+          "oklch(63% 0.0000 89.88)",
+          "oklch(75% 0.0000 89.88)",
+          "oklch(87% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Background",
+        "canonical": "#f4f6f9",
+        "tonalRamp": [
+          "oklch(15% 0.0016 258.32)",
+          "oklch(27% 0.0027 258.32)",
+          "oklch(39% 0.0036 258.32)",
+          "oklch(51% 0.0045 258.32)",
+          "oklch(63% 0.0045 258.32)",
+          "oklch(75% 0.0036 258.32)",
+          "oklch(87% 0.0023 258.32)",
+          "oklch(95% 0.0009 258.32)"
+        ]
+      },
+      "soft": {
+        "role": "secondary",
+        "displayName": "Soft",
+        "canonical": "#eaf4f3",
+        "tonalRamp": [
+          "oklch(15% 0.0037 189.82)",
+          "oklch(27% 0.0064 189.82)",
+          "oklch(39% 0.0085 189.82)",
+          "oklch(51% 0.0107 189.82)",
+          "oklch(63% 0.0107 189.82)",
+          "oklch(75% 0.0085 189.82)",
+          "oklch(87% 0.0053 189.82)",
+          "oklch(95% 0.0021 189.82)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#d9e2ec",
+        "tonalRamp": [
+          "oklch(15% 0.0059 250.85)",
+          "oklch(27% 0.0101 250.85)",
+          "oklch(39% 0.0134 250.85)",
+          "oklch(51% 0.0168 250.85)",
+          "oklch(63% 0.0168 250.85)",
+          "oklch(75% 0.0134 250.85)",
+          "oklch(87% 0.0084 250.85)",
+          "oklch(95% 0.0034 250.85)"
+        ]
+      },
+      "focus": {
+        "role": "secondary",
+        "displayName": "Focus",
+        "canonical": "#0b7779",
+        "tonalRamp": [
+          "oklch(15% 0.0300 196.94)",
+          "oklch(27% 0.0515 196.94)",
+          "oklch(39% 0.0686 196.94)",
+          "oklch(51% 0.0858 196.94)",
+          "oklch(63% 0.0858 196.94)",
+          "oklch(75% 0.0686 196.94)",
+          "oklch(87% 0.0429 196.94)",
+          "oklch(95% 0.0172 196.94)"
+        ]
+      },
+      "danger": {
+        "role": "tertiary",
+        "displayName": "Danger",
+        "canonical": "#a02836",
+        "tonalRamp": [
+          "oklch(15% 0.0420 19.36)",
+          "oklch(27% 0.0720 19.36)",
+          "oklch(39% 0.0960 19.36)",
+          "oklch(51% 0.1200 19.36)",
+          "oklch(63% 0.1200 19.36)",
+          "oklch(75% 0.0960 19.36)",
+          "oklch(87% 0.0600 19.36)",
+          "oklch(95% 0.0240 19.36)"
+        ]
+      },
+      "danger-soft": {
+        "role": "tertiary",
+        "displayName": "Danger Soft",
+        "canonical": "#fff1f2",
+        "tonalRamp": [
+          "oklch(15% 0.0053 12.42)",
+          "oklch(27% 0.0091 12.42)",
+          "oklch(39% 0.0121 12.42)",
+          "oklch(51% 0.0152 12.42)",
+          "oklch(63% 0.0152 12.42)",
+          "oklch(75% 0.0121 12.42)",
+          "oklch(87% 0.0076 12.42)",
+          "oklch(95% 0.0030 12.42)"
+        ]
+      },
+      "success": {
+        "role": "tertiary",
+        "displayName": "Success",
+        "canonical": "#176244",
+        "tonalRamp": [
+          "oklch(15% 0.0306 161.79)",
+          "oklch(27% 0.0524 161.79)",
+          "oklch(39% 0.0699 161.79)",
+          "oklch(51% 0.0874 161.79)",
+          "oklch(63% 0.0874 161.79)",
+          "oklch(75% 0.0699 161.79)",
+          "oklch(87% 0.0437 161.79)",
+          "oklch(95% 0.0175 161.79)"
+        ]
+      },
+      "success-soft": {
+        "role": "tertiary",
+        "displayName": "Success Soft",
+        "canonical": "#edf7f2",
+        "tonalRamp": [
+          "oklch(15% 0.0044 164.80)",
+          "oklch(27% 0.0075 164.80)",
+          "oklch(39% 0.0100 164.80)",
+          "oklch(51% 0.0124 164.80)",
+          "oklch(63% 0.0124 164.80)",
+          "oklch(75% 0.0100 164.80)",
+          "oklch(87% 0.0062 164.80)",
+          "oklch(95% 0.0025 164.80)"
+        ]
+      },
+      "warning": {
+        "role": "tertiary",
+        "displayName": "Warning",
+        "canonical": "#825a12",
+        "tonalRamp": [
+          "oklch(15% 0.0341 76.24)",
+          "oklch(27% 0.0585 76.24)",
+          "oklch(39% 0.0780 76.24)",
+          "oklch(51% 0.0975 76.24)",
+          "oklch(63% 0.0975 76.24)",
+          "oklch(75% 0.0780 76.24)",
+          "oklch(87% 0.0487 76.24)",
+          "oklch(95% 0.0195 76.24)"
+        ]
+      },
+      "warning-soft": {
+        "role": "tertiary",
+        "displayName": "Warning Soft",
+        "canonical": "#fff5df",
+        "tonalRamp": [
+          "oklch(15% 0.0108 86.46)",
+          "oklch(27% 0.0185 86.46)",
+          "oklch(39% 0.0246 86.46)",
+          "oklch(51% 0.0308 86.46)",
+          "oklch(63% 0.0308 86.46)",
+          "oklch(75% 0.0246 86.46)",
+          "oklch(87% 0.0154 86.46)",
+          "oklch(95% 0.0062 86.46)"
+        ]
+      },
+      "info-soft": {
+        "role": "neutral",
+        "displayName": "Info Soft",
+        "canonical": "#edf3fb",
+        "tonalRamp": [
+          "oklch(15% 0.0044 255.51)",
+          "oklch(27% 0.0075 255.51)",
+          "oklch(39% 0.0100 255.51)",
+          "oklch(51% 0.0125 255.51)",
+          "oklch(63% 0.0125 255.51)",
+          "oklch(75% 0.0100 255.51)",
+          "oklch(87% 0.0063 255.51)",
+          "oklch(95% 0.0025 255.51)"
+        ]
+      },
+      "input-line": {
+        "role": "neutral",
+        "displayName": "Input Line",
+        "canonical": "#a8b8ca",
+        "tonalRamp": [
+          "oklch(15% 0.0109 251.34)",
+          "oklch(27% 0.0188 251.34)",
+          "oklch(39% 0.0250 251.34)",
+          "oklch(51% 0.0313 251.34)",
+          "oklch(63% 0.0313 251.34)",
+          "oklch(75% 0.0250 251.34)",
+          "oklch(87% 0.0156 251.34)",
+          "oklch(95% 0.0063 251.34)"
+        ]
+      },
+      "nav-hover": {
+        "role": "neutral",
+        "displayName": "Nav Hover",
+        "canonical": "#223e60",
+        "tonalRamp": [
+          "oklch(15% 0.0240 254.24)",
+          "oklch(27% 0.0411 254.24)",
+          "oklch(39% 0.0548 254.24)",
+          "oklch(51% 0.0685 254.24)",
+          "oklch(63% 0.0685 254.24)",
+          "oklch(75% 0.0548 254.24)",
+          "oklch(87% 0.0343 254.24)",
+          "oklch(95% 0.0137 254.24)"
+        ]
+      },
+      "nav-current": {
+        "role": "neutral",
+        "displayName": "Nav Current",
+        "canonical": "#254969",
+        "tonalRamp": [
+          "oklch(15% 0.0240 247.35)",
+          "oklch(27% 0.0412 247.35)",
+          "oklch(39% 0.0549 247.35)",
+          "oklch(51% 0.0686 247.35)",
+          "oklch(63% 0.0686 247.35)",
+          "oklch(75% 0.0549 247.35)",
+          "oklch(87% 0.0343 247.35)",
+          "oklch(95% 0.0137 247.35)"
+        ]
+      },
+      "nav-outline": {
+        "role": "neutral",
+        "displayName": "Nav Outline",
+        "canonical": "#45647e",
+        "tonalRamp": [
+          "oklch(15% 0.0194 244.58)",
+          "oklch(27% 0.0333 244.58)",
+          "oklch(39% 0.0444 244.58)",
+          "oklch(51% 0.0555 244.58)",
+          "oklch(63% 0.0555 244.58)",
+          "oklch(75% 0.0444 244.58)",
+          "oklch(87% 0.0277 244.58)",
+          "oklch(95% 0.0111 244.58)"
+        ]
+      },
+      "nav-text": {
+        "role": "neutral",
+        "displayName": "Nav Text",
+        "canonical": "#d5e0ec",
+        "tonalRamp": [
+          "oklch(15% 0.0071 250.40)",
+          "oklch(27% 0.0122 250.40)",
+          "oklch(39% 0.0162 250.40)",
+          "oklch(51% 0.0203 250.40)",
+          "oklch(63% 0.0203 250.40)",
+          "oklch(75% 0.0162 250.40)",
+          "oklch(87% 0.0101 250.40)",
+          "oklch(95% 0.0041 250.40)"
+        ]
+      },
+      "nav-muted": {
+        "role": "neutral",
+        "displayName": "Nav Muted",
+        "canonical": "#b5cadf",
+        "tonalRamp": [
+          "oklch(15% 0.0131 248.28)",
+          "oklch(27% 0.0224 248.28)",
+          "oklch(39% 0.0299 248.28)",
+          "oklch(51% 0.0373 248.28)",
+          "oklch(63% 0.0373 248.28)",
+          "oklch(75% 0.0299 248.28)",
+          "oklch(87% 0.0187 248.28)",
+          "oklch(95% 0.0075 248.28)"
+        ]
+      },
+      "badge-neutral": {
+        "role": "neutral",
+        "displayName": "Badge Neutral",
+        "canonical": "#edf0f5",
+        "tonalRamp": [
+          "oklch(15% 0.0026 260.73)",
+          "oklch(27% 0.0045 260.73)",
+          "oklch(39% 0.0060 260.73)",
+          "oklch(51% 0.0074 260.73)",
+          "oklch(63% 0.0074 260.73)",
+          "oklch(75% 0.0060 260.73)",
+          "oklch(87% 0.0037 260.73)",
+          "oklch(95% 0.0015 260.73)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Public introduction",
+        "purpose": "Public home introduction; 2rem below 600px."
+      },
+      "headline": {
+        "displayName": "Page heading",
+        "purpose": "Source Sans 3 page titles; 1.55rem below 600px."
+      },
+      "title": {
+        "displayName": "Section heading",
+        "purpose": "Source Sans 3 section titles; 1.2rem below 600px."
+      },
+      "body": {
+        "displayName": "UI body",
+        "purpose": "Vietnamese body copy and inherited control text."
+      },
+      "label": {
+        "displayName": "Compact label",
+        "purpose": "Filter labels and compact UI; general form labels retain body size."
+      }
+    },
+    "shadows": [
+      {
+        "name": "account-popover",
+        "value": "0 8px 30px #10253f24",
+        "purpose": "Floating account menu only."
+      },
+      {
+        "name": "nav-current-inset",
+        "value": "inset 0 0 0 1px #45647e",
+        "purpose": "Current-page outline in navy navigation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "background-color .15s,border-color .15s",
+        "purpose": "Button hover transitions."
+      },
+      {
+        "name": "content-arrive",
+        "value": ".18s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Opacity .96 to 1 only under prefers-reduced-motion:no-preference."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "workspace-stack",
+        "value": "1150px"
+      },
+      {
+        "name": "drawer-shell",
+        "value": "900px"
+      },
+      {
+        "name": "compact",
+        "value": "600px"
+      },
+      {
+        "name": "legacy-reading",
+        "value": "820px"
+      },
+      {
+        "name": "legacy-fields-choices",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main task action.",
+      "html": "<button class=\"ds-primary\">Gửi câu trả lời</button>",
+      "css": ".ds-primary{font:600 16px/1.4 \"Segoe UI\",Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border:1px solid transparent;border-radius:7px;text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s;background:var(--navy,#142d4e);color:var(--surface,#fff)}.ds-primary:hover{background:var(--navy-deep,#10253f)}.ds-primary:focus-visible{outline:3px solid var(--focus,#0b7779);outline-offset:3px}.ds-primary:disabled{opacity:.5;cursor:not-allowed}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Alternative action or pagination.",
+      "html": "<button class=\"ds-secondary\">Trang sau</button>",
+      "css": ".ds-secondary{font:600 16px/1.4 \"Segoe UI\",Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border:1px solid transparent;border-radius:7px;text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s;background:var(--surface,#fff);border-color:var(--line,#d9e2ec);color:var(--navy,#142d4e)}.ds-secondary:hover{background:var(--info-soft,#edf3fb);border-color:#a0b2c8}.ds-secondary:focus-visible{outline:3px solid var(--focus,#0b7779);outline-offset:3px}.ds-secondary:disabled{opacity:.5;cursor:not-allowed}"
+    },
+    {
+      "name": "Text button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Source preview or recovery action.",
+      "html": "<button class=\"ds-text\">Đọc toàn bộ đoạn trích</button>",
+      "css": ".ds-text{font:600 16px/1.4 \"Segoe UI\",Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border:1px solid transparent;border-radius:7px;text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s;padding:8px 4px;background:transparent;color:var(--accent,#0b7779)}.ds-text:hover{background:var(--soft,#eaf4f3);color:var(--accent-hover,#075f62)}.ds-text:focus-visible{outline:3px solid var(--focus,#0b7779);outline-offset:3px}"
+    },
+    {
+      "name": "Labelled field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Visible label with the shared field boundary.",
+      "html": "<label class=\"ds-label\" for=\"ds-search\">Tìm bài đã làm</label><input class=\"ds-input\" id=\"ds-search\" type=\"search\" placeholder=\"Nhập nội dung bài tập\"/>",
+      "css": ".ds-label{display:block;margin-bottom:7px;font:600 16px/1.6 \"Segoe UI\",Arial,sans-serif;color:var(--ink,#1c3049)}.ds-input{width:100%;min-height:46px;padding:11px 12px;border:1px solid #a8b8ca;border-radius:7px;background:var(--surface,#fff);color:var(--ink,#1c3049);font:16px/1.6 \"Segoe UI\",Arial,sans-serif;caret-color:var(--accent,#0b7779)}.ds-input::placeholder{color:#667689}.ds-input:focus-visible{outline:3px solid var(--focus,#0b7779);outline-offset:3px}.ds-input[aria-invalid=true]{border:2px solid var(--danger,#a02836)}"
+    },
+    {
+      "name": "Current navigation",
+      "kind": "nav",
+      "refersTo": "nav-current",
+      "description": "Role navigation with current-page state.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Điều hướng học tập\"><a href=\"#\" aria-current=\"page\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z\"/></svg>Tổng quan</a></nav>",
+      "css": ".ds-nav{padding:16px;background:var(--navy,#142d4e)}.ds-nav a{display:flex;align-items:center;gap:12px;min-height:46px;padding:10px 12px;border-radius:7px;color:#d5e0ec;text-decoration:none;font:400 .9rem/1.4 \"Segoe UI\",Arial,sans-serif}.ds-nav a:hover{background:#223e60;color:white}.ds-nav a[aria-current=page]{background:#254969;color:white;box-shadow:inset 0 0 0 1px #45647e}.ds-nav a:focus-visible{outline:3px solid white;outline-offset:3px}"
+    },
+    {
+      "name": "Status badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Noninteractive written state; success example.",
+      "html": "<span class=\"ds-badge\">Hoàn tất</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:5px;background:var(--success-soft,#edf7f2);color:var(--success,#176244);font:600 .8rem/1.6 \"Segoe UI\",Arial,sans-serif}"
+    },
+    {
+      "name": "Working panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Flat grouped task surface.",
+      "html": "<section class=\"ds-panel\"><h2>Tài liệu đối chiếu</h2><p>Đọc đoạn trích rồi gắn vào đúng tiêu chí.</p></section>",
+      "css": ".ds-panel{padding:26px;background:var(--surface,#fff);color:var(--ink,#1c3049);border:1px solid var(--line,#d9e2ec);border-radius:12px;box-shadow:none;font:16px/1.6 \"Segoe UI\",Arial,sans-serif}.ds-panel h2{margin:0 0 16px;color:var(--navy,#142d4e);font:700 1.35rem/1.3 \"Source Sans 3\",\"Segoe UI\",Arial,sans-serif;letter-spacing:-.02em}.ds-panel p{margin:0;color:var(--muted,#5d6d80);max-width:75ch}"
+    },
+    {
+      "name": "Evidence disclosure",
+      "kind": "custom",
+      "refersTo": "panel",
+      "description": "Native disclosure with visible direction indicator.",
+      "html": "<details class=\"ds-source\"><summary>Nguồn đối chiếu</summary><blockquote>Đoạn nguồn của bài làm đã lưu.</blockquote></details>",
+      "css": ".ds-source{border-top:1px solid var(--line,#d9e2ec);padding-block:6px;color:var(--ink,#1c3049);font:16px/1.6 \"Segoe UI\",Arial,sans-serif}.ds-source summary{display:flex;align-items:center;gap:8px;padding-block:10px;list-style:none;font-weight:600;cursor:pointer}.ds-source summary::-webkit-details-marker{display:none}.ds-source summary::after{content:\"\";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);margin:0 4px 0 auto;flex-shrink:0}.ds-source[open] summary::after{transform:rotate(45deg)}.ds-source summary:focus-visible{outline:3px solid var(--focus,#0b7779);outline-offset:3px}.ds-source blockquote{margin:12px 0;padding:18px;border:1px solid var(--line,#d9e2ec);border-radius:7px;background:var(--background,#f4f6f9);line-height:1.8;white-space:pre-wrap}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Academic source-linked workspace",
+    "overview": "The pinned academic direction uses navy navigation, teal links, white working surfaces and a cool ground. Its character comes from clear Vietnamese type, purposeful SVG icons, ruled data lists and source-aware reading. This name describes the implemented direction; it is not a separate brand proposal.\n\nOperate mode supports choosing, answering, reviewing and authoring. Read mode gives source content a comfortable measure and preserves its structure. The shipped implementation is the authority: `apps/frontend/app/ui-theme.css` loads after `globals.css`, whose unoverridden reading and form rules still apply. This record replaces the former green/teal horizontal-navigation system under the user's explicit redesign brief.",
+    "keyCharacteristics": [
+      "Academic navy shell with restrained teal interaction cues.",
+      "Flat, bordered work surfaces and ruled lists rather than uniform card grids.",
+      "Distinct student and content-administration navigation.",
+      "Readable sources, explicit execution labels and visible recovery states."
+    ],
+    "rules": [
+      {
+        "name": "The Action Hierarchy Rule",
+        "body": "Navy carries the primary task; teal identifies links, focus and selection. Use semantic colors for status, with a written explanation.",
+        "section": "colors"
+      },
+      {
+        "name": "The Task Surface Rule",
+        "body": "Use lists or tables for collections, prose for reading and adjacent source/editing regions for authoring. Select the surface according to the task.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "**Do** reuse the navy action hierarchy, teal selection and visible keyboard focus.",
+      "**Do** keep source text, page locators, image attribution and saved-result identity accessible.",
+      "**Do** distinguish mock, replay and authored-answer scoring in plain Vietnamese.",
+      "**Do** retain errors, partial results and unsaved work with a clear recovery action."
+    ],
+    "donts": [
+      "**Don't** turn reading completion or simulated scores into medical mastery claims.",
+      "**Don't** label app publication as medical expert approval without evidence.",
+      "**Don't** expose provider debugging, raw JSON or generated technical IDs as student titles.",
+      "**Don't** replace source evidence with generated images or copy institutional branding.",
+      "**Don't** add controls for unavailable backend capabilities."
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "backend_env": {
+    "PRACTICE_RUNTIME_PROFILE": "local",
+    "PRACTICE_LOCAL_MEDICAL_READ_SECONDS": "90",
+    "PRACTICE_LOCAL_CONNECT_SECONDS": "5",
+    "PRACTICE_LOCAL_WRITE_SECONDS": "10",
+    "PRACTICE_LOCAL_POOL_SECONDS": "5",
+    "PRACTICE_LOCAL_DEADLINE_GRACE_SECONDS": "5"
+  },
+  "readiness_load_seconds": 1200,
+  "readiness_connect_seconds": 2,
+  "readiness_read_seconds": 5,
+  "max_generations": 4,
+  "cases": [
+    "CLINICAL_DEMO_V1_CASE01__full",
+    "CLINICAL_DEMO_V1_XR01__full",
+    "CLINICAL_DEMO_V1_CASE01__incorrect",
+    "CLINICAL_DEMO_V1_XR01__incorrect"
+  ]
+}

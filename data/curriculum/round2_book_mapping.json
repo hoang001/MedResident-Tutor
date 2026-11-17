@@ -1,0 +1,59 @@
+{
+  "format": "medresident-round2-book-mapping-v1",
+  "program_id": "HMU_RESIDENCY_SURGERY_ORTHOPEDICS_2025",
+  "status": "provisional_awaiting_teacher_confirmation",
+  "method": "Đối chiếu tên học phần với chủ đề chương sách; nối node đã trích bằng source_id và trang PDF của trích dẫn hiện có.",
+  "official_syllabus_confirmed": false,
+  "clinical_currency_verified": false,
+  "practice_credit_awarded": false,
+  "courses": [
+    {
+      "course_code": "B21CN7",
+      "coverage": "substantial_topic_overlap_not_full_syllabus",
+      "coverage_note": "Có nhiều bài phù hợp về chấn thương chi trên; chưa xác nhận đủ phạm vi học phần.",
+      "pending": ["Đề cương và chuẩn đầu ra học phần", "Phạm vi bệnh lý, dị tật chi trên cần học", "Bảng kiểm, mức giám sát và đánh giá thực hành"],
+      "readings": [
+        {"source_year": 2021, "chapters": [1, 2, 3, 4, 5, 7, 14], "role": "shared_reference", "stage": 1, "purpose": "Ôn nguyên tắc điều trị gãy xương, tổn thương phần mềm và biến chứng; đọc theo nhu cầu, không mở lại môn nền tảng."},
+        {"source_year": 2021, "chapters": [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "role": "primary_reading", "stage": 2, "purpose": "Các tổn thương chi trên, sắp theo vùng từ vai đến bàn tay."},
+        {"source_year": 2021, "chapters": [12], "role": "supplementary_reading", "stage": 3, "purpose": "Dị tật chi trên: chỉ đọc mở rộng, chờ cô xác nhận có thuộc phạm vi môn hay không."},
+        {"source_year": 2006, "chapters": [1, 2, 3, 4, 5, 6], "role": "shared_reference", "stage": 4, "purpose": "Đối chiếu kiến thức cấp cứu và biến chứng; tài liệu năm 2006 chưa được xác nhận tính cập nhật."},
+        {"source_year": 2006, "chapters": [15, 16, 18, 19, 12], "role": "supplementary_reading", "stage": 4, "purpose": "Tham khảo thêm các tổn thương chi trên tương ứng, không gộp thành một phác đồ với sách 2021."}
+      ]
+    },
+    {
+      "course_code": "B21CN8",
+      "coverage": "substantial_topic_overlap_not_full_syllabus",
+      "coverage_note": "Có nhiều bài phù hợp về chi dưới và khung chậu; chưa xác nhận đủ phạm vi học phần.",
+      "pending": ["Đề cương và chuẩn đầu ra học phần", "Phạm vi khung chậu, cổ chân, bàn chân và bệnh lý chi dưới cần học", "Bảng kiểm, mức giám sát và đánh giá thực hành"],
+      "readings": [
+        {"source_year": 2021, "chapters": [1, 2, 3, 4, 5, 7, 14], "role": "shared_reference", "stage": 1, "purpose": "Ôn nguyên tắc điều trị gãy xương, tổn thương phần mềm và biến chứng theo nhu cầu."},
+        {"source_year": 2021, "chapters": [29, 30, 31, 32, 33, 34, 35, 36], "role": "primary_reading", "stage": 2, "purpose": "Tổn thương khung chậu, háng, đùi, gối và cẳng chân."},
+        {"source_year": 2021, "chapters": [13], "role": "supplementary_reading", "stage": 3, "purpose": "Dị tật chi dưới: đọc mở rộng, chưa coi là bài bắt buộc của môn."},
+        {"source_year": 2006, "chapters": [1, 2, 3, 4, 5, 6], "role": "shared_reference", "stage": 4, "purpose": "Đối chiếu kiến thức cấp cứu và biến chứng; chưa xác nhận tính cập nhật."},
+        {"source_year": 2006, "chapters": [21, 17, 22, 23, 24, 25], "role": "supplementary_reading", "stage": 4, "purpose": "Tham khảo tổn thương chi dưới, khung chậu và cổ chân; giữ riêng nguồn sách 2006."}
+      ]
+    },
+    {
+      "course_code": "B21CN9",
+      "coverage": "partial_joint_trauma_only",
+      "coverage_note": "Chỉ hỗ trợ một phần về vết thương, trật khớp và tổn thương quanh khớp; không đại diện đầy đủ cho môn Phẫu thuật khớp.",
+      "pending": ["Đề cương xác định phạm vi Phẫu thuật khớp Round 2", "Giáo trình chuyên biệt về thay khớp và nội soi khớp nếu thuộc đề cương", "Tài liệu thực hành, chăm sóc sau mổ và phục hồi chức năng theo học phần", "Bảng kiểm và tiêu chí đánh giá thực hành"],
+      "readings": [
+        {"source_year": 2021, "chapters": [6], "role": "primary_reading", "stage": 1, "purpose": "Vết thương khớp: một chủ đề có nguồn trực tiếp trong sách."},
+        {"source_year": 2021, "chapters": [19, 23, 30, 33], "role": "primary_reading", "stage": 2, "purpose": "Trật khớp vai, khuỷu, háng và gối; không suy diễn thành giáo trình đầy đủ về phẫu thuật khớp."},
+        {"source_year": 2021, "chapters": [24, 26, 31, 34, 35], "role": "related_reading", "stage": 3, "purpose": "Tổn thương vùng quanh khớp liên quan; liên kết tham khảo, chờ xác nhận phạm vi."},
+        {"source_year": 2006, "chapters": [9, 15, 16, 17], "role": "supplementary_reading", "stage": 4, "purpose": "Đối chiếu vết thương khớp và trật khớp từ sách cấp cứu, chưa xác nhận tính cập nhật."}
+      ]
+    },
+    {
+      "course_code": "B21CN10",
+      "coverage": "direct_topic_overlap_not_full_syllabus",
+      "coverage_note": "Có các bài chấn thương cột sống cổ và ngực–thắt lưng; chưa xác nhận đủ phạm vi hoặc năng lực thực hành.",
+      "pending": ["Đề cương và chuẩn đầu ra học phần", "Tài liệu thực hành và kỹ thuật được yêu cầu ở Round 2", "Bảng kiểm, mức giám sát và tiêu chí đánh giá thực hành"],
+      "readings": [
+        {"source_year": 2021, "chapters": [16, 15, 17], "role": "primary_reading", "stage": 2, "purpose": "Thứ tự đọc đề xuất theo giải phẫu: cổ cao → cổ thấp → ngực–thắt lưng; không phải thứ tự chính thức của trường."},
+        {"source_year": 2006, "chapters": [20], "role": "supplementary_reading", "stage": 4, "purpose": "Tham khảo thêm bài chấn thương cột sống trong sách cấp cứu; giữ riêng phiên bản nguồn."}
+      ]
+    }
+  ]
+}

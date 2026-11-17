@@ -12,6 +12,39 @@ from knowledge_pipeline.validation import validate_extraction
 from knowledge_pipeline.mapping import legacy_proposals
 
 
+def test_nested_trial_output_keeps_repository_mapping_root(tmp_path):
+    from knowledge_pipeline.pipeline import repository_for_output
+
+    output = tmp_path / "data/knowledge-extraction/trial-20261027"
+    assert repository_for_output(output) == tmp_path
+    assert repository_for_output(output / "nested") == tmp_path
+    with pytest.raises(ValueError):
+        repository_for_output(tmp_path / "unrelated")
+
+
+def test_source_probe_scope_preserves_exact_ocr_and_offsets(sample):
+    from knowledge_pipeline.pipeline import prepare_source_probes
+
+    _, output, prepared, _, chunk, _, _ = sample
+    original = chunk["source_spans"][0]
+    quote = original["text"][2:12]
+    probe = {
+        "probe_id": "TEST_PROBE", "document_edition_id": original["document_edition_id"],
+        "supports": [{"span_id": original["span_id"], "char_start": 2,
+                      "char_end": 12, "quote": quote}],
+    }
+    narrowed = prepare_source_probes(prepared, [probe], output)
+    span = narrowed[0][2][0]["source_spans"][0]
+    assert span["text"] == quote
+    assert span["char_start"] == 2 and span["char_end"] == 12
+    assert span["pdf_page"] == original["pdf_page"]
+    assert span["original_span_id"] == original["span_id"]
+    assert span["span_id"] != original["span_id"]
+    probe["supports"][0]["quote"] = "Fabricated quote"
+    with pytest.raises(ValueError, match="no longer matches"):
+        prepare_source_probes(prepared, [probe], output)
+
+
 @pytest.fixture
 def sample(tmp_path):
     folder = tmp_path / "data/raw-source"

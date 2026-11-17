@@ -15,10 +15,11 @@ from app.integration.importer import import_case
 from app.modules.users.models import User
 
 
-async def main():
+async def main(*, synthetic_bank=None):
     import sys
 
-    synthetic_bank = "--synthetic-bank" in sys.argv
+    if synthetic_bank is None:
+        synthetic_bank = "--synthetic-bank" in sys.argv
     cfg = get_settings()
     assert cfg.app_env == "development"
     assert make_url(cfg.database_url).database == "medresident_test_browser"
@@ -59,4 +60,5 @@ async def main():
     print("Isolated browser fixtures ready")
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())

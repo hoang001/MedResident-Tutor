@@ -1,5 +1,10 @@
 # Development roadmap
 
+> Historical phase plan. As of 2026-11-04, Neo4j browsing, Curriculum/HMU evidence,
+> authenticated source PDFs, personal reading records and ungraded self-study are
+> connected to the web application. See [current workspace](study-workspace.md).
+> Semantic retrieval, AI grading, expert approval and formal assessments remain pending.
+
 ## Phase 1: Foundation
 
 Current phase. Establish monorepo, relational schema, auth, authorization, validated document upload, safe provider interfaces, frontend shell, tests, Docker, and documentation.

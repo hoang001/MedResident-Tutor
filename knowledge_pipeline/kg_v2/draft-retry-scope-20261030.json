@@ -1,0 +1,130 @@
+{
+  "version": "medical-kg-v2",
+  "structured_context": true,
+  "documents": [
+    {
+      "source_id": "SRC_ORTHO_TEXTBOOK_001",
+      "document_edition_id": "ED_2021_a3c48d00ef2b3f38",
+      "repo_relative_path": "data/raw-source/DVC.005844.pdf",
+      "title": "Bệnh học ngoại khoa – Chấn thương chỉnh hình",
+      "publication_year": 2021,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": "Dùng cho đào tạo sau đại học",
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          5
+        ],
+        "expert_approval": false
+      },
+      "verified_printed_labels": {
+        "254": "271",
+        "259": "276",
+        "262": "279",
+        "263": "280",
+        "269": "286"
+      },
+      "expected_sha256": "a3c48d00ef2b3f38d5003f8ed4c7b662e9c141178aa92a13f4004f39463271d0",
+      "survey_sections": [],
+      "windows": [
+        {
+          "key": "2021-questions",
+          "section_id": "ED_2021_a3c48d00ef2b3f38-2021-questions",
+          "title": "Câu hỏi lượng giá Bài 19",
+          "selectors": [
+            {
+              "pdf_page": 254,
+              "start_anchor": "ĐIỀU TRỊ TRẬT KHỚP VAI",
+              "end_anchor": "\nTrần",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 254,
+              "start_anchor": "1.1. Đại cương",
+              "end_anchor": "\n1.2.",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 254,
+              "start_anchor": "1. Phân tích được",
+              "end_anchor": "\nNỘI DUNG",
+              "role": "learning_objective",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 269,
+              "start_anchor": "Câu 1.",
+              "end_anchor": "\n286",
+              "role": "question",
+              "continuation_verified": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "SRC_ORTHO_EMERGENCY_001",
+      "document_edition_id": "ED_2006_d95f9d803e46c1bb",
+      "repo_relative_path": "data/raw-source/data-20261020T074653Z-1-001/data/Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+      "title": "Cấp cứu ngoại khoa – Chấn thương",
+      "publication_year": 2006,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": null,
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          6
+        ],
+        "expert_approval": false
+      },
+      "verified_printed_labels": {
+        "89": "88",
+        "91": "90",
+        "92": "91"
+      },
+      "expected_sha256": "d95f9d803e46c1bb8b41a2b35fc53add5dd8959df1b3107a83f8e0c324469007",
+      "survey_sections": [],
+      "windows": [
+        {
+          "key": "2006-diagnosis",
+          "section_id": "ED_2006_d95f9d803e46c1bb-2006-diagnosis",
+          "title": "5. Chẩn đoán trật khớp vai",
+          "selectors": [
+            {
+              "pdf_page": 89,
+              "start_anchor": "TRẬT KHỚP VAI",
+              "end_anchor": "\n1.",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "Trật khớp vai hay gặp",
+              "end_anchor": "\nHình",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 91,
+              "start_anchor": "5. CHẨN ĐOÁN",
+              "end_anchor": "\n6.",
+              "role": "medical_text",
+              "continuation_verified": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ocr_patches": "data/knowledge-extraction/v2/shoulder-20261030/audit/ocr-patches.json",
+  "ocr_issues": "data/knowledge-extraction/v2/shoulder-20261030/audit/ocr-issues.json",
+  "canonical_registry": "knowledge_pipeline/kg_v2/canonical-registry.json"
+}

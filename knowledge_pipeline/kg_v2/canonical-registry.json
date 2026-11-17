@@ -1,0 +1,280 @@
+{
+  "version": "canonical-registry-v1",
+  "entities": {
+    "MC_485db981fe124da3a01227402f6e298c": {
+      "id": "MC_485db981fe124da3a01227402f6e298c",
+      "type": "Condition",
+      "name": "Gãy xương hở",
+      "aliases": [],
+      "scope": null
+    },
+    "MC_9312bc84a5944df68498a5feba6f6551": {
+      "id": "MC_9312bc84a5944df68498a5feba6f6551",
+      "type": "ClassificationCategory",
+      "name": "Độ 3",
+      "aliases": [],
+      "scope": {
+        "system_id": "MC_bad6dfb5263c4aa18bde65efbebc79bc",
+        "subject_id": "MC_485db981fe124da3a01227402f6e298c",
+        "level": "Độ 3"
+      }
+    },
+    "MC_1fcc25417c6c4b829f1a9f39ce1f7077": {
+      "id": "MC_1fcc25417c6c4b829f1a9f39ce1f7077",
+      "type": "ClassificationCategory",
+      "name": "Độ 3a",
+      "aliases": [],
+      "scope": {
+        "system_id": "MC_bad6dfb5263c4aa18bde65efbebc79bc",
+        "subject_id": "MC_485db981fe124da3a01227402f6e298c",
+        "level": "Độ 3a"
+      }
+    },
+    "MC_ae7acf141908429ba2ab3a361b781054": {
+      "id": "MC_ae7acf141908429ba2ab3a361b781054",
+      "type": "ClinicalPrinciple",
+      "name": "Nguyên tắc xử lý gãy xương hở",
+      "aliases": [],
+      "scope": null
+    },
+    "MC_d3d42831dee943f79b3083e44ee4850b": {
+      "id": "MC_d3d42831dee943f79b3083e44ee4850b",
+      "type": "ClassificationCategory",
+      "name": "Độ 3b",
+      "aliases": [],
+      "scope": {
+        "system_id": "MC_bad6dfb5263c4aa18bde65efbebc79bc",
+        "subject_id": "MC_485db981fe124da3a01227402f6e298c",
+        "level": "Độ 3b"
+      }
+    },
+    "MC_72f1e6d2069148dc8a79dca0cd9cc8d1": {
+      "id": "MC_72f1e6d2069148dc8a79dca0cd9cc8d1",
+      "type": "ClassificationCategory",
+      "name": "Độ 3c",
+      "aliases": [],
+      "scope": {
+        "system_id": "MC_bad6dfb5263c4aa18bde65efbebc79bc",
+        "subject_id": "MC_485db981fe124da3a01227402f6e298c",
+        "level": "Độ 3c"
+      }
+    },
+    "SK_2a1c78a5c40d4ced924902b68021a130": {
+      "id": "SK_2a1c78a5c40d4ced924902b68021a130",
+      "type": "Skill",
+      "name": "Giải thích cơ chế bệnh sinh gãy xương hở",
+      "aliases": [],
+      "scope": null
+    },
+    "MC_bad6dfb5263c4aa18bde65efbebc79bc": {
+      "id": "MC_bad6dfb5263c4aa18bde65efbebc79bc",
+      "type": "Classification",
+      "name": "Phân độ gãy xương hở theo Gustilo",
+      "aliases": [],
+      "scope": {
+        "subject_id": "MC_485db981fe124da3a01227402f6e298c"
+      }
+    },
+    "SK_5f92c68fb9a7409b9310205dc9f4e597": {
+      "id": "SK_5f92c68fb9a7409b9310205dc9f4e597",
+      "type": "Skill",
+      "name": "Đánh giá cơ lành và cơ dập nát",
+      "aliases": [],
+      "scope": null
+    },
+    "MC_f903181961b044e68e303375f476538e": {
+      "id": "MC_f903181961b044e68e303375f476538e",
+      "type": "ClassificationCategory",
+      "name": "Độ 1",
+      "aliases": [],
+      "scope": {
+        "system_id": "MC_bad6dfb5263c4aa18bde65efbebc79bc",
+        "subject_id": "MC_485db981fe124da3a01227402f6e298c",
+        "level": "Độ 1"
+      }
+    },
+    "SK_2556964c0d6c42e29ff5abedcea33b72": {
+      "id": "SK_2556964c0d6c42e29ff5abedcea33b72",
+      "type": "Skill",
+      "name": "Phân tích phân độ gãy xương hở",
+      "aliases": [],
+      "scope": null
+    },
+    "MC_098dc95d415249229012b55e235df3b0": {
+      "id": "MC_098dc95d415249229012b55e235df3b0",
+      "type": "Intervention",
+      "name": "Xử lý vết thương phần mềm",
+      "aliases": [],
+      "scope": null
+    },
+    "SK_4cdcf8a25b994192ab934d380421682c": {
+      "id": "SK_4cdcf8a25b994192ab934d380421682c",
+      "type": "Skill",
+      "name": "Minh họa các biến chứng thường gặp do gãy xương hở",
+      "aliases": [],
+      "scope": null
+    },
+    "MC_7148dc6b07054c43b48206a422d47be2": {
+      "id": "MC_7148dc6b07054c43b48206a422d47be2",
+      "type": "ClassificationCategory",
+      "name": "Độ 2",
+      "aliases": [],
+      "scope": {
+        "system_id": "MC_bad6dfb5263c4aa18bde65efbebc79bc",
+        "subject_id": "MC_485db981fe124da3a01227402f6e298c",
+        "level": "Độ 2"
+      }
+    }
+  },
+  "bindings": {
+    "CAND2_48cc06e92767e8427de6967c": "MC_485db981fe124da3a01227402f6e298c",
+    "CAND2_ff9c404303e5ceef555f75ad": "MC_485db981fe124da3a01227402f6e298c",
+    "CAND2_0f6f40fe9edb9e3446f208fc": "MC_9312bc84a5944df68498a5feba6f6551",
+    "CAND2_42bc921458e29bdefca26b43": "MC_1fcc25417c6c4b829f1a9f39ce1f7077",
+    "CAND2_465a06204312a6639f1a66c1": "MC_ae7acf141908429ba2ab3a361b781054",
+    "CAND2_4684307cfa7d1612284e7167": "MC_d3d42831dee943f79b3083e44ee4850b",
+    "CAND2_47a24b4b2fc02b2f645e1edf": "MC_72f1e6d2069148dc8a79dca0cd9cc8d1",
+    "CAND2_5ed3fefd7fedea10f34a0e72": "SK_2a1c78a5c40d4ced924902b68021a130",
+    "CAND2_62ef629468d16d486cb3d9c3": "MC_bad6dfb5263c4aa18bde65efbebc79bc",
+    "CAND2_73df0c8cfed961ad0b64a01e": "SK_5f92c68fb9a7409b9310205dc9f4e597",
+    "CAND2_a56e53a6e07a521029ac1f17": "MC_f903181961b044e68e303375f476538e",
+    "CAND2_a644ef9c3f6382ea9f0dc4f2": "SK_2556964c0d6c42e29ff5abedcea33b72",
+    "CAND2_d6765c35cf5cf394771470ca": "MC_098dc95d415249229012b55e235df3b0",
+    "CAND2_e7582e0f707abf1926eaa986": "SK_4cdcf8a25b994192ab934d380421682c",
+    "CAND2_fed13378100f16770cfb051d": "MC_7148dc6b07054c43b48206a422d47be2"
+  },
+  "decisions": [
+    {
+      "candidate_ids": [
+        "CAND2_48cc06e92767e8427de6967c",
+        "CAND2_ff9c404303e5ceef555f75ad"
+      ],
+      "basis": "Identity-only review: same Condition type and same explicit definition sentence in both visually checked source pages after confirmed OCR patches. Extra source statements remain separate content blocks; not expert medical approval.",
+      "canonical_id": "MC_485db981fe124da3a01227402f6e298c"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_0f6f40fe9edb9e3446f208fc"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "context": {
+        "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+        "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+        "level": "Độ 3"
+      },
+      "canonical_id": "MC_9312bc84a5944df68498a5feba6f6551"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_42bc921458e29bdefca26b43"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "context": {
+        "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+        "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+        "level": "Độ 3a"
+      },
+      "canonical_id": "MC_1fcc25417c6c4b829f1a9f39ce1f7077"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_465a06204312a6639f1a66c1"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "canonical_id": "MC_ae7acf141908429ba2ab3a361b781054"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_4684307cfa7d1612284e7167"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "context": {
+        "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+        "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+        "level": "Độ 3b"
+      },
+      "canonical_id": "MC_d3d42831dee943f79b3083e44ee4850b"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_47a24b4b2fc02b2f645e1edf"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "context": {
+        "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+        "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+        "level": "Độ 3c"
+      },
+      "canonical_id": "MC_72f1e6d2069148dc8a79dca0cd9cc8d1"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_5ed3fefd7fedea10f34a0e72"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "canonical_id": "SK_2a1c78a5c40d4ced924902b68021a130"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_62ef629468d16d486cb3d9c3"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "context": {
+        "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c"
+      },
+      "canonical_id": "MC_bad6dfb5263c4aa18bde65efbebc79bc"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_73df0c8cfed961ad0b64a01e"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "canonical_id": "SK_5f92c68fb9a7409b9310205dc9f4e597"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_a56e53a6e07a521029ac1f17"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "context": {
+        "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+        "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+        "level": "Độ 1"
+      },
+      "canonical_id": "MC_f903181961b044e68e303375f476538e"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_a644ef9c3f6382ea9f0dc4f2"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "canonical_id": "SK_2556964c0d6c42e29ff5abedcea33b72"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_d6765c35cf5cf394771470ca"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "canonical_id": "MC_098dc95d415249229012b55e235df3b0"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_e7582e0f707abf1926eaa986"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "canonical_id": "SK_4cdcf8a25b994192ab934d380421682c"
+    },
+    {
+      "candidate_ids": [
+        "CAND2_fed13378100f16770cfb051d"
+      ],
+      "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+      "context": {
+        "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+        "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+        "level": "Độ 2"
+      },
+      "canonical_id": "MC_7148dc6b07054c43b48206a422d47be2"
+    }
+  ]
+}

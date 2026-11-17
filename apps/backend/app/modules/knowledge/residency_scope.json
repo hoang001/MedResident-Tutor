@@ -1,0 +1,160 @@
+{
+  "format": "medresident-resident-study-scope-v1",
+  "program_id": "HMU_RESIDENCY_SURGERY_ORTHOPEDICS_2025",
+  "source": {
+    "kind": "user_provided_curriculum_image",
+    "received_date": "2026-11-05",
+    "scope_status": "user_confirmed_product_scope",
+    "course_metadata_source": "data/curriculum/curriculum_map.json"
+  },
+  "audience": "orthopedic_residents_after_foundation_courses",
+  "total_required_credits": 40,
+  "total_required_theory_credits": 4,
+  "total_required_practice_credits": 36,
+  "groups": [
+    {
+      "group_id": "ORTHO_SPECIALTY_ROUND_2",
+      "title": "Kiến thức chuyên ngành (Round 2)",
+      "round": 2,
+      "year": 2,
+      "selection": "required",
+      "choose": 4,
+      "offered": 4,
+      "required_credits": 24,
+      "required_theory_credits": 4,
+      "required_practice_credits": 20,
+      "courses": [
+        {
+          "course_code": "B21CN7",
+          "course_name": "Chấn thương chỉnh hình chi trên",
+          "round": 2,
+          "year": 2,
+          "total_credits": 6,
+          "theory_credits": 1,
+          "practice_credits": 5
+        },
+        {
+          "course_code": "B21CN8",
+          "course_name": "Chấn thương chỉnh hình chi dưới",
+          "round": 2,
+          "year": 2,
+          "total_credits": 6,
+          "theory_credits": 1,
+          "practice_credits": 5
+        },
+        {
+          "course_code": "B21CN9",
+          "course_name": "Phẫu thuật khớp",
+          "round": 2,
+          "year": 2,
+          "total_credits": 6,
+          "theory_credits": 1,
+          "practice_credits": 5
+        },
+        {
+          "course_code": "B21CN10",
+          "course_name": "Chấn thương cột sống",
+          "round": 2,
+          "year": 2,
+          "total_credits": 6,
+          "theory_credits": 1,
+          "practice_credits": 5
+        }
+      ]
+    },
+    {
+      "group_id": "ORTHO_ADVANCED_CLINICAL_ROUND_3",
+      "title": "Thực hành lâm sàng nâng cao (Round 3)",
+      "round": 3,
+      "year": 3,
+      "selection": "choose_n_of_m",
+      "choose": 4,
+      "offered": 8,
+      "required_credits": 16,
+      "required_theory_credits": 0,
+      "required_practice_credits": 16,
+      "courses": [
+        {
+          "course_code": "B21CN11",
+          "course_name": "Phẫu thuật gãy xương, trật khớp chi trên",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4
+        },
+        {
+          "course_code": "B21CN12",
+          "course_name": "Phẫu thuật gãy xương, trật khớp chi dưới - khung chậu",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4
+        },
+        {
+          "course_code": "B21CN13",
+          "course_name": "Phẫu thuật thay khớp và nội soi khớp",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4
+        },
+        {
+          "course_code": "B21CN14",
+          "course_name": "Phẫu thuật kết hợp xương ít xâm lấn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4
+        },
+        {
+          "course_code": "B21CN15",
+          "course_name": "Phẫu thuật chấn thương cột sống",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4
+        },
+        {
+          "course_code": "B21CN16",
+          "course_name": "Bệnh lý thoái hóa cột sống cổ",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4
+        },
+        {
+          "course_code": "B21CN17",
+          "course_name": "Bệnh lý thoái hóa cột sống thắt lưng",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4
+        },
+        {
+          "course_code": "B21CN18",
+          "course_name": "Phẫu thuật cột sống ít xâm lấn",
+          "round": 3,
+          "year": 3,
+          "total_credits": 4,
+          "theory_credits": 0,
+          "practice_credits": 4
+        }
+      ]
+    }
+  ],
+  "prior_course_policy": {
+    "display": "outcomes_only",
+    "detailed_lessons": false,
+    "individual_completion": "not_assessed",
+    "missing_course_outcomes": "awaiting_teacher_confirmation",
+    "program_outcomes_are_course_outcomes": false
+  },
+  "course_order_policy": "round_2_then_selected_round_3_no_inferred_order_within_round"
+}

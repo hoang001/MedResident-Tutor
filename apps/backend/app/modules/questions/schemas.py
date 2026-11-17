@@ -6,7 +6,7 @@ class CriterionEdit(BaseModel):
     criterion_id: str | None = Field(default=None, min_length=1, max_length=255)
     description: str = Field(min_length=1, max_length=4000)
     max_score: FiniteFloat = Field(gt=0, strict=True)
-    source_unit_ids: list[str] = Field(min_length=1, max_length=100)
+    source_unit_ids: list[str] = Field(default_factory=list, max_length=100)
 
     @model_validator(mode="after")
     def check(self):
@@ -23,7 +23,11 @@ class QuestionEdit(BaseModel):
     content: str = Field(min_length=1, max_length=4000)
     rubric_name: str = Field(min_length=1, max_length=255)
     max_score: FiniteFloat = Field(gt=0, strict=True)
-    criteria: list[CriterionEdit] = Field(min_length=1, max_length=100)
+    criteria: list[CriterionEdit] = Field(default_factory=list, max_length=100)
+    reference_answer: str = Field(default="", max_length=12000)
+    course: str = Field(default="", max_length=255)
+    topic: str = Field(default="", max_length=255)
+    proposal_token: str | None = Field(default=None, max_length=100000)
 
     @model_validator(mode="after")
     def check(self):
@@ -32,7 +36,7 @@ class QuestionEdit(BaseModel):
         ids = [c.criterion_id for c in self.criteria if c.criterion_id is not None]
         if len(set(ids)) != len(ids) or not self.content.strip() or not self.rubric_name.strip():
             raise ValueError("Invalid content or duplicate criterion IDs")
-        if not math.isclose(
+        if self.criteria and not math.isclose(
             sum(c.max_score for c in self.criteria), self.max_score, rel_tol=0, abs_tol=1e-9
         ):
             raise ValueError("Rubric total must equal criterion total")

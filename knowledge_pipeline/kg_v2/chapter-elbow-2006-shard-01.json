@@ -1,0 +1,134 @@
+{
+  "version": "medical-kg-v2",
+  "structured_context": true,
+  "documents": [
+    {
+      "source_id": "SRC_ORTHO_EMERGENCY_001",
+      "document_edition_id": "ED_2006_d95f9d803e46c1bb",
+      "repo_relative_path": "data/raw-source/data-20261020T074653Z-1-001/data/Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+      "title": "Cấp cứu ngoại khoa – Chấn thương",
+      "publication_year": 2006,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": null,
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          6
+        ],
+        "expert_approval": false
+      },
+      "verified_printed_labels": {},
+      "expected_sha256": "d95f9d803e46c1bb8b41a2b35fc53add5dd8959df1b3107a83f8e0c324469007",
+      "survey_sections": [
+        {
+          "key": "elbow-complete",
+          "original_title": "Trật khớp khuỷu",
+          "parent_key": null,
+          "pdf_pages": {
+            "start": 93,
+            "end": 97
+          },
+          "printed_pages": null,
+          "boundary_status": "provided_ocr_chapter_heading_pdf93_next_chapter_pdf98"
+        }
+      ],
+      "windows": [
+        {
+          "key": "01-overview-anatomy-mechanism",
+          "section_id": "chapter-elbow-01-overview-anatomy-mechanism",
+          "title": "1. Trật khớp khuỷu",
+          "selectors": [
+            {
+              "pdf_page": 93,
+              "start_anchor": "TRẬT KHÓP KHUYU",
+              "end_anchor": "\n1. ĐẠI CƯƠNG",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 93,
+              "start_anchor": "1. ĐẠI CƯƠNG",
+              "end_anchor": "\nHình 16.1. Giải phẫu khớp khuỷu",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 93,
+              "start_anchor": "1.2. Nguyên nhân, cơ chế",
+              "end_anchor": "\n2. GIẢI PHẪU BỆNH",
+              "role": "medical_text",
+              "continuation_verified": false
+            }
+          ]
+        },
+        {
+          "key": "02-pathology",
+          "section_id": "chapter-elbow-02-pathology",
+          "title": "2. GIẢI PHẪU BỆNH",
+          "selectors": [
+            {
+              "pdf_page": 93,
+              "start_anchor": "TRẬT KHÓP KHUYU",
+              "end_anchor": "\n1. ĐẠI CƯƠNG",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 93,
+              "start_anchor": "Trật khớp khuỷu đứng thứ 3 sau trật khớp vai và trật khớp ngón tay. Chiếm 20-25% tổng số trật khớp. Đây là loại trật khớp phổ biến nhất ở trẻ em trên 5 tuổi.",
+              "end_anchor": "\n1.1. Một số đặc điểm giải phẫu và sinh lý của khớp khuỷu",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 93,
+              "start_anchor": "2. GIẢI PHẪU BỆNH",
+              "end_anchor": "\n92",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 94,
+              "start_anchor": "2.2. Xương",
+              "end_anchor": "\n3. PHÂN LOẠI (HÌNH 16.2)",
+              "role": "medical_text",
+              "continuation_verified": true
+            }
+          ]
+        },
+        {
+          "key": "03-classification",
+          "section_id": "chapter-elbow-03-classification",
+          "title": "3. PHÂN LOẠI (HÌNH 16.2)",
+          "selectors": [
+            {
+              "pdf_page": 93,
+              "start_anchor": "TRẬT KHÓP KHUYU",
+              "end_anchor": "\n1. ĐẠI CƯƠNG",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 93,
+              "start_anchor": "Trật khớp khuỷu đứng thứ 3 sau trật khớp vai và trật khớp ngón tay. Chiếm 20-25% tổng số trật khớp. Đây là loại trật khớp phổ biến nhất ở trẻ em trên 5 tuổi.",
+              "end_anchor": "\n1.1. Một số đặc điểm giải phẫu và sinh lý của khớp khuỷu",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 94,
+              "start_anchor": "3. PHÂN LOẠI (HÌNH 16.2)",
+              "end_anchor": "\nHình 16.2. Các loại trật khớp khuỷu. Hình ảnh minh họa các loại trật khớp khuỷu: trật ra sau, trật ra trước, và trật sang bên.",
+              "role": "medical_text",
+              "continuation_verified": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "canonical_registry": "knowledge_pipeline/kg_v2/canonical-registry.json"
+}

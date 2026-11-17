@@ -1,0 +1,14 @@
+{
+  "medical": {
+    "adapter_path": "model-training/outputs/medical-qwen3-pilot/adapter",
+    "adapter_config_sha256": null,
+    "adapter_sha256": null,
+    "locked_v1_provenance": null
+  },
+  "teaching": {
+    "adapter_path": "model-training/outputs/teaching-qwen2.5-v1/adapter",
+    "adapter_config_sha256": null,
+    "adapter_sha256": null,
+    "locked_v1_provenance": null
+  }
+}

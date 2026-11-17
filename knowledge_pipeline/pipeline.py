@@ -52,6 +52,14 @@ def check_output(root, output):
     return output
 
 
+def repository_for_output(output):
+    """Keep legacy mappings correct for trials stored in nested output folders."""
+    for folder in (Path(output).resolve(), *Path(output).resolve().parents):
+        if folder.name == "knowledge-extraction" and folder.parent.name == "data":
+            return folder.parent.parent
+    raise ValueError("Output must be inside data/knowledge-extraction")
+
+
 def inventory(root, config, output):
     """Read all text layers, but never OCR the whole book."""
     from pypdf import PdfReader
@@ -301,6 +309,51 @@ def make_section(spans):
     }
 
 
+def prepare_source_probes(prepared, probes, output, *, chunk_bytes=18000):
+    """Narrow a trial to exact surveyed excerpts, preserving page/character locators."""
+    narrowed = []
+    for book, _, _ in prepared:
+        edition = book["document_edition_id"]
+        pages = {
+            row["span_id"]: row
+            for row in (
+                json.loads(line)
+                for line in (output / "raw" / f"{edition}.pages.jsonl")
+                .read_text(encoding="utf-8").splitlines()
+            )
+        }
+        sections = []
+        for probe in probes:
+            if probe["document_edition_id"] != edition:
+                continue
+            spans = []
+            for support in probe["supports"]:
+                original = pages[support["span_id"]]
+                start, end = support["char_start"], support["char_end"]
+                if original["text"][start:end] != support["quote"]:
+                    raise ValueError("Surveyed probe no longer matches raw OCR")
+                spans.append({
+                    **original,
+                    "original_span_id": original["span_id"],
+                    "span_id": "SPAN_" + fingerprint(
+                        [original["span_id"], start, end, support["quote"]]
+                    )[:24],
+                    "text": support["quote"],
+                    "char_start": start,
+                    "char_end": end,
+                })
+            if spans:
+                sections.append({**make_section(spans), "survey_probe_id": probe["probe_id"]})
+        if not sections:
+            raise ValueError("No source probes selected for document")
+        target = output / "raw" / f"{edition}.probe-input.json"
+        write_json(target, {"sections": sections, "unreadable_pages": []})
+        chunks = chunk_sections(read_document(target)["sections"], chunk_bytes + 1000)
+        write_json(output / "raw" / f"{edition}.probe-chunks.json", chunks)
+        narrowed.append((book, target, chunks))
+    return narrowed
+
+
 def extract(
     prepared, output, *, settings, resume=False, force=False, chunk_bytes=18000
 ):
@@ -539,7 +592,7 @@ def export_candidates(results, output, model, signature, schema):
     write_json(output / "runs" / "validated" / "concept-match-proposals.json", matches)
     from .mapping import legacy_proposals
 
-    root = output.parents[1]
+    root = repository_for_output(output)
     legacy = root / "data/processed/source_units.jsonl"
     old = (
         [

@@ -1,0 +1,406 @@
+{
+  "type": "object",
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "local_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "enum": [
+                  "Condition",
+                  "Anatomy",
+                  "Finding",
+                  "Classification",
+                  "ClassificationCategory",
+                  "DiagnosticMethod",
+                  "Intervention",
+                  "Drug",
+                  "ClinicalPrinciple"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "identity_sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "block_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "excerpt": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "block_id"
+                  ]
+                },
+                "minItems": 1
+              },
+              "content": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "block_id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "excerpt": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                          "block_id"
+                        ]
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "sources"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "local_id",
+              "type",
+              "name",
+              "aliases",
+              "identity_sources",
+              "content"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "local_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "const": "Skill"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "cognitive",
+                  "practical"
+                ]
+              },
+              "basis": {
+                "enum": [
+                  "learning_objective",
+                  "practice_requirement",
+                  "procedural_instruction"
+                ]
+              },
+              "basis_sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "block_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "excerpt": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "block_id"
+                  ]
+                },
+                "minItems": 1
+              },
+              "identity_sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "block_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "excerpt": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "block_id"
+                  ]
+                },
+                "minItems": 1
+              },
+              "content": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "block_id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "excerpt": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                          "block_id"
+                        ]
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "sources"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "local_id",
+              "type",
+              "name",
+              "kind",
+              "basis",
+              "basis_sources",
+              "identity_sources",
+              "content"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "local_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "const": "SampleQuestion"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "format": {
+                "enum": [
+                  "open_ended",
+                  "multiple_choice",
+                  "case",
+                  "multipart",
+                  "other"
+                ]
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "answer": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "explanation": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "block_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "excerpt": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "block_id"
+                  ]
+                },
+                "minItems": 1
+              },
+              "answer_sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "block_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "excerpt": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "block_id"
+                  ]
+                },
+                "minItems": 0
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "local_id",
+              "type",
+              "text",
+              "format",
+              "options",
+              "answer",
+              "explanation",
+              "sources",
+              "answer_sources"
+            ]
+          }
+        ]
+      },
+      "minItems": 0
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "local_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "from_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "IS_A",
+              "LOCATED_IN",
+              "HAS_FINDING",
+              "CLASSIFIED_BY",
+              "HAS_CATEGORY",
+              "EVALUATED_BY",
+              "MANAGED_BY",
+              "USES_DRUG",
+              "MAY_CAUSE",
+              "GUIDED_BY",
+              "APPLIES_TO",
+              "REQUIRES_KNOWLEDGE_OF",
+              "HAS_SUBSKILL",
+              "ABOUT",
+              "ASSESSES"
+            ]
+          },
+          "condition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "block_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "excerpt": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "block_id"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "local_id",
+          "from_id",
+          "to_id",
+          "type",
+          "condition",
+          "sources"
+        ]
+      },
+      "minItems": 0
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "nodes",
+    "edges"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -20,7 +20,7 @@ class PracticeAttempt(UUIDPrimaryKeyMixin, TimestampMixin, Base):
             "'teaching_running','teaching_failed','completed')",
             name="ck_practice_status",
         ),
-        CheckConstraint("execution_mode IN ('mock','http')", name="ck_practice_mode"),
+        CheckConstraint("execution_mode IN ('mock','http','structured')", name="ck_practice_mode"),
     )
     user_id: Mapped[uuid.UUID] = mapped_column(
         ForeignKey("users.id", ondelete="RESTRICT"), index=True
@@ -36,6 +36,9 @@ class PracticeAttempt(UUIDPrimaryKeyMixin, TimestampMixin, Base):
         JSON().with_variant(JSONB(), "postgresql")
     )
     teaching_feedback: Mapped[dict | None] = mapped_column(
+        JSON().with_variant(JSONB(), "postgresql")
+    )
+    structured_result: Mapped[dict | None] = mapped_column(
         JSON().with_variant(JSONB(), "postgresql")
     )
     provider_metadata: Mapped[dict] = mapped_column(JSON().with_variant(JSONB(), "postgresql"))

@@ -21,7 +21,7 @@ function Test-MedResidentLLM {
     }
     Push-Location -LiteralPath $script:MedResidentRepoRoot
     try {
-        $probeArgs = @('-m', 'knowledge_pipeline.connection', '--timeout', "$TimeoutSeconds")
+        $probeArgs = @('-m', 'knowledge_pipeline.connection', '--env-file', (Join-Path $script:MedResidentRepoRoot '.env'), '--reply-ok', '--timeout', "$TimeoutSeconds")
         if ($TcpOnly) { $probeArgs += '--tcp-only' }
         & $Python @probeArgs
     }

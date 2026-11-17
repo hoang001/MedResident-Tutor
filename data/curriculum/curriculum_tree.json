@@ -1,0 +1,267 @@
+{
+  "format": "medresident-curriculum-tree-v1",
+  "source_records": [
+    {
+      "source": "user_provided_course_table",
+      "received_date": "2026-11-04",
+      "scope": "Danh sách nhóm, học phần và yêu cầu ngoại ngữ do người dùng cung cấp trong cuộc trò chuyện.",
+      "status": "user_provided_not_independently_verified"
+    },
+    {
+      "source": "data/curriculum/curriculum_map.json",
+      "scope": "Giữ mã môn và metadata đã có của 13 học phần Chấn thương chỉnh hình. Không suy ra mã hoặc tín chỉ cho các học phần mới."
+    },
+    {
+      "source": "https://lms.hmu.edu.vn/course/index.php?categoryid=1944",
+      "scope": "Mã học phần và năm học được đối chiếu từ danh mục LMS HMU công khai; chưa có đề cương nội dung môn.",
+      "status": "public_source_checked_current_program_applicability_pending"
+    }
+  ],
+  "course_groups": [
+    {
+      "group_id": "GENERAL_KNOWLEDGE",
+      "group_name": "PHẦN KIẾN THỨC CHUNG",
+      "parent_group_id": null,
+      "courses": [
+        {
+          "internal_key": "philosophy",
+          "course_name": "Triết học",
+          "course_type": "Bắt buộc",
+          "course_code": "SĐH001",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "research-digital-transformation-ai",
+          "course_name": "Phương pháp NCKH, chuyển đổi số và ứng dụng trí tuệ nhân tạo",
+          "course_code": "SĐH002",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 2,
+          "year_status": "verified_hmu_lms_year_listing"
+        }
+      ]
+    },
+    {
+      "group_id": "GENERAL_ELECTIVE",
+      "group_name": "Học phần tự chọn — chọn 1/3 học phần",
+      "parent_group_id": "GENERAL_KNOWLEDGE",
+      "course_type": "Tự chọn",
+      "selection_rule": {
+        "type": "choose_n_of_m",
+        "choose": 1,
+        "from": 3
+      },
+      "courses": [
+        {
+          "internal_key": "research-statistics",
+          "course_name": "Thống kê và phân tích số liệu nghiên cứu",
+          "course_code": "SĐH006",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 2,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "clinical-pedagogy",
+          "course_name": "Phương sư phạm lâm sàng",
+          "course_code": "SĐH009",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 2,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "clinical-epidemiology",
+          "course_name": "Dịch tễ học lâm sàng",
+          "course_code": "SĐH010",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 2,
+          "year_status": "verified_hmu_lms_year_listing"
+        }
+      ]
+    },
+    {
+      "group_id": "FOUNDATION_SUPPORT",
+      "group_name": "PHẦN KIẾN THỨC CƠ SỞ, HỖ TRỢ",
+      "parent_group_id": null,
+      "courses": [
+        {
+          "internal_key": "professionalism-and-personal-development",
+          "course_name": "Tính chuyên nghiệp + Học từ thực tế và phát triển bản thân trong trong thực hành y khoa.",
+          "course_code": "CS032",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "systems-practice-and-communication",
+          "course_name": "Thực hành dựa trên hệ thống + Kỹ năng giao tiếp và phối hợp trong thực hành y khoa.",
+          "course_code": "CS033",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "basic-surgical-clinical-skills",
+          "course_name": "Kỹ năng lâm sàng Ngoại khoa cơ bản",
+          "course_code": "CS034",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "surgical-anesthesia-resuscitation",
+          "course_name": "Gây mê hồi sức Ngoại khoa",
+          "course_code": "HT015",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        }
+      ]
+    },
+    {
+      "group_id": "SPECIALTY_KNOWLEDGE",
+      "group_name": "PHẦN KIẾN THỨC CHUYÊN NGÀNH",
+      "parent_group_id": null,
+      "courses": []
+    },
+    {
+      "group_id": "ORTHO_FOUNDATION_ROUND_1",
+      "group_name": "Kiến thức cơ bản ngành (Round 1)",
+      "parent_group_id": "SPECIALTY_KNOWLEDGE",
+      "round": 1,
+      "courses": [
+        {
+          "course_code": "B21CN1"
+        },
+        {
+          "internal_key": "emergency-neurosurgery-spine",
+          "course_name": "Cấp cứu ngoại Thần kinh - Cột sống",
+          "course_code": "B21CN2",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "emergency-digestive-hepatobiliary-pancreatic",
+          "course_name": "Cấp cứu ngoại Tiêu hóa - Gan mật tụy",
+          "course_code": "B21CN3",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "emergency-urology-andrology",
+          "course_name": "Cấp cứu ngoại Thận tiết niệu - Nam học",
+          "course_code": "B21CN4",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "emergency-cardiovascular-thoracic",
+          "course_name": "Cấp cứu ngoại Tim mạch - Lồng ngực",
+          "course_code": "B21CN5",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        },
+        {
+          "internal_key": "emergency-pediatric-surgery",
+          "course_name": "Cấp cứu ngoại Nhi",
+          "course_code": "B21CN6",
+          "course_code_status": "verified_hmu_public_listing",
+          "year": 1,
+          "year_status": "verified_hmu_lms_year_listing"
+        }
+      ]
+    },
+    {
+      "group_id": "SPECIALTY_ROUNDS_2_3",
+      "group_name": "Kiến thức chuyên ngành (Round 2 + Round 3)",
+      "parent_group_id": "SPECIALTY_KNOWLEDGE",
+      "courses": []
+    },
+    {
+      "group_id": "ORTHOPEDICS_SPECIALTY",
+      "group_name": "Chấn thương chỉnh hình",
+      "parent_group_id": "SPECIALTY_ROUNDS_2_3",
+      "courses": []
+    },
+    {
+      "group_id": "ORTHO_SPECIALTY_ROUND_2",
+      "group_name": "Kiến thức chuyên ngành (Round 2)",
+      "parent_group_id": "ORTHOPEDICS_SPECIALTY",
+      "round": 2,
+      "courses": [
+        {
+          "course_code": "B21CN7"
+        },
+        {
+          "course_code": "B21CN8"
+        },
+        {
+          "course_code": "B21CN9"
+        },
+        {
+          "course_code": "B21CN10"
+        }
+      ]
+    },
+    {
+      "group_id": "ORTHO_ADVANCED_CLINICAL_ROUND_3",
+      "group_name": "Thực hành lâm sàng nâng cao (Round 3)",
+      "parent_group_id": "ORTHOPEDICS_SPECIALTY",
+      "round": 3,
+      "selection_rule": {
+        "type": "choose_n_of_m",
+        "choose": 4,
+        "from": 8,
+        "credits_per_course": 4
+      },
+      "courses": [
+        {
+          "course_code": "B21CN11"
+        },
+        {
+          "course_code": "B21CN12"
+        },
+        {
+          "course_code": "B21CN13"
+        },
+        {
+          "course_code": "B21CN14"
+        },
+        {
+          "course_code": "B21CN15"
+        },
+        {
+          "course_code": "B21CN16"
+        },
+        {
+          "course_code": "B21CN17"
+        },
+        {
+          "course_code": "B21CN18"
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "FOREIGN_LANGUAGE_LEVEL_4_OF_6",
+      "parent_group_id": "GENERAL_KNOWLEDGE",
+      "name": "Ngoại ngữ — Bậc 4/6",
+      "requirement_type": "certificate",
+      "required_level": "Bậc 4/6",
+      "completion_method": "Tự học, nộp chứng chỉ theo quy định"
+    }
+  ],
+  "known_limitations": [
+    "Giữ nguyên tên trong danh sách người dùng; tên và mã trên LMS được lưu kèm bằng chứng riêng.",
+    "Đã đối chiếu mã và năm học từ danh mục công khai trên LMS cho 27 môn. Các môn mới vẫn chưa có tín chỉ trong nguồn đã đọc.",
+    "Chưa truy cập được đề cương, chuẩn đầu ra học phần hoặc bài giảng của 27 môn vì trang bài học yêu cầu đăng nhập.",
+    "internal_key là định danh kỹ thuật ổn định, không phải mã môn chính thức.",
+    "Ngoại ngữ là yêu cầu chứng chỉ. PLO3 xác nhận mức bậc 4/6 nhưng không xác nhận người học đã hoàn thành.",
+    "Mục tiêu và PLO trên LMS thuộc cấp chương trình. Số và ngày quyết định trên trang còn trống; chưa xác nhận áp dụng cho khóa của người dùng."
+  ]
+}

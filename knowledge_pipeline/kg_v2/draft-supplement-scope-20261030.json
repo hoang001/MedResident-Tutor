@@ -1,0 +1,74 @@
+{
+  "version": "medical-kg-v2",
+  "structured_context": true,
+  "documents": [
+    {
+      "source_id": "SRC_ORTHO_TEXTBOOK_001",
+      "document_edition_id": "ED_2021_a3c48d00ef2b3f38",
+      "repo_relative_path": "data/raw-source/DVC.005844.pdf",
+      "title": "Bệnh học ngoại khoa – Chấn thương chỉnh hình",
+      "publication_year": 2021,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": "Dùng cho đào tạo sau đại học",
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          5
+        ],
+        "expert_approval": false
+      },
+      "verified_printed_labels": {
+        "254": "271",
+        "259": "276",
+        "262": "279",
+        "263": "280",
+        "269": "286"
+      },
+      "expected_sha256": "a3c48d00ef2b3f38d5003f8ed4c7b662e9c141178aa92a13f4004f39463271d0",
+      "survey_sections": [],
+      "windows": [
+        {
+          "key": "2021-missing-indications",
+          "section_id": "2021-missing-indications",
+          "title": "5.2. Chỉ định, chống chỉ định và theo dõi sau nắn",
+          "selectors": [
+            {
+              "pdf_page": 254,
+              "start_anchor": "ĐIỀU TRỊ TRẬT KHỚP VAI",
+              "end_anchor": "\nTrần",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 254,
+              "start_anchor": "1.1. Đại cương",
+              "end_anchor": "\n1.2.",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 262,
+              "start_anchor": "5.2. Điều trị bảo tồn",
+              "end_anchor": "\nBỆNH HỌC",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 263,
+              "start_anchor": "+ Trật >",
+              "end_anchor": "\nHình 12.",
+              "role": "medical_text",
+              "continuation_verified": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ocr_patches": "data/knowledge-extraction/v2/shoulder-20261030/audit/ocr-patches.json",
+  "ocr_issues": "data/knowledge-extraction/v2/shoulder-20261030/audit/ocr-issues.json",
+  "canonical_registry": "knowledge_pipeline/kg_v2/canonical-registry.json"
+}

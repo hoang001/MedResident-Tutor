@@ -1,0 +1,27 @@
+{
+  "chapter": "Trật khớp khuỷu - 2006",
+  "pdf_pages": [
+    93,
+    94,
+    95,
+    96,
+    97
+  ],
+  "chapter_end_proof": "Provided OCR: next chapter heading at PDF98; printed labels not visually verified.",
+  "source_coverage": "All OCR prose lines selected; figure captions, footer page numbers, stray dash excluded. No new OCR or LLM calls during preparation.",
+  "ocr_review_note": "Source OCR is retained unchanged. Terminology errors and identical Reagan type 2/type 3 thresholds require source review; do not treat draft as verified medical knowledge.",
+  "shards": [
+    {
+      "key": "chapter-01",
+      "scope": "knowledge_pipeline/kg_v2/chapter-elbow-2006-shard-01.json"
+    },
+    {
+      "key": "chapter-02",
+      "scope": "knowledge_pipeline/kg_v2/chapter-elbow-2006-shard-02.json"
+    },
+    {
+      "key": "chapter-03",
+      "scope": "knowledge_pipeline/kg_v2/chapter-elbow-2006-shard-03.json"
+    }
+  ]
+}

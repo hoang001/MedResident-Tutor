@@ -5,7 +5,7 @@ import json
 from document_toolkit.common import fingerprint, write_json, read_json
 from jsonschema import Draft202012Validator
 
-from .pipeline import HERE, jsonl
+from .pipeline import HERE, jsonl, repository_for_output
 from .validation import normalized
 
 
@@ -92,7 +92,7 @@ def export_survey(config, output):
     jsonl(output / "source_probes.jsonl", probes)
     from .mapping import legacy_proposals
 
-    root = output.parents[1]
+    root = repository_for_output(output)
     legacy_file = root / "data/processed/source_units.jsonl"
     old = (
         [

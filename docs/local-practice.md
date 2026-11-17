@@ -1,5 +1,12 @@
 # Luồng luyện tập local
 
+Kiểm chứng mới cho câu hỏi sách: [retrieval → Medical ngày 11/11/2026](retrieval-medical-integration-20261111.md). Retrieval mặc định vẫn là `prelinked`; cấu hình `hybrid`/`vector` được kiểm tra trong backend riêng, không tự chuyển provider của web chính.
+
+Luồng học không cần model và các trang mới được mô tả tại
+[Không gian học tập](study-workspace.md). Compose hiện cố định
+`MODEL_CALLS_ENABLED=false`; cấu hình HTTP bên dưới chỉ hoạt động sau khi chủ động
+thay đổi chốt này trong một cấu hình triển khai được kiểm tra riêng.
+
 Từ thư mục repo `C:\WORKS\STUDY\MedResident-Tutor` (PowerShell, Docker Desktop đang chạy):
 
 ```powershell
@@ -11,7 +18,7 @@ docker compose up -d --build db backend frontend
 - Luyện tập và lịch sử: http://localhost:3000/learn ; `?attempt=<UUID>` mở lại kết quả từ DB.
 - API/OpenAPI: http://localhost:8000/docs ; prefix `/api/v1`.
 - Backend Compose kết nối `db:5432`; CLI Windows dùng `localhost:5433`.
-- Lệnh trên không tự migration/seed/import. Revision cần có: `20261022_0004`.
+- Lệnh trên không tự migration/seed/import. Revision hiện tại: `20261104_0006`.
 - Sau khi đã sao lưu và xác nhận DB đích, chạy migration tương lai bằng `docker compose exec backend alembic upgrade head`. Không stamp/reset/drop volume.
 
 ## Chế độ mock

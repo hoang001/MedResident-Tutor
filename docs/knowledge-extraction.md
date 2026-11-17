@@ -59,12 +59,12 @@ OCR cần runtime PyMuPDF hoạt động và vie.traineddata + eng.traineddata c
 
 ## Chạy extraction thật và resume (chưa chạy)
 
-Copy `knowledge_pipeline/.env.example` thành `knowledge_pipeline/.env`, điền LLM_BASE_URL, LLM_MODEL và LLM_API_KEY nếu endpoint yêu cầu. Đây là cấu hình extraction riêng, không copy .env backend và không gửi key qua chat. Endpoint phải hỗ trợ chat-completions JSON. Kiểm giới hạn context/model phù hợp; byte budget không thay token counter.
+Điền LLM_BASE_URL, LLM_MODEL và LLM_API_KEY trong `.env` ở thư mục gốc, dùng chung với lệnh kiểm tra kết nối. Không tạo `knowledge_pipeline/.env` riêng và không gửi key qua chat. Các biến LLM được đọc trực tiếp từ file, không fallback sang key cũ trong terminal. Endpoint phải hỗ trợ chat-completions JSON. Kiểm giới hạn context/model phù hợp; byte budget không thay token counter.
 
 ```powershell
-& $py -m knowledge_pipeline extract --env-file knowledge_pipeline/.env --tessdata C:/WORKS/JOBS/Schema/data/ocr/tessdata --ocr-python C:/WORKS/JOBS/Schema/.venv/Scripts/python.exe
+& $py -m knowledge_pipeline extract --env-file .env --tessdata C:/WORKS/JOBS/Schema/data/ocr/tessdata --ocr-python C:/WORKS/JOBS/Schema/.venv/Scripts/python.exe
 # Giữ nguyên scope/config/code để resume:
-& $py -m knowledge_pipeline extract --env-file knowledge_pipeline/.env --tessdata C:/WORKS/JOBS/Schema/data/ocr/tessdata --ocr-python C:/WORKS/JOBS/Schema/.venv/Scripts/python.exe --resume
+& $py -m knowledge_pipeline extract --env-file .env --tessdata C:/WORKS/JOBS/Schema/data/ocr/tessdata --ocr-python C:/WORKS/JOBS/Schema/.venv/Scripts/python.exe --resume
 ```
 
 Kiểm raw output và validation-report trước; không đưa ứng viên vào evidence mặc định. Nếu input/prompt/schema/model thay đổi, không dùng lại checkpoint cũ; dùng --output data/knowledge-extraction/<run-moi> và chạy inventory/dry-run với cùng output trước, hoặc --force có chủ đích. Không có retry ở wrapper; client toolkit có giới hạn LLM_MAX_ATTEMPTS (ví dụ 1). Không tự chạy cả sách.

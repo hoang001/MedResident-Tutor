@@ -1,0 +1,184 @@
+{
+  "medical_labels": [
+    "MedicalConcept"
+  ],
+  "medical_types": [
+    "Condition",
+    "Anatomy",
+    "Finding",
+    "Classification",
+    "ClassificationCategory",
+    "DiagnosticMethod",
+    "Intervention",
+    "Drug",
+    "ClinicalPrinciple"
+  ],
+  "other_types": [
+    "Skill",
+    "SampleQuestion"
+  ],
+  "relationships": {
+    "IS_A": {
+      "from_types": [
+        "Anatomy",
+        "Classification",
+        "ClassificationCategory",
+        "ClinicalPrinciple",
+        "Condition",
+        "DiagnosticMethod",
+        "Drug",
+        "Finding",
+        "Intervention"
+      ],
+      "to_types": [
+        "Anatomy",
+        "Classification",
+        "ClassificationCategory",
+        "ClinicalPrinciple",
+        "Condition",
+        "DiagnosticMethod",
+        "Drug",
+        "Finding",
+        "Intervention"
+      ]
+    },
+    "LOCATED_IN": {
+      "from_types": [
+        "Condition"
+      ],
+      "to_types": [
+        "Anatomy"
+      ]
+    },
+    "HAS_FINDING": {
+      "from_types": [
+        "Condition"
+      ],
+      "to_types": [
+        "Finding"
+      ]
+    },
+    "CLASSIFIED_BY": {
+      "from_types": [
+        "Condition"
+      ],
+      "to_types": [
+        "Classification"
+      ]
+    },
+    "HAS_CATEGORY": {
+      "from_types": [
+        "Classification"
+      ],
+      "to_types": [
+        "ClassificationCategory"
+      ]
+    },
+    "EVALUATED_BY": {
+      "from_types": [
+        "Condition"
+      ],
+      "to_types": [
+        "DiagnosticMethod"
+      ]
+    },
+    "MANAGED_BY": {
+      "from_types": [
+        "Condition"
+      ],
+      "to_types": [
+        "Intervention"
+      ]
+    },
+    "USES_DRUG": {
+      "from_types": [
+        "Intervention"
+      ],
+      "to_types": [
+        "Drug"
+      ]
+    },
+    "MAY_CAUSE": {
+      "from_types": [
+        "Condition",
+        "Intervention"
+      ],
+      "to_types": [
+        "Condition"
+      ]
+    },
+    "GUIDED_BY": {
+      "from_types": [
+        "Condition",
+        "Intervention"
+      ],
+      "to_types": [
+        "ClinicalPrinciple"
+      ]
+    },
+    "APPLIES_TO": {
+      "from_types": [
+        "Skill"
+      ],
+      "to_types": [
+        "Anatomy",
+        "Classification",
+        "ClassificationCategory",
+        "ClinicalPrinciple",
+        "Condition",
+        "DiagnosticMethod",
+        "Drug",
+        "Finding",
+        "Intervention"
+      ]
+    },
+    "REQUIRES_KNOWLEDGE_OF": {
+      "from_types": [
+        "Skill"
+      ],
+      "to_types": [
+        "Anatomy",
+        "Classification",
+        "ClassificationCategory",
+        "ClinicalPrinciple",
+        "Condition",
+        "DiagnosticMethod",
+        "Drug",
+        "Finding",
+        "Intervention"
+      ]
+    },
+    "HAS_SUBSKILL": {
+      "from_types": [
+        "Skill"
+      ],
+      "to_types": [
+        "Skill"
+      ]
+    },
+    "ABOUT": {
+      "from_types": [
+        "SampleQuestion"
+      ],
+      "to_types": [
+        "Anatomy",
+        "Classification",
+        "ClassificationCategory",
+        "ClinicalPrinciple",
+        "Condition",
+        "DiagnosticMethod",
+        "Drug",
+        "Finding",
+        "Intervention"
+      ]
+    },
+    "ASSESSES": {
+      "from_types": [
+        "SampleQuestion"
+      ],
+      "to_types": [
+        "Skill"
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "chapter": "TRẬT KHỚP HÁNG - 2006",
+  "pdf_pages": [
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "chapter_end_proof": "Provided OCR: next chapter starts PDF105. Printed labels not visually verified.",
+  "source_coverage": "All OCR prose selected; figure captions, generated English figure description and footers excluded. 12 windows / 4 shards.",
+  "ocr_review_note": "OCR retained unchanged; terminology, numerical thresholds and procedures need PDF source comparison after extraction. No new OCR or LLM calls during scope preparation.",
+  "shards": [
+    {
+      "key": "chapter-01",
+      "scope": "knowledge_pipeline/kg_v2/chapter-hip-2006-shard-01.json"
+    },
+    {
+      "key": "chapter-02",
+      "scope": "knowledge_pipeline/kg_v2/chapter-hip-2006-shard-02.json"
+    },
+    {
+      "key": "chapter-03",
+      "scope": "knowledge_pipeline/kg_v2/chapter-hip-2006-shard-03.json"
+    },
+    {
+      "key": "chapter-04",
+      "scope": "knowledge_pipeline/kg_v2/chapter-hip-2006-shard-04.json"
+    }
+  ]
+}

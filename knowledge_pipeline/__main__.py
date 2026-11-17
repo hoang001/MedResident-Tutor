@@ -4,9 +4,9 @@ import argparse
 from pathlib import Path
 
 from document_toolkit.common import read_json, write_json
-from document_toolkit.config import Settings
+from document_toolkit.config import DEFAULT_ENV_FILE, Settings
 
-from .pipeline import check_output, extract, inventory, prepare
+from .pipeline import check_output, extract, inventory, prepare, prepare_source_probes
 
 
 def main():
@@ -22,7 +22,11 @@ def main():
         "--output", type=Path, default=Path("data/knowledge-extraction")
     )
     parser.add_argument("--chunk-bytes", type=int, default=18000)
+    parser.add_argument("--source-probes-only", action="store_true",
+                        help="Extract only exact surveyed source excerpts, not entire trial pages")
     parser.add_argument("--tessdata", type=Path)
+    parser.add_argument("--ocr-json-dir", type=Path,
+                        help="Use existing page OCR JSON files, without running OCR again")
     parser.add_argument(
         "--ocr-python",
         type=Path,
@@ -31,7 +35,8 @@ def main():
     parser.add_argument(
         "--env-file",
         type=Path,
-        help="Explicit extraction-only configuration, never implicitly use backend .env",
+        default=DEFAULT_ENV_FILE,
+        help="Shared repository .env (or an explicitly selected file)",
     )
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--resume", action="store_true")
@@ -46,6 +51,12 @@ def main():
             print("Inventory:", len(rows), "documents; OCR/LLM not called")
             return 0
         callback, metadata = None, None
+        if args.ocr_json_dir:
+            if args.tessdata or args.ocr_python:
+                raise ValueError("Choose supplied OCR JSON or a live OCR runtime, not both")
+            from .ocr import provided_ocr_json
+
+            callback, metadata = provided_ocr_json(root, config["documents"], args.ocr_json_dir)
         if args.tessdata:
             if args.ocr_python:
                 from .ocr import subprocess_ocr
@@ -63,10 +74,15 @@ def main():
             ocr_metadata=metadata,
             chunk_bytes=args.chunk_bytes,
         )
-        if args.command == "dry-run":
+        if args.command == "dry-run" or args.source_probes_only:
             from .survey import export_survey
 
-            export_survey(config, output)
+            _, probes = export_survey(config, output)
+            if args.source_probes_only:
+                prepared = prepare_source_probes(
+                    prepared, probes, output, chunk_bytes=args.chunk_bytes,
+                )
+        if args.command == "dry-run":
             # Empty files honestly represent no medical extraction, not synthetic LLM output.
             target = output / "raw" / "dry-run-candidates"
             target.mkdir(parents=True, exist_ok=True)

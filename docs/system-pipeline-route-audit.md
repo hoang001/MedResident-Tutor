@@ -1,5 +1,7 @@
 # Pipeline và route MedResident Tutor — 22/10/2026
 
+> Cập nhật 11/11/2026: đã bổ sung retrieval sách theo cấu hình riêng. Xem [kiểm chứng retrieval → Medical](retrieval-medical-integration-20261111.md) để phân biệt live Neo4j, semantic vector, prelinked và mock. Các số liệu bên dưới là lịch sử ngày 22/10; web chính vẫn giữ provider hiện có trong đợt kiểm chứng mới.
+
 > Đây là bản ghi trước sửa. Validation/error handling, logout/hết phiên, idempotency FE và trang kết quả đã được bổ sung và kiểm tra browser E2E; xem phần “Hoàn thiện luồng local” trong [local-practice.md](local-practice.md). Các phần refresh/revocation, audit retry đầy đủ, readiness provider và model thật vẫn chưa triển khai.
 
 ## Kết luận và bằng chứng

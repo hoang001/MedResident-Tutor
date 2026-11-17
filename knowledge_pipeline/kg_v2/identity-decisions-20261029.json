@@ -1,0 +1,134 @@
+[
+  {
+    "candidate_ids": [
+      "CAND2_48cc06e92767e8427de6967c",
+      "CAND2_ff9c404303e5ceef555f75ad"
+    ],
+    "approved": true,
+    "basis": "Identity-only review: same Condition type and same explicit definition sentence in both visually checked source pages after confirmed OCR patches. Extra source statements remain separate content blocks; not expert medical approval."
+  },
+  {
+    "candidate_ids": [
+      "CAND2_0f6f40fe9edb9e3446f208fc"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+    "context": {
+      "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+      "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+      "level": "Độ 3"
+    }
+  },
+  {
+    "candidate_ids": [
+      "CAND2_42bc921458e29bdefca26b43"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+    "context": {
+      "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+      "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+      "level": "Độ 3a"
+    }
+  },
+  {
+    "candidate_ids": [
+      "CAND2_465a06204312a6639f1a66c1"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval."
+  },
+  {
+    "candidate_ids": [
+      "CAND2_4684307cfa7d1612284e7167"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+    "context": {
+      "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+      "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+      "level": "Độ 3b"
+    }
+  },
+  {
+    "candidate_ids": [
+      "CAND2_47a24b4b2fc02b2f645e1edf"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+    "context": {
+      "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+      "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+      "level": "Độ 3c"
+    }
+  },
+  {
+    "candidate_ids": [
+      "CAND2_5ed3fefd7fedea10f34a0e72"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval."
+  },
+  {
+    "candidate_ids": [
+      "CAND2_62ef629468d16d486cb3d9c3"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+    "context": {
+      "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c"
+    }
+  },
+  {
+    "candidate_ids": [
+      "CAND2_73df0c8cfed961ad0b64a01e"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval."
+  },
+  {
+    "candidate_ids": [
+      "CAND2_a56e53a6e07a521029ac1f17"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+    "context": {
+      "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+      "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+      "level": "Độ 1"
+    }
+  },
+  {
+    "candidate_ids": [
+      "CAND2_a644ef9c3f6382ea9f0dc4f2"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval."
+  },
+  {
+    "candidate_ids": [
+      "CAND2_d6765c35cf5cf394771470ca"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval."
+  },
+  {
+    "candidate_ids": [
+      "CAND2_e7582e0f707abf1926eaa986"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval."
+  },
+  {
+    "candidate_ids": [
+      "CAND2_fed13378100f16770cfb051d"
+    ],
+    "approved": true,
+    "basis": "Source-grounded singleton identity review; retain distinct type and scope. No name-only cross-source merge; no expert medical approval.",
+    "context": {
+      "system_candidate_id": "CAND2_62ef629468d16d486cb3d9c3",
+      "subject_candidate_id": "CAND2_48cc06e92767e8427de6967c",
+      "level": "Độ 2"
+    }
+  }
+]

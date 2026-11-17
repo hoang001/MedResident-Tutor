@@ -1,0 +1,42 @@
+node {
+  diameter: 55px;
+  color: #A5ABB6;
+  border-color: #7D8591;
+  caption: '{display_name}';
+  font-size: 10px;
+}
+node.DemoDataset {
+  color: #305F72;
+  diameter: 80px;
+}
+node.DocumentEdition {
+  color: #4C8EDA;
+  diameter: 85px;
+}
+node.OCRArtifact {
+  color: #8CB6E7;
+}
+node.ExtractionRun {
+  color: #B0B5BD;
+}
+node.SourceUnit {
+  color: #62B58F;
+  diameter: 75px;
+}
+node.EvidenceExcerpt {
+  color: #B9DCCB;
+}
+node.MedicalConceptCandidate {
+  color: #E4A550;
+  diameter: 65px;
+}
+node.MedicalStatement {
+  color: #C77DCC;
+  diameter: 75px;
+}
+relationship {
+  caption: '<type>';
+  font-size: 9px;
+  shaft-width: 1px;
+  color: #A5ABB6;
+}

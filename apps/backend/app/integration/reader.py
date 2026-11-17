@@ -27,7 +27,7 @@ RUBRIC_FIELDS = (
 CRITERION_FIELDS = ("acceptable_variants", "common_incorrect_claims")
 
 
-async def medical_payload(
+async def question_rubric(
     session: AsyncSession, question_external_id: str, student_answer: str
 ) -> dict:
     require(
@@ -60,9 +60,37 @@ async def medical_payload(
     rubric.update(
         rubric_id=r.external_id, question_id=q.external_id, max_score=r.max_score, criteria=[]
     )
+    for c in criteria:
+        fields = (c.import_metadata or {}).get("dataset_fields", {})
+        require(all(key in fields for key in CRITERION_FIELDS), "Missing criterion dataset fields")
+        item = {key: fields[key] for key in CRITERION_FIELDS}
+        item.update(
+            criterion_id=c.external_id,
+            description=c.description,
+            max_score=c.score,
+            required_source_unit_ids=[],
+        )
+        rubric["criteria"].append(item)
+    return {
+        "question": q.content,
+        "student_answer": student_answer,
+        "rubric": rubric,
+        "evidence": [],
+    }
+
+
+async def medical_payload(
+    session: AsyncSession, question_external_id: str, student_answer: str
+) -> dict:
+    """Legacy prelinked assembly. Dynamic retrieval calls question_rubric instead."""
+    payload = await question_rubric(session, question_external_id, student_answer)
+    rubric = payload["rubric"]
     evidence = []
     seen = set()
-    for c in criteria:
+    for item in rubric["criteria"]:
+        c = await session.scalar(
+            select(RubricCriterion).where(RubricCriterion.external_id == item["criterion_id"])
+        )
         rows = (
             await session.execute(
                 select(RubricCriterionSourceUnit, SourceUnit, Document)
@@ -73,15 +101,6 @@ async def medical_payload(
             )
         ).all()
         require(bool(rows), "Criterion has no evidence")
-        fields = (c.import_metadata or {}).get("dataset_fields", {})
-        require(all(key in fields for key in CRITERION_FIELDS), "Missing criterion dataset fields")
-        item = {key: fields[key] for key in CRITERION_FIELDS}
-        item.update(
-            criterion_id=c.external_id,
-            description=c.description,
-            max_score=c.score,
-            required_source_unit_ids=[],
-        )
         for _, su, document in rows:
             require(
                 bool(su.external_id) and bool(document.external_id) and bool(su.content.strip()),
@@ -100,10 +119,5 @@ async def medical_payload(
                         "content": su.content,
                     }
                 )
-        rubric["criteria"].append(item)
-    return {
-        "question": q.content,
-        "student_answer": student_answer,
-        "rubric": rubric,
-        "evidence": evidence,
-    }
+    payload["evidence"] = evidence
+    return payload

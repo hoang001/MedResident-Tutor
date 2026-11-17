@@ -1,0 +1,227 @@
+{
+  "format": "medresident-hmu-public-source-candidates-v1",
+  "checked_date_local": "2026-11-05",
+  "scope": "HMU_owned_publisher_including_its_journal_domain",
+  "journal_domain": "tapchinghiencuuyhoc.vn",
+  "publisher_verified": true,
+  "model_calls": 0,
+  "neo4j_writes": 0,
+  "sources": [
+    {
+      "source_id": "HMU_TCNCYH_1348",
+      "publisher": "Tr??ng ??i h?c Y H? N?i ? T?p ch? Nghi?n c?u Y h?c",
+      "publisher_evidence_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/about",
+      "title": "17. Đánh giá kết quả ban đầu phẫu thuật thay toàn bộ khớp háng sử dụng trợ cụ cá thể hoá",
+      "authors": [
+        "Phạm Trung Hiếu",
+        "Võ  Sỹ Quyền Năng",
+        "Vũ Tú Nam",
+        "Phan Khoa Nguyên",
+        "Trần  Trung Dũng",
+        "Dương  Đình Toàn"
+      ],
+      "publication_date_as_supplied": [
+        "2023/01/31"
+      ],
+      "doi": [
+        "10.52852/tcncyh.v162i1.1348"
+      ],
+      "url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/view/1348",
+      "pdf_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/download/1348/875",
+      "checked_at_utc": "2026-11-05T02:29:35.697910+00:00",
+      "access": "anonymous_full_text_verified",
+      "http": 200,
+      "pdf_http": 200,
+      "pdf_pages": 10,
+      "pdf_sha256": "ff2c3d16379365bfd2cd6cefed15ab67c3217ce9aa2140517638edef4d68ca9d",
+      "pdf_bytes": 385212,
+      "source_kind": "journal_article",
+      "candidate_course_codes": [
+        "B21CN9",
+        "B21CN13"
+      ],
+      "course_mapping_status": "proposed_by_topic_not_official_syllabus",
+      "expert_review_status": "not_reviewed",
+      "imported_to_neo4j": false
+    },
+    {
+      "source_id": "HMU_TCNCYH_485",
+      "publisher": "Tr??ng ??i h?c Y H? N?i ? T?p ch? Nghi?n c?u Y h?c",
+      "publisher_evidence_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/about",
+      "title": "Phẫu thuật cố định cột sống ít xâm lấn và giải ép gián tiếp trong chấn thương mất vững cột sống vùng ngực - thắt lưng",
+      "authors": [
+        "Trần Trung Kiên",
+        "Kiều Đình Hùng",
+        "Bùi Văn Sơn"
+      ],
+      "publication_date_as_supplied": [
+        "2021"
+      ],
+      "doi": [
+        "10.52852/tcncyh.v147i11.485"
+      ],
+      "url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/view/485",
+      "pdf_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/download/485/746",
+      "checked_at_utc": "2026-11-05T02:29:35.698264+00:00",
+      "access": "anonymous_full_text_verified",
+      "http": 200,
+      "pdf_http": 200,
+      "pdf_pages": 9,
+      "pdf_sha256": "cfaa4686b454a7785914ab03a5cf65f76229077f56ad94e0df3f129cb81d9e51",
+      "pdf_bytes": 417834,
+      "source_kind": "journal_article",
+      "candidate_course_codes": [
+        "B21CN10",
+        "B21CN15",
+        "B21CN18"
+      ],
+      "course_mapping_status": "proposed_by_topic_not_official_syllabus",
+      "expert_review_status": "not_reviewed",
+      "imported_to_neo4j": false
+    },
+    {
+      "source_id": "HMU_TCNCYH_2878",
+      "publisher": "Tr??ng ??i h?c Y H? N?i ? T?p ch? Nghi?n c?u Y h?c",
+      "publisher_evidence_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/about",
+      "title": "Kết quả phẫu thuật nội soi liên bản sống điều trị thoát vị đĩa đệm cột sống thắt lưng tại Bệnh viện Đại học Y Hà Nội",
+      "authors": [
+        "Đinh Mạnh Hải",
+        "Hồ Thanh Sơn",
+        "Trần Thị Thuỳ Linh",
+        "Phạm Thị Lan Anh",
+        "Hoàng Xuân Trường",
+        "Trần Ngọc Linh"
+      ],
+      "publication_date_as_supplied": [
+        "2024/12/24"
+      ],
+      "doi": [
+        "10.52852/tcncyh.v185i12.2878"
+      ],
+      "url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/view/2878",
+      "pdf_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/download/2878/2067",
+      "checked_at_utc": "2026-11-05T02:29:35.698560+00:00",
+      "access": "anonymous_full_text_verified",
+      "http": 200,
+      "pdf_http": 200,
+      "pdf_pages": 6,
+      "pdf_sha256": "6e2f577a7979df7a1576e56ae97267a1497dd605318847572b913b5f82afcf06",
+      "pdf_bytes": 281184,
+      "source_kind": "journal_article",
+      "candidate_course_codes": [
+        "B21CN17",
+        "B21CN18"
+      ],
+      "course_mapping_status": "proposed_by_topic_not_official_syllabus",
+      "expert_review_status": "not_reviewed",
+      "imported_to_neo4j": false
+    },
+    {
+      "source_id": "HMU_TCNCYH_1367",
+      "publisher": "Tr??ng ??i h?c Y H? N?i ? T?p ch? Nghi?n c?u Y h?c",
+      "publisher_evidence_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/about",
+      "title": "26. Đặc điểm giải phẫu và cơ sinh học của gân mác dài ứng dụng trong tái tạo dây chằng chéo khớp gối",
+      "authors": [
+        "Nguyễn Hoàng Quân",
+        "Nguyễn Mạnh Khánh"
+      ],
+      "publication_date_as_supplied": [
+        "2023/01/31"
+      ],
+      "doi": [
+        "10.52852/tcncyh.v162i1.1367"
+      ],
+      "url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/view/1367",
+      "pdf_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/download/1367/884",
+      "checked_at_utc": "2026-11-05T02:29:43.080758+00:00",
+      "access": "anonymous_full_text_verified",
+      "http": 200,
+      "pdf_http": 200,
+      "pdf_pages": 8,
+      "pdf_sha256": "933ca7d6d752688692cac0128f52eff80c3f7d5b840af0b68b7a82d44945a285",
+      "pdf_bytes": 356366,
+      "source_kind": "journal_article",
+      "candidate_course_codes": [
+        "B21CN9",
+        "B21CN13"
+      ],
+      "course_mapping_status": "proposed_by_topic_not_official_syllabus",
+      "expert_review_status": "not_reviewed",
+      "imported_to_neo4j": false
+    },
+    {
+      "source_id": "HMU_TCNCYH_3462",
+      "publisher": "Tr??ng ??i h?c Y H? N?i ? T?p ch? Nghi?n c?u Y h?c",
+      "publisher_evidence_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/about",
+      "title": "43. Kết quả điều trị trượt đốt sống đơn tầng vùng thắt lưng – cùng bằng phẫu thuật hàn xương liên thân đốt có sử dụng cảnh báo thần kinh",
+      "authors": [
+        "Kiều Đình Hùng",
+        "Trần Trung Kiên"
+      ],
+      "publication_date_as_supplied": [
+        "2025/04/28"
+      ],
+      "doi": [
+        "10.52852/tcncyh.v189i4.3462"
+      ],
+      "url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/view/3462",
+      "pdf_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/download/3462/2336",
+      "checked_at_utc": "2026-11-05T02:29:47.703901+00:00",
+      "access": "anonymous_full_text_verified",
+      "http": 200,
+      "pdf_http": 200,
+      "pdf_pages": 11,
+      "pdf_sha256": "a0c2c1afc23b560f30f1483d4b5b93630cf978d1c0e6f8a3b433ccbed6b61b9b",
+      "pdf_bytes": 1613572,
+      "source_kind": "journal_article",
+      "candidate_course_codes": [
+        "B21CN17",
+        "B21CN18"
+      ],
+      "course_mapping_status": "proposed_by_topic_not_official_syllabus",
+      "expert_review_status": "not_reviewed",
+      "imported_to_neo4j": false
+    },
+    {
+      "source_id": "HMU_TCNCYH_2443",
+      "publisher": "Tr??ng ??i h?c Y H? N?i ? T?p ch? Nghi?n c?u Y h?c",
+      "publisher_evidence_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/about",
+      "title": "3. Kết quả phẫu thuật hẹp ống sống thắt lưng và trượt đốt sống thắt lưng bằng đường mổ lối bên tại Bệnh viện Đại học Y Hà Nội",
+      "authors": [
+        "Hoàng Minh Tân",
+        "Kiều Đình Hùng",
+        "Trần Trung Kiên",
+        "Nguyễn Vũ",
+        "Dương Đại Hà "
+      ],
+      "publication_date_as_supplied": [
+        "2024/07/31"
+      ],
+      "doi": [
+        "10.52852/tcncyh.v179i6.2443"
+      ],
+      "url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/view/2443",
+      "pdf_url": "https://tapchinghiencuuyhoc.vn/index.php/tcncyh/article/download/2443/1623",
+      "checked_at_utc": "2026-11-05T02:29:48.543233+00:00",
+      "access": "anonymous_full_text_verified",
+      "http": 200,
+      "pdf_http": 200,
+      "pdf_pages": 9,
+      "pdf_sha256": "9f5fa18052c3b224c9db93fd9eba7138f1bdb2634a77375efaa3d650a5236e40",
+      "pdf_bytes": 331687,
+      "source_kind": "journal_article",
+      "candidate_course_codes": [
+        "B21CN17",
+        "B21CN18"
+      ],
+      "course_mapping_status": "proposed_by_topic_not_official_syllabus",
+      "expert_review_status": "not_reviewed",
+      "imported_to_neo4j": false
+    }
+  ],
+  "limitations": [
+    "Research articles are supplementary material, not official course syllabi or clinical guidelines.",
+    "Topic mappings are proposals; no claim of full coverage of B21CN7-B21CN18.",
+    "Publication dates may differ between citation metadata and issue/publication displays."
+  ]
+}

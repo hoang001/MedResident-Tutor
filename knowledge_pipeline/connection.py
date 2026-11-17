@@ -9,7 +9,7 @@ from urllib.parse import urlsplit
 from dotenv import dotenv_values
 import httpx
 
-from document_toolkit.config import Settings
+from document_toolkit.config import DEFAULT_ENV_FILE, Settings
 from document_toolkit.llm_client import parse_json_response
 
 
@@ -18,12 +18,12 @@ def read_connection_settings(env_file):
     path = Path(env_file)
     if not path.is_file():
         raise ValueError("ENV_FILE_NOT_FOUND")
-    values = dotenv_values(path)
-    base = values.get("LLM_BASE_URL") or values.get("OPENAI_BASE_URL") or ""
-    key = values.get("LLM_API_KEY") or values.get("OPENAI_API_KEY") or ""
+    values = dotenv_values(path, interpolate=False)
+    base = values.get("LLM_BASE_URL") or ""
+    key = values.get("LLM_API_KEY") or ""
     return Settings(
         llm_base_url=base.strip(),
-        llm_api_key=key,
+        llm_api_key=key.strip(),
         model=values.get("LLM_MODEL") or "",
         llm_chat_completions_endpoint=values.get("LLM_CHAT_ENDPOINT")
         or "/v1/chat/completions",
@@ -31,7 +31,7 @@ def read_connection_settings(env_file):
     )
 
 
-def check_llm(settings, *, tcp_only=False, timeout_seconds=15, client=None):
+def check_llm(settings, *, tcp_only=False, timeout_seconds=15, client=None, reply_ok=False):
     """Return a safe result. TCP success does not imply auth/model readiness.
 
     Default: one tiny generation, potentially billable. No source data is sent.
@@ -43,6 +43,9 @@ def check_llm(settings, *, tcp_only=False, timeout_seconds=15, client=None):
         "mode": "tcp" if tcp_only else "model",
         "code": "CONFIG_ERROR",
     }
+
+    def redact(value):
+        return value.replace(settings.llm_api_key, "[REDACTED]") if settings.llm_api_key else value
 
     def finish(code, ok=False, **fields):
         return {
@@ -96,7 +99,8 @@ def check_llm(settings, *, tcp_only=False, timeout_seconds=15, client=None):
             json={
                 "model": settings.model,
                 "messages": [
-                    {"role": "user", "content": 'Return only JSON: {"ok":true}'}
+                    {"role": "user", "content": 'Reply with exactly OK.' if reply_ok
+                     else 'Return only JSON: {"ok":true}'}
                 ],
                 "temperature": 0,
                 "max_tokens": 64,
@@ -120,30 +124,39 @@ def check_llm(settings, *, tcp_only=False, timeout_seconds=15, client=None):
     if status != 200:
         # Never print raw bodies/exception strings: they may contain private URLs or keys.
         error_type = None
+        error_message = None
         try:
             body = response.json()
             error = body.get("error") if isinstance(body, dict) else None
             kind = error.get("type") if isinstance(error, dict) else None
-            if kind in (
-                "no_db_connection",
-                "authentication_error",
-                "invalid_api_key",
-                "model_not_found",
-            ):
-                error_type = kind
+            if isinstance(kind, str):
+                error_type = redact(kind)
+            message = error.get("message") if isinstance(error, dict) else None
+            if isinstance(message, str):
+                error_message = redact(message)
         except ValueError:
             pass
+        if error_message is None:
+            error_message = redact(response.text)
         return finish(
             "API_NO_DB_CONNECTION"
             if error_type == "no_db_connection"
             else "HTTP_ERROR",
             http_status=status,
             error_type=error_type,
+            error_message=error_message,
         )
     try:
         choice = response.json()["choices"][0]
         if choice.get("finish_reason") == "length":
             return finish("OUTPUT_TRUNCATED", http_status=status)
+        if reply_ok:
+            content = choice["message"]["content"]
+            if not isinstance(content, str):
+                return finish("INVALID_JSON_OUTPUT", http_status=status)
+            return finish("MODEL_OK" if content.strip() == "OK" else "UNEXPECTED_OUTPUT",
+                          content.strip() == "OK", http_status=status,
+                          response_content=redact(content))
         if parse_json_response(choice["message"]["content"]) != {"ok": True}:
             return finish("UNEXPECTED_OUTPUT", http_status=status)
     except (ValueError, KeyError, IndexError, TypeError, AttributeError):
@@ -156,7 +169,7 @@ def main():
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--env-file", type=Path, default=Path("knowledge_pipeline/.env")
+        "--env-file", type=Path, default=DEFAULT_ENV_FILE
     )
     parser.add_argument(
         "--tcp-only",
@@ -164,13 +177,18 @@ def main():
         help="Only open TCP socket; no model call/cost",
     )
     parser.add_argument("--timeout", type=float, default=15)
+    parser.add_argument("--reply-ok", action="store_true", help="One chat asking for exactly OK")
     args = parser.parse_args()
     try:
+        settings = read_connection_settings(args.env_file)
         result = check_llm(
-            read_connection_settings(args.env_file),
+            settings,
             tcp_only=args.tcp_only,
             timeout_seconds=args.timeout,
+            reply_ok=args.reply_ok,
         )
+        result.update(env_file=str(args.env_file.resolve()), model=settings.model,
+                      endpoint=settings.endpoint_url(settings.llm_chat_completions_endpoint))
     except ValueError:
         result = {
             "ok": False,

@@ -1,0 +1,877 @@
+{
+  "book": "Cấp cứu ngoại khoa – Chấn thương",
+  "publication_year": 2006,
+  "source_id": "SRC_ORTHO_EMERGENCY_001",
+  "ocr_input": "data/graduate/Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.json",
+  "source_sha256": "d95f9d803e46c1bb8b41a2b35fc53add5dd8959df1b3107a83f8e0c324469007",
+  "lesson_order": "1 through 25; skip generation only for lessons 15 and 16",
+  "chapters": [
+    {
+      "lesson_number": 1,
+      "title": "Vết thương phần mềm",
+      "pdf_pages": {
+        "start": 8,
+        "end": 11
+      },
+      "ocr_heading": "VẾT THƯƠNG PHẦN MỀM",
+      "generation_status": "scheduled",
+      "windows": 10,
+      "shards": 4
+    },
+    {
+      "lesson_number": 2,
+      "title": "Gãy xương ở trẻ em",
+      "pdf_pages": {
+        "start": 12,
+        "end": 15
+      },
+      "ocr_heading": "GÃY XƯƠNG Ở TRẺ EM",
+      "generation_status": "scheduled",
+      "windows": 3,
+      "shards": 1
+    },
+    {
+      "lesson_number": 3,
+      "title": "Gãy xương hở",
+      "pdf_pages": {
+        "start": 16,
+        "end": 26
+      },
+      "ocr_heading": "GẤY XƯƠNG HỔ",
+      "generation_status": "scheduled",
+      "windows": 17,
+      "shards": 6
+    },
+    {
+      "lesson_number": 4,
+      "title": "Gãy xương có biến chứng thần kinh",
+      "pdf_pages": {
+        "start": 27,
+        "end": 33
+      },
+      "ocr_heading": "GÂY XƯƠNG CÓ BIẾN CHỨNG THẦN KINH",
+      "generation_status": "scheduled",
+      "windows": 9,
+      "shards": 3
+    },
+    {
+      "lesson_number": 5,
+      "title": "Gãy xương có biến chứng mạch máu",
+      "pdf_pages": {
+        "start": 34,
+        "end": 36
+      },
+      "ocr_heading": "GÃY XƯƠNG CÓ BIẾN CHỨNG MẠCH MÁU",
+      "generation_status": "scheduled",
+      "windows": 7,
+      "shards": 3
+    },
+    {
+      "lesson_number": 6,
+      "title": "Hội chứng chèn ép khoang",
+      "pdf_pages": {
+        "start": 37,
+        "end": 45
+      },
+      "ocr_heading": "HỘI CHỨNG CHÈN ÉP KHOANG",
+      "generation_status": "scheduled",
+      "windows": 13,
+      "shards": 5
+    },
+    {
+      "lesson_number": 7,
+      "title": "Cắt cụt chi",
+      "pdf_pages": {
+        "start": 46,
+        "end": 49
+      },
+      "ocr_heading": "CẮT CỤC CHI",
+      "generation_status": "scheduled",
+      "windows": 7,
+      "shards": 3
+    },
+    {
+      "lesson_number": 8,
+      "title": "Nối lại chi bị đứt rời",
+      "pdf_pages": {
+        "start": 50,
+        "end": 58
+      },
+      "ocr_heading": "NÓI LẠI CHI BỊ ĐỨT RỜI",
+      "generation_status": "scheduled",
+      "windows": 11,
+      "shards": 4
+    },
+    {
+      "lesson_number": 9,
+      "title": "Vết thương khớp",
+      "pdf_pages": {
+        "start": 59,
+        "end": 60
+      },
+      "ocr_heading": "VẾT THƯƠNG KHÓP",
+      "generation_status": "scheduled",
+      "windows": 6,
+      "shards": 2
+    },
+    {
+      "lesson_number": 10,
+      "title": "Viêm xương cấp tính",
+      "pdf_pages": {
+        "start": 61,
+        "end": 62
+      },
+      "ocr_heading": "VIÊM XƯƠNG CẤP TÍNH",
+      "generation_status": "scheduled",
+      "windows": 4,
+      "shards": 2
+    },
+    {
+      "lesson_number": 11,
+      "title": "Hoại thư sinh hơi",
+      "pdf_pages": {
+        "start": 63,
+        "end": 66
+      },
+      "ocr_heading": "HOẠI THƯ SINH HƠI",
+      "generation_status": "scheduled",
+      "windows": 10,
+      "shards": 4
+    },
+    {
+      "lesson_number": 12,
+      "title": "Nhiễm trùng bàn tay",
+      "pdf_pages": {
+        "start": 67,
+        "end": 76
+      },
+      "ocr_heading": "NHIỄM TRÙNG BÀN TAY",
+      "generation_status": "scheduled",
+      "windows": 15,
+      "shards": 5
+    },
+    {
+      "lesson_number": 13,
+      "title": "Đại cương về bỏng",
+      "pdf_pages": {
+        "start": 77,
+        "end": 82
+      },
+      "ocr_heading": "ĐẠI CƯƠNG VỀ BÓNG",
+      "generation_status": "scheduled",
+      "windows": 11,
+      "shards": 4
+    },
+    {
+      "lesson_number": 14,
+      "title": "U xương",
+      "pdf_pages": {
+        "start": 83,
+        "end": 88
+      },
+      "ocr_heading": "U XƯƠNG",
+      "generation_status": "scheduled",
+      "windows": 14,
+      "shards": 5
+    },
+    {
+      "lesson_number": 15,
+      "title": "Trật khớp vai",
+      "pdf_pages": {
+        "start": 89,
+        "end": 92
+      },
+      "ocr_heading": "TRẬT KHỚP VAI",
+      "generation_status": "skipped_existing_extraction",
+      "reason": "Đã có extraction toàn phạm vi PDF89–92 và overlay đối chiếu nguồn đã import; Kocher vẫn giữ ngoài.",
+      "existing_result": "data/knowledge-extraction/v2/chapter-shoulder-2006-source-review-20261102"
+    },
+    {
+      "lesson_number": 16,
+      "title": "Trật khớp khuỷu",
+      "pdf_pages": {
+        "start": 93,
+        "end": 97
+      },
+      "ocr_heading": "TRẬT KHÓP KHUYU",
+      "generation_status": "skipped_existing_extraction",
+      "reason": "Đã xử lý 9/9 cửa sổ extraction PDF93–97; còn 4 node giữ ngoài và chưa kiểm nguồn toàn bài. Bỏ gọi lại, không đánh dấu đã review xong.",
+      "existing_result": "data/knowledge-extraction/v2/chapter-elbow-2006-wait/aggregate-0001"
+    },
+    {
+      "lesson_number": 17,
+      "title": "Trật khớp háng",
+      "pdf_pages": {
+        "start": 98,
+        "end": 104
+      },
+      "ocr_heading": "TRẬT KHỚP HÁNG",
+      "generation_status": "scheduled",
+      "windows": 13,
+      "shards": 5
+    },
+    {
+      "lesson_number": 18,
+      "title": "Gãy 2 xương cẳng tay",
+      "pdf_pages": {
+        "start": 105,
+        "end": 113
+      },
+      "ocr_heading": "GÃY HAI XƯƠNG CẮNG TAY",
+      "generation_status": "scheduled",
+      "windows": 13,
+      "shards": 5
+    },
+    {
+      "lesson_number": 19,
+      "title": "Vết thương bàn tay",
+      "pdf_pages": {
+        "start": 114,
+        "end": 122
+      },
+      "ocr_heading": "VẾT THƯƠNG BÀN TAY",
+      "generation_status": "scheduled",
+      "windows": 11,
+      "shards": 4
+    },
+    {
+      "lesson_number": 20,
+      "title": "Chấn thương cột sống",
+      "pdf_pages": {
+        "start": 123,
+        "end": 129
+      },
+      "ocr_heading": "CHẤN THƯƠNG CỘT SỐNG",
+      "generation_status": "scheduled",
+      "windows": 19,
+      "shards": 7
+    },
+    {
+      "lesson_number": 21,
+      "title": "Gãy xương chậu",
+      "pdf_pages": {
+        "start": 130,
+        "end": 141
+      },
+      "ocr_heading": "GÃY XƯƠNG CHẬU",
+      "generation_status": "scheduled",
+      "windows": 15,
+      "shards": 5
+    },
+    {
+      "lesson_number": 22,
+      "title": "Gãy cổ xương đùi",
+      "pdf_pages": {
+        "start": 142,
+        "end": 149
+      },
+      "ocr_heading": "GÃY CỔ XƯƠNG ĐÙI",
+      "generation_status": "scheduled",
+      "windows": 8,
+      "shards": 3
+    },
+    {
+      "lesson_number": 23,
+      "title": "Gãy thân xương đùi",
+      "pdf_pages": {
+        "start": 150,
+        "end": 155
+      },
+      "ocr_heading": "GẤY THÂN XƯƠNG ĐÙI",
+      "generation_status": "scheduled",
+      "windows": 13,
+      "shards": 5
+    },
+    {
+      "lesson_number": 24,
+      "title": "Gãy thân 2 xương cẳng chân",
+      "pdf_pages": {
+        "start": 156,
+        "end": 162
+      },
+      "ocr_heading": "GÃY HAI XƯƠNG CẮNG CHÂN",
+      "generation_status": "scheduled",
+      "windows": 13,
+      "shards": 5
+    },
+    {
+      "lesson_number": 25,
+      "title": "Các thương tổn ở cổ chân",
+      "pdf_pages": {
+        "start": 163,
+        "end": 168
+      },
+      "ocr_heading": "CÁC THƯƠNG TỔN Ở CỔ CHÂN",
+      "generation_status": "scheduled",
+      "windows": 8,
+      "shards": 3
+    }
+  ],
+  "shards": [
+    {
+      "key": "bai-01-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-01-nhom-01.json",
+      "lesson_number": 1,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-01-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-01-nhom-02.json",
+      "lesson_number": 1,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-01-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-01-nhom-03.json",
+      "lesson_number": 1,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-01-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-01-nhom-04.json",
+      "lesson_number": 1,
+      "lesson_title": "Vết thương phần mềm"
+    },
+    {
+      "key": "bai-02-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-02-nhom-01.json",
+      "lesson_number": 2,
+      "lesson_title": "Gãy xương ở trẻ em"
+    },
+    {
+      "key": "bai-03-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-03-nhom-01.json",
+      "lesson_number": 3,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-03-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-03-nhom-02.json",
+      "lesson_number": 3,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-03-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-03-nhom-03.json",
+      "lesson_number": 3,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-03-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-03-nhom-04.json",
+      "lesson_number": 3,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-03-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-03-nhom-05.json",
+      "lesson_number": 3,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-03-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-03-nhom-06.json",
+      "lesson_number": 3,
+      "lesson_title": "Gãy xương hở"
+    },
+    {
+      "key": "bai-04-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-04-nhom-01.json",
+      "lesson_number": 4,
+      "lesson_title": "Gãy xương có biến chứng thần kinh"
+    },
+    {
+      "key": "bai-04-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-04-nhom-02.json",
+      "lesson_number": 4,
+      "lesson_title": "Gãy xương có biến chứng thần kinh"
+    },
+    {
+      "key": "bai-04-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-04-nhom-03.json",
+      "lesson_number": 4,
+      "lesson_title": "Gãy xương có biến chứng thần kinh"
+    },
+    {
+      "key": "bai-05-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-05-nhom-01.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương có biến chứng mạch máu"
+    },
+    {
+      "key": "bai-05-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-05-nhom-02.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương có biến chứng mạch máu"
+    },
+    {
+      "key": "bai-05-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-05-nhom-03.json",
+      "lesson_number": 5,
+      "lesson_title": "Gãy xương có biến chứng mạch máu"
+    },
+    {
+      "key": "bai-06-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-06-nhom-01.json",
+      "lesson_number": 6,
+      "lesson_title": "Hội chứng chèn ép khoang"
+    },
+    {
+      "key": "bai-06-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-06-nhom-02.json",
+      "lesson_number": 6,
+      "lesson_title": "Hội chứng chèn ép khoang"
+    },
+    {
+      "key": "bai-06-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-06-nhom-03.json",
+      "lesson_number": 6,
+      "lesson_title": "Hội chứng chèn ép khoang"
+    },
+    {
+      "key": "bai-06-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-06-nhom-04.json",
+      "lesson_number": 6,
+      "lesson_title": "Hội chứng chèn ép khoang"
+    },
+    {
+      "key": "bai-06-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-06-nhom-05.json",
+      "lesson_number": 6,
+      "lesson_title": "Hội chứng chèn ép khoang"
+    },
+    {
+      "key": "bai-07-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-07-nhom-01.json",
+      "lesson_number": 7,
+      "lesson_title": "Cắt cụt chi"
+    },
+    {
+      "key": "bai-07-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-07-nhom-02.json",
+      "lesson_number": 7,
+      "lesson_title": "Cắt cụt chi"
+    },
+    {
+      "key": "bai-07-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-07-nhom-03.json",
+      "lesson_number": 7,
+      "lesson_title": "Cắt cụt chi"
+    },
+    {
+      "key": "bai-08-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-08-nhom-01.json",
+      "lesson_number": 8,
+      "lesson_title": "Nối lại chi bị đứt rời"
+    },
+    {
+      "key": "bai-08-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-08-nhom-02.json",
+      "lesson_number": 8,
+      "lesson_title": "Nối lại chi bị đứt rời"
+    },
+    {
+      "key": "bai-08-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-08-nhom-03.json",
+      "lesson_number": 8,
+      "lesson_title": "Nối lại chi bị đứt rời"
+    },
+    {
+      "key": "bai-08-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-08-nhom-04.json",
+      "lesson_number": 8,
+      "lesson_title": "Nối lại chi bị đứt rời"
+    },
+    {
+      "key": "bai-09-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-09-nhom-01.json",
+      "lesson_number": 9,
+      "lesson_title": "Vết thương khớp"
+    },
+    {
+      "key": "bai-09-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-09-nhom-02.json",
+      "lesson_number": 9,
+      "lesson_title": "Vết thương khớp"
+    },
+    {
+      "key": "bai-10-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-10-nhom-01.json",
+      "lesson_number": 10,
+      "lesson_title": "Viêm xương cấp tính"
+    },
+    {
+      "key": "bai-10-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-10-nhom-02.json",
+      "lesson_number": 10,
+      "lesson_title": "Viêm xương cấp tính"
+    },
+    {
+      "key": "bai-11-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-11-nhom-01.json",
+      "lesson_number": 11,
+      "lesson_title": "Hoại thư sinh hơi"
+    },
+    {
+      "key": "bai-11-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-11-nhom-02.json",
+      "lesson_number": 11,
+      "lesson_title": "Hoại thư sinh hơi"
+    },
+    {
+      "key": "bai-11-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-11-nhom-03.json",
+      "lesson_number": 11,
+      "lesson_title": "Hoại thư sinh hơi"
+    },
+    {
+      "key": "bai-11-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-11-nhom-04.json",
+      "lesson_number": 11,
+      "lesson_title": "Hoại thư sinh hơi"
+    },
+    {
+      "key": "bai-12-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-12-nhom-01.json",
+      "lesson_number": 12,
+      "lesson_title": "Nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-12-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-12-nhom-02.json",
+      "lesson_number": 12,
+      "lesson_title": "Nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-12-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-12-nhom-03.json",
+      "lesson_number": 12,
+      "lesson_title": "Nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-12-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-12-nhom-04.json",
+      "lesson_number": 12,
+      "lesson_title": "Nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-12-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-12-nhom-05.json",
+      "lesson_number": 12,
+      "lesson_title": "Nhiễm trùng bàn tay"
+    },
+    {
+      "key": "bai-13-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-13-nhom-01.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương về bỏng"
+    },
+    {
+      "key": "bai-13-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-13-nhom-02.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương về bỏng"
+    },
+    {
+      "key": "bai-13-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-13-nhom-03.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương về bỏng"
+    },
+    {
+      "key": "bai-13-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-13-nhom-04.json",
+      "lesson_number": 13,
+      "lesson_title": "Đại cương về bỏng"
+    },
+    {
+      "key": "bai-14-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-14-nhom-01.json",
+      "lesson_number": 14,
+      "lesson_title": "U xương"
+    },
+    {
+      "key": "bai-14-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-14-nhom-02.json",
+      "lesson_number": 14,
+      "lesson_title": "U xương"
+    },
+    {
+      "key": "bai-14-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-14-nhom-03.json",
+      "lesson_number": 14,
+      "lesson_title": "U xương"
+    },
+    {
+      "key": "bai-14-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-14-nhom-04.json",
+      "lesson_number": 14,
+      "lesson_title": "U xương"
+    },
+    {
+      "key": "bai-14-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-14-nhom-05.json",
+      "lesson_number": 14,
+      "lesson_title": "U xương"
+    },
+    {
+      "key": "bai-17-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-17-nhom-01.json",
+      "lesson_number": 17,
+      "lesson_title": "Trật khớp háng"
+    },
+    {
+      "key": "bai-17-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-17-nhom-02.json",
+      "lesson_number": 17,
+      "lesson_title": "Trật khớp háng"
+    },
+    {
+      "key": "bai-17-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-17-nhom-03.json",
+      "lesson_number": 17,
+      "lesson_title": "Trật khớp háng"
+    },
+    {
+      "key": "bai-17-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-17-nhom-04.json",
+      "lesson_number": 17,
+      "lesson_title": "Trật khớp háng"
+    },
+    {
+      "key": "bai-17-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-17-nhom-05.json",
+      "lesson_number": 17,
+      "lesson_title": "Trật khớp háng"
+    },
+    {
+      "key": "bai-18-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-18-nhom-01.json",
+      "lesson_number": 18,
+      "lesson_title": "Gãy 2 xương cẳng tay"
+    },
+    {
+      "key": "bai-18-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-18-nhom-02.json",
+      "lesson_number": 18,
+      "lesson_title": "Gãy 2 xương cẳng tay"
+    },
+    {
+      "key": "bai-18-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-18-nhom-03.json",
+      "lesson_number": 18,
+      "lesson_title": "Gãy 2 xương cẳng tay"
+    },
+    {
+      "key": "bai-18-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-18-nhom-04.json",
+      "lesson_number": 18,
+      "lesson_title": "Gãy 2 xương cẳng tay"
+    },
+    {
+      "key": "bai-18-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-18-nhom-05.json",
+      "lesson_number": 18,
+      "lesson_title": "Gãy 2 xương cẳng tay"
+    },
+    {
+      "key": "bai-19-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-19-nhom-01.json",
+      "lesson_number": 19,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-19-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-19-nhom-02.json",
+      "lesson_number": 19,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-19-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-19-nhom-03.json",
+      "lesson_number": 19,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-19-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-19-nhom-04.json",
+      "lesson_number": 19,
+      "lesson_title": "Vết thương bàn tay"
+    },
+    {
+      "key": "bai-20-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-20-nhom-01.json",
+      "lesson_number": 20,
+      "lesson_title": "Chấn thương cột sống"
+    },
+    {
+      "key": "bai-20-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-20-nhom-02.json",
+      "lesson_number": 20,
+      "lesson_title": "Chấn thương cột sống"
+    },
+    {
+      "key": "bai-20-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-20-nhom-03.json",
+      "lesson_number": 20,
+      "lesson_title": "Chấn thương cột sống"
+    },
+    {
+      "key": "bai-20-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-20-nhom-04.json",
+      "lesson_number": 20,
+      "lesson_title": "Chấn thương cột sống"
+    },
+    {
+      "key": "bai-20-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-20-nhom-05.json",
+      "lesson_number": 20,
+      "lesson_title": "Chấn thương cột sống"
+    },
+    {
+      "key": "bai-20-nhom-06",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-20-nhom-06.json",
+      "lesson_number": 20,
+      "lesson_title": "Chấn thương cột sống"
+    },
+    {
+      "key": "bai-20-nhom-07",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-20-nhom-07.json",
+      "lesson_number": 20,
+      "lesson_title": "Chấn thương cột sống"
+    },
+    {
+      "key": "bai-21-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-21-nhom-01.json",
+      "lesson_number": 21,
+      "lesson_title": "Gãy xương chậu"
+    },
+    {
+      "key": "bai-21-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-21-nhom-02.json",
+      "lesson_number": 21,
+      "lesson_title": "Gãy xương chậu"
+    },
+    {
+      "key": "bai-21-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-21-nhom-03.json",
+      "lesson_number": 21,
+      "lesson_title": "Gãy xương chậu"
+    },
+    {
+      "key": "bai-21-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-21-nhom-04.json",
+      "lesson_number": 21,
+      "lesson_title": "Gãy xương chậu"
+    },
+    {
+      "key": "bai-21-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-21-nhom-05.json",
+      "lesson_number": 21,
+      "lesson_title": "Gãy xương chậu"
+    },
+    {
+      "key": "bai-22-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-22-nhom-01.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-22-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-22-nhom-02.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-22-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-22-nhom-03.json",
+      "lesson_number": 22,
+      "lesson_title": "Gãy cổ xương đùi"
+    },
+    {
+      "key": "bai-23-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-23-nhom-01.json",
+      "lesson_number": 23,
+      "lesson_title": "Gãy thân xương đùi"
+    },
+    {
+      "key": "bai-23-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-23-nhom-02.json",
+      "lesson_number": 23,
+      "lesson_title": "Gãy thân xương đùi"
+    },
+    {
+      "key": "bai-23-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-23-nhom-03.json",
+      "lesson_number": 23,
+      "lesson_title": "Gãy thân xương đùi"
+    },
+    {
+      "key": "bai-23-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-23-nhom-04.json",
+      "lesson_number": 23,
+      "lesson_title": "Gãy thân xương đùi"
+    },
+    {
+      "key": "bai-23-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-23-nhom-05.json",
+      "lesson_number": 23,
+      "lesson_title": "Gãy thân xương đùi"
+    },
+    {
+      "key": "bai-24-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-24-nhom-01.json",
+      "lesson_number": 24,
+      "lesson_title": "Gãy thân 2 xương cẳng chân"
+    },
+    {
+      "key": "bai-24-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-24-nhom-02.json",
+      "lesson_number": 24,
+      "lesson_title": "Gãy thân 2 xương cẳng chân"
+    },
+    {
+      "key": "bai-24-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-24-nhom-03.json",
+      "lesson_number": 24,
+      "lesson_title": "Gãy thân 2 xương cẳng chân"
+    },
+    {
+      "key": "bai-24-nhom-04",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-24-nhom-04.json",
+      "lesson_number": 24,
+      "lesson_title": "Gãy thân 2 xương cẳng chân"
+    },
+    {
+      "key": "bai-24-nhom-05",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-24-nhom-05.json",
+      "lesson_number": 24,
+      "lesson_title": "Gãy thân 2 xương cẳng chân"
+    },
+    {
+      "key": "bai-25-nhom-01",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-25-nhom-01.json",
+      "lesson_number": 25,
+      "lesson_title": "Các thương tổn ở cổ chân"
+    },
+    {
+      "key": "bai-25-nhom-02",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-25-nhom-02.json",
+      "lesson_number": 25,
+      "lesson_title": "Các thương tổn ở cổ chân"
+    },
+    {
+      "key": "bai-25-nhom-03",
+      "scope": "knowledge_pipeline/kg_v2/book-2006-full-scopes/bai-25-nhom-03.json",
+      "lesson_number": 25,
+      "lesson_title": "Các thương tổn ở cổ chân"
+    }
+  ],
+  "recommended_max_calls": 500,
+  "timeout_policy": {
+    "response_seconds": null,
+    "total_wait_seconds": null,
+    "connect_seconds": 30
+  },
+  "base_runs": []
+}

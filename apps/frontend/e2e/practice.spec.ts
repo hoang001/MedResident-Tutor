@@ -32,6 +32,7 @@ test("login, submit, Medical/Teaching results, evidence, reload/history and new 
   expect((await currentAttempt(page)).id).toBe(original.id);
   await page.getByRole("button", {name: "ORTHO_B21CN1_Q_0001 · completed", exact: true}).first().click();
   expect((await currentAttempt(page)).id).toBe(original.id);
+  page.once("dialog", dialog => dialog.accept());
   await page.getByRole("button", {name: "Tạo lượt mới", exact: true}).click();
   await expect(page.getByLabel("Câu trả lời", {exact: true})).toHaveValue("");
   await submit(page, answer);

@@ -61,6 +61,11 @@ def source_view(s, d, excerpt=False):
 
 def source_errors(s, d):
     errors = []
+    if (s.import_metadata or {}).get("content_sha256"):
+        from app.ai.retrieval.evidence import content_hash
+
+        if content_hash(s.content) != s.import_metadata["content_sha256"]:
+            errors.append("Immutable source unit content hash mismatch")
     if not all(
         isinstance(x, str) and x.strip()
         for x in (s.external_id, s.title, s.content, d.external_id, d.name)
@@ -123,7 +128,18 @@ async def detail(session, question):
             )
     return {
         "question_id": question.external_id,
+        "interaction_type": "structured"
+        if (question.import_metadata or {}).get("dataset_fields", {}).get("structured_exercise")
+        else "short_answer",
         "content": question.content,
+        "reference_answer": question.reference_answer or "",
+        "course": (question.import_metadata or {}).get("authoring", {}).get("course", ""),
+        "topic": (question.import_metadata or {}).get("authoring", {}).get("topic", ""),
+        "approved_package_hash": (question.import_metadata or {})
+        .get("approved_package", {})
+        .get("sha256"),
+        "previous_revision": (question.import_metadata or {}).get("previous_revision"),
+        "authoring_proposal": (question.import_metadata or {}).get("authoring", {}).get("proposal"),
         "version": question.bank_version,
         "is_available": question.is_available,
         "topic_id": str(question.topic_id) if question.topic_id else None,
@@ -163,10 +179,28 @@ async def save(session, admin_id, body, external_id=None):
     mapping = await validate_mapping(session, body)
     if external_id:
         q = await get_question(session, external_id, lock=True)
+        if (q.import_metadata or {}).get("dataset_fields", {}).get("structured_exercise"):
+            raise HTTPException(409, "Structured revisions are immutable; import a new revision")
         if body.version != q.bank_version:
             raise HTTPException(
                 409, "Question was changed by another administrator; reload before editing"
             )
+        if (q.import_metadata or {}).get("approved_package") or q.is_available:
+            # Published entities and linked rubric remain immutable. Draft a new entity.
+            from app.modules.questions.schemas import QuestionEdit
+
+            draft = body.model_dump()
+            draft["version"] = None
+            for item in draft["criteria"]:
+                item["criterion_id"] = None
+            result = await save(session, admin_id, QuestionEdit.model_validate(draft))
+            created = await get_question(session, result["question_id"])
+            created.import_metadata = {
+                **created.import_metadata,
+                "previous_revision": q.external_id,
+                "revision_number": (q.import_metadata or {}).get("revision_number", 1) + 1,
+            }
+            return await detail(session, created)
         q.bank_version += 1
         q.content = body.content.strip()
         q.import_metadata = {**(q.import_metadata or {}), "bank_review": REVIEW}
@@ -187,6 +221,31 @@ async def save(session, admin_id, body, external_id=None):
         session.add(q)
         await session.flush()
         r = None
+    from app.modules.questions.authoring import unseal
+
+    proposal = unseal(body.proposal_token, "proposal") if body.proposal_token else None
+    if proposal and any(
+        proposal["scope"][key] != value
+        for key, value in {
+            "question": body.content,
+            "topic": body.topic,
+            "course": body.course,
+            "max_score": body.max_score,
+        }.items()
+    ):
+        issue("Proposal belongs to a different question/scope; retrieve and propose again")
+    q.reference_answer = body.reference_answer
+    previous_authoring = (q.import_metadata or {}).get("authoring", {})
+    q.import_metadata = {
+        **(q.import_metadata or {}),
+        "authoring": {
+            "course": body.course,
+            "topic": body.topic,
+            "proposal": proposal or previous_authoring.get("proposal"),
+            "proposal_may_be_stale": bool(previous_authoring.get("proposal") and not proposal),
+            "saved_by": str(admin_id),
+        },
+    }
     if r is None:
         r = Rubric(
             question_id=q.id,
@@ -253,7 +312,6 @@ async def save(session, admin_id, body, external_id=None):
                 )
             )
     await session.flush()
-    await readiness(session, q)
     return await detail(session, q)
 
 

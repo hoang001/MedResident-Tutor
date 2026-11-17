@@ -67,7 +67,7 @@ def test_http_probe(scenario, code):
 def test_explicit_env_file_and_no_double_v1(tmp_path):
     path = tmp_path / ".env"
     path.write_text(
-        "OPENAI_BASE_URL=http://fixture.invalid/v1\nOPENAI_API_KEY=secret\nLLM_MODEL=fake\n"
+        "LLM_BASE_URL=http://fixture.invalid/v1\nLLM_API_KEY=secret\nLLM_MODEL=fake\n"
     )
     settings = read_connection_settings(path)
     assert (
@@ -92,3 +92,53 @@ def test_tcp_does_not_call_model(monkeypatch):
         Settings(llm_base_url="http://fixture.invalid/v1"), tcp_only=True
     )
     assert result["ok"] and result["code"] == "TCP_CONNECTED"
+
+
+def test_explicit_file_ignores_terminal_and_legacy_keys(tmp_path, monkeypatch):
+    monkeypatch.setenv("LLM_BASE_URL", "http://old.invalid")
+    monkeypatch.setenv("LLM_API_KEY", "old-terminal-key")
+    monkeypatch.setenv("OPENAI_API_KEY", "old-openai-key")
+    monkeypatch.setenv("KG_LLM_API_KEY", "old-kg-key")
+    path = tmp_path / ".env"
+    path.write_text("LLM_BASE_URL=http://10.8.0.1:4000/v1\n"
+                    "LLM_API_KEY=<TOI_SE_TU_DIEN>\nLLM_MODEL=vtllm/gemma-4-26b\n"
+                    "LLM_CHAT_ENDPOINT=/v1/chat/completions\nOPENAI_API_KEY=old-file-key\n")
+    settings = read_connection_settings(path)
+    assert settings.endpoint_url(settings.llm_chat_completions_endpoint) == (
+        "http://10.8.0.1:4000/v1/chat/completions"
+    )
+    assert settings.llm_api_key == "<TOI_SE_TU_DIEN>"
+    with httpx.Client(transport=httpx.MockTransport(lambda request: pytest.fail("No API call"))) as client:
+        assert check_llm(settings, client=client, reply_ok=True)["code"] == "MISSING_KEY_OR_MODEL"
+    path.write_text("LLM_MODEL=test\nOPENAI_API_KEY=old-file-key\n")
+    assert read_connection_settings(path).llm_api_key == ""
+    # Extraction uses the same file-only priority and never reuses terminal keys.
+    assert Settings.from_env(path).llm_api_key == ""
+    assert Settings.from_env(path).model == "test"
+
+
+@pytest.mark.parametrize("status", [200, 503])
+def test_ok_probe_one_request_and_redacted_diagnostics(status):
+    calls = []
+
+    def handle(request):
+        calls.append(request)
+        assert json.loads(request.content)["messages"][0]["content"] == "Reply with exactly OK."
+        if status == 200:
+            return httpx.Response(200, json={"choices": [{"message": {"content": "OK"}}]})
+        return httpx.Response(status, json={"error": {
+            "type": "upstream_failure", "message": "Service error with test-private-key",
+        }})
+
+    settings = Settings(llm_base_url="http://fixture.invalid/v1",
+                        llm_api_key="test-private-key", model="fake")
+    with httpx.Client(transport=httpx.MockTransport(handle)) as client:
+        result = check_llm(settings, client=client, reply_ok=True)
+    assert len(calls) == 1
+    assert result["http_status"] == status
+    assert "test-private-key" not in json.dumps(result)
+    if status == 200:
+        assert result["response_content"] == "OK"
+    else:
+        assert result["error_type"] == "upstream_failure"
+        assert result["error_message"] == "Service error with [REDACTED]"

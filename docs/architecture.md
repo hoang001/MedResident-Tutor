@@ -1,5 +1,17 @@
 # Architecture
 
+## Admin authoring and approved grading packages (2026-11-12)
+
+KG/semantic retrieval now also supports the admin authoring step. An administrator
+selects source excerpts, optionally requests a separate authoring model proposal,
+edits the reference answer/rubric, then explicitly publishes a grading package.
+Published question/rubric revisions are immutable; editing creates a new draft.
+Learner submissions use the approved PostgreSQL package, including its source
+evidence in every Medical request, without runtime KG/vector search. Attempts
+pin the revision and package hash. The previous runtime vector/hybrid branches
+remain separate experimental configurations. This does not revise historical
+benchmark results. See [workflow, configuration and verification](authoring-approved-package.md).
+
 ## Boundaries
 
 The system is a modular monolith. HTTP routers translate requests, services enforce business rules, repositories handle persistence, and infrastructure implementations sit behind small protocols. This keeps one deployable backend while preserving replaceable AI and storage boundaries.

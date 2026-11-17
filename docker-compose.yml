@@ -23,6 +23,10 @@ services:
     environment:
       DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-medical_user}:${POSTGRES_PASSWORD:-local_development_password}@db:5432/${POSTGRES_DB:-medical_learning}
       FILE_STORAGE_PATH: /app/data/uploads
+      KNOWLEDGE_DATA_ROOT: /app/data
+      NEO4J_URI: ${APP_NEO4J_URI:-bolt://host.docker.internal:7687}
+      MODEL_CALLS_ENABLED: ${MODEL_CALLS_ENABLED:-false}
+      DEBUG: "false"
     volumes:
       - ./data:/app/data
     depends_on:

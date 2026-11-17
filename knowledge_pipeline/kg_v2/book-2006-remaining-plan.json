@@ -1,0 +1,6 @@
+{
+  "status": "superseded_unused_prototype",
+  "use_plan": "knowledge_pipeline/kg_v2/book-2006-full-plan.json",
+  "shards": [],
+  "llm_calls": 0
+}

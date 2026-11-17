@@ -1,6 +1,7 @@
 import logging
 import re
 import uuid
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
@@ -12,12 +13,20 @@ from app.api.v1.router import router as api_router
 from app.core.config import get_settings
 from app.core.exceptions import AppError
 from app.core.logging import configure_logging
+from app.modules.knowledge.service import get_graph_store
 
 settings = get_settings()
 configure_logging()
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title=settings.app_name, debug=False)
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield
+    await get_graph_store().close()
+
+
+app = FastAPI(title=settings.app_name, debug=False, lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,

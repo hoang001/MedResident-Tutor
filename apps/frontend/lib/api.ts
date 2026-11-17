@@ -12,11 +12,11 @@ export function clearToken(): void {
   window.dispatchEvent(new Event("auth-changed"));
 }
 export function safeReturnPath(value: string | null): string {
-  if (!value || !value.startsWith("/") || value.startsWith("//") || /[\\\x00-\x20]|%5c|%0[ad]/i.test(value)) return "/learn";
+  if (!value || !value.startsWith("/") || value.startsWith("//") || /[\\\x00-\x20]|%5c|%0[ad]/i.test(value)) return "/dashboard";
   const url = new URL(value, "http://internal.invalid");
   let path: string;
-  try {path = decodeURIComponent(url.pathname).replace(/\/$/, "") || "/";} catch {return "/learn";}
-  if (url.origin !== "http://internal.invalid" || !["/", "/learn", "/dashboard", "/exams", "/progress", "/admin/documents", "/admin/questions"].includes(path)) return "/learn";
+  try {path = decodeURIComponent(url.pathname).replace(/\/$/, "") || "/";} catch {return "/dashboard";}
+  if (url.origin !== "http://internal.invalid" || !["/", "/learn", "/dashboard", "/exams", "/progress", "/curriculum", "/knowledge", "/sources", "/admin/documents", "/admin/questions", "/history", "/account"].includes(path)) return "/dashboard";
   return path + url.search + url.hash;
 }
 let redirecting = false;
@@ -35,6 +35,8 @@ function validationFields(details: unknown): Record<string, string> {
     if (!item || !Array.isArray(item.loc)) continue;
     const field = String(item.loc.at(-1));
     result[field] = field === "email" ? "Địa chỉ email không hợp lệ." : item.type === "missing" ? "Vui lòng điền trường này." : item.type === "string_too_long" ? "Nội dung vượt quá giới hạn cho phép." : "Giá trị không hợp lệ.";
+    const path = item.loc.filter((part: unknown) => part !== "body").join(".");
+    if (path) result[path] = result[field];
   }
   return result;
 }
@@ -52,6 +54,12 @@ export function parseApiError(status: number, body: unknown): ApiError {
   if (code === "EMAIL_ALREADY_REGISTERED") message = "Email này đã được đăng ký. Vui lòng đăng nhập hoặc dùng email khác.";
   if (code === "GOOGLE_EMAIL_EXISTS") message = "Email này đã có tài khoản. Vui lòng đăng nhập bằng mật khẩu hiện có.";
   if (code === "GOOGLE_NOT_CONFIGURED") message = "Đăng nhập Google chưa được cấu hình.";
+  if (code === "KNOWLEDGE_UNAVAILABLE") message = "Chưa tải được thư viện lúc này. Bạn vẫn có thể xem bài đã lưu và thử lại sau.";
+  if (code === "AUTHORING_MODEL_OFF") message = "Đề xuất tự động chưa được bật. Bạn vẫn có thể chọn nguồn và biên soạn thủ công.";
+  if (code === "MODEL_CALLS_DISABLED") message = "Gọi model đang tắt. Bạn vẫn có thể đọc thư viện và làm bài tự luyện.";
+  if (code === "STUDY_CONFLICT" || code === "KNOWLEDGE_CHANGED") message = "Dữ liệu đã được cập nhật ở phiên khác. Nội dung đang nhập vẫn được giữ trên màn hình; hãy sao chép trước khi tải lại.";
+  if (code === "STUDY_QUESTION_CHANGED") message = "Nguồn câu hỏi đã thay đổi. Hãy tải lại danh sách và chọn lại câu hỏi; các bài đã lưu vẫn được giữ nguyên.";
+  if (code === "STUDY_SESSION_SUBMITTED") message = "Bài đã hoàn tất và được khóa. Bạn có thể xem lại hoặc tạo bài mới.";
   return new ApiError(message, status, code, status === 401 ? "authentication" : status === 422 ? "validation" : "processing", fields);
 }
 export function errorMessage(error: unknown): string { return error instanceof ApiError ? error.message : "Không thể hoàn tất thao tác. Vui lòng thử lại."; }

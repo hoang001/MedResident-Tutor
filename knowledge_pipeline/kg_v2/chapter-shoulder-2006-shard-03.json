@@ -1,0 +1,141 @@
+{
+  "version": "medical-kg-v2",
+  "structured_context": true,
+  "documents": [
+    {
+      "source_id": "SRC_ORTHO_EMERGENCY_001",
+      "document_edition_id": "ED_2006_d95f9d803e46c1bb",
+      "repo_relative_path": "data/raw-source/data-20261020T074653Z-1-001/data/Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+      "title": "Cấp cứu ngoại khoa – Chấn thương",
+      "publication_year": 2006,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": null,
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          6
+        ],
+        "expert_approval": false
+      },
+      "verified_printed_labels": {
+        "89": "88",
+        "90": "89",
+        "91": "90",
+        "92": "91"
+      },
+      "expected_sha256": "d95f9d803e46c1bb8b41a2b35fc53add5dd8959df1b3107a83f8e0c324469007",
+      "survey_sections": [
+        {
+          "key": "shoulder-complete",
+          "original_title": "Trật khớp vai",
+          "parent_key": null,
+          "pdf_pages": {
+            "start": 89,
+            "end": 92
+          },
+          "printed_pages": null,
+          "boundary_status": "chapter_heading_pdf89_next_chapter_pdf93"
+        }
+      ],
+      "windows": [
+        {
+          "key": "07-acute-treatment",
+          "section_id": "chapter-shoulder-07-acute-treatment",
+          "title": "7.1. Điều trị trật khớp vai mới",
+          "selectors": [
+            {
+              "pdf_page": 89,
+              "start_anchor": "TRẬT KHỚP VAI",
+              "end_anchor": "\n1.",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "Trật khớp vai hay gặp",
+              "end_anchor": "\nHình",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 91,
+              "start_anchor": "7. ĐIỀU TRỊ",
+              "end_anchor": "\n90",
+              "role": "procedure",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 92,
+              "start_anchor": "7.1.2.",
+              "end_anchor": "\n7.2.",
+              "role": "procedure",
+              "continuation_verified": true
+            }
+          ]
+        },
+        {
+          "key": "08-old-treatment",
+          "section_id": "chapter-shoulder-08-old-treatment",
+          "title": "7.2. Điều trị trật khớp vai cũ",
+          "selectors": [
+            {
+              "pdf_page": 89,
+              "start_anchor": "TRẬT KHỚP VAI",
+              "end_anchor": "\n1.",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "Trật khớp vai hay gặp",
+              "end_anchor": "\nHình",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 92,
+              "start_anchor": "7.2.",
+              "end_anchor": "\n7.3.",
+              "role": "procedure",
+              "continuation_verified": false
+            }
+          ]
+        },
+        {
+          "key": "09-recurrent-treatment",
+          "section_id": "chapter-shoulder-09-recurrent-treatment",
+          "title": "7.3. Điều trị trật khớp vai tái diễn",
+          "selectors": [
+            {
+              "pdf_page": 89,
+              "start_anchor": "TRẬT KHỚP VAI",
+              "end_anchor": "\n1.",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 89,
+              "start_anchor": "Trật khớp vai hay gặp",
+              "end_anchor": "\nHình",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 92,
+              "start_anchor": "7.3.",
+              "end_anchor": "\n91",
+              "role": "procedure",
+              "continuation_verified": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ocr_patches": "data/knowledge-extraction/v2/shoulder-20261030/audit/ocr-patches.json",
+  "ocr_issues": "data/knowledge-extraction/v2/shoulder-20261030/audit/ocr-issues.json",
+  "canonical_registry": "knowledge_pipeline/kg_v2/canonical-registry.json"
+}

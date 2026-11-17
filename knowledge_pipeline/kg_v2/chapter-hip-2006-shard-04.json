@@ -1,0 +1,169 @@
+{
+  "version": "medical-kg-v2",
+  "structured_context": true,
+  "documents": [
+    {
+      "source_id": "SRC_ORTHO_EMERGENCY_001",
+      "document_edition_id": "ED_2006_d95f9d803e46c1bb",
+      "repo_relative_path": "data/raw-source/data-20261020T074653Z-1-001/data/Cap-cuu-Ngoai-khoa-Chan-thuong-DH-Y-Ha-Noi.pdf",
+      "title": "Cấp cứu ngoại khoa – Chấn thương",
+      "publication_year": 2006,
+      "institution": "Trường Đại học Y Hà Nội – Bộ môn Ngoại",
+      "publisher": "Nhà xuất bản Y học",
+      "authors_or_editors": null,
+      "audience": null,
+      "identity_verification": {
+        "method": "visual_title_page_and_toc",
+        "pdf_pages": [
+          2,
+          6
+        ],
+        "expert_approval": false
+      },
+      "verified_printed_labels": {},
+      "expected_sha256": "d95f9d803e46c1bb8b41a2b35fc53add5dd8959df1b3107a83f8e0c324469007",
+      "survey_sections": [
+        {
+          "key": "hip-complete",
+          "original_title": "TRẬT KHỚP HÁNG",
+          "parent_key": null,
+          "pdf_pages": {
+            "start": 98,
+            "end": 104
+          },
+          "printed_pages": null,
+          "boundary_status": "provided_ocr_heading_pdf98_next_chapter_pdf105"
+        }
+      ],
+      "windows": [
+        {
+          "key": "10-stimson-immobilization",
+          "section_id": "chapter-hip-10-stimson-immobilization",
+          "title": "• Phương pháp Djenalidze-Stimson",
+          "selectors": [
+            {
+              "pdf_page": 98,
+              "start_anchor": "TRẬT KHỚP HÁNG",
+              "end_anchor": "\n1. ĐẠI CƯƠNG",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 98,
+              "start_anchor": "Trật khớp háng ít gặp, chiếm gần 5% tổng số trật khớp do chấn thương, tỷ lệ nam/nữ là 5/1.",
+              "end_anchor": "\nMột số đặc điểm giải phẫu, sinh lý của khớp háng (hình 17.1)",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 101,
+              "start_anchor": "7. ĐIỀU TRỊ",
+              "end_anchor": "\n7.1.1. Nguyên tắc chung",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 102,
+              "start_anchor": "7.1.2. Nắn",
+              "end_anchor": "\n• Phương pháp BOEHLER (Cách nắn với kéo đai vải số 8)",
+              "role": "procedure",
+              "continuation_verified": true
+            },
+            {
+              "pdf_page": 103,
+              "start_anchor": "• Phương pháp Djenalidze-Stimson",
+              "end_anchor": "\nHình 17.4. Nắn theo Stimson",
+              "role": "procedure",
+              "continuation_verified": true
+            },
+            {
+              "pdf_page": 103,
+              "start_anchor": "7.1.3. Bất động",
+              "end_anchor": "\n7.2. Điều trị trật khớp háng trung tâm",
+              "role": "procedure",
+              "continuation_verified": false
+            }
+          ]
+        },
+        {
+          "key": "11-central-treatment",
+          "section_id": "chapter-hip-11-central-treatment",
+          "title": "7.2. Điều trị trật khớp háng trung tâm",
+          "selectors": [
+            {
+              "pdf_page": 98,
+              "start_anchor": "TRẬT KHỚP HÁNG",
+              "end_anchor": "\n1. ĐẠI CƯƠNG",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 98,
+              "start_anchor": "Trật khớp háng ít gặp, chiếm gần 5% tổng số trật khớp do chấn thương, tỷ lệ nam/nữ là 5/1.",
+              "end_anchor": "\nMột số đặc điểm giải phẫu, sinh lý của khớp háng (hình 17.1)",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 101,
+              "start_anchor": "7. ĐIỀU TRỊ",
+              "end_anchor": "\n7.1. Điều trị trật khớp mới",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 103,
+              "start_anchor": "7.2. Điều trị trật khớp háng trung tâm",
+              "end_anchor": "\nHình 17.5. Kết hợp xương ở cổ",
+              "role": "procedure",
+              "continuation_verified": true
+            },
+            {
+              "pdf_page": 104,
+              "start_anchor": "7.2.3. Kéo liên tục: Gây mê bệnh nhân, kéo chân bên trật theo trục chi dưới, kiểm tra chiều dài hai chân bằng nhau là được (mục đích là để chừa khỏi tiểu khung, về vị trí cũ). Sau đó xuyên kim qua lỗ cầu đủ kéo liên tục với trọng lượng bằng 1/6 trọng lượng cơ thể, kéo trong ba tuần (hình 17.6).",
+              "end_anchor": "\nHình 17.6. Kéo liên tục",
+              "role": "procedure",
+              "continuation_verified": true
+            }
+          ]
+        },
+        {
+          "key": "12-old-treatment",
+          "section_id": "chapter-hip-12-old-treatment",
+          "title": "7.3. Điều trị trật khớp háng cũ",
+          "selectors": [
+            {
+              "pdf_page": 98,
+              "start_anchor": "TRẬT KHỚP HÁNG",
+              "end_anchor": "\n1. ĐẠI CƯƠNG",
+              "role": "chapter_context",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 98,
+              "start_anchor": "Trật khớp háng ít gặp, chiếm gần 5% tổng số trật khớp do chấn thương, tỷ lệ nam/nữ là 5/1.",
+              "end_anchor": "\nMột số đặc điểm giải phẫu, sinh lý của khớp háng (hình 17.1)",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 101,
+              "start_anchor": "7. ĐIỀU TRỊ",
+              "end_anchor": "\n7.1. Điều trị trật khớp mới",
+              "role": "medical_text",
+              "continuation_verified": false
+            },
+            {
+              "pdf_page": 104,
+              "start_anchor": "7.3. Điều trị trật khớp háng cũ",
+              "end_anchor": "\n103",
+              "role": "procedure",
+              "continuation_verified": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "canonical_registry": "knowledge_pipeline/kg_v2/canonical-registry.json"
+}

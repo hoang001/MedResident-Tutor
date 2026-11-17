@@ -4,6 +4,7 @@ import importlib.util
 from pathlib import Path
 
 import sqlalchemy as sa
+
 from alembic.autogenerate import compare_metadata
 from alembic.migration import MigrationContext
 
@@ -11,7 +12,9 @@ BASELINE = "20260714_0001"
 INTEGRATION = "20261020_0002"
 PRACTICE = "20261022_0003"
 QUESTION_BANK = "20261022_0004"
-HEAD = "20261027_0005"
+GOOGLE_IDENTITY = "20261027_0005"
+STUDY = "20261104_0006"
+HEAD = "20261110_0007"
 
 
 def frozen_baseline() -> sa.MetaData:
@@ -72,7 +75,7 @@ def assert_current_schema(connection, *, require_head: bool = False) -> None:
         expected = sa.MetaData()
     elif revision == BASELINE:
         expected = frozen_baseline()
-    elif revision in (INTEGRATION, PRACTICE, QUESTION_BANK, HEAD):
+    elif revision in (INTEGRATION, PRACTICE, QUESTION_BANK, GOOGLE_IDENTITY, STUDY, HEAD):
         import app.models  # noqa: F401
         from app.core.database import Base
 
@@ -81,8 +84,24 @@ def assert_current_schema(connection, *, require_head: bool = False) -> None:
         else:
             expected = sa.MetaData()
             for table in Base.metadata.sorted_tables:
+                if revision != STUDY and table.name in (
+                    "study_records",
+                    "study_sessions",
+                    "knowledge_reviews",
+                ):
+                    continue
                 if revision != INTEGRATION or table.name != "practice_attempts":
                     table.to_metadata(expected)
+            if "practice_attempts" in expected.tables:
+                expected.tables["practice_attempts"]._columns.remove(
+                    expected.tables["practice_attempts"].c.structured_result
+                )
+            if revision == STUDY:
+                assert_schema(connection, expected)
+                return
+            if revision == GOOGLE_IDENTITY:
+                assert_schema(connection, expected)
+                return
             users = expected.tables["users"]
             for constraint in list(users.constraints):
                 if (

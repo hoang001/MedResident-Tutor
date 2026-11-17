@@ -1,0 +1,6 @@
+{
+  "status": "superseded_unrun_preparation",
+  "use_plan": "knowledge_pipeline/kg_v2/book-2021-all-lessons-plan.json",
+  "shards": [],
+  "llm_calls": 0
+}
