@@ -73,13 +73,15 @@ class ModelServiceClient:
         )
         self._transport = transport
 
-    async def _request(self, method: str, path: str, payload=None, request_id=None) -> dict:
+    async def _request(
+        self, method: str, path: str, payload=None, request_id=None, timeout=None
+    ) -> dict:
         headers = {"X-API-Key": self._key}
         if request_id:
             headers["X-Request-ID"] = request_id
         try:
             async with httpx.AsyncClient(
-                timeout=self._timeout,
+                timeout=timeout or self._timeout,
                 trust_env=False,
                 follow_redirects=False,
                 transport=self._transport,
@@ -146,6 +148,14 @@ class ModelServiceClient:
         if data.get("status") != "healthy":
             raise ModelServiceError("MODEL_INFERENCE_FAILED", 502)
         return {"status": "healthy"}
+
+    async def authoring_propose(self, payload: dict) -> dict:
+        return await self._request(
+            "POST",
+            "/authoring/propose",
+            payload,
+            timeout=httpx.Timeout(None, connect=self._timeout.connect, write=10, pool=5),
+        )
 
     async def ready(self) -> ServiceStatus:
         data = await self._request("GET", "/ready")

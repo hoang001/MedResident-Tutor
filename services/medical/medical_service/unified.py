@@ -8,4 +8,5 @@ app = create_app(
     Settings.from_env(api_key_variable=key_variable),
     teaching_settings=TeachingSettings.from_env(api_key_variable=key_variable),
     require_teaching=True,
+    enable_authoring=True,
 )

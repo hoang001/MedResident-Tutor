@@ -5,6 +5,10 @@
 !model-training/
 !model-training/src/
 !model-training/src/**
+!services/
+!services/medical/
+!services/medical/medical_service/
+!services/medical/medical_service/**
 **/__pycache__/
 **/.pytest_cache/
 **/.ruff_cache/

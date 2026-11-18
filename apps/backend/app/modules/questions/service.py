@@ -244,6 +244,9 @@ async def save(session, admin_id, body, external_id=None):
             "proposal": proposal or previous_authoring.get("proposal"),
             "proposal_may_be_stale": bool(previous_authoring.get("proposal") and not proposal),
             "saved_by": str(admin_id),
+            "proposal_reviewed_by": str(admin_id)
+            if proposal
+            else previous_authoring.get("proposal_reviewed_by"),
         },
     }
     if r is None:

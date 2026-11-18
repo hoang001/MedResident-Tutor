@@ -6,6 +6,9 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
+from .authoring import BaseAuthoringRunner
+from .authoring import validate_output as authoring_output
+from .authoring import validate_request as authoring_input
 from .config import Settings, TeachingSettings
 from .errors import DiagnosticServiceError
 from .runner import PilotRunner, Runner
@@ -22,6 +25,8 @@ def create_app(
     teaching_settings: TeachingSettings | None = None,
     teaching_runner: Runner | None = None,
     require_teaching=False,
+    enable_authoring=False,
+    authoring_runner=None,
 ):
     medical = runner if runner is not None else PilotRunner(settings)
     if teaching_settings and teaching_settings.api_key != settings.api_key:
@@ -36,6 +41,8 @@ def create_app(
     runners = {"medical": medical}
     if teaching is not None:
         runners["teaching"] = teaching
+    if enable_authoring or authoring_runner is not None:
+        runners["authoring"] = authoring_runner or BaseAuthoringRunner(medical)
     state = {"ready": False, "error": "MODEL_LOADING"}
     # One lock for ALL GPU generation, including cancelled/disconnected requests.
     lock = asyncio.Lock()
@@ -78,7 +85,9 @@ def create_app(
     @app.exception_handler(ServiceError)
     async def service_error(request, exc):
         stage = {
-            "/medical/evaluate": "MEDICAL", "/teaching/feedback": "TEACHING"
+            "/medical/evaluate": "MEDICAL",
+            "/teaching/feedback": "TEACHING",
+            "/authoring/propose": "AUTHORING",
         }.get(request.url.path)
         if stage:
             logger.warning(
@@ -112,7 +121,7 @@ def create_app(
         if not secrets.compare_digest(key.encode("utf-8"), settings.api_key.encode("utf-8")):
             raise ServiceError("UNAUTHORIZED", 401)
         if stage not in runners:
-            raise ServiceError("TEACHING_NOT_CONFIGURED", 503)
+            raise ServiceError(stage.upper() + "_NOT_CONFIGURED", 503)
         if not state["ready"]:
             raise ServiceError(state["error"], 503)
         if (
@@ -132,6 +141,8 @@ def create_app(
             body.extend(chunk)
         if stage == "medical":
             payload, validated = validate_input(bytes(body))
+        elif stage == "authoring":
+            payload = validated = authoring_input(bytes(body))
         else:
             payload = validated = validate_teaching_input(bytes(body))
         if lock.locked():
@@ -159,13 +170,18 @@ def create_app(
                 raise DiagnosticServiceError(
                     "INFERENCE_FAILED", 502, phase="generation", error_type=type(exc).__name__
                 ) from None
-            prediction = (
-                validate_output(result.text, validated)
-                if stage == "medical"
-                else validate_teaching_output(result.text, validated)
-            )
+            validator = {
+                "medical": validate_output,
+                "teaching": validate_teaching_output,
+                "authoring": authoring_output,
+            }[stage]
+            prediction = validator(result.text, validated)
             return {
-                "medical_evaluation" if stage == "medical" else "teaching_feedback": prediction,
+                {
+                    "medical": "medical_evaluation",
+                    "teaching": "teaching_feedback",
+                    "authoring": "proposal",
+                }[stage]: prediction,
                 "model_metadata": model.metadata,
                 "timing": {
                     "inference_seconds": result.inference_seconds,
@@ -181,5 +197,9 @@ def create_app(
     @app.post("/teaching/feedback")
     async def teaching_feedback(request: Request):
         return await evaluate(request, "teaching")
+
+    @app.post("/authoring/propose")
+    async def authoring_propose(request: Request):
+        return await evaluate(request, "authoring")
 
     return app

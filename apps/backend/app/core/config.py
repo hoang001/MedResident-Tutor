@@ -35,7 +35,7 @@ class Settings(BaseSettings):
     model_service_api_key: str = Field(default="", repr=False)
     model_service_connect_timeout_seconds: float = Field(default=10, gt=0, le=60)
     model_service_read_timeout_seconds: float = Field(default=120, gt=0, le=1800)
-    authoring_provider: Literal["off", "local_http", "service_http", "openai"] = "off"
+    authoring_provider: Literal["off", "local_http", "service_http", "openai", "runpod"] = "off"
     authoring_service_url: str = "http://host.docker.internal:8103"
     authoring_service_api_key: str = Field(default="", repr=False)
     authoring_model: str = ""

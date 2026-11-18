@@ -2,6 +2,54 @@ from app.modules.questions import authoring
 from postgres_tests.test_question_bank import bank as bank_fixture  # noqa: F401
 
 
+async def test_ai_review_is_required_and_audited_before_question_storage(bank_fixture):  # noqa: F811
+    from sqlalchemy import func, select
+
+    from app.modules.questions.models import Question
+
+    client, factory, state, admin, learner = bank_fixture
+    scope = authoring.Scope(question="Synthetic review gate", max_score=1)
+    token = authoring.seal(
+        {
+            "scope": scope.model_dump(),
+            "proposal": {
+                "reference_answer": "Original AI wording",
+                "criteria": [],
+                "insufficient_basis": [],
+            },
+            "mode": "synthetic_test",
+        },
+        "proposal",
+    )
+    body = {
+        "content": scope.question,
+        "rubric_name": "R",
+        "max_score": 1,
+        "reference_answer": "Admin edited answer",
+        "proposal_token": token,
+        "criteria": [
+            {"description": "Condition A", "max_score": 1, "source_unit_ids": ["FIXTURE_SU_A"]}
+        ],
+    }
+    async with factory() as session:
+        before = await session.scalar(select(func.count()).select_from(Question))
+    response = await client.post("/api/v1/admin/questions", json=body)
+    assert response.status_code == 422
+    async with factory() as session:
+        assert await session.scalar(select(func.count()).select_from(Question)) == before
+    response = await client.post(
+        "/api/v1/admin/questions", json={**body, "proposal_reviewed": True}
+    )
+    assert response.status_code == 201, response.text
+    result = response.json()
+    assert result["reference_answer"] == "Admin edited answer" and not result["is_available"]
+    async with factory() as session:
+        row = await session.scalar(
+            select(Question).where(Question.external_id == result["question_id"])
+        )
+        assert row.import_metadata["authoring"]["proposal_reviewed_by"] == str(admin)
+
+
 async def test_approved_package_workflow(bank_fixture, monkeypatch):  # noqa: F811
     client, factory, state, admin, learner = bank_fixture
     scope = authoring.Scope(

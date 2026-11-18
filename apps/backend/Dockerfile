@@ -8,6 +8,7 @@ RUN if [ "$INSTALL_RETRIEVAL" = "true" ]; then pip install --no-cache-dir '.[ret
 COPY apps/backend/alembic.ini ./
 COPY apps/backend/alembic ./alembic
 COPY model-training/src /opt/pilot/src
+COPY services/medical/medical_service /opt/model-service/medical_service
 ENV PYTHONPATH=/opt/pilot
 EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

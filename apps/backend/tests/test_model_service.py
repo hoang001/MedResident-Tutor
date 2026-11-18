@@ -159,16 +159,37 @@ async def test_invalid_response_is_not_mocked(raw):
 )
 async def test_safe_error_header_used_when_upstream_body_is_not_json(header, expected):
     client = ModelServiceClient(
-        config(), transport=httpx.MockTransport(lambda _: httpx.Response(
-            502, text="<html>Bad gateway</html>",
-            headers={"X-Model-Error-Code": header},
-        )),
+        config(),
+        transport=httpx.MockTransport(
+            lambda _: httpx.Response(
+                502,
+                text="<html>Bad gateway</html>",
+                headers={"X-Model-Error-Code": header},
+            )
+        ),
     )
     _, payload, _ = await outputs()
     with pytest.raises(ModelServiceError) as caught:
         await client.teaching_feedback(payload)
     assert caught.value.upstream_status == 502
     assert caught.value.upstream_code == expected
+
+
+async def test_authoring_reuses_key_and_origin_with_connect_timeout_only():
+    calls = []
+
+    def handler(request):
+        calls.append(request)
+        assert request.url.path == "/authoring/propose"
+        assert request.headers["X-API-Key"] == "synthetic-only-api-key"
+        assert request.extensions["timeout"]["connect"] == 10
+        assert request.extensions["timeout"]["read"] is None
+        return httpx.Response(200, json={"proposal": {"synthetic": True}})
+
+    result = await ModelServiceClient(
+        config(), transport=httpx.MockTransport(handler)
+    ).authoring_propose({"scope": {"question": "synthetic"}})
+    assert result == {"proposal": {"synthetic": True}} and len(calls) == 1
 
 
 async def test_teaching_cannot_return_scores_or_regrade():

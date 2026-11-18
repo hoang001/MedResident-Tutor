@@ -28,10 +28,14 @@ class QuestionEdit(BaseModel):
     course: str = Field(default="", max_length=255)
     topic: str = Field(default="", max_length=255)
     proposal_token: str | None = Field(default=None, max_length=100000)
+    proposal_reviewed: bool = Field(default=False, strict=True)
 
     @model_validator(mode="after")
     def check(self):
         import math
+
+        if self.proposal_token and not self.proposal_reviewed:
+            raise ValueError("Review the AI proposal before saving")
 
         ids = [c.criterion_id for c in self.criteria if c.criterion_id is not None]
         if len(set(ids)) != len(ids) or not self.content.strip() or not self.rubric_name.strip():

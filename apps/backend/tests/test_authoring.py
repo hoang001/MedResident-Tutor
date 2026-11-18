@@ -91,6 +91,62 @@ async def test_no_evidence_never_calls_model():
         ProposalRequest(scope=Scope(question="Q"), bundle_token="not-used", selected_ids=[])
 
 
+def test_ai_proposal_requires_explicit_admin_review_before_save():
+    from pydantic import ValidationError
+
+    from app.modules.questions.schemas import QuestionEdit
+
+    body = {
+        "content": "Q",
+        "rubric_name": "R",
+        "max_score": 1.0,
+        "proposal_token": "synthetic-token",
+        "criteria": [],
+    }
+    with pytest.raises(ValidationError, match="Review"):
+        QuestionEdit.model_validate(body)
+    assert QuestionEdit.model_validate({**body, "proposal_reviewed": True}).proposal_reviewed
+
+
+async def test_runpod_authoring_uses_shared_client_and_seals_original_scope(monkeypatch):
+    import app.modules.questions.authoring as module
+    from app.ai.model_service import ModelServiceClient
+
+    settings = module.get_settings().model_copy(
+        update={
+            "authoring_provider": "runpod",
+            "model_calls_enabled": True,
+            "model_service_base_url": "https://fixture.invalid",
+            "model_service_api_key": "synthetic-test-api-key",
+        }
+    )
+    monkeypatch.setattr(module, "get_settings", lambda: settings)
+    value = {
+        "reference_answer": "Condition A",
+        "criteria": [
+            {"description": "Condition A", "max_score": 1, "source_unit_ids": ["new_source"]}
+        ],
+        "insufficient_basis": [],
+    }
+    calls = []
+
+    async def respond(self, payload):
+        calls.append(payload)
+        return {"proposal": value, "model_metadata": {"adapter_enabled": False}, "timing": {}}
+
+    monkeypatch.setattr(ModelServiceClient, "authoring_propose", respond)
+    scope = Scope(question="Question with source")
+    token = seal({"scope": scope.model_dump(), "evidence": EVIDENCE}, "evidence")
+    result = await propose(
+        ProposalRequest(scope=scope, bundle_token=token, selected_ids=["new_source"])
+    )
+    assert result["reference_answer"] == "Condition A" and len(calls) == 1
+    provenance = module.unseal(result["proposal_token"], "proposal")
+    assert provenance["scope"] == scope.model_dump()
+    assert provenance["mode"] == "runpod_base_model"
+    assert calls[0]["evidence"] == EVIDENCE
+
+
 async def test_http_replay_authoring_contract(monkeypatch):
     import httpx
 
