@@ -132,7 +132,9 @@ async def test_runpod_authoring_uses_shared_client_and_seals_original_scope(monk
 
     async def respond(self, payload):
         calls.append(payload)
-        return {"proposal": value, "model_metadata": {"adapter_enabled": False}, "timing": {}}
+        wire_value = copy.deepcopy(value)
+        wire_value["criteria"][0]["source_unit_ids"] = [payload["evidence"][0]["source_unit_id"]]
+        return {"proposal": wire_value, "model_metadata": {"adapter_enabled": False}, "timing": {}}
 
     monkeypatch.setattr(ModelServiceClient, "authoring_propose", respond)
     scope = Scope(question="Question with source")
@@ -144,7 +146,8 @@ async def test_runpod_authoring_uses_shared_client_and_seals_original_scope(monk
     provenance = module.unseal(result["proposal_token"], "proposal")
     assert provenance["scope"] == scope.model_dump()
     assert provenance["mode"] == "runpod_base_model"
-    assert calls[0]["evidence"] == EVIDENCE
+    assert calls[0]["evidence"] == [{**EVIDENCE[0], "source_unit_id": "E1"}]
+    assert result["criteria"][0]["source_unit_ids"] == ["new_source"]
 
 
 async def test_http_replay_authoring_contract(monkeypatch):
@@ -189,3 +192,78 @@ async def test_http_replay_authoring_contract(monkeypatch):
     )
     assert result["reference_answer"] == "Replay fixture only"
     assert module.unseal(result["proposal_token"], "proposal")["proposal"] == value
+
+
+@pytest.mark.parametrize("generated_id", ["E01", "new_source"])
+async def test_runpod_does_not_guess_or_repair_unknown_source_aliases(monkeypatch, generated_id):
+    import app.modules.questions.authoring as module
+    from app.ai.model_service import ModelServiceClient
+
+    settings = module.get_settings().model_copy(
+        update={
+            "authoring_provider": "runpod",
+            "model_calls_enabled": True,
+            "model_service_base_url": "https://fixture.invalid",
+            "model_service_api_key": "synthetic-test-api-key",
+        }
+    )
+    monkeypatch.setattr(module, "get_settings", lambda: settings)
+    calls = []
+
+    async def respond(self, payload):
+        calls.append(payload)
+        return {
+            "proposal": {
+                "reference_answer": "Condition A",
+                "criteria": [
+                    {"description": "A", "max_score": 1, "source_unit_ids": [generated_id]}
+                ],
+                "insufficient_basis": [],
+            }
+        }
+
+    monkeypatch.setattr(ModelServiceClient, "authoring_propose", respond)
+    scope = Scope(question="Question with source")
+    token = seal({"scope": scope.model_dump(), "evidence": EVIDENCE}, "evidence")
+    with pytest.raises(HTTPException, match="unknown evidence"):
+        await propose(ProposalRequest(scope=scope, bundle_token=token, selected_ids=["new_source"]))
+    assert len(calls) == 1
+
+
+async def test_runpod_restores_multiple_exact_source_ids_and_provenance(monkeypatch):
+    import app.modules.questions.authoring as module
+    from app.ai.model_service import ModelServiceClient
+
+    settings = module.get_settings().model_copy(
+        update={
+            "authoring_provider": "runpod",
+            "model_calls_enabled": True,
+            "model_service_base_url": "https://fixture.invalid",
+            "model_service_api_key": "synthetic-test-api-key",
+        }
+    )
+    monkeypatch.setattr(module, "get_settings", lambda: settings)
+    evidence = [*EVIDENCE, {**EVIDENCE[0], "source_unit_id": "RB1_another_exact_id"}]
+
+    async def respond(self, payload):
+        assert [e["source_unit_id"] for e in payload["evidence"]] == ["E1", "E2"]
+        assert [e["content"] for e in payload["evidence"]] == [e["content"] for e in evidence]
+        return {
+            "proposal": {
+                "reference_answer": "Condition A",
+                "criteria": [{"description": "A", "max_score": 1, "source_unit_ids": ["E2", "E1"]}],
+                "insufficient_basis": [],
+            }
+        }
+
+    monkeypatch.setattr(ModelServiceClient, "authoring_propose", respond)
+    scope = Scope(question="Question with two sources")
+    selected_ids = [e["source_unit_id"] for e in reversed(evidence)]
+    token = seal({"scope": scope.model_dump(), "evidence": evidence}, "evidence")
+    result = await propose(
+        ProposalRequest(scope=scope, bundle_token=token, selected_ids=selected_ids)
+    )
+    assert result["criteria"][0]["source_unit_ids"] == ["RB1_another_exact_id", "new_source"]
+    provenance = module.unseal(result["proposal_token"], "proposal")
+    assert provenance["proposal"]["criteria"] == result["criteria"]
+    assert provenance["selected_ids"] == selected_ids

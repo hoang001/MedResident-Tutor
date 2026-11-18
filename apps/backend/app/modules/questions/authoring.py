@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select, text
 
 from app.ai.authoring_contract import SYSTEM, VERSION, Proposal, Scope
+from app.ai.retrieval.authoring import AuthoringIndex
 from app.ai.retrieval.books import PracticeBookRetriever
 from app.ai.retrieval.evidence import content_hash, digest
 from app.ai.retrieval.factory import book_index
@@ -112,8 +113,9 @@ async def retrieve(scope, settings=None):
             }
         },
     }
+    ranked_index = AuthoringIndex(index, settings.practice_retrieval_min_similarity, sources)
     retriever = PracticeBookRetriever(
-        index,
+        ranked_index,
         graph,
         dynamic_mapping,
         strategy="hybrid",
@@ -123,6 +125,7 @@ async def retrieve(scope, settings=None):
         bundle = await retriever.retrieve("authoring", scope.question, str(uuid.uuid4()))
     finally:
         await graph.close()
+    ranked_index.annotate(bundle.trace)
     bundle.trace["concept_discovery"] = "title_alias_phrase_match"
     bundle.trace["concept_discovery_queries"] = discovery_queries
     bundle.trace["neo4j_queries"] += discovery_queries
@@ -254,21 +257,32 @@ async def propose(body):
         from app.ai.model_service import ModelServiceClient, ModelServiceError
         from app.core.exceptions import AppError
 
+        # Short opaque IDs are a wire encoding, not new evidence. Restore the
+        # exact original IDs after validation; never fuzzy-match a generated ID.
+        aliases = {f"E{i}": e["source_unit_id"] for i, e in enumerate(evidence, 1)}
+        wire_evidence = [
+            {**entry, "source_unit_id": alias}
+            for alias, entry in zip(aliases, evidence, strict=True)
+        ]
         try:
             result = await ModelServiceClient(settings).authoring_propose(
                 {
                     "version": VERSION,
                     "system": SYSTEM,
                     "scope": body.scope.model_dump(),
-                    "evidence": evidence,
+                    "evidence": wire_evidence,
                 }
             )
         except ModelServiceError as exc:
             raise AppError(exc.code, "Authoring model request failed", exc.status) from None
-        value = validate_proposal(result["proposal"], evidence, body.scope.max_score)
+        value = validate_proposal(result["proposal"], wire_evidence, body.scope.max_score)
+        for criterion in value["criteria"]:
+            criterion["source_unit_ids"] = [aliases[sid] for sid in criterion["source_unit_ids"]]
+        value = validate_proposal(value, evidence, body.scope.max_score)
         provenance = {
             "version": VERSION,
             "mode": "runpod_base_model",
+            "source_id_encoding": "authoring-short-ids-v1",
             "scope": body.scope.model_dump(),
             "selected_ids": body.selected_ids,
             "proposal": value,
